@@ -1,0 +1,20 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-02-17T00:00:00+09:00",
+  "clusters": [
+    {
+      "cluster_id": "housing-youth-seoul",
+      "region": "서울특별시",
+      "target_group": "청년",
+      "category": "주거",
+      "intent": ["eligibility", "application_period", "required_docs"]
+    },
+    {
+      "cluster_id": "startup-busan",
+      "region": "부산광역시",
+      "target_group": "예비창업자",
+      "category": "창업",
+      "intent": ["benefit", "application_method", "application_period"]
+    }
+  ]
+}

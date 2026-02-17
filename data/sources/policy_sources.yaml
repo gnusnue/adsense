@@ -1,0 +1,67 @@
+{
+  "sources": [
+    {
+      "source_id": "kr_policy_api_primary",
+      "enabled": true,
+      "primary": true,
+      "kind": "http_json",
+      "endpoint": "https://api.odcloud.kr/api/15113968/v1/uddi:placeholder",
+      "auth": {
+        "type": "query_key",
+        "param_name": "serviceKey",
+        "env_key": "DATA_GO_KR_API_KEY"
+      },
+      "params": {
+        "page": 1,
+        "perPage": 100
+      },
+      "pagination": {
+        "mode": "page",
+        "page_param": "page",
+        "size_param": "perPage",
+        "start_page": 1,
+        "max_pages": 3
+      },
+      "mapping": {
+        "items_path": "data",
+        "id_field": "id",
+        "title_field": "serviceName",
+        "region_field": "ctpvNm",
+        "target_field": "trgter",
+        "category_field": "svcPvsnNm",
+        "eligibility_field": "slctnStdrCn",
+        "benefit_field": "svcDtlCn",
+        "application_period_field": "aplyMthCn",
+        "official_url_field": "lnkgUrl",
+        "updated_field": "lastMdfcnDt"
+      }
+    },
+    {
+      "source_id": "bootstrap_fixture",
+      "enabled": true,
+      "primary": false,
+      "kind": "file_json",
+      "endpoint": "data/sources/fixtures/bootstrap_policies.json",
+      "auth": {
+        "type": "none"
+      },
+      "params": {},
+      "pagination": {
+        "mode": "none"
+      },
+      "mapping": {
+        "items_path": "",
+        "id_field": "policy_id",
+        "title_field": "title",
+        "region_field": "region",
+        "target_field": "target_group",
+        "category_field": "category",
+        "eligibility_field": "eligibility_text",
+        "benefit_field": "benefit_text",
+        "application_period_field": "application_period_text",
+        "official_url_field": "official_url",
+        "updated_field": "source_updated_at"
+      }
+    }
+  ]
+}

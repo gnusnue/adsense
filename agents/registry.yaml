@@ -1,0 +1,145 @@
+version: "2.0"
+system_name: "adsense-policy-automation"
+timezone: "Asia/Seoul"
+
+global_rules:
+  - "All records must include official_url and last_checked_at."
+  - "No deployment when hard quality gates fail."
+  - "All runs are traceable via run_id."
+
+team:
+  - role: "pm"
+    title: "Product Manager"
+    owner_agent: "pm_orchestrator"
+    kpi:
+      - "weekly delivery predictability"
+      - "pipeline success rate"
+  - role: "content_marketer"
+    title: "SEO Content Marketer"
+    owner_agent: "content_marketer"
+    kpi:
+      - "index coverage"
+      - "organic CTR"
+  - role: "de"
+    title: "Data Engineer"
+    owner_agent: "data_engineer"
+    kpi:
+      - "freshness SLA"
+      - "schema validity rate"
+  - role: "be"
+    title: "Backend Engineer"
+    owner_agent: "backend_engineer"
+    kpi:
+      - "build success rate"
+      - "deployment lead time"
+  - role: "fe"
+    title: "Frontend Engineer"
+    owner_agent: "frontend_engineer"
+    kpi:
+      - "mobile performance pass rate"
+      - "template consistency"
+  - role: "qa"
+    title: "QA Engineer"
+    owner_agent: "qa_engineer"
+    kpi:
+      - "hard gate detection precision"
+      - "escape defect count"
+  - role: "adops"
+    title: "Monetization / AdOps"
+    owner_agent: "monetization_adops"
+    kpi:
+      - "policy violation count"
+      - "page RPM trend"
+
+artifacts:
+  run_meta: "artifacts/runs/{run_id}/run_meta.json"
+  content_plan: "artifacts/runs/{run_id}/content/plan.json"
+  raw_snapshot: "artifacts/runs/{run_id}/raw/{source}.json"
+  canonical_dataset: "artifacts/runs/{run_id}/canonical/policies.json"
+  page_manifest: "artifacts/runs/{run_id}/pages/manifest.json"
+  frontend_report: "artifacts/runs/{run_id}/frontend/report.json"
+  quality_report: "artifacts/runs/{run_id}/quality/report.json"
+  monetization_report: "artifacts/runs/{run_id}/monetization/report.json"
+  publish_report: "artifacts/runs/{run_id}/publish/report.json"
+
+agents:
+  - id: "pm_orchestrator"
+    spec: "agents/pm/pm_orchestrator.md"
+    role: "pm"
+    trigger:
+      - "daily schedule"
+      - "manual dispatch"
+    lifecycle_steps:
+      - "open_run"
+      - "close_run"
+
+  - id: "content_marketer"
+    spec: "agents/content/content_marketer.md"
+    role: "content_marketer"
+    trigger:
+      - "pm_orchestrator open_run"
+      - "weekly planning cycle"
+    handoff_to:
+      - "data_engineer"
+
+  - id: "data_engineer"
+    spec: "agents/data/data_engineer.md"
+    role: "de"
+    trigger:
+      - "content_marketer handoff"
+    lifecycle_steps:
+      - "fetch_raw_sources"
+      - "normalize_to_canonical"
+    handoff_to:
+      - "backend_engineer"
+
+  - id: "backend_engineer"
+    spec: "agents/backend/backend_engineer.md"
+    role: "be"
+    trigger:
+      - "data_engineer handoff"
+    lifecycle_steps:
+      - "generate_pages"
+      - "build_artifacts"
+      - "deploy_release_if_approved"
+    handoff_to:
+      - "frontend_engineer"
+
+  - id: "frontend_engineer"
+    spec: "agents/frontend/frontend_engineer.md"
+    role: "fe"
+    trigger:
+      - "backend_engineer build_artifacts"
+    handoff_to:
+      - "qa_engineer"
+
+  - id: "qa_engineer"
+    spec: "agents/qa/qa_engineer.md"
+    role: "qa"
+    trigger:
+      - "frontend_engineer handoff"
+    handoff_to:
+      - "monetization_adops"
+      - "pm_orchestrator"
+
+  - id: "monetization_adops"
+    spec: "agents/adops/monetization_adops.md"
+    role: "adops"
+    trigger:
+      - "qa_engineer pass_or_soft_fail"
+    handoff_to:
+      - "backend_engineer"
+      - "pm_orchestrator"
+
+execution_flow:
+  - "pm_orchestrator.open_run"
+  - "content_marketer.plan_clusters"
+  - "data_engineer.fetch_raw_sources"
+  - "data_engineer.normalize_to_canonical"
+  - "backend_engineer.generate_pages"
+  - "backend_engineer.build_artifacts"
+  - "frontend_engineer.apply_ui_and_metadata"
+  - "qa_engineer.run_data_and_frontend_gates"
+  - "monetization_adops.run_adsense_policy_gate"
+  - "backend_engineer.deploy_release_if_approved"
+  - "pm_orchestrator.close_run"

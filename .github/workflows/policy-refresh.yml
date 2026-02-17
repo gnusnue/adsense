@@ -1,0 +1,65 @@
+name: policy-refresh
+
+on:
+  schedule:
+    - cron: "13 21 * * *" # 06:13 KST
+  workflow_dispatch:
+
+concurrency:
+  group: daily-refresh
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    env:
+      RUN_ID: daily-${{ github.run_id }}
+      SITE_BASE_URL: ${{ vars.SITE_BASE_URL || 'https://cbbxs.com' }}
+      DATA_GO_KR_API_KEY: ${{ secrets.DATA_GO_KR_API_KEY }}
+      ADSENSE_CLIENT_ID: ${{ secrets.ADSENSE_CLIENT_ID }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m venv .venv
+          .venv/bin/pip install --upgrade pip
+          .venv/bin/pip install -r requirements.txt
+
+      - name: Run daily pipeline
+        run: |
+          .venv/bin/python scripts/preflight_check.py --profile refresh --allow-missing-adsense
+          .venv/bin/python scripts/run_pipeline.py --run-id "$RUN_ID" --mode daily --site-base-url "$SITE_BASE_URL"
+
+      - name: Commit snapshots
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/raw data/canonical artifacts/latest apps/site/dist
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: policy refresh ${RUN_ID}"
+            git push
+          else
+            echo "No changes to commit"
+          fi
+
+      - name: Upload run artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: policy-run-${{ github.run_id }}
+          path: |
+            artifacts/latest
+            data/canonical/latest
+            apps/site/dist

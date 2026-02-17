@@ -1,0 +1,3 @@
+name = "adsense-policy-automation"
+compatibility_date = "2026-02-17"
+pages_build_output_dir = "apps/site/dist"

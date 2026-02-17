@@ -1,0 +1,38 @@
+[
+  {
+    "policy_id": "seoul-youth-rent-support",
+    "title": "청년 전월세 보증금 이자지원",
+    "region": "서울특별시",
+    "target_group": "청년",
+    "category": "주거",
+    "eligibility_text": "만 19~39세 무주택 청년, 소득 기준 충족",
+    "benefit_text": "보증금 대출 이자 일부 지원",
+    "application_period_text": "상시 접수(예산 소진 시 마감)",
+    "official_url": "https://www.seoul.go.kr",
+    "source_org": "서울특별시",
+    "source_api": "bootstrap_fixture",
+    "source_updated_at": "2026-02-01T00:00:00+09:00",
+    "last_checked_at": "2026-02-17T16:36:06.584282+09:00",
+    "status": "active",
+    "change_type": "unchanged",
+    "change_summary": "변경 없음"
+  },
+  {
+    "policy_id": "busan-startup-support",
+    "title": "부산 창업 초기자금 지원사업",
+    "region": "부산광역시",
+    "target_group": "예비창업자",
+    "category": "창업",
+    "eligibility_text": "사업자 등록 3년 이내 또는 예비창업자",
+    "benefit_text": "사업화 자금 최대 1,000만원",
+    "application_period_text": "2026-03-01 ~ 2026-03-31",
+    "official_url": "https://www.busan.go.kr",
+    "source_org": "부산광역시",
+    "source_api": "bootstrap_fixture",
+    "source_updated_at": "2026-02-05T00:00:00+09:00",
+    "last_checked_at": "2026-02-17T16:36:06.584282+09:00",
+    "status": "active",
+    "change_type": "unchanged",
+    "change_summary": "변경 없음"
+  }
+]

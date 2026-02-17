@@ -1,0 +1,12 @@
+{
+  "decision": "pass",
+  "hard_fail": [],
+  "soft_fail": [],
+  "metrics": {
+    "null_ratio": 0.0,
+    "duplicate_ratio": 0.0,
+    "broken_link_ratio": 0.0,
+    "missing_sections_count": 0,
+    "total_policies": 2
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "quality.v1.schema.json",
+  "title": "Quality Report v1",
+  "type": "object",
+  "required": ["hard_fail", "soft_fail", "metrics"],
+  "properties": {
+    "hard_fail": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "soft_fail": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "metrics": {
+      "type": "object",
+      "required": ["null_ratio", "duplicate_ratio", "broken_link_ratio"],
+      "properties": {
+        "null_ratio": { "type": "number", "minimum": 0 },
+        "duplicate_ratio": { "type": "number", "minimum": 0 },
+        "broken_link_ratio": { "type": "number", "minimum": 0 }
+      }
+    },
+    "decision": {
+      "type": "string",
+      "enum": ["pass", "soft_fail", "hard_fail"]
+    }
+  },
+  "additionalProperties": true
+}

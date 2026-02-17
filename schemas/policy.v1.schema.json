@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "policy.v1.schema.json",
+  "title": "Canonical Policy v1",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "policy_id",
+      "title",
+      "region",
+      "target_group",
+      "category",
+      "eligibility_text",
+      "benefit_text",
+      "application_period_text",
+      "official_url",
+      "source_org",
+      "source_updated_at",
+      "last_checked_at",
+      "status"
+    ],
+    "properties": {
+      "policy_id": { "type": "string", "minLength": 1 },
+      "title": { "type": "string", "minLength": 1 },
+      "region": { "type": "string", "minLength": 1 },
+      "target_group": { "type": "string", "minLength": 1 },
+      "category": { "type": "string", "minLength": 1 },
+      "eligibility_text": { "type": "string", "minLength": 1 },
+      "benefit_text": { "type": "string", "minLength": 1 },
+      "application_period_text": { "type": "string", "minLength": 1 },
+      "official_url": { "type": "string", "format": "uri" },
+      "source_org": { "type": "string", "minLength": 1 },
+      "source_updated_at": { "type": "string" },
+      "last_checked_at": { "type": "string" },
+      "status": { "type": "string", "enum": ["active", "closed", "unknown"] },
+      "source_api": { "type": "string" },
+      "change_type": { "type": "string", "enum": ["created", "updated", "closed", "unchanged"] },
+      "change_summary": { "type": "string" }
+    },
+    "additionalProperties": true
+  }
+}

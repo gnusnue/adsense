@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "source_connector.v1.schema.json",
+  "title": "Source Connector v1",
+  "type": "object",
+  "required": ["sources"],
+  "properties": {
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source_id",
+          "enabled",
+          "primary",
+          "kind",
+          "endpoint",
+          "auth",
+          "params",
+          "pagination"
+        ],
+        "properties": {
+          "source_id": { "type": "string", "minLength": 1 },
+          "enabled": { "type": "boolean" },
+          "primary": { "type": "boolean" },
+          "kind": { "type": "string", "enum": ["http_json", "file_json"] },
+          "endpoint": { "type": "string", "minLength": 1 },
+          "auth": { "type": "object" },
+          "params": { "type": "object" },
+          "pagination": { "type": "object" },
+          "mapping": { "type": "object" }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

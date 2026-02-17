@@ -1,0 +1,40 @@
+name: quality-gate
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: quality-gate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    env:
+      RUN_ID: pr-${{ github.run_id }}
+      SITE_BASE_URL: https://cbbxs.com
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m venv .venv
+          .venv/bin/pip install --upgrade pip
+          .venv/bin/pip install -r requirements.txt
+
+      - name: Build bootstrap site
+        run: .venv/bin/python scripts/run_pipeline.py --run-id "$RUN_ID" --mode bootstrap --site-base-url "$SITE_BASE_URL"
+
+      - name: Run quality gate
+        run: |
+          .venv/bin/python scripts/quality_gate.py \
+            --canonical data/canonical/latest/policies.json \
+            --previous data/canonical/previous/policies.json \
+            --site-dir apps/site/dist

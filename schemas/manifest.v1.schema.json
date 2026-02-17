@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "manifest.v1.schema.json",
+  "title": "Build Manifest v1",
+  "type": "object",
+  "required": [
+    "run_id",
+    "generated_pages",
+    "excluded_pages",
+    "sitemap_entries",
+    "build_sha"
+  ],
+  "properties": {
+    "run_id": { "type": "string", "minLength": 1 },
+    "generated_pages": { "type": "integer", "minimum": 0 },
+    "excluded_pages": { "type": "integer", "minimum": 0 },
+    "sitemap_entries": { "type": "integer", "minimum": 0 },
+    "build_sha": { "type": "string" },
+    "generated_at": { "type": "string" }
+  },
+  "additionalProperties": true
+}

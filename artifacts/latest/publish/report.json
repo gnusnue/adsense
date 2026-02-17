@@ -1,0 +1,14 @@
+{
+  "run_id": "local-bootstrap",
+  "deploy_ready": true,
+  "quality_decision": "pass",
+  "monetization_decision": "pass",
+  "generated_pages": 10,
+  "timestamp": "2026-02-17T16:36:36.866111+09:00",
+  "site_base_url": "https://cbbxs.com",
+  "health_check_errors": [
+    "https://cbbxs.com/ => <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+    "https://cbbxs.com/updates/ => <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+    "https://cbbxs.com/sitemap.xml => <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+  ]
+}

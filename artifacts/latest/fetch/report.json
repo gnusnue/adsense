@@ -1,0 +1,14 @@
+[
+  {
+    "source_id": "kr_policy_api_primary",
+    "ok": false,
+    "rows": 0,
+    "error": "missing secret env: DATA_GO_KR_API_KEY"
+  },
+  {
+    "source_id": "bootstrap_fixture",
+    "ok": true,
+    "rows": 2,
+    "error": null
+  }
+]

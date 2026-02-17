@@ -1,0 +1,37 @@
+.venv/
+__pycache__/
+.pycache/
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+.pytest_cache/
+.idea/
+.vscode/
+*.swp
+*.swo
+*.tmp
+*.log
+
+# Secrets / credentials
+.env
+.env.*
+*.env
+!.env.example
+secrets/
+credential.json
+credentials.json
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+
+# Generated runtime outputs
+artifacts/runs/*
+apps/site/dist/*
+
+# Keep directory placeholders
+!artifacts/runs/.gitkeep
+!apps/site/dist/.gitkeep
