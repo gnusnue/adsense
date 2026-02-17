@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-02-17T23:14:24.082507+09:00",
-  "input": "/Users/eunsung/Documents/adsense/data/canonical/latest/policies.json",
-  "output": "/Users/eunsung/Documents/adsense/artifacts/latest/content/marketing_copy.json",
+  "generated_at": "2026-02-17T22:09:54.555133+00:00",
+  "input": "/home/runner/work/adsense/adsense/data/canonical/latest/policies.json",
+  "output": "/home/runner/work/adsense/adsense/artifacts/latest/content/marketing_copy.json",
   "style": "benefit-first",
   "total_input_rows": 2063,
   "generated_rows": 200,
