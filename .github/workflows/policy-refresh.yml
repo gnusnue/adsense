@@ -1,15 +1,6 @@
 name: policy-refresh
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - "data/raw/**"
-      - "data/canonical/**"
-      - "artifacts/latest/**"
-      - "apps/site/dist/**"
-      - "artifacts/runs/**"
   schedule:
     - cron: "13 21 * * *" # 06:13 KST
   workflow_dispatch:
