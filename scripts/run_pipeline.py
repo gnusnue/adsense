@@ -48,11 +48,22 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def copy_run_artifacts(run_dir: Path, canonical: list[dict], manifest: dict, quality: dict, frontend: dict, monetization: dict, changes: list[dict], fetch_report: list[dict]) -> None:
+def copy_run_artifacts(
+    run_dir: Path,
+    canonical: list[dict],
+    manifest: dict,
+    quality: dict,
+    frontend: dict,
+    monetization: dict,
+    changes: list[dict],
+    fetch_report: list[dict],
+    thumbnails: list[dict],
+) -> None:
     write_json(run_dir / "canonical" / "policies.json", canonical)
     write_json(run_dir / "pages" / "manifest.json", manifest)
     write_json(run_dir / "quality" / "report.json", quality)
     write_json(run_dir / "frontend" / "report.json", frontend)
+    write_json(run_dir / "frontend" / "thumbnails.json", thumbnails)
     write_json(run_dir / "monetization" / "report.json", monetization)
     write_json(run_dir / "changes" / "changes.json", changes)
     write_json(run_dir / "fetch" / "report.json", fetch_report)
@@ -123,15 +134,35 @@ def main() -> int:
         save_canonical_with_rotation(canonical)
 
         adsense_client_id = os.getenv("ADSENSE_CLIENT_ID", "")
+        ga_measurement_id = os.getenv("GA_MEASUREMENT_ID", "")
         site_dir = ROOT / "apps" / "site" / "dist"
-        site_result = generate_site(canonical, changes, site_dir, args.site_base_url, adsense_client_id)
+        site_result = generate_site(
+            canonical,
+            changes,
+            site_dir,
+            args.site_base_url,
+            adsense_client_id,
+            ga_measurement_id,
+        )
+        thumbnail_errors = site_result.get("thumbnail_errors", [])
+        frontend_soft_fail: list[str] = []
+        if thumbnail_errors:
+            frontend_soft_fail.append("thumbnail generation partial failure")
 
         frontend_metrics = compute_quality_metrics(canonical, site_dir=site_dir)
+        frontend_hard_fail = [] if frontend_metrics.get("missing_sections_count", 0) == 0 else ["required frontend sections missing"]
+        frontend_decision = "pass"
+        if frontend_hard_fail:
+            frontend_decision = "hard_fail"
+        elif frontend_soft_fail:
+            frontend_decision = "soft_fail"
         frontend_report = {
-            "decision": "pass" if frontend_metrics.get("missing_sections_count", 0) == 0 else "hard_fail",
-            "hard_fail": [] if frontend_metrics.get("missing_sections_count", 0) == 0 else ["required frontend sections missing"],
-            "soft_fail": [],
+            "decision": frontend_decision,
+            "hard_fail": frontend_hard_fail,
+            "soft_fail": frontend_soft_fail,
             "metrics": frontend_metrics,
+            "generated_thumbnails": int(site_result.get("generated_thumbnails", 0)),
+            "thumbnail_errors": thumbnail_errors,
         }
 
         official_url_missing = sum(1 for r in canonical if not str(r.get("official_url", "")).strip())
@@ -153,6 +184,7 @@ def main() -> int:
             excluded_pages=site_result["excluded_pages"],
             sitemap_entries=site_result["sitemap_entries"],
         )
+        manifest["generated_thumbnails"] = int(site_result.get("generated_thumbnails", 0))
         manifest_schema_errors = validate_schema(manifest, ROOT / "schemas" / "manifest.v1.schema.json")
         if manifest_schema_errors:
             raise RuntimeError(f"manifest schema invalid: {manifest_schema_errors[:5]}")
@@ -163,6 +195,7 @@ def main() -> int:
             "quality_decision": quality_report["decision"],
             "monetization_decision": monetization_report["decision"],
             "generated_pages": site_result["generated_pages"],
+            "generated_thumbnails": int(site_result.get("generated_thumbnails", 0)),
             "timestamp": now_iso(),
             "site_base_url": args.site_base_url,
             "health_check_errors": run_http_health_checks(args.site_base_url, ["/", "/updates/", "/sitemap.xml"])
@@ -170,7 +203,17 @@ def main() -> int:
             else [],
         }
         write_json(run_dir / "publish" / "report.json", publish_report)
-        copy_run_artifacts(run_dir, canonical, manifest, quality_report, frontend_report, monetization_report, changes, fetch_report)
+        copy_run_artifacts(
+            run_dir,
+            canonical,
+            manifest,
+            quality_report,
+            frontend_report,
+            monetization_report,
+            changes,
+            fetch_report,
+            site_result.get("thumbnails", []),
+        )
 
         if quality_report["decision"] == "hard_fail" or monetization_report["decision"] == "hard_fail":
             write_run_meta(

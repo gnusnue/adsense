@@ -35,7 +35,7 @@ def main() -> int:
             status, body = fetch_status(url)
             if status >= 400:
                 failures.append(f"{url} returned {status}")
-            if path == "/" and "혜택정리" not in body:
+            if path == "/" and "지원알람" not in body:
                 failures.append(f"{url} missing expected marker")
             if path == "/sitemap.xml" and "<urlset" not in body:
                 failures.append(f"{url} missing urlset tag")

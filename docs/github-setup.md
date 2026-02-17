@@ -12,7 +12,7 @@
 
 Required:
 
-- `DATA_GO_KR_API_KEY`
+- `DATA_GO_KR_API_KEY` (data.go.kr `Decoding` key 사용, `Encoding` key 비권장)
 - `CLOUDFLARE_API_TOKEN`
 - `CLOUDFLARE_ACCOUNT_ID`
 - `PAGES_PROJECT_NAME`
@@ -20,6 +20,8 @@ Required:
 Optional:
 
 - `ADSENSE_CLIENT_ID`
+- `GA_MEASUREMENT_ID` (예: `G-XXXXXXXXXX`)
+- `KSTARTUP_API_KEY` (source enabled 시)
 
 ## 3. Repository Variables
 

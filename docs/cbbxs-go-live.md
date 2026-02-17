@@ -23,11 +23,13 @@ Deploy `adsense-policy-automation` to `https://cbbxs.com` using Cloudflare Pages
 ## C. GitHub setup
 
 1. Repository secrets:
-   - `DATA_GO_KR_API_KEY`
+   - `DATA_GO_KR_API_KEY` (data.go.kr `Decoding` key)
    - `CLOUDFLARE_API_TOKEN`
    - `CLOUDFLARE_ACCOUNT_ID`
    - `PAGES_PROJECT_NAME`
    - `ADSENSE_CLIENT_ID` (optional)
+   - `GA_MEASUREMENT_ID` (optional)
+   - `KSTARTUP_API_KEY` (optional, source enabled 시)
 2. Repository variable:
    - `SITE_BASE_URL=https://cbbxs.com`
 

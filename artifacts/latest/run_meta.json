@@ -2,10 +2,10 @@
   "run_id": "local-bootstrap",
   "status": "success",
   "stage": "completed",
-  "updated_at": "2026-02-17T17:34:19.044032+09:00",
+  "updated_at": "2026-02-17T21:35:27.777248+09:00",
   "details": {
     "quality": "pass",
     "monetization": "pass",
-    "generated_pages": 10
+    "generated_pages": 14
   }
 }

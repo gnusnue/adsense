@@ -8,5 +8,7 @@
     "broken_link_ratio": 0.0,
     "missing_sections_count": 0,
     "total_policies": 2
-  }
+  },
+  "generated_thumbnails": 2,
+  "thumbnail_errors": []
 }

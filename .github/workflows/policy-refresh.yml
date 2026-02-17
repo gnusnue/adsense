@@ -21,6 +21,7 @@ jobs:
       SITE_BASE_URL: ${{ vars.SITE_BASE_URL || 'https://cbbxs.com' }}
       DATA_GO_KR_API_KEY: ${{ secrets.DATA_GO_KR_API_KEY }}
       ADSENSE_CLIENT_ID: ${{ secrets.ADSENSE_CLIENT_ID }}
+      GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -38,10 +39,19 @@ jobs:
           .venv/bin/pip install --upgrade pip
           .venv/bin/pip install -r requirements.txt
 
-      - name: Run daily pipeline
+      - name: Load real policy data (K-Startup)
         run: |
           .venv/bin/python scripts/preflight_check.py --profile refresh --allow-missing-adsense
-          .venv/bin/python scripts/run_pipeline.py --run-id "$RUN_ID" --mode daily --site-base-url "$SITE_BASE_URL"
+          .venv/bin/python scripts/load_kstartup_historical.py --cutoff-date 20250701 --per-page 100 --max-pages 400 --site-base-url "$SITE_BASE_URL"
+          .venv/bin/python scripts/build_site_from_canonical.py --run-id "$RUN_ID" --site-base-url "$SITE_BASE_URL"
+
+      - name: Generate marketing copy
+        run: |
+          .venv/bin/python scripts/generate_marketing_copy.py \
+            --input data/canonical/latest/policies.json \
+            --output artifacts/latest/content/marketing_copy.json \
+            --top-n 200 \
+            --style benefit-first
 
       - name: Commit snapshots
         run: |

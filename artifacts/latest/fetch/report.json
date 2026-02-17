@@ -1,6 +1,6 @@
 [
   {
-    "source_id": "kr_policy_api_primary",
+    "source_id": "kr_policy_datago_primary",
     "ok": false,
     "rows": 0,
     "error": "missing secret env: DATA_GO_KR_API_KEY"

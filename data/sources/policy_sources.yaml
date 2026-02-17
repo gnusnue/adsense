@@ -1,11 +1,11 @@
 {
   "sources": [
     {
-      "source_id": "kr_policy_api_primary",
+      "source_id": "kr_policy_datago_primary",
       "enabled": true,
       "primary": true,
       "kind": "http_json",
-      "endpoint": "https://api.odcloud.kr/api/15113968/v1/uddi:placeholder",
+      "endpoint": "https://apis.data.go.kr/B552735/kisedCertService/getCorporateInformation",
       "auth": {
         "type": "query_key",
         "param_name": "serviceKey",
@@ -13,7 +13,8 @@
       },
       "params": {
         "page": 1,
-        "perPage": 100
+        "perPage": 100,
+        "returnType": "JSON"
       },
       "pagination": {
         "mode": "page",
@@ -22,23 +23,64 @@
         "start_page": 1,
         "max_pages": 3
       },
+      "fallback_official_url": "https://www.data.go.kr/data/15125364/openapi.do",
       "mapping": {
         "items_path": "data",
-        "id_field": "id",
-        "title_field": "serviceName",
-        "region_field": "ctpvNm",
-        "target_field": "trgter",
-        "category_field": "svcPvsnNm",
-        "eligibility_field": "slctnStdrCn",
-        "benefit_field": "svcDtlCn",
-        "application_period_field": "aplyMthCn",
-        "official_url_field": "lnkgUrl",
-        "updated_field": "lastMdfcnDt"
+        "id_field": ["id", "certSn", "bizPbancSn", "pbancSn"],
+        "title_field": ["serviceName", "bizPbancNm", "pbancNm", "title", "entrpsNm", "corpNm"],
+        "region_field": ["ctpvNm", "sido", "region"],
+        "target_field": ["trgter", "trgt", "supportTarget"],
+        "category_field": ["svcPvsnNm", "bizClsfc", "supportType", "fieldNm"],
+        "eligibility_field": ["slctnStdrCn", "elgQualfCn", "qualfCn"],
+        "benefit_field": ["svcDtlCn", "sprtCn", "bsnsSumryCn"],
+        "application_period_field": ["aplyMthCn", "pbancRceptBgngDttm", "rceptPrdCn"],
+        "official_url_field": ["lnkgUrl", "detlPgUrl", "hmpgUrl", "homepageUrl", "url"],
+        "updated_field": ["lastMdfcnDt", "mdfcnDt", "updtDt", "regDt"],
+        "source_org_field": ["instNm", "sprvInst", "source_org"]
+      }
+    },
+    {
+      "source_id": "kr_policy_kstartup_primary",
+      "enabled": false,
+      "primary": true,
+      "kind": "http_json",
+      "endpoint": "https://apis.data.go.kr/B552735/kisedKstartupService/getAnnouncementInformation",
+      "auth": {
+        "type": "query_key",
+        "param_name": "serviceKey",
+        "env_key": "KSTARTUP_API_KEY"
+      },
+      "params": {
+        "page": 1,
+        "perPage": 100,
+        "returnType": "JSON"
+      },
+      "pagination": {
+        "mode": "page",
+        "page_param": "page",
+        "size_param": "perPage",
+        "start_page": 1,
+        "max_pages": 3
+      },
+      "fallback_official_url": "https://nidview.k-startup.go.kr/view/public/kisedKstartupService/announcementInformation",
+      "mapping": {
+        "items_path": "data",
+        "id_field": ["id", "bizPbancSn", "pbancSn", "pblancSn"],
+        "title_field": ["bizPbancNm", "pbancNm", "serviceName", "title"],
+        "region_field": ["ctpvNm", "sido", "region"],
+        "target_field": ["trgter", "trgt", "supportTarget", "bizTrgtAge"],
+        "category_field": ["svcPvsnNm", "bizClsfc", "supportType", "pldirSportRealm"],
+        "eligibility_field": ["slctnStdrCn", "elgQualfCn", "trgtCndCn"],
+        "benefit_field": ["svcDtlCn", "sprtCn", "bsnsSumryCn"],
+        "application_period_field": ["aplyMthCn", "pbancRceptBgngDttm", "rceptPrdCn"],
+        "official_url_field": ["lnkgUrl", "detlPgUrl", "hmpgUrl", "url"],
+        "updated_field": ["lastMdfcnDt", "mdfcnDt", "updtDt", "regDt"],
+        "source_org_field": ["instNm", "sprvInst", "source_org"]
       }
     },
     {
       "source_id": "bootstrap_fixture",
-      "enabled": true,
+      "enabled": false,
       "primary": false,
       "kind": "file_json",
       "endpoint": "data/sources/fixtures/bootstrap_policies.json",

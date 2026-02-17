@@ -23,6 +23,13 @@
 - `artifacts/runs/{run_id}/pages/manifest.json`
 - `artifacts/runs/{run_id}/publish/report.json`
 
+## Data Source Tiers (v1)
+
+- Tier A (Primary): `kr_policy_datago_primary` from `data.go.kr`
+- Tier B (Primary, optional): `kr_policy_kstartup_primary` from K-Startup public API (currently disabled)
+- Fallback: `bootstrap_fixture` (non-primary)
+- Deploy gate rule: if both primary sources fail in daily mode, pipeline hard-fails and blocks deploy.
+
 ## Gates
 
 Hard fail blocks deploy:

@@ -1,8 +1,9 @@
 {
-  "run_id": "local-bootstrap",
-  "generated_pages": 10,
+  "run_id": "benefit-ux-check",
+  "generated_pages": 291,
   "excluded_pages": 0,
-  "sitemap_entries": 10,
+  "sitemap_entries": 291,
   "build_sha": "local",
-  "generated_at": "2026-02-17T17:34:19.019466+09:00"
+  "generated_at": "2026-02-17T23:24:32.783837+09:00",
+  "generated_thumbnails": 231
 }

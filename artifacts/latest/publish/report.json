@@ -3,8 +3,9 @@
   "deploy_ready": true,
   "quality_decision": "pass",
   "monetization_decision": "pass",
-  "generated_pages": 10,
-  "timestamp": "2026-02-17T17:34:19.019852+09:00",
+  "generated_pages": 14,
+  "generated_thumbnails": 2,
+  "timestamp": "2026-02-17T21:35:27.753822+09:00",
   "site_base_url": "https://cbbxs.com",
   "health_check_errors": [
     "https://cbbxs.com/ => <urlopen error [Errno 8] nodename nor servname provided, or not known>",

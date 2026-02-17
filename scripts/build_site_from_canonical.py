@@ -32,7 +32,8 @@ def main() -> int:
 
     site_dir = ROOT / "apps" / "site" / "dist"
     adsense_client_id = os.getenv("ADSENSE_CLIENT_ID", "")
-    site_result = generate_site(canonical, [], site_dir, args.site_base_url, adsense_client_id)
+    ga_measurement_id = os.getenv("GA_MEASUREMENT_ID", "")
+    site_result = generate_site(canonical, [], site_dir, args.site_base_url, adsense_client_id, ga_measurement_id)
 
     manifest = build_manifest(
         run_id=args.run_id,
@@ -40,12 +41,14 @@ def main() -> int:
         excluded_pages=site_result["excluded_pages"],
         sitemap_entries=site_result["sitemap_entries"],
     )
+    manifest["generated_thumbnails"] = int(site_result.get("generated_thumbnails", 0))
     schema_errors = validate_schema(manifest, ROOT / "schemas" / "manifest.v1.schema.json")
     if schema_errors:
         print(f"[ERROR] manifest invalid: {schema_errors[:5]}")
         return 1
 
     write_json(ROOT / "artifacts" / "latest" / "pages" / "manifest.json", manifest)
+    write_json(ROOT / "artifacts" / "latest" / "frontend" / "thumbnails.json", site_result.get("thumbnails", []))
     print("site build completed")
     return 0
 

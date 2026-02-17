@@ -31,11 +31,16 @@ Generated site is written to `apps/site/dist`.
 
 ## Required Secrets (GitHub)
 
-- `DATA_GO_KR_API_KEY`
+- `DATA_GO_KR_API_KEY` (data.go.kr `Decoding` key 권장, 기본)
 - `CLOUDFLARE_API_TOKEN`
 - `CLOUDFLARE_ACCOUNT_ID`
 - `PAGES_PROJECT_NAME`
 - `ADSENSE_CLIENT_ID` (optional)
+- `GA_MEASUREMENT_ID` (optional, example: `G-XXXXXXXXXX`)
+
+## Optional Secrets (future source expansion)
+
+- `KSTARTUP_API_KEY`
 
 ## Pipeline Commands
 

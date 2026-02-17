@@ -10,7 +10,12 @@ from runtime_guard import enforce_venv
 PROFILES = {
     "refresh": ["DATA_GO_KR_API_KEY"],
     "deploy": ["CLOUDFLARE_API_TOKEN", "CLOUDFLARE_ACCOUNT_ID", "PAGES_PROJECT_NAME"],
-    "all": ["DATA_GO_KR_API_KEY", "CLOUDFLARE_API_TOKEN", "CLOUDFLARE_ACCOUNT_ID", "PAGES_PROJECT_NAME"],
+    "all": [
+        "DATA_GO_KR_API_KEY",
+        "CLOUDFLARE_API_TOKEN",
+        "CLOUDFLARE_ACCOUNT_ID",
+        "PAGES_PROJECT_NAME",
+    ],
 }
 
 
