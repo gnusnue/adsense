@@ -42,7 +42,14 @@ def fit_cover(image: Image.Image, size: tuple[int, int]) -> Image.Image:
 
 
 def load_font(font_candidates: list[Path], size: int) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
-    for candidate in font_candidates:
+    bundled_candidates = [
+        ROOT / "apps/site/assets/fonts/NotoSansCJKkr-Bold.otf",
+        ROOT / "apps/site/assets/fonts/NotoSansCJKkr-Regular.otf",
+        ROOT / "apps/site/assets/fonts/NotoSansKR-Bold.ttf",
+        ROOT / "apps/site/assets/fonts/NotoSansKR-Regular.ttf",
+    ]
+    preferred = font_candidates + [p for p in bundled_candidates if p not in font_candidates]
+    for candidate in preferred:
         if candidate.exists():
             try:
                 return ImageFont.truetype(str(candidate), size=size)
@@ -130,7 +137,7 @@ def compact_label(text: str, max_len: int = 16, max_items: int = 2) -> str:
     if len(deduped) <= max_items:
         label = ", ".join(deduped)
     else:
-        label = ", ".join(deduped[:max_items]) + f" 외 {len(deduped) - max_items}"
+        label = ", ".join(deduped[:max_items]) + " 등"
     return label[:max_len].strip()
 
 
@@ -178,6 +185,13 @@ def trim_text_to_width(
     candidate = " ".join(str(text or "").split())
     if not candidate:
         return ""
+    if " " in candidate:
+        words = candidate.split(" ")
+        while len(words) > 1 and draw.textlength(" ".join(words), font=font) > max_width:
+            words = words[:-1]
+        word_fit = " ".join(words).strip()
+        if word_fit and draw.textlength(word_fit, font=font) <= max_width:
+            return word_fit
     while candidate and draw.textlength(candidate, font=font) > max_width:
         candidate = candidate[:-1].rstrip()
     return candidate or "확인"
@@ -519,10 +533,10 @@ def main() -> int:
         output_dir=output_dir,
         site_base_url=args.site_base_url,
         font_paths=[
-            ROOT / "apps/site/assets/fonts/NotoSansCJKkr-Regular.otf",
             ROOT / "apps/site/assets/fonts/NotoSansCJKkr-Bold.otf",
-            ROOT / "apps/site/assets/fonts/NotoSansKR-Regular.ttf",
+            ROOT / "apps/site/assets/fonts/NotoSansCJKkr-Regular.otf",
             ROOT / "apps/site/assets/fonts/NotoSansKR-Bold.ttf",
+            ROOT / "apps/site/assets/fonts/NotoSansKR-Regular.ttf",
         ],
     )
     write_json(manifest_out, result["items"])

@@ -1434,10 +1434,10 @@ a:hover { text-decoration: underline; }
         output_dir=thumbnail_output_dir,
         site_base_url=site_base_url,
         font_paths=[
-            ROOT / "apps" / "site" / "assets" / "fonts" / "NotoSansCJKkr-Regular.otf",
             ROOT / "apps" / "site" / "assets" / "fonts" / "NotoSansCJKkr-Bold.otf",
-            ROOT / "apps" / "site" / "assets" / "fonts" / "NotoSansKR-Regular.ttf",
+            ROOT / "apps" / "site" / "assets" / "fonts" / "NotoSansCJKkr-Regular.otf",
             ROOT / "apps" / "site" / "assets" / "fonts" / "NotoSansKR-Bold.ttf",
+            ROOT / "apps" / "site" / "assets" / "fonts" / "NotoSansKR-Regular.ttf",
         ],
     )
     thumbnail_items = thumbnail_result["items"]
