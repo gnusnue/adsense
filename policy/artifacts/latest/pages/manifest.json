@@ -1,9 +1,9 @@
 {
-  "run_id": "policy-split-check",
-  "generated_pages": 289,
+  "run_id": "policy-22201947099",
+  "generated_pages": 274,
   "excluded_pages": 0,
-  "sitemap_entries": 289,
-  "build_sha": "local",
-  "generated_at": "2026-02-20T00:51:07.879516+09:00",
-  "generated_thumbnails": 229
+  "sitemap_entries": 274,
+  "build_sha": "8a6d78b051e66e3d669c6a75d1557b282da91e66",
+  "generated_at": "2026-02-19T22:11:08.271691+00:00",
+  "generated_thumbnails": 214
 }
