@@ -1,0 +1,60 @@
+name: unemployment-refresh
+
+on:
+  schedule:
+    - cron: "30 21 * * *" # 06:30 KST
+  workflow_dispatch:
+
+concurrency:
+  group: unemployment-refresh
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    if: ${{ github.actor != 'github-actions[bot]' }}
+    runs-on: ubuntu-latest
+    env:
+      SITE_BASE_URL: ${{ vars.UNEMPLOYMENT_SITE_BASE_URL || 'https://unemployment.cbbxs.com' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        working-directory: unemployment
+        run: |
+          python -m venv .venv
+          .venv/bin/pip install --upgrade pip
+          .venv/bin/pip install -r requirements.txt
+
+      - name: Build unemployment site
+        working-directory: unemployment
+        run: .venv/bin/python scripts/build_site.py --site-base-url "$SITE_BASE_URL"
+
+      - name: Commit generated site
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add unemployment/apps/site/dist
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: unemployment refresh ${GITHUB_RUN_ID}"
+            git push
+          else
+            echo "No changes to commit"
+          fi
+
+      - name: Upload run artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unemployment-run-${{ github.run_id }}
+          path: unemployment/apps/site/dist

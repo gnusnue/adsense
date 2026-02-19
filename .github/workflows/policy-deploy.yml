@@ -1,0 +1,60 @@
+name: policy-deploy
+
+on:
+  workflow_run:
+    workflows: ["policy-refresh"]
+    types: [completed]
+  workflow_dispatch:
+
+concurrency:
+  group: policy-deploy
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  deployments: write
+
+jobs:
+  deploy:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    env:
+      RUN_ID: policy-deploy-${{ github.run_id }}
+      SITE_BASE_URL: ${{ vars.POLICY_SITE_BASE_URL || vars.SITE_BASE_URL || 'https://cbbxs.com' }}
+      ADSENSE_CLIENT_ID: ${{ secrets.ADSENSE_CLIENT_ID }}
+      GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      PAGES_PROJECT_NAME: ${{ secrets.POLICY_PAGES_PROJECT_NAME || secrets.PAGES_PROJECT_NAME }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        working-directory: policy
+        run: |
+          python -m venv .venv
+          .venv/bin/pip install --upgrade pip
+          .venv/bin/pip install -r requirements.txt
+
+      - name: Build static site from canonical
+        working-directory: policy
+        run: |
+          .venv/bin/python scripts/preflight_check.py --profile deploy --allow-missing-adsense
+          .venv/bin/python scripts/build_site_from_canonical.py --run-id "$RUN_ID" --site-base-url "$SITE_BASE_URL"
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: ${{ env.PAGES_PROJECT_NAME }}
+          directory: policy/apps/site/dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}

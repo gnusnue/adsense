@@ -1,0 +1,98 @@
+{
+  "generated_at_utc": "2026-02-19T14:55:37.662016+00:00",
+  "output_dir": "artifacts/latest/research/unemployment-benefits-2026-02-19",
+  "count": 13,
+  "sources": [
+    {
+      "id": "ei_0201_overview",
+      "name": "실업급여란",
+      "url": "https://edrm.ei.go.kr/ei/eih/eg/pb/pbPersonBnef/retrievePb0201Info.do",
+      "fetched_at_utc": "2026-02-19T14:55:37.541006+00:00",
+      "error": "curl: (6) Could not resolve host: edrm.ei.go.kr"
+    },
+    {
+      "id": "ei_0202_eligibility",
+      "name": "구직급여 지급대상",
+      "url": "https://edrm.ei.go.kr/ei/eih/eg/pb/pbPersonBnef/retrievePb0202Info.do",
+      "fetched_at_utc": "2026-02-19T14:55:37.541006+00:00",
+      "error": "curl: (6) Could not resolve host: edrm.ei.go.kr"
+    },
+    {
+      "id": "ei_0203_amount",
+      "name": "구직급여 지급액",
+      "url": "https://edrm.ei.go.kr/ei/eih/eg/pb/pbPersonBnef/retrievePb0203Info.do",
+      "fetched_at_utc": "2026-02-19T14:55:37.541006+00:00",
+      "error": "curl: (6) Could not resolve host: edrm.ei.go.kr"
+    },
+    {
+      "id": "ei_0204_process",
+      "name": "구직급여 지급절차",
+      "url": "https://edrm.ei.go.kr/ei/eih/eg/pb/pbPersonBnef/retrievePb0204Info.do",
+      "fetched_at_utc": "2026-02-19T14:55:37.541006+00:00",
+      "error": "curl: (6) Could not resolve host: edrm.ei.go.kr"
+    },
+    {
+      "id": "ei_0213_online_qa",
+      "name": "인터넷 실업인정 Q&A",
+      "url": "https://edrm.ei.go.kr/ei/eih/eg/pb/pbPersonBnef/retrievePb0213Info.do",
+      "fetched_at_utc": "2026-02-19T14:55:37.541006+00:00",
+      "error": "curl: (6) Could not resolve host: edrm.ei.go.kr"
+    },
+    {
+      "id": "ei_0214_fraud",
+      "name": "부정수급 안내",
+      "url": "https://edrm.ei.go.kr/ei/eih/eg/pb/pbPersonBnef/retrievePb0214Info.do",
+      "fetched_at_utc": "2026-02-19T14:55:37.541006+00:00",
+      "error": "curl: (6) Could not resolve host: edrm.ei.go.kr"
+    },
+    {
+      "id": "ei_manual_mobile_pdf",
+      "name": "실업인정 인터넷 신청 매뉴얼(모바일)",
+      "url": "https://edrm.ei.go.kr/ei/common/dnfile/munual_mobile.pdf",
+      "fetched_at_utc": "2026-02-19T14:55:37.541006+00:00",
+      "error": "curl: (6) Could not resolve host: edrm.ei.go.kr"
+    },
+    {
+      "id": "eiac_calculator",
+      "name": "실업급여 모의계산",
+      "url": "https://eiac.ei.go.kr/ei/m/pf/MOW-PF-00-180-C.html",
+      "fetched_at_utc": "2026-02-19T14:55:37.541006+00:00",
+      "error": "curl: (6) Could not resolve host: eiac.ei.go.kr"
+    },
+    {
+      "id": "ei_stats",
+      "name": "고용보험 통계",
+      "url": "https://edrm.ei.go.kr/ei/eih/st/retrieveAdOfferList.do",
+      "fetched_at_utc": "2026-02-19T14:55:37.541006+00:00",
+      "error": "curl: (6) Could not resolve host: edrm.ei.go.kr"
+    },
+    {
+      "id": "work24_main",
+      "name": "고용24 메인",
+      "url": "https://www.work24.go.kr/cm/main.do",
+      "fetched_at_utc": "2026-02-19T14:55:37.541006+00:00",
+      "error": "curl: (6) Could not resolve host: www.work24.go.kr"
+    },
+    {
+      "id": "law_employment_insurance_act",
+      "name": "고용보험법 조문",
+      "url": "https://www.law.go.kr/LSW/lsSideInfoP.do?docCls=jo&joBrNo=00&joNo=0050&lsiSeq=276843&urlMode=lsScJoRltInfoR",
+      "fetched_at_utc": "2026-02-19T14:55:37.541006+00:00",
+      "error": "curl: (6) Could not resolve host: www.law.go.kr"
+    },
+    {
+      "id": "law_enforcement_decree",
+      "name": "고용보험법 시행령 조문",
+      "url": "https://www.law.go.kr/LSW/lsSideInfoP.do?docCls=jo&joBrNo=00&joNo=0074&lsiSeq=281219&urlMode=lsScJoRltInfoR",
+      "fetched_at_utc": "2026-02-19T14:55:37.541006+00:00",
+      "error": "curl: (6) Could not resolve host: www.law.go.kr"
+    },
+    {
+      "id": "law_enforcement_rule",
+      "name": "고용보험법 시행규칙 조문",
+      "url": "https://www.law.go.kr/LSW/lsSideInfoP.do?docCls=jo&joBrNo=00&joNo=0089&lsiSeq=282391&urlMode=lsScJoRltInfoR",
+      "fetched_at_utc": "2026-02-19T14:55:37.541006+00:00",
+      "error": "curl: (6) Could not resolve host: www.law.go.kr"
+    }
+  ]
+}

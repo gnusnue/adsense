@@ -1,18 +1,22 @@
-name: quality-gate
+name: policy-quality-gate
 
 on:
   pull_request:
+    paths:
+      - 'policy/**'
+      - '.github/workflows/policy-*.yml'
+      - '.github/workflows/quality-gate.yml'
   workflow_dispatch:
 
 concurrency:
-  group: quality-gate-${{ github.ref }}
+  group: policy-quality-gate-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   quality:
     runs-on: ubuntu-latest
     env:
-      RUN_ID: pr-${{ github.run_id }}
+      RUN_ID: policy-pr-${{ github.run_id }}
       SITE_BASE_URL: https://cbbxs.com
     steps:
       - name: Checkout
@@ -24,15 +28,18 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
+        working-directory: policy
         run: |
           python -m venv .venv
           .venv/bin/pip install --upgrade pip
           .venv/bin/pip install -r requirements.txt
 
       - name: Build bootstrap site
+        working-directory: policy
         run: .venv/bin/python scripts/run_pipeline.py --run-id "$RUN_ID" --mode bootstrap --site-base-url "$SITE_BASE_URL"
 
       - name: Run quality gate
+        working-directory: policy
         run: |
           .venv/bin/python scripts/quality_gate.py \
             --canonical data/canonical/latest/policies.json \

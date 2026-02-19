@@ -29,9 +29,10 @@ credentials.json
 *.cer
 
 # Generated runtime outputs
-artifacts/runs/*
-apps/site/dist/*
+policy/artifacts/runs/*
+policy/apps/site/dist/*
+unemployment/apps/site/dist/*
 
 # Keep directory placeholders
-!artifacts/runs/.gitkeep
-!apps/site/dist/.gitkeep
+!policy/artifacts/runs/.gitkeep
+!policy/apps/site/dist/.gitkeep

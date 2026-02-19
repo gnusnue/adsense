@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta http-equiv="Expires" content="-1"> 
+	<meta http-equiv="Pragma" content="no-cache"> 
+	<meta http-equiv="Cache-Control" content="No-Cache"> 
+
+
+	
+	<title>고용보험 모바일웹</title>
+	
+	<link rel="stylesheet" href="/ei/css/mow/common.css" />
+	<link rel="stylesheet" href="/ei/css/mow/contents.css" />
+	<script src='/ei/js/jquery/jquery-1.10.1.min.js'></script>
+	<script src='/ei/js/mow/jquery.alphanum.js'></script>
+	<script src='/ei/js/framework/keis.config.js'></script>
+	<script src='/ei/js/framework/keis.ajax.js'></script>
+	<script src='/ei/js/mow/common.js'></script>
+	
+	<script type="text/javascript">
+	<!--	
+	$(document).ready(function($){
+		$('#loading').hide();	
+		$("[name='ib_monPay']").numeric();
+		$("[name='ig_Pay']").numeric();
+	});
+	
+	var sumDay = 0;
+	
+	function chgTab(obj){
+		var list = document.getElementsByClassName("tabdiv");
+		for (var i = 0; i < list.length; i++) {
+			list[i].style.display = 'none';		    
+		}		
+		document.getElementById(obj.value).style.display = 'block';		
+		reset1();
+		reset2();
+		reset3();
+	}
+
+	function chk1(){
+	var ib_sid = $('#ib_sid').val();
+	
+	if ( ib_sid == "" || ib_sid.length != 6  ) {
+			alert("생년월일 6자리를 입력하세요");
+			$('#ib_sid').focus();
+		}
+		if ($('#ib_wk_tm_1').val() == "") {
+			alert("근무시작일자를 입력하세요");
+			$('#ib_wk_tm_1').focus();
+		}else if ($('#ib_wk_tm_2').val() == "") {
+			alert("근무종료일자를 입력하세요");
+			$('#ib_wk_tm_2').focus();
+		} else {
+			if ($('#ib_wk_tm_2').val() != "") {
+				if ($('#ib_wk_tm_1').val() > $('#wk_tm_2').val()) {
+					alert("근무시작일자가 근무종료일자보다 클순 없습니다.");
+					$('#ib_wk_tm_2').val("");
+					$('#ib_wk_tm_1').val("");
+					$('#ib_wk_tm_1').focus();
+				} else {
+					f_date = new Date($('#wk_tm_1').val());
+					t_date = new Date($('#wk_tm_2').val()); 
+					
+					var diff = ((t_date - f_date) / 86400000) + 1;
+					if (diff<180) {
+						alert("근무한 기간(피보험단위기간)이 180일 미만이므로  \n\n수급자격이 없습니다.");
+						$('#ib_wk_tm_2').val("");
+						return;
+					}
+					
+					$('#loading').css('display','flex');
+					
+					/* 만나이,가입기간 일수 계산 */										
+					var ajax1 = new keis.ajax("/ei/pf/calcAgeInfo.do", "GET", "json");
+					ajax1.addParam('type','ib');
+					ajax1.addParam('sid',ib_sid);
+					
+					ajax1.addParam('wkTm1', dateCvt($('#ib_wk_tm_1').val()));
+					ajax1.addParam('wkTm2', dateCvt($('#ib_wk_tm_2').val()));
+					ajax1.addParam('termMonth','-3');
+					
+					var callBack = function(data, oThis){
+						if(data.age>=100){
+							data.age=data.age-100;
+						}
+						$('#ib_result1').show();
+						$('#ib_result1 th[scope="row"]').html('퇴사당시 만나이 : ' + data.age + ' / 가입기간일수 : ' + data.period);
+					
+						$('#ib_result1_1').show();
+												
+						$('#ib_dateRow1 td:nth-child(1)').html(data.months.day1+' ~ '+data.months.day2);
+						$('#ib_dateRow2 td:nth-child(1)').html(data.months.day3+' ~ '+data.months.day4);
+						$('#ib_dateRow3 td:nth-child(1)').html(data.months.day5+' ~ '+data.months.day6);
+						$('#ib_dateRow1 td:nth-child(2)').html(data.months.term1 +'일');
+						$('#ib_dateRow2 td:nth-child(2)').html(data.months.term2 +'일');
+						$('#ib_dateRow3 td:nth-child(2)').html(data.months.term3 +'일');
+						sumDay = data.months.term1 + data.months.term2 + data.months.term3;
+						
+						$('#loading').css('display','none');
+						
+					};
+					
+					ajax1.send(callBack);		
+				}
+			}
+		}
+		
+	}
+	
+	var sumPay;
+	function calc1(){
+		sumPay = 0;
+		$.each($("[name='ib_monPay']"),function(){
+			sumPay += (uncomma($(this).val())*1);
+		});
+		$('#ib_avgPay').html(comma(parseInt(sumPay/sumDay)));
+		$('#ib_monFee').html(comma(parseInt((sumPay/3)*0.008)));
+	}
+	
+	function res1(){
+		/* 결과 계산 */	
+		var ib_sid = $('#ib_sid').val();
+		var ajax2 = new keis.ajax("/ei/pf/calcResult.do", "GET", "json");
+		ajax2.addParam('type','ib');
+		ajax2.addParam('sid',ib_sid);
+		ajax2.addParam('wkTm1', dateCvt($('#ib_wk_tm_1').val()) );
+		ajax2.addParam('wkTm2', dateCvt($('#ib_wk_tm_2').val()) );
+		ajax2.addParam('dspsnAt',$("[name=dspsnAt1]:checked").val());
+		ajax2.addParam('termMonth','-3');
+		ajax2.addParam('ave_sal',$('#ib_avgPay').html().replace(/,/gi, ''));
+		
+		$('#loading').css('display','flex');
+		var callBack = function(data, oThis){
+			$('#ib_result1_2').show();
+						
+			$('#ib_res_day').html(comma(data.day));
+			$('#ib_res_pay1').html(comma(data.ave));
+			$('#ib_res_pay2').html(comma(data.tot));			
+			
+			$('#loading').css('display','none');
+		
+			$('html, body').animate( {scrollTop:  $('#ib_result1_2').position().top} );
+		};
+		
+		ajax2.send(callBack);				
+	}
+	
+	
+	
+	/* 
+	일용근로자 모의계산 
+	*/
+	
+	function chk2(){
+		var ig_sid = $('#ig_sid').val();		
+		if ( ig_sid == "" || ig_sid.length != 6 ) {
+			alert("주민등록번호 앞 6자리를 입력하세요");
+			$('#ig_sid').focus();
+		}
+		if ($('#ig_year').val()  == "") {			
+			$('#ig_year').val(0);
+		} 
+		if ($('#ig_month').val() == "") {
+			alert("가입기간을 입력하세요");
+			$('#ig_month').focus();
+		} else {
+			if( Number($('#ig_month').val()) >= 12 ){
+				alert("가입기간 개월 수가 유효하지 않습니다. 다시 입력하세요.");
+				$('#ig_month').val("");
+				$('#ig_month').focus();
+				return ;
+			}
+			if(!$('#ig_last').val()){
+				alert("마지막 근무일자를 입력하세요.");
+				return;
+			}
+			var i = eval($('#ig_year').val())*12+eval($('#ig_month').val());
+			if(i<6){
+				alert("고용보험 가입기간이 180일미만일 경우 수급자격 불인정을 받을 수 있습니다");
+			}
+						
+			$('#loading').css('display','flex');
+			
+			/* 만나이,가입기간 일수 계산 */										
+			var ajax3 = new keis.ajax("/ei/pf/calcAgeInfo.do", "GET", "json");
+			ajax3.addParam('type','ig');
+			ajax3.addParam('sid',ig_sid);			
+			ajax3.addParam('wkTm2', dateCvt($('#ig_last').val()) );
+			ajax3.addParam('termMonth','-4');
+			
+			var callBack = function(data, oThis){
+				if(data.age>=100){
+					data.age=data.age-100;
+				}
+				$('#ig_result1').show();
+				$('#ig_result1 th[scope="row"]').html('퇴사당시 만나이 : ' + data.age);
+			
+				$('#ig_result1_1').show();
+				
+				$('#ig_dateRow1 td:nth-child(1)').html(data.months.day1+' ~ '+data.months.day2);
+				$('#ig_dateRow1 input[name=ig_day]').val(data.months.term1);
+				$('#ig_dateRow1 .ig_btDay').text(data.months.term1 + "일");
+				
+				$('#ig_dateRow2 td:nth-child(1)').html(data.months.day3+' ~ '+data.months.day4);
+				$('#ig_dateRow2 input[name=ig_day]').val(data.months.term2);
+				$('#ig_dateRow2 .ig_btDay').text(data.months.term2 + "일");
+				
+				$('#ig_dateRow3 td:nth-child(1)').html(data.months.day5+' ~ '+data.months.day6);
+				$('#ig_dateRow3 input[name=ig_day]').val(data.months.term3);
+				$('#ig_dateRow3 .ig_btDay').text(data.months.term3 + "일");
+				
+				sumDay = data.months.term1 + data.months.term2 + data.months.term3;
+				
+				$('#loading').css('display','none');
+				$('html, body').animate( {scrollTop:  $('#ig_result1_1').position().top} );
+			};
+			
+			ajax3.send(callBack);		
+			
+		}
+	}
+	
+	function calc2(){
+		sumPay = 0;
+		sumDay = 0;
+		$.each($("[name='ig_pay']"),function(){
+			sumPay += (uncomma($(this).val())*1);
+		});
+		$.each($("[name='ig_day']"),function(){
+			sumDay += (uncomma($(this).val())*1);
+		});
+		$('#ig_avePay').html(comma(parseInt(sumPay/sumDay)));
+		$('#ig_monFee').html(comma(parseInt((sumPay/3)*0.008)));
+	}
+	
+	function res2(){
+		var ig_sid = $('#ig_sid').val();
+		/* 결과 계산 */										
+		var ajax4 = new keis.ajax("/ei/pf/calcResult.do", "GET", "json");
+		ajax4.addParam('type','ig');
+		ajax4.addParam('sid',ig_sid);
+		ajax4.addParam('wkTm2', dateCvt($('#ig_last').val()) );
+		ajax4.addParam('termMonth','-4');
+		ajax4.addParam('ave_sal',$('#ig_avePay').html().replace(/,/gi, ''));
+		ajax4.addParam('prdY', $('#ig_year').val());
+		ajax4.addParam('prdM', $('#ig_month').val());
+		ajax4.addParam('dspsnAt',$("[name=dspsnAt2]:checked").val());
+		
+		$('#loading').css('display','flex');
+		var callBack = function(data, oThis){
+			$('#ig_result1_2').show();
+						
+			$('#ig_res_day').html(comma(data.day));
+			$('#ig_res_pay1').html(comma(data.ave));
+			$('#ig_res_pay2').html(comma(data.tot));			
+			
+			$('#loading').css('display','none');
+			$('html, body').animate( {scrollTop:  $('#ig_result1_2').position().top} );
+		};
+		
+		ajax4.send(callBack);				
+	}
+	
+	/*
+	자영업자 모의계산 
+	*/
+	
+	function add_row(){
+		var $row = $('#jy_basic_row').clone();
+		$row.css('display','table-row');
+		$row.addClass('data_row');
+		
+		$('#jy_tbl_inp tbody').append($row);
+		set_row_num();
+	}
+	
+	function del_row(obj){
+		if($('.data_row').length <= 1){
+			alert('최소 1개의 행이 있어야 합니다.');
+			return;
+		}
+		$(obj).parent().parent('.data_row').remove();
+		set_row_num();
+	}
+	
+	function set_row_num(){
+		var $rows = $('.data_row');
+		$.each($rows, function(i){
+			$(this).find('.blno').html(i+1);
+		});
+	}
+	
+	/* 가입년도에 따른 기준보수등급 체크 */
+	function fnCheckGrade() {		
+		var $rows = $('.data_row');	
+		var validate = true;
+		
+		$.each($rows, function(i){
+			var dateBeg = $(this).find('[name=date_beg]').val();
+			var grade = $(this).find('[name=grade]').val();
+			
+			if(dateBeg.substr(0,4) < 2016){				
+				if(grade == '5' || grade == '6') {
+					alert('기준보수등급 중 ‘6’,‘7’등급은 2016년 이후 자영업자 고용보험가입자만 해당됩니다.');
+					validate = false;
+				}
+			}
+		});
+		return validate;
+	}
+	
+	function validate_inp(){
+		var $rows = $('.data_row');
+		var validate = true;
+		var diffSum = 0;
+		
+		$.each($rows, function(i){
+			var dateBeg = $(this).find('[name=date_beg]').val().replace(/\-/g, '');
+			var dateEnd = $(this).find('[name=date_end]').val().replace(/\-/g, '');
+			var b_date = new Date(dateBeg.substr(0,4),dateBeg.substr(4,2)-1,dateBeg.substr(6,2));
+			var e_date = new Date(dateEnd.substr(0,4),dateEnd.substr(4,2)-1,dateEnd.substr(6,2));
+			
+			if(dateBeg == ""){
+				alert('가입시작일자를 입력하세요');
+				$(this).find('[name=date_beg]').focus();
+				validate = false;
+				return false;
+			}
+			if(dateEnd == ""){
+				alert('가입종료일자를 입력하세요');
+				$(this).find('[name=date_end]').focus();
+				validate = false;
+				return false;
+			}
+			if( b_date >  e_date ){
+				alert("가입시작일자가 가입종료일자보다 나중일 수 없습니다.");
+				$(this).find('[name=date_end]').focus();
+				validate = false;
+				return false;
+			}
+			if( dateBeg.substr(0,4) !=  dateEnd.substr(0,4)){
+				alert("가입시작일자와 가입종료일자는 같은 년도이어야 합니다.");
+				$(this).find('[name=date_end]').focus();
+				validate = false;
+				return false;
+			}
+
+			var diff = ((e_date - b_date) / 86400000) + 1;
+
+			diffSum += diff;
+		});
+		
+		if (diffSum < 365) {
+			alert("피보험 단위기간이 365일 미만이므로  \n\n수급자격이 없습니다.");
+			validate = false;
+			return false;
+		}
+		
+		if(!fnCheckGrade()) {
+			validate = false;
+			return false; 
+		}
+		
+		if(validate){
+			calc3();
+		}
+	}
+	
+	function calc3(){
+		var $rows = $('.data_row');
+		var basic_pay = [1540000, 1730000, 1920000, 2110000, 2310000, 2500000, 2690000];
+		var basic_pay2 = [1820000, 2080000, 2340000, 2600000, 2860000, 3120000, 3380000]; // 18.12.27 '19년 자영업자 기준보수 변경내용 추가
+		var month_days = [[1,31,0],[2,28,0],[3,31,0],[4,30,0],[5,31,0],[6,30,0],[7,31,0],[8,31,0],[9,30,0],[10,31,0],[11,30,0],[12,31,0]];
+		var tot_day = 0;
+		var tot_cost = 0;
+		
+		var lastEnde = 0;
+		var stdrYn = false;
+		
+		$.each($rows, function(i){
+			var dateBeg = $(this).find('[name=date_beg]').val().replace(/\-/g, '');
+			var dateEnd = $(this).find('[name=date_end]').val().replace(/\-/g, '');
+			var grade = parseInt($(this).find('[name=grade]').val());		
+			
+			// 18.12.27 '19년 자영업자 기준보수 변경내용 추가
+			if(dateBeg.substr(0,4) < 2019)
+				var b_pay = basic_pay[grade];
+			else
+				var b_pay = basic_pay2[grade];
+			
+			var b_date = new Date(dateBeg.substr(0,4),dateBeg.substr(4,2)-1,dateBeg.substr(6,2));
+			var e_date = new Date(dateEnd.substr(0,4),dateEnd.substr(4,2)-1,dateEnd.substr(6,2));
+			//var sum_day = (((e_date - b_date) / 86400000) );
+			var sum_day = 0;
+			var sum_cost = 0;
+			
+			if (i==0){
+				lastEnde = dateEnd;
+			} else {
+				if(lastEnde < dateEnd){
+					lastEnde = dateEnd;
+				}
+			}
+						 
+			 for(var i = 0; i< month_days.length; i++){
+				 // 첫달				 
+				if(month_days[i][0] == (b_date.getMonth()+1)){
+					var day_cnt = month_days[b_date.getMonth()][1] - b_date.getDate() + 1;					
+					sum_day += day_cnt;
+					if(day_cnt != month_days[b_date.getMonth()][1]){
+						sum_cost += Math.floor(b_pay / month_days[b_date.getMonth()][1]) * day_cnt; 
+					}else{
+						sum_cost += b_pay;
+					}								
+				//중간달	
+				}else if(month_days[i][0] > (b_date.getMonth()+1) && month_days[i][0] < (e_date.getMonth()+1)){
+					sum_day += month_days[i][1];
+					sum_cost += b_pay;
+				//마지막 달	
+				}else if(month_days[i][0] == (e_date.getMonth()+1)){					
+					var day_cnt = e_date.getDate();
+					sum_day += day_cnt;
+					if(day_cnt != month_days[e_date.getMonth()][1]){
+						sum_cost += Math.floor(b_pay /  month_days[e_date.getMonth()][1]) * day_cnt; 
+					}else{
+						sum_cost += b_pay;
+					}		
+				}//if문				
+			}
+		
+			tot_day += sum_day;
+			tot_cost += sum_cost;			
+		});
+		
+		if(lastEnde >= '20191001'){
+			stdrYn = true;
+		}
+		
+		// 가입기간에 따른 소정급여일수
+		// 2019.06.07 :: 구직급여 지급기간 확대에 따른 소정급여 일수 적용
+		var res_day = 0;
+		if (tot_day >= 365*1 && tot_day < 365*3) {
+			res_day = (stdrYn) ? 120 : 90;
+		} else if(tot_day >= 365*3 && tot_day < 365*5) {
+			res_day = (stdrYn) ? 150 : 120;
+		} else if(tot_day >= 365*5 && tot_day < 365*10) {
+			res_day = (stdrYn) ? 180 : 150;
+		} else if(tot_day >= 365*10) {
+			res_day = (stdrYn) ? 210 : 180;
+		}
+		var res_cost = stdrYn ? Math.floor((tot_cost/tot_day)*0.6) : Math.floor((tot_cost/tot_day)/2);
+		res_cost = Math.floor(res_cost/10)*10;
+		var res_sum = Math.floor(res_cost*res_day);
+		
+		$('#jy_res_day').html(comma(res_day));
+		$('#jy_res_cost').html(comma(res_cost));
+		$('#jy_res_sum').html(comma(res_sum));
+		$('#jy_res_area').show();
+		
+		$('html, body').animate( {scrollTop:  $('#jy_res_area').position().top} );
+	}
+	
+	function reset1(){
+		$('#ib_sid, #ib_wk_tm_1, #ib_wk_tm_2').val('');
+		$('[name=ib_monPay]').val('');
+		$('#ib_avgPay, #ib_monFee').html(0);
+		$('#ib_result1').hide();
+		$('#ib_result1_2').hide();		
+	}
+	
+	function reset2(){
+		$('#ig_sid, #ig_year, #ig_month, #ig_last').val('');
+		$('[name=ig_day], [name=ig_pay]').val('');
+		$('#ig_avePay, #ig_monFee').html(0);
+		$('#ig_result1').hide();
+		$('#ig_result1_2').hide();		
+	}
+	
+	function reset3(){
+		$('.data_row').remove();
+		add_row();
+		set_row_num();
+		$('#jy_res_area').hide();
+	}
+	
+	function maxLengthCheck(object){
+		if(object.value.length > object.maxLength)
+			{
+			object.value=object.value.slice(0,object.maxLength);
+			}
+	}
+	
+	function check_sid(obj) {
+		
+		if(obj.value != ""){
+			
+			var sid_y = obj.value.substring(0, 2);
+			var sid_m = obj.value.substring(4, 2);
+			var sid_d = obj.value.substring(6, 4);
+			
+			if (sid_m > 12 || sid_m < 1 ) {
+				alert("주민등록번호 상의 [월] 정보가 올바르지 않습니다.");
+				obj.value = "";
+				obj.focus();
+			} else {
+				if (sid_m == "02" ) {
+					if (sid_d<0 || sid_d>29) {
+						alert("주민등록번호 상의 [일] 정보가 올바르지 않습니다.");
+						obj.value = "";
+						obj.focus();
+					} 
+				} else if (sid_m == ("04"||"06"||"09"||"11")) {
+					if (sid_d<0 || sid_d>30) {
+						alert("주민등록번호 상의 [일] 정보가 올바르지 않습니다.");
+						obj.value = "";
+						obj.focus();
+					}				
+				} else {
+					if (sid_d<0 || sid_d>31) {
+						alert("주민등록번호 상의 [일] 정보가 올바르지 않습니다.");
+						obj.value = "";
+						obj.focus();
+					} 			
+				}
+			}
+		}
+	}
+	//-->
+	</script>
+</head>
+	
+<body>
+	<div id="container">
+		<header>
+			<aside>
+				<ul>
+					<li>
+						<a href="../index.html" id="btn_home">
+							<img src="/ei/images/mow/common/btn_home.png" alt="Home">
+						</a>
+					</li>
+					<li>
+						<h1><a href="../index.html" id="logo_top">
+							<img src="/ei/images/mow/common/logo.png" alt="고용보험"/>
+						</a></h1>
+					</li>
+					<li>
+						<a href="../MOW-CM-00-120-V.html" id="btn_menu" title="Sitemap">
+							<img src="/ei/images/mow/common/btn_sitemap.png" alt="Sitemap">
+						</a>
+					</li>
+				</ul>				
+			</aside>
+			<div id="nav_top">
+				<span onclick="location.href='../MOW-CM-00-140-V.html'">개인혜택</span>
+				<span>></span>
+				<span>실업급여 모의계산</span>
+			</div>
+		</header>
+		
+		<!-- content page start. s. -->
+		<div id="content">
+		
+		<div class="page">
+						<div class="contentInfo">	
+							<h3 class="titlea">미리 알아보는 나의 실업급여 모의계산</h3>
+							<strong class="pointBlue">“모의 계산은 실직(폐업) 시 수급 받을 수 있는 실업급여를 추정해 보는 것입니다”</strong><br>
+							<p>고용보험에 가입해 있는 피보험자가 실직할 경우 받게 될 실업급여를 모의 계산해 볼 수 있습니다.</p><br>
+							<strong class="pointBlue">“실제 수급일수 및 수급액과는 차이가 있을 수 있습니다“</strong><br>
+							<p>실업급여 모의 계산은 사용자가 입력한 최소한의 정보(고용보험 가입기간과 월 급여액)를 토대로 계산되므로, 실제 수급일수 및 수급액과는 차이가 있습니다.</p> 
+							<br>
+							<strong class="pointBlue">“실업급여 수급자격 해당 여부는 고용보험법 제40조 요건을 충족하여야 합니다”</strong><br>
+							<p><strong>아래 모의 계산 내용(고용보험 가입기간)만으로 실업급여 수급자격이 해당된다고 볼 수 없습니다.</strong> </p>
+							<p>(고용보험 가입기간 내 <strong>실제 근무한 일수 및 퇴사/폐업 사유</strong>에 따라 수급자격 인정 여부 판단) </p>
+							<p>따라서 정확한 실업급여 수급자격 해당 여부는 거주지 관할 고용센터로 문의하시기 바랍니다. </p><br>
+							<p>참고로, 실업급여 수급자격은 고용보험법 제40조의 요건을 충족하여야 하고, 이직일의 다음 날부터 12개월 내에 수급자에게 부여되는 소정급여일수 한도로 구직급여가 지급되므로, 소정급여일수가 남아 있다하더라도 수급기간이 만료되면 
+							남은 소정급여일수는 지급되지 않습니다.</p><br>
+							<p>따라서, 구직급여를 지급받고자 할 경우에는 이직 후 지체없이 거주지 관할 고용센터로 방문하여 실업 신고를 하시기 바라며,기타 실업급여에 관한 자세한 사항은 고용노동부 고객상담센터(국번없이 <a href="tel:1350">1350</a>) 또는 가까운 고용센터로 문의하시기 바랍니다.</p>
+							<div class="tabarea mt20">
+									<table>
+										<colgroup>
+											<col style="width: 30%">
+											<col style="width: 70%">
+										</colgroup>
+										<tbody>
+											<tr>
+												<th scope="row">모의계산 유형 선택</th>
+												<td class="tl">
+													<select onchange="javascript:chgTab(this);">
+														<option value="tab1">일반</option>
+														<option value="tab2">일용근로자</option>
+														<option value="tab3">자영업자</option>						
+													</select>
+												</td>											
+											</tr>
+										</tbody>
+									</table>
+							</div>
+						</div>
+						<div class="contentInfo mt30 tabdiv" id="tab1">
+							
+							<h4 class="titleb">실업급여 모의계산 해보기</h4>
+							
+							<p class="tr"><span class="star">*</span>표시된 부분은 필수 입력사항입니다.</p>
+							<p class="tr">※연령은 퇴사 당시의 만 나이를 나타냅니다.</p>
+							<!-- 연령과 근무시간으로 계산. s. -->
+							<div class="table">
+								<table class="default2">
+									<caption>실업급여 모의계산 해보기</caption>
+									<colgroup>
+										<col style="width: 30%">
+										<col style="width: 70%">
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col" class="tl" colspan="3">연령과 근무기간</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th scope="row" class="bcolorno"><label for="age"><span class="star">*</span>생년월일</label></th>
+											<td class="tl"><input type="number"  pattern="[0-9]*" id="ib_sid" placeholder="주민등록번호 앞6자리" maxlength="6" onblur="check_sid(this);" oninput="maxLengthCheck(this);">											
+											</td>											
+										</tr>
+										<!-- 2018.11.26 :: 장애인 여부 추가 - STA -->
+										<tr>
+											<th scope="row" class="bcolorno"><label for="lb_dspsnAt"><span class="star">*</span>장애인 여부</label></th>
+											<td class="tl" colspan="2">
+												<input type="radio" style="vertical-align:middle;" id="dspsnAt1" class="css-radio" name="dspsnAt1" value="Y" > <label for="dspsnAt1" class="css-rdoLabel"> 예</label>&nbsp;&nbsp;
+												<input type="radio" style="vertical-align:middle;" id="dspsnAt2" class="css-radio" name="dspsnAt1" value="N" checked> <label for="dspsnAt2" class="css-rdoLabel check_rdoInfoLabel"> 아니오</label>
+											</td>
+										</tr>									
+										<!-- 2018.11.26 :: 장애인 여부 추가 - END -->
+										<tr>
+											<th scope="row" class="bcolorno"><label for="applicant1"><span class="star">*</span>고용보험<br>총 가입기간</label></th>
+											<td class="tl">
+												<input type="date" id="ib_wk_tm_1" title="고용보험 가입기간 시작일">
+												<br/>~<br/>
+												 <input type="date" id="ib_wk_tm_2" title="고용보험 가입기간 종료일">
+											</td>
+										</tr>
+										<tr>
+											<th scope="col" class="tl" colspan="2">
+												실업급여 모의계산 결과는 실제 수급액, 수급자격 인정 여부와 차이가 있을 수 있으며, 특히 <strong>근무기간이 6∼7개월인 경우 피보험단위기간(무급휴일 제외) 180일 요건을 충족하지 못하여 수급자격이 인정되지 않을 수 있으므로</strong> 정확한 수급자격인정여부는 거주지 관할 고용센터에 직접 문의하시기 바랍니다.
+											</th>
+										</tr>
+										<tr id="ib_result1" style="display: none;"><th scope="row"  colspan="2" class="bcolorno  bold lightorg"></th></tr>
+									</tbody>
+								</table>			
+								<p class="tr mt10">
+									<a href="javascript:chk1()" class="btn48p pupl">확인</a>
+								</p>					
+							</div>
+							<!-- 연령과 근무시간으로 계산. e. -->
+							
+							<!-- 실업급여액으로 계산. s. -->
+							<div id="ib_result1_1" class="table mt30" style="display: none;">
+								<table class="default2">
+									<caption>실업급여액으로 계산 해보기</caption>
+									<colgroup>
+										<col style="width: 40%">
+										<col style="width: 20%">		
+										<col style="width: 40%">										
+									</colgroup>
+									<tbody>
+										<tr>
+											<th scope="row">실업급여액 계산기간<br>(최근 3개월)</th>
+											<th scope="row">근무기간</th>
+											<th scope="row"><span class="star">*</span>월 급여액</th>											
+										</tr>
+										<tr id="ib_dateRow1">
+											<td class="blno"></td>
+											<td></td>
+											<td><input name="ib_monPay" type="text" class="btn31p wht tr" placeholder="원" onblur="javascript:calc1()" onKeyPress="NumObj(this);" onKeyUp="inputNumberFormat(this);" maxlength="12"></td>
+										</tr>
+										<tr id="ib_dateRow2">
+											<td class="blno"></td>
+											<td></td>
+											<td><input name="ib_monPay" type="text" class="btn31p wht tr" placeholder="원" onblur="javascript:calc1()" onKeyPress="NumObj(this);" onKeyUp="inputNumberFormat(this);"  maxlength="12"></td>
+										</tr>
+										<tr id="ib_dateRow3">
+											<td class="blno"></td>
+											<td></td>
+											<td><input name="ib_monPay" type="text" class="btn31p wht tr" placeholder="원" onblur="javascript:calc1()" onKeyPress="NumObj(this);" onKeyUp="inputNumberFormat(this);" maxlength="12"></td>
+										</tr>										
+										<tr>
+											<th scope="row">1일 평균 급여액</th>
+											<td colspan="2" class="tl"><span id="ib_avgPay" class="ml20 mr10">0</span> 원<br/>(1일 평균급여액 = 최근 3개월 급여액 / 최근 3개월 근무기간)</td>
+										</tr>
+										<tr>
+											<th scope="row">월 납부 보험료</th>
+											<td colspan="2" class="tl"><span id="ib_monFee"  class="ml20 mr10">0</span> 원<br/>(월 납부 보험료 = 월 평균급여 X 0.8%)</td>
+										</tr>
+									</tbody>
+								</table>		
+								<p class="tr mt10">
+									<a href="javascript:reset1()" class="btn48p wht">초기화</a>
+									<a href="javascript:res1()" class="btn48p pupl">계산</a>
+								</p>						
+							</div>
+							<!-- 실업급여액으로 계산. e. -->
+							
+							<!-- 급여모의계산 결과. s. -->
+							<div id="ib_result1_2" class="table mt30" style="display: none;">
+								<table class="default2">
+									<caption>급여모의계산 결과보기</caption>
+									<colgroup>
+										<col style="width: 70%">
+										<col style="width: 30%">
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col" class="tl" colspan="2">급여모의계산 결과</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th scope="row" class="bcolorno">1일 실업급여 수급액<br>(구직급여일액)</th>
+											<td class="tr"><span id="ib_res_pay1" class="ml10 mr10">0</span> 원</td>
+										</tr>
+										<tr>
+											<th scope="row" class="bcolorno">예상 지급일 수<br>(소정급여일 수)</th>
+											<td class="tr"><span id="ib_res_day" class="ml10 mr10">0</span> 일</td>
+										</tr>
+										<tr>
+											<th scope="row" class="bcolorno">총 예상수급액<br>(1일 실업급여 수급액 X 예상 지급일 수)</th>
+											<td class="tr"><span id="ib_res_pay2" class="ml10 mr10">0</span> 원</td>
+										</tr>
+									</tbody>
+								</table>								
+							</div>
+							<!-- 급여모의계산 결과. e. -->
+						</div><!-- tab1 end -->
+						
+						<div class="contentInfo mt30 tabdiv" id="tab2" style="display: none;">
+							<h4 class="titleb">실업급여 모의계산 해보기</h4>
+							
+							<p class="tr"><span class="star">*</span>표시된 부분은 필수 입력사항입니다.</p>
+							<p class="tr">※연령은 퇴사 당시의 만 나이를 나타냅니다.</p>
+							<!-- 연령과 마지막근무일로 계산. s. -->
+							<div class="table">
+								<table class="default2">
+									<caption>실업급여 모의계산 해보기</caption>
+									<colgroup>
+										<col style="width: 30%">
+										<col style="width: 70%">
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col" class="tl" colspan="3">연령과 근무기간</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th scope="row" class="bcolorno"><label for="age"><span class="star">*</span>생년월일</label></th>
+											<td class="tl"><input type="number"  pattern="[0-9]*" class="btn31p wht" id="ig_sid" placeholder="주민등록번호 앞 6자리"  maxlength="6" onblur="check_sid(this);" oninput="maxLengthCheck(this);"></td>											
+										</tr>
+										<!-- 2018.11.26 :: 장애인 여부 추가 - STA -->
+										<tr>
+											<th scope="row" class="bcolorno"><label for="lb_dspsnAt"><span class="star">*</span>장애인 여부</label></th>
+											 <td class="tl" colspan="2">
+												<input type="radio" style="vertical-align:middle;" id="dspsnAt3" class="css-radio" name="dspsnAt2" value="Y" /> <label for="dspsnAt3" class="css-rdoLabel"> 예</label>&nbsp;&nbsp;
+												<input type="radio" style="vertical-align:middle;" id="dspsnAt4" class="css-radio" name="dspsnAt2" value="N" checked/> <label for="dspsnAt4" class="css-rdoLabel check_rdoInfoLabel"> 아니오</label>
+											</td>
+										</tr>									
+										<!-- 2018.11.26 :: 장애인 여부 추가 - END -->
+										<tr>
+											<th scope="row" class="bcolorno"><label for="applicant1"><span class="star">*</span>고용보험<br>총 가입기간</label></th>
+											<td class="tl">
+												<input type="number" class="w46p tr" placeholder="년" id="ig_year">
+												 <input type="number" class="w46p tr" placeholder="개월" id="ig_month">
+											</td>											
+										</tr>
+										<tr>
+											<th scope="col" class="tl" colspan="3">
+												실업급여 모의계산 결과는 실제 수급액, 수급자격 인정 여부와 차이가 있을 수 있으며, 특히 <strong>근무기간이 6∼7개월인 경우 피보험단위기간(무급휴일 제외) 180일 요건을 충족하지 못하여 수급자격이 인정되지 않을 수 있으므로</strong> 정확한 수급자격인정여부는 거주지 관할 고용센터에 직접 문의하시기 바랍니다.
+											</th>
+										</tr>
+										<tr>
+											<th scope="row" class="bcolorno"><label for="ig_last"><span class="star">*</span>마지막 근무일</label></th>
+											<td class="tl">
+												<input type="date" class="btn31p wht" id="ig_last">
+											</td>											
+										</tr>
+										<tr id="ig_result1" style="display: none;"><th scope="row"  colspan="2" class="bcolorno  bold lightorg"></th></tr>
+									</tbody>
+								</table>			
+								<p class="tr mt10"><a href="javascript:chk2()" class="btn48p pupl">확인</a></p>							
+							</div>
+							<!-- 연령과 마지막근무일로 계산. e. -->
+							
+							<!-- 실업급여액으로 계산. s. -->
+							<div id="ig_result1_1" class="table mt30" style="display: none;">
+								
+								<table class="default2">
+									<caption>실업급여액으로 계산 해보기</caption>
+									<colgroup>
+										<col style="width: 40%">
+										<col style="width: 20%">		
+										<col style="width: 40%">										
+									</colgroup>
+									<tbody>
+										<tr>
+											<th scope="row">실업급여액 계산기간<br/>(일직일 이전 4개월 중 최종 1개월을 제외한 3개월)</th>
+											<th scope="row">산정기간</th>
+											<th scope="row"><span class="star">*</span>월 급여액</th>											
+										</tr>
+										<tr id="ig_dateRow1">
+											<td class="blno"></td>
+											<td>
+												<span class="ig_btDay"></span> 
+												<input name="ig_day" type="hidden" value="">
+											</td>
+											<td><input name="ig_pay" type="text" pattern="[0-9]*" class="btn31p wht tr" placeholder="원" onblur="javascript:calc2()"  onKeyPress="NumObj(this);" onKeyUp="inputNumberFormat(this);" maxlength="12"></td>
+										</tr>
+										<tr id="ig_dateRow2">
+											<td class="blno"></td>
+											<td>
+												<span class="ig_btDay"></span>
+												<input name="ig_day" type="hidden" value="">
+											</td>
+											<td><input name="ig_pay" type="text" pattern="[0-9]*" class="btn31p wht tr" placeholder="원" onblur="javascript:calc2()"  onKeyPress="NumObj(this);" onKeyUp="inputNumberFormat(this);" maxlength="12"></td>
+										</tr>
+										<tr id="ig_dateRow3">
+											<td class="blno"></td>
+											<td>
+												<span class="ig_btDay"></span>
+												<input name="ig_day" type="hidden" value="">
+											</td>
+											<td><input name="ig_pay" type="text" pattern="[0-9]*" class="btn31p wht tr" placeholder="원" onblur="javascript:calc2()"  onKeyPress="NumObj(this);" onKeyUp="inputNumberFormat(this);" maxlength="12"></td>
+										</tr>										
+										<tr>
+											<th scope="row">1일 평균 임금</th>
+											<td colspan="2" class="tl"><span id="ig_avePay" class="ml20 mr10">0</span> 원<br/>(1일 평균 임금 = 이직일 이전4개월 중 최종 1개월을 제외한 3개월간의 임금 총액 / 이직일 이전 4개월중 최종 1개월을 제외한 3개월 간의 총 일수)</td>
+										</tr>
+										<tr>
+											<th scope="row">월 납부 보험료</th>
+											<td colspan="2" class="tl"><span id="ig_monFee"class="ml20 mr10">0</span> 원<br/>(월 납부 보험료 = 월 평균급여 X 0.8%)</td>
+										</tr>
+									</tbody>
+								</table>		
+								<p class="tr mt10">
+									<a href="javascript:reset2()" class="btn48p wht">초기화</a>
+									<a href="javascript:res2()" class="btn48p pupl">계산</a>
+								</p>								
+							</div>
+							<!-- 실업급여액으로 계산. e. -->
+							
+							<!-- 급여모의계산 결과. s. -->
+							<div id="ig_result1_2" class="table mt30" style="display: none;">
+								<table class="default2">
+									<caption>급여모의계산 결과보기</caption>
+									<colgroup>
+										<col style="width: 70%">
+										<col style="width: 30%">
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col" class="tl" colspan="2">급여모의계산 결과</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th scope="row" class="bcolorno">1일 실업급여 수급액<br>(구직급여일액)</th>
+											<td class="tl"><span id="ig_res_pay1" class="ml10 mr10">0</span> 원</td>
+										</tr>
+										<tr>
+											<th scope="row" class="bcolorno">예상 지급일 수<br>(소정급여일 수)</th>
+											<td class="tl"><span id="ig_res_day" class="ml10 mr10">0</span> 일</td>
+										</tr>
+										<tr>
+											<th scope="row" class="bcolorno">총 예상수급액<br>(1일 실업급여 수급액 X 예상 지급일 수)</th>
+											<td class="tl"><span id="ig_res_pay2" class="ml10 mr10">0</span> 원</td>
+										</tr>
+									</tbody>
+								</table>	
+							</div>
+							<!-- 급여모의계산 결과. e. -->
+						</div><!-- tab2 end -->
+						
+						<div class="contentInfo mt30 tabdiv" id="tab3" style="display: none;">
+							<h4 class="titleb">실업급여 모의계산 해보기</h4>
+							
+							<p class="tr"><span class="star">*</span>표시된 부분은 필수 입력사항입니다.</p>
+							<!-- 연령과 마지막근무일로 계산. s. -->
+							<div class="table">
+								<table id="jy_tbl_inp" class="default2">
+									<caption>실업급여 모의계산 해보기</caption>
+									<colgroup>
+										<col style="width: 10%">
+										<col style="width: 40%">
+										<col style="width: 25%">
+										<col style="width: 25%">
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col">연번</th>
+											<th scope="col"><span class="star">*</span>가입기간</th>
+											<th scope="col"><span class="star">*</span>등급</th>
+											<th scope="col"><a href="javascript:add_row();" class="btn98p pupl">+ 추가</a></th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- 기준 row -->
+										<tr id="jy_basic_row" style="display: none;">
+											<td class="blno"></td>
+											<td class="tl">
+												<input type="date" class="btn31p wht" placeholder="0000/00/00" name="date_beg">
+												<br/>~<br/>
+												 <input type="date" class="btn31p wht" placeholder="0000/00/00"  name="date_end">											
+											</td>
+											<td>
+												<select title="등급 조회" class="w120" name="grade" onchange="fnCheckGrade(this)">
+													<option value="0">1</option>
+													<option value="1">2</option>
+													<option value="2">3</option>
+													<option value="3">4</option>
+													<option value="4">5</option>
+													<option value="5">6</option>
+													<option value="6">7</option>
+												</select>
+											</td>
+											<td><a class="btn98p wht etcTxt" onclick="del_row(this)">-삭제</a></td>
+										</tr>
+										<!-- 기준 row end -->
+	
+										<tr  class="data_row">
+											<td class="blno">1</td>
+											<td class="tl">
+												<input type="date" class="btn31p wht" placeholder="0000/00/00" name="date_beg">
+												<br/>~<br/>
+												 <input type="date" class="btn31p wht" placeholder="0000/00/00"  name="date_end" >											
+											</td>
+											<td>
+												<select title="등급 조회" class="w120" name="grade" onchange="fnCheckGrade(this)">
+													<option value="0">1</option>
+													<option value="1">2</option>
+													<option value="2">3</option>
+													<option value="3">4</option>
+													<option value="4">5</option>
+													<option value="5">6</option>
+													<option value="6">7</option>
+												</select>
+											</td>
+											<td><a class="btn98p wht etcTxt" onclick="del_row(this)">-삭제</a></td>
+										</tr>										
+									</tbody>
+								</table>
+								<p class="tc mt10">
+									<a href="javascript:reset3()" class="btn48p wht">초기화</a>
+									<a href="javascript:validate_inp()" class="btn48p pupl">계산</a>
+								</p>							
+							</div>
+							<!-- 연령과 마지막근무일로 계산. e. -->
+							
+							<!-- 급여모의계산 결과. s. -->
+							<div id="jy_res_area" class="table mt30" style="display: none;" >
+								<table class="default2">
+									<caption>급여모의계산 결과보기</caption>
+									<colgroup>
+										<col style="width: 75%">
+										<col style="width: 25%">
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col" class="tl" colspan="2">급여모의계산 결과</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th class="bcolorno" scope="row">1일 실업급여 수급액<br>(구직급여일액)</th>
+											<td class="tr"><span id="jy_res_cost" class="ml10 mr10">0</span> 원</td>
+										</tr>
+										<tr>
+											<th class="bcolorno" scope="row">예상 지급일 수<br>(소정급여일 수)</th>
+											<td class="tr"><span id="jy_res_day" class="ml10 mr10">0</span> 일</td>
+										</tr>
+										<tr>
+											<th class="bcolorno" scope="row">총 예상수급액<br> (1일 실업급여 수급액 X 예상 지급일 수)</th>
+											<td class="tr"><span id="jy_res_sum" class="ml10 mr10">0</span> 원</td>
+										</tr>
+									</tbody>
+								</table>	
+							</div>
+							<!-- 급여모의계산 결과. e. -->
+						</div>
+
+						<div class="contentInfo">
+							<strong class="pointBlue">1일 구직급여 수급액</strong>
+							<ul class="blueDot">
+								<li>1일 구직급여 수급액은 퇴직 전 3개월간의 1일 평균급여의 60%입니다.
+								<br>(이직일이 2019.10.1 이전은 퇴직 전 3개월간의 1일 평균임금의 50%)</li>
+								<li>상한액은 이직일이 2019년 1월 이후는 1일 66,000원 입니다.('18년 1월 이후는 60,000원 / '17년 4~12월은 50,000원 / '17년 1~3월은 46,584원 / '16년은 43,416원)</li>
+								<li>1일 구직급여 수급액이 최저임금일액의 80% 미만인 경우에는 최저임금일액의 80%로 계산됩니다.
+								<br>(이직일이 2019.10.1 이전은 1일 구직급여 수급액이 최저임금일액의 90% 미만인 경우에는 최저임금일액의 90%로 계산)
+								</br> * 단, 계산된 하한액(최저임금의 80%)이 19.9월 현재 하한액(60,120원, 소정근로 8시간 기준)보다 낮은 경우에는 현재 구직급여 하한액을 적용</li>
+								<li>최저 구직급여일액은 가입종료일을 기준으로 해당연도 최저임금일액으로 계산됩니다.</li>
+								<li>하한액은 이직일이 2019년 1월 이후 1일 60,120원 / 2018년 1월 이후는 54,216원 / 2017년은 46,584원 / 2016년은 43,416원(소정근로시간 8시간 기준)</li>
+							</ul>
+						</div>
+
+						<div class="contentInfo">
+							<li>※ 자영업자의 경우 구직급여, 직업능력개발수당, 광역구직활동비, 이주비는 적용되나, 연장급여, 조기재취업수당 등은 적용되지 않음</li>							
+						</div>
+												
+						<div class="contentInfo last">
+							<strong class="pointBlue">예상지급일 수</strong>
+							<ul class="blueDot">
+								<li>예상지급일 수는 퇴직 당시 연령 과 고용보험 가입기간에 따라 최소 120일에서 최대 270일까지로 계산 됩니다.
+								<br>(이직일이 2019.10.1 이전은 최소 90일에서 최대 240일)</li>
+							</ul>
+							
+							<p class="mt30">구직급여에 관하여 궁금하신 내용은 실업급여 상세 안내 페이지 및 가까운 고용센터로 문의하시기 바랍니다.</p>
+							<p class="tc mt20">
+								<a href="MOW-PF-00-140-C.html" class="btn48p pupl">실업급여 안내</a>
+								<a href="../MOW-CM-00-160-V.html" class="btn48p pupl">센터찾기</a>
+							</p>
+							
+						</div>
+						
+					</div>
+					
+			<!-- 로딩이미지 -->
+			<div id="loading" style="display: none;">
+				<img alt="loading..." src="/ei/images/mow/common/loading_circle.gif">
+			</div>		
+
+		</div>
+		<!-- content page start. e. -->
+		
+		<footer>
+			<a title="홈으로 버튼" href="../index.html">홈으로</a>
+			<a title="PC버전 보기 버튼" href="/ei/eih/cm/hm/main.do" style="width: 100px;">PC버전 보기</a>
+			<a title="모바일 앱 설치 버튼" href="javascript:fnToAppInstall();" style="width: 110px;">모바일 앱 설치</a>
+			<address>copyright 2014. 고용정보원</address>
+		</footer>
+	</div>
+</body>
+</html>

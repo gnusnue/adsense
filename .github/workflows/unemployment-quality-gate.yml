@@ -1,0 +1,37 @@
+name: unemployment-quality-gate
+
+on:
+  pull_request:
+    paths:
+      - 'unemployment/**'
+      - '.github/workflows/unemployment-*.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: unemployment-quality-gate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    env:
+      SITE_BASE_URL: https://unemployment.cbbxs.com
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        working-directory: unemployment
+        run: |
+          python -m venv .venv
+          .venv/bin/pip install --upgrade pip
+          .venv/bin/pip install -r requirements.txt
+
+      - name: Build unemployment site
+        working-directory: unemployment
+        run: .venv/bin/python scripts/build_site.py --site-base-url "$SITE_BASE_URL"

@@ -1,60 +1,31 @@
-# adsense-policy-automation
+# adsense monorepo
 
-정책/보조금 롱테일 SEO 사이트를 자동 생성하는 파이프라인입니다.
+This repository is split into two independent workspaces:
 
-## Stack
+- `policy/`: government support policy ingestion, static generation, and deployment
+- `unemployment/`: unemployment-benefit site and assets
 
-- Static serving: Cloudflare Pages
-- Automation: GitHub Actions
-- Data store: JSON snapshots in Git
-- Runtime: Python 3.11+
+## Workflows
 
-## Directory
+- `policy-refresh` -> `policy-deploy`
+- `unemployment-refresh` -> `unemployment-deploy`
+- `policy-quality-gate` (PR validation for `policy/`)
 
-- `apps/site`: generated static site output (`dist`)
-- `data/sources`: source connector configs (`*.yaml`, JSON-subset YAML)
-- `data/raw/YYYY-MM-DD`: raw snapshots by source
-- `data/canonical`: normalized datasets (`latest`, `previous`)
-- `artifacts/runs/{run_id}`: run artifacts (reports, manifests)
-- `agents/*`: team role definitions and skills
-- `.github/workflows`: CI/CD pipelines
+## Local build
 
-## Quickstart
+Policy:
 
 ```bash
-python3 -m venv .venv
+cd policy
+python -m venv .venv
 .venv/bin/pip install -r requirements.txt
-.venv/bin/python scripts/run_pipeline.py --run-id local-001 --mode bootstrap --site-base-url https://cbbxs.com
+.venv/bin/python scripts/build_site_from_canonical.py --run-id local --site-base-url https://cbbxs.com
 ```
 
-Generated site is written to `apps/site/dist`.
-
-## Required Secrets (GitHub)
-
-- `DATA_GO_KR_API_KEY` (data.go.kr `Decoding` key 권장, 기본)
-- `CLOUDFLARE_API_TOKEN`
-- `CLOUDFLARE_ACCOUNT_ID`
-- `PAGES_PROJECT_NAME`
-- `ADSENSE_CLIENT_ID` (optional)
-- `GA_MEASUREMENT_ID` (optional, example: `G-XXXXXXXXXX`)
-
-## Optional Secrets (future source expansion)
-
-- `KSTARTUP_API_KEY`
-
-## Pipeline Commands
+Unemployment:
 
 ```bash
-.venv/bin/python scripts/preflight_check.py --profile refresh --allow-missing-adsense
-.venv/bin/python scripts/run_pipeline.py --run-id daily-20260217 --mode daily --site-base-url https://cbbxs.com
-.venv/bin/python scripts/quality_gate.py --canonical data/canonical/latest/policies.json --site-dir apps/site/dist
-.venv/bin/python scripts/verify_public_urls.py --base-url https://cbbxs.com
+cd unemployment
+python -m venv .venv
+.venv/bin/python scripts/build_site.py --site-base-url https://unemployment.cbbxs.com
 ```
-
-## Notes
-
-- Source config files are `.yaml` but parsed as JSON-subset YAML for minimal dependencies.
-- If all primary sources fail, pipeline marks `hard_fail` and blocks deploy.
-- All Python scripts enforce `.venv` execution.
-- Runtime policy log: `docs/decision-log.md`
-- Go-live checklist: `docs/cbbxs-go-live.md`

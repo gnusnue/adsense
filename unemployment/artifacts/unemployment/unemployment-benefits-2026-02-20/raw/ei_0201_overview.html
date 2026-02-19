@@ -1,0 +1,1781 @@
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+
+
+
+
+
+
+
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/> 
+<!-- <meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Pragma" content="no-store" /> 
+<meta http-equiv="Cache-Control" content="no-cache; must-revalidate" />
+<meta http-equiv="Expires" content="-1" /> -->
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0"/>
+<meta name="description" content="실업급여안내" />
+<meta property="pilms_title" content="개인혜택 > 실업급여안내" />
+<meta property="pilms_menu" content="실업급여안내" />
+<meta property="pilms_menuId" content="1212230204" />
+<meta property="pilms_filename" content="/ei/eih/eg/pb/pbPersonBnef/retrievePb0201Info.do" />
+
+<!--[if lte IE 9 ]>
+<script src="/ei/js/plugin/placeholders.js"></script>
+<link rel="stylesheet" href="/ei/css2/ie9.css">
+<![endif]-->
+
+
+
+
+
+
+
+<script type="text/javascript">
+<!--
+	function addOnLoad(funcName){
+		if (window.addEventListener)	{ //Dom Standard
+			window.addEventListener( 'load' , funcName, false );
+		} else if(window.attachEvent){
+			window.attachEvent('onload', funcName); 
+		}
+	}
+	
+	var extendLoginYn = true;
+	var extendTimerPrd = 1000 * 60 * 55;  
+	
+	function extendLoginCheck(){
+		if(extendLoginYn){
+			window.open("/ei/eih/cm/common/extendLoginCheckPop.do", "extendLoginCheck", "width=500, height=300, scrollbars=no, resizable=no");
+		}
+	}
+	
+	var intervalId, timerId, initDateTime;
+	function initLoginExtend(){
+		clearInterval(intervalId);
+		clearTimeout(timerId);
+		
+		initDateTime = new Date().getTime();
+		
+		//상단 타이머(60분)
+		var time = 60*60+1; // 60분
+		intervalId = setInterval(function(){
+			currDateTime = new Date().getTime();
+			currTime = time + Math.floor((initDateTime-currDateTime) / 1000);
+			
+			if(currTime < 0) {
+				location.href="/ei/eih/cm/lg/processLgLogout.do";
+				return ;
+			}
+
+			var min = Math.floor(currTime / 60);
+			var sec = Math.floor(currTime % 60);
+				
+			
+			min = min < 10 ? "0" + min : min;
+			sec = sec < 10 ? "0" + sec : sec;
+			
+			$("#loginTime").text(min + ":" + sec);
+		}, 300);
+		
+		//로그인 연장 팝업 타이머(55분)
+		timerId = setTimeout("extendLoginCheck()", extendTimerPrd); 
+	}
+	
+	function unityLogin() {
+		var action = "/ei/eih/cm/lg/processUnityLogin.do";
+		var form_data = "moelSTKN=" + "";
+		
+		$.ajax({
+			type: "POST",
+		    url: action,
+		    data: form_data,
+		    dataType: 'text',
+		    contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+			error: function(data) {
+				alert("로그인에 실패하였습니다.");
+				location.replace("/ei/eih/cm/hm/main.do");
+			},
+			success: function(data) {
+				if(data != null && data != "") { 
+					fn_unityLoginResult($.parseJSON(data));
+				}
+
+				
+			}
+		});
+	}
+	
+	function doExtendLogin(){
+	var action = "/ei/eih/cm/lg/newSessionExtend.do";
+	var form_data = "id=";
+	$.ajax({
+		type: "POST",
+	    url: action,
+	    data: form_data,
+	    dataType: 'text',
+	    contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		error: function(data) {
+			location.replace("/ei/eih/cm/hm/main.do");
+		},
+		success: function(data) {
+			if(data != null && data != "") { 
+				initLoginExtend();
+				alert("연장되었습니다.");
+			} else {
+				alert("이미 세션이 만료되었습니다. 다시 로그인하시기 바랍니다.");
+				location.replace("/ei/eih/cm/hm/main.do");
+			}
+		}
+	});
+}
+	
+	function fn_unityLoginResult(data) {
+		var message = data.message;
+		var url = data.url;
+		
+		if(message != null && message != "") {
+			alert(message);
+		}
+		
+		if(url != null && url != "") {
+			location.replace(url);	
+		} 
+	}
+	
+	
+	
+		
+	
+	
+-->
+</script>
+
+
+
+<link rel="shortcut icon" href="/ei/images/common/ei.ico"/>
+<script type="text/javascript">
+<!--
+	document.oncontextmenu = new Function('return false');				//no right mouse
+-->   
+</script>
+
+
+<script type="text/javascript">
+if(typeof jQuery == "undefined") { 
+	document.write("<script type=\"text/javascript\" src=\"/ei/raonsecure/TouchEn/jquery/jquery-1.6.3.js\"></scr"+"ipt>");
+}
+
+var brows 	= "";
+var ua 		= window.navigator.userAgent;
+
+if (ua.indexOf('MISIE') > 0 || ua.indexOf('Trident') > 0) brows = "IE";
+else if (ua.indexOf('Opera') > 0 || ua.indexOf('OPR') > 0) brows = "Opera";
+else if (ua.indexOf('Firefox') > 0 ) brows = "Firefox";
+else if (ua.indexOf('Safari') > 0 ) { 
+	if (ua.indexOf('Chrome') > 0 ) brows = "Chrome";
+	else brows = "Safari";
+}
+ 
+var isTouchEnKeyFlag = true; 
+if (   location.pathname.indexOf('/ei/eih/eg/')== 0 
+	|| location.pathname.indexOf('/ei/eih/st/') == 0 
+	|| location.pathname.indexOf('/ei/eih/cp/') == 0 
+	|| location.pathname.indexOf('/ei/eih/cm/bs/') == 0
+	|| location.pathname == "/ei/eih/common/retrieveAosPopup.do"
+	|| location.pathname == "/ei/eih/em/ml/retrieveMl0150Info.do" 
+	|| location.pathname == "/ei/eih/pm/ml/retrieveMl0150Pop.do" 
+	|| location.pathname == "/ei/eih/pm/pl/retrievePl0150Pop.do"  
+	|| location.pathname == "/ei/eih/pu/retrieveTkitPrntng.do" 
+	|| location.pathname == "/ei/eih/et/retrieveCochdPreview.do" 
+	|| location.pathname == "/ei/eih/et/retrieveDlyLaborDtlPreview.do"
+	|| location.pathname == "/ei/eih/em/pl/retrievePl0160Info.do" 
+	|| location.pathname == "/ei/eih/et/retrieveAcqsPreview.do" 
+	|| location.pathname == "/ei/eih/in/is/retrieveIsEminsrSubcrAtPrint.do" 
+	|| location.pathname == "/ei/eih/in/is/printIsEminsrSubcrList.do" 
+	|| location.pathname == "/ei/eih/et/retrieveAgentPreview.do"
+	|| location.pathname == "/ei/eih/et/retrieveFrftrPreview.do"  
+	|| location.pathname == "/ei/eih/em/ml/retrieveMl0250Info.do" 
+	|| location.pathname == "/ei/eih/in/is/retrieveIsDlyLaborDtlInfo.do" 
+	|| location.pathname == "/ei/eih/em/pl/retrievePl0160Info.do"
+	|| location.pathname == "/ei/eih/cm/hm/main.do"
+	|| location.pathname.indexOf('PrintPopup') > 0 ) {
+	isTouchEnKeyFlag = false;
+}
+
+if(location.pathname == "/ei/eih/cp/cc/ccCpaGudnce/retrieveCc315Info.do"){
+	isTouchEnKeyFlag = true;
+}
+
+if(isTouchEnKeyFlag){
+	document.write("<script type=\"text/javascript\" src=\"" + "/ei/raonsecure/TouchEn/cmn/TouchEnNx.js?version="+ new Date().getTime() + "\"></scr"+"ipt>");
+}
+</script>
+
+<script type="text/javascript">
+
+function getCookieGlobal( cookieName ) {
+	var search = cookieName + "=";
+	var cookie = document.cookie;
+	if( cookie.length > 0 ) {
+		startIndex = cookie.indexOf( cookieName );	
+		if( startIndex != -1 ) {
+			startIndex += cookieName.length;
+			endIndex = cookie.indexOf( ";", startIndex );
+			if( endIndex == -1) endIndex = cookie.length;
+			return unescape( cookie.substring( startIndex + 1, endIndex ) );
+		} else {
+			return null;
+			}
+	} else {
+		return null;
+	}
+}
+
+$(document).ready(function() {
+	var chkTouchEnKey = getCookieGlobal('chkTouchEnKey');
+	if(chkTouchEnKey=="Y" && isTouchEnKeyFlag){
+		TouchEnNx.init();
+	} else {
+		try {
+			var tFnObj1 = com_number_format;
+			var tFnObj2 = com_obj_format_chk;
+			
+			$("input:text[data-datatype=n]").keyup(function(e){
+				tFnObj1($(this)[0], 20, 0, false);
+				$(this).val($(this).val().replace(/,/g,'')) 
+			});
+			
+			$("input:text[data-datatype=c]").keyup(function(e){
+				tFnObj2($(this)[0], 20, 0, false);
+			});
+		} catch(e){
+			//console.log(e);
+		}
+	}
+});
+
+</script>
+
+
+
+<script type="text/javascript">
+	var scrollFlag = false;
+	//if(window.console == undefined) console = {log:function(){}};
+	$(document).ready(function() {
+		var iconPointImgStr = "<img src='/ei/images/eih/pu/iconPoint_o.png' alt='정보' style='vertical-align:middle;padding: 8px;margin-left: 0px;'>";
+		$(".pointIcon2").prepend(iconPointImgStr + " ");	
+		$(".pointIconTH").each(function(){
+			var title = $(this).attr("title");
+			var obj = (title == "" || title == undefined) ? "" : $("<a href='javascript:void(0);' />").attr("title", title).append(iconPointImgStr);  
+			$(this).append(obj);
+			
+			$(this).on("click", "a",function(){
+				alert($(this).attr("title"));
+			});
+		});
+		
+		//$("a.cal2, a.cal").attr("tabindex", -1);
+		$("a.cal2, a.cal").find("img").attr("alt", "달력");
+		
+		if(navigator.userAgent.toLowerCase().indexOf('chrome') == -1) {
+			$(document).on("click", ".btnB", function(){
+				scrollFlag = true;
+				setTimeout(function(){scrollFlag = false;}, 1000);
+			});
+			
+			$("input, select").focus(function(){
+				if(scrollFlag) {
+					$(window).scrollTop($(window).scrollTop() - ($(window).height() / 2) + 62);
+					scrollFlag = false;
+				}
+			});
+		}
+	});
+</script>
+<style type="text/css">
+	#footer .branch-banner .branch-slider > div {
+		display: inline-block;
+		line-height: 41px;
+		vertical-align: top;
+		margin-right: 40px;
+	}
+</style>
+<title>고용보험 제도 - 개인혜택 -실업급여란?</title>
+<link rel="stylesheet" href="/ei/css2/common.css" />
+<link rel="stylesheet" href="/ei/css2/commoncss.css" />
+<link rel="stylesheet" href="/ei/css2/customer.css" />
+<link rel="stylesheet" href="/ei/css2/rhdydinfo.css" />
+<script type="text/javascript" src="/ei/js/eih/jquery/jquery-1.10.1.min.js"></script>
+</head>
+<body class="customer">
+	
+	
+
+
+
+<div id="skipnav"><a href="#content">본문바로가기</a></div>
+
+	
+	<!-- Top Area. -->
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+<!--
+	//공동인증서 로그인
+	function fn_menuAuthCheck(returnUrl) {
+		alert("로그인 이후에 사용하시기 바랍니다.");
+		$("#mForm #returnUrl").val(returnUrl);
+		$("#mForm").attr("action", "/ei/eih/cm/lg/lgLogList210.do");
+		$("#mForm").submit();
+	}
+	
+	//공동인증서 로그인(기업으로 로그인시 연결)
+	function fn_menuAuthCheck2(returnUrl) {
+		if(returnUrl == "/eih/et/createAcqsView.do"){
+			location.href = "/ei" +returnUrl;
+			return;
+		}
+		
+		$("#mForm #returnUrl").val(returnUrl);
+		$("#mForm").attr("action", "/ei/eih/cm/lg/lgLogList110.do");
+		$("#mForm").submit();
+	}
+	
+	//최초로그인시 회원수정주소로 보냄
+	function fn_menuAuthCheck3() {
+		alert("처음 가입후 로그인시 개인정보를 입력하셔야 합니다.");
+		$("#mForm").attr("action", "/ei/eih/cm/mp/mpUpdMemberInfo.do");
+		$("#mForm").submit();
+	}
+	
+	/**
+	 * 검색
+	 */
+	function f_unity_select() {
+		
+		var searchWord = $("#searchKeyword").val();
+		
+		if(searchWord == "" || searchWord == null){
+			alert("검색어를 입력해주세요");
+			return;
+		}else{
+			$("#searchForm #pageIndex").val(1);
+			$("#searchForm").attr("action", "/ei/eih/cp/cc/ccIntegrdSrch/retrieveCc800Info.do");
+		    $("#searchForm").submit();
+		}
+	}
+	
+	function fn_AlertClose(){
+		alert("고용보험 홈페이지는 7월말 종료 예정 입니다.\n이에 기존에 제공된 통계는 아래의 사이트에서 확인이 가능 합니다.\n*정형: https://www.keis.or.kr > 연구성과 > 고용DB 분석자료 >\n        고용보험통계\n*비정형: https://eis.work.go.kr > 노동시장,대상별현황,일자리지원사업");
+		return;
+	}
+-->  
+
+</script>
+  <!-- header. s. -->
+  <script type="text/javascript" src="/ei/js2/custom.js?v7"></script>
+<div id="header">
+	<!-- <div class="n-main-top-notice" style="display:block;">
+		<div class="inner">
+			<marquee>
+				<ul>
+					<li>스토리지(저장장치) 작업으로 인한 일시적으로 사이트 이용 불편 안내 <span>(2021-10-16(토) 02:30 ~ 2021-10-17(일) 14:00)</span></li>
+					<li>홈페이지 개선을 위한 서버점검에 따른 이용 불편 안내 <span>(2021-10-16(토) 02:30 ~ 2021-10-17(일) 14:00)</span></li>
+				</ul>
+			</marquee>
+			<a href="" class="close">공지사항 닫기</a>
+		</div>
+	</div> -->
+	<!-- gnb -->
+	<div class="gnb-area">
+		<span style="padding-right:15px;">
+			<!-- <a href="https://eis.work.go.kr" target="_blank">
+			<img src="data:image/png;base64,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0p8zAAA7jmlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzIgNzkuMTU5Mjg0LCAyMDE2LzA0LzE5LTEzOjEzOjQwICAgICAgICAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iCiAgICAgICAgICAgIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIgogICAgICAgICAgICB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIgogICAgICAgICAgICB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iCiAgICAgICAgICAgIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIKICAgICAgICAgICAgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iCiAgICAgICAgICAgIHhtbG5zOmV4aWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vZXhpZi8xLjAvIj4KICAgICAgICAgPHhtcDpDcmVhdG9yVG9vbD5BZG9iZSBQaG90b3Nob3AgQ0MgMjAxNS41IChXaW5kb3dzKTwveG1wOkNyZWF0b3JUb29sPgogICAgICAgICA8eG1wOkNyZWF0ZURhdGU+MjAyMS0wNy0yN1QxMzozMTo0MiswOTowMDwveG1wOkNyZWF0ZURhdGU+CiAgICAgICAgIDx4bXA6TWV0YWRhdGFEYXRlPjIwMjEtMDctMjdUMTM6MzE6NDIrMDk6MDA8L3htcDpNZXRhZGF0YURhdGU+CiAgICAgICAgIDx4bXA6TW9kaWZ5RGF0ZT4yMDIxLTA3LTI3VDEzOjMxOjQyKzA5OjAwPC94bXA6TW9kaWZ5RGF0ZT4KICAgICAgICAgPHhtcE1NOkluc3RhbmNlSUQ+eG1wLmlpZDo2ZWFmNDVhOS1lYjM3LTUyNDUtYTU0Yy00ZDVmMjQwZTgxYzA8L3htcE1NOkluc3RhbmNlSUQ+CiAgICAgICAgIDx4bXBNTTpEb2N1bWVudElEPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDo3Zjk3ZmI0NC1lZTkzLTExZWItODRlYy1mYzZkYWRiNDUyNTg8L3htcE1NOkRvY3VtZW50SUQ+CiAgICAgICAgIDx4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ+eG1wLmRpZDpkOTBjMzRjMy05NzlkLWVjNDEtODc2Yy01ZmEzMmZjNmU1YjY8L3htcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD4KICAgICAgICAgPHhtcE1NOkhpc3Rvcnk+CiAgICAgICAgICAgIDxyZGY6U2VxPgogICAgICAgICAgICAgICA8cmRmOmxpIHJkZjpwYXJzZVR5cGU9IlJlc291cmNlIj4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OmFjdGlvbj5jcmVhdGVkPC9zdEV2dDphY3Rpb24+CiAgICAgICAgICAgICAgICAgIDxzdEV2dDppbnN0YW5jZUlEPnhtcC5paWQ6ZDkwYzM0YzMtOTc5ZC1lYzQxLTg3NmMtNWZhMzJmYzZlNWI2PC9zdEV2dDppbnN0YW5jZUlEPgogICAgICAgICAgICAgICAgICA8c3RFdnQ6d2hlbj4yMDIxLTA3LTI3VDEzOjMxOjQyKzA5OjAwPC9zdEV2dDp3aGVuPgogICAgICAgICAgICAgICAgICA8c3RFdnQ6c29mdHdhcmVBZ2VudD5BZG9iZSBQaG90b3Nob3AgQ0MgMjAxNS41IChXaW5kb3dzKTwvc3RFdnQ6c29mdHdhcmVBZ2VudD4KICAgICAgICAgICAgICAgPC9yZGY6bGk+CiAgICAgICAgICAgICAgIDxyZGY6bGkgcmRmOnBhcnNlVHlwZT0iUmVzb3VyY2UiPgogICAgICAgICAgICAgICAgICA8c3RFdnQ6YWN0aW9uPnNhdmVkPC9zdEV2dDphY3Rpb24+CiAgICAgICAgICAgICAgICAgIDxzdEV2dDppbnN0YW5jZUlEPnhtcC5paWQ6NmVhZjQ1YTktZWIzNy01MjQ1LWE1NGMtNGQ1ZjI0MGU4MWMwPC9zdEV2dDppbnN0YW5jZUlEPgogICAgICAgICAgICAgICAgICA8c3RFdnQ6d2hlbj4yMDIxLTA3LTI3VDEzOjMxOjQyKzA5OjAwPC9zdEV2dDp3aGVuPgogICAgICAgICAgICAgICAgICA8c3RFdnQ6c29mdHdhcmVBZ2VudD5BZG9iZSBQaG90b3Nob3AgQ0MgMjAxNS41IChXaW5kb3dzKTwvc3RFdnQ6c29mdHdhcmVBZ2VudD4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OmNoYW5nZWQ+Lzwvc3RFdnQ6Y2hhbmdlZD4KICAgICAgICAgICAgICAgPC9yZGY6bGk+CiAgICAgICAgICAgIDwvcmRmOlNlcT4KICAgICAgICAgPC94bXBNTTpIaXN0b3J5PgogICAgICAgICA8cGhvdG9zaG9wOlRleHRMYXllcnM+CiAgICAgICAgICAgIDxyZGY6QmFnPgogICAgICAgICAgICAgICA8cmRmOmxpIHJkZjpwYXJzZVR5cGU9IlJlc291cmNlIj4KICAgICAgICAgICAgICAgICAgPHBob3Rvc2hvcDpMYXllck5hbWU+6rOg7Jqp7ZaJ7KCV7Ya16rOEPC9waG90b3Nob3A6TGF5ZXJOYW1lPgogICAgICAgICAgICAgICAgICA8cGhvdG9zaG9wOkxheWVyVGV4dD7qs6DsmqntlonsoJXthrXqs4Q8L3Bob3Rvc2hvcDpMYXllclRleHQ+CiAgICAgICAgICAgICAgIDwvcmRmOmxpPgogICAgICAgICAgICA8L3JkZjpCYWc+CiAgICAgICAgIDwvcGhvdG9zaG9wOlRleHRMYXllcnM+CiAgICAgICAgIDxwaG90b3Nob3A6Q29sb3JNb2RlPjM8L3Bob3Rvc2hvcDpDb2xvck1vZGU+CiAgICAgICAgIDxwaG90b3Nob3A6SUNDUHJvZmlsZT5zUkdCIElFQzYxOTY2LTIuMTwvcGhvdG9zaG9wOklDQ1Byb2ZpbGU+CiAgICAgICAgIDxkYzpmb3JtYXQ+aW1hZ2UvcG5nPC9kYzpmb3JtYXQ+CiAgICAgICAgIDx0aWZmOk9yaWVudGF0aW9uPjE8L3RpZmY6T3JpZW50YXRpb24+CiAgICAgICAgIDx0aWZmOlhSZXNvbHV0aW9uPjcyMDAwMC8xMDAwMDwvdGlmZjpYUmVzb2x1dGlvbj4KICAgICAgICAgPHRpZmY6WVJlc29sdXRpb24+NzIwMDAwLzEwMDAwPC90aWZmOllSZXNvbHV0aW9uPgogICAgICAgICA8dGlmZjpSZXNvbHV0aW9uVW5pdD4yPC90aWZmOlJlc29sdXRpb25Vbml0PgogICAgICAgICA8ZXhpZjpDb2xvclNwYWNlPjE8L2V4aWY6Q29sb3JTcGFjZT4KICAgICAgICAgPGV4aWY6UGl4ZWxYRGltZW5zaW9uPjk3PC9leGlmOlBpeGVsWERpbWVuc2lvbj4KICAgICAgICAgPGV4aWY6UGl4ZWxZRGltZW5zaW9uPjI2PC9leGlmOlBpeGVsWURpbWVuc2lvbj4KICAgICAgPC9yZGY6RGVzY3JpcHRpb24+CiAgIDwvcmRmOlJERj4KPC94OnhtcG1ldGE+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgCjw/eHBhY2tldCBlbmQ9InciPz7u4WsRAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAXJSURBVHja7JprTJNXGMd/Ls1ordgi1LYYipRhkSC3CTpGIMyhASYuTjY/DKIRnYZ4WZzOMM1i4swiyeZcjCZqTODLnBuJREeyGVmZugyJojaGS8TRJlAolyKWlq0L+wC89qUlgIr1Q/+fes55zu35n+dyzts5IyMjBOBfSAAMZcbXgXLgY2BBQC2zjn6gEtjXfDTrH8lY5TFgV0A3Lw0hY/p2AgdeG6ssCujFL9gKME5CwAX5Bws8SQjAjwiQ8KpkRy8DmbpglHNHp6tu6vcpUxAbIvyubupHI5eQFhFMdVM/R/KiqG+zT9rXc4w0vZKDvzzyOfdE1FsGsTrck473LGuYdRIydcHszY+etP3Xu12cvNkplEvTtZTk6Bka/o+eARdzpRLKi+XUNHSwp6pV1HdLdqSIhLSIYMqLE6guM1KYoRPqj6+PIUotF/X94qdmTDYnaXolhRk6EQlntqdgtjkYcnkr237lIVbHIABH8qLEezH1oJwr8bkGv5LQ0uvkXG27z7adudGsTlQLJMSrZOx6bwnnr7bx9TWLiMgz21NotT7h5M1OStO1rE5Ui8a6tCNp0nmqGqzCyX4nLozc5eFTrvvvLgdddpdXfZ150Kd8dsLoeurb7K+eO7I63JOehC3ZbroHhoVyz9C/DA27idbMI14lw2RzopFLSH9DCcBj5+jJNLbasfS5iFggRauU0tz5hAGn26eb8lScRi7h8/cN1DR0kBWj5KsNBsIU0mdWhqf1/GYIJTtBzQpD6LT6FiSpuWt5THuv0/8xwfO0WR1udp+/x5ntKWTGLxTJnb/aRuUdGwAmm5OsGCUlOXrM3Q7yU8P5prpFIMLTTXn66sptSYTNDyJKLaeqwYqlz8XaFI3XXACL1XIWKoJ8uteJ1hCvkqFTyTlxuYVgqYTN7+qn3LdGEcTeNYkUn707YyKeKzsqTddyfH2MUPZ1Csc3uK/iHoYyI4YyIwAPOp6I5Epy9Fz4w8y6U40Y73ezYeUioW3dqUaveWs+W8GQy80H39YD8N3mBK9DINyITt/m+5qHnKttJzZCwZ/NvZyrbedcbTstPhRWtjaaJssAlj7XjPShUQRRUZJIZKjs5VmCVikVBciw+UF0jinh0o4kYiMUQlt5cQLlHn09y4YyI8b73axKVDNPKiFr2UKu3OrwOWe8SiYQNh5n1p1qpDRdS71lkDS9UpD1FcABViWqeWvMzWyZQHRpupalEQp2n7/H3vxo5kolMybi2IexbDx9h+m+jb5Qd3Txuhljq93n6fX0677Swj1VrZSma9EqpXx54QH2ITeRoVIuXjcLY9e32THZnCQfviG4pE0rtIJC344N5UZTr2BtngF8SuXJJRxYE0Xu8nBOXG6hzjxI3alGCmJDKC9OmH7MHBhm/49NzORx+oWS4BnYxnEkL4r81HB6Hg8LKWJ5hII6UzeHLrWKyDh5s5MjeVEc/ihOlNI2Z+ioM3VTbxH77sptSQBU/N7OgNNNxAIpJTl6YjTz2FPVKrjComQVG1YuElmm2ebgr+ZeYc1FySpSl4Sy9fTtSTOm6RDwLDFhRiRMdDHjaD6a5VVnKDOSqQumMEPHicstortDvErGz5+mscn6xCt1na58QWwIOpWcfRX3RNmaVimlMEMn3EHiVTIOFsZx8bqZTypMAulFySoOFsbRaXdx8mYnlXdsQqLwMgmYMQkTXcx07hRDw27hDmDpc6GQSchcGuYzOM9Evrqpn502Bztzo1HInlpCfmo4NQ0dXmmyXiMnZ0mIkHG9GaUU5ngRqG7seua+c0ZGRjCUGWft89q4305YrEAeNMr5/fYBfrhlxWRzPpf8xJjgGHZzo6lXZEXj1rAxVcOyyKdW/KjLwbUHPVPefj2fLS7tSPJ6EXheNB/NmjPrJAQwNQmBV9TAU3YAniT0BVThF/R5klAZ0IdfcNYzRd0PzGH0g39IQDezjvG/vBwSUtQA/Iv/BwD5IIyu+BWqzwAAAABJRU5ErkJggg==" alt="고용행정통계" />
+			</a> -->
+		</span>
+		<ul class="gnb-link">
+			
+				
+				<li><a href="/ei/eih/cp/cc/ccCpaGudnce/retrieveCc310Info.do">인증센터</a></li>
+				<li><a href="/ei/eih/cp/cc/ccNtbd/retrieveCcNtbdList.do">고객센터</a></li>
+				<li><a href="/ei/eih/cp/rr/rrWordDict/retrieveRrWordDictList.do">용어사전</a></li>
+				<li><a href="/ei/eih/cp/rr/rrFormatRsrom/retrieveRrFormatRsromList.do">자료실</a></li>
+			
+			
+		</ul>
+		
+		<a href="http://as82.kr/keis/" title="원격제어 새창열기" target="_blank" class="remote-control">원격제어</a>
+
+		<span class="display-zoom">
+		 화면크기
+		<button type="button" class="zoom-out" onclick="zoomInOut('out'); return false;">
+			<b>-</b> 화면작게보기
+		</button><button type="button" class="zoom-reset" onclick="zoomInOut('init'); return false;">
+			<b><span id="rate" style="font-size:11px;">100%</span></b> 화면보기 초기화
+		</button><button type="button" class="zoom-in" onclick="zoomInOut('in'); return false;">
+			<b>+</b> 화면크게보기
+		</button>
+		</span>
+		<!-- 화면크기 //-->
+	</div>
+	<!-- gnb //-->
+
+	<!-- header section -->
+	<div id="topGnb" class="header-section">
+		<div class="menu-html hide">				<ul id='gnb_1' class='gnb '>
+					<li><a href='javascript:;fn_menuAuthCheck("/eih/in/lp/retrieveLpCvplPrssListCvplTypeU.do");'>실업급여</a>
+						<ul class='sub top_menu_pl_1212210201'>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/in/lp/retrieveLpCvplPrssListCvplTypeU.do");'>민원처리현황</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/pu/retrievePuIncqualClmntOnlineView.do");'>수급자격 신청자 온라인 교육</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/pu/retrievePuIncqualReqdocIntnetInfo.do");'>수급자격 신청서 인터넷 제출</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/pu/retrievePuUprecogIntnetReqstCk.do");'>실업인정 인터넷 신청</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/pu/retrieveEmpymnHopeCardInfo.do");'>온라인 취업드림수첩 조회</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/pu/retrieveRciptrTrgetOnlineEmpymnMvpMainView.do");'>온라인 취업특강(STEP)</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/pu/retrieveIncqualTkitStateCk.do");'>수급자격증 기재사항 변경신고</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/pu/retrieveReciptPdPstpneCk.do");'>수급기간 연기(변경) 신고</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/pu/retrieveIncqualTkitReissuCk.do");'>수급자격증 재교부 신청</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/pu/createPuIncqualRcognDtstmnView.do");'>수급자격 인정명세서 발급청구</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/pu/createPuInlongSalaryView.do");'>개별연장급여 신청</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/pu/createPuSwbfitRqestGnrlView.do");'>상병급여(일반)청구</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/pu/createPuSwbfitRqestChdbthView.do");'>상병급여(출산시)청구</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/pu/createPuElempAllwncView.do");'>조기재취업수당 청구</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/pu/createPuMovingCostView.do");'>이주비 청구</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/pu/createPuWdrJbhntActView.do");'>광역구직활동비 청구</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/pu/createPuUnpayUepsView.do");'>미지급 실업급여 청구</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/pu/retrievePuEmpymnFactDclrtView.do");'>취업사실 신고</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/pu/retrievePuCnsutReqestPrssList.do");'>자문의뢰 처리현황 조회</a></li>
+						</ul>
+						</li>
+					<li><a href='javascript:;fn_menuAuthCheck("/eih/in/lp/retrieveLpCvplPrssListCvplTypeM.do");'>모성보호</a>
+						<ul class='sub top_menu_pl_1212210301'>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/in/lp/retrieveLpCvplPrssListCvplTypeM.do");'>민원처리현황</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/pm/ml/retrieveMl0100Info.do");'>출산전후(유산.사산.배우자)휴가 급여신청</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/pm/pl/retrievePl0100Info.do");'>육아휴직급여 신청</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/pm/pl/retrievePl0200Info.do");'>육아기 근로시간 단축 급여신청</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/pm/cs/retrieveCs0100Info.do");'>고용보험 미적용자 출산급여 신청</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/pm/ac/retrieveAc0100Info.do");'>예술인/특고 출산전후급여 신청</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/pm/ml/retrieveMl0200Info.do");'>기간제.파견근로자 출산전후휴가 급여등에 상당하는 금액 신청</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/pm/pl/retrievePl0500Info.do");'>육아휴직/육아기근로시간단축 사용현황</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/pm/pa/retrievePa0100Info.do");'>육아휴직 급여 사후지급금 확인 요청</a></li>
+						</ul>
+						</li>
+					<li><a href='javascript:;fn_menuAuthCheck("/eih/in/lp/retrieveLpCvplPrssListCvplTypeJ.do");'>심사/재심사청구</a>
+						<ul class='sub top_menu_pl_1212210401'>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/in/lp/retrieveLpCvplPrssListCvplTypeJ.do");'>민원처리현황</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/is/createIsJdgmnView.do");'>심사 청구</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/is/createIsReJdgmnView.do");'>재심사 청구</a></li>
+						</ul>
+						</li>
+					<li><a href='javascript:;fn_menuAuthCheck("/eih/pe/createPeWgpksSprmnvView.do");'>임금피크제</a>
+						<ul class='sub top_menu_pl_1212210701'>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/in/lp/retrieveLpCvplPrssListCvplTypeG.do");'>민원처리현황</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/pe/createPeWgpksSprmnvView.do");'>임금피크제 지원금 신청</a></li>
+						</ul>
+						</li>
+					<li><a href='javascript:;fn_menuAuthCheck("/eih/in/lp/retrieveLpCvplPrssListCvplTypeI.do");'>부정행위신고/신고포상금</a>
+						<ul class='sub top_menu_pl_1212210801'>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/in/lp/retrieveLpCvplPrssListCvplTypeI.do");'>민원처리현황</a></li>
+							<li><a href='/ei/eih/is/mr/createMrInjactStatemView.do'>부정행위신고</a></li>
+							<li><a href='/ei/eih/is/mr/retrieveMrInjactStatemAnnymt.do'>부정행위신고(익명)</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/is/mr/createMrStatemRwardAmtView.do");'>신고포상금 지급 신청</a></li>
+						</ul>
+						</li>
+					<li><a href='javascript:;fn_menuAuthCheck("/eih/in/ip/retrieveIpSalaryReciptDtlList.do");'>조회</a>
+						<ul class='sub top_menu_pl_1212210901'>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/in/ip/retrieveIpSalaryReciptDtlList.do");'>급여수급내역 조회</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/in/ip/retrieveIpElctrnNoticeRecptn.do");'>전자통지서 수신현황 조회</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/in/ip/retrieveReturnAmPrssListPe.do");'>반환액 및 납부(가상)계좌번호 조회</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/in/ip/retrieveIpLflyCnfrmnPrssList.do");'>이직확인서 처리여부 조회</a></li>
+						</ul>
+						</li>
+					<li><a href='javascript:;fn_menuAuthCheck("/eih/eg/pb/pbPersonBnef/retrieveNa530Info.do");'>외부연계서비스</a>
+						<ul class='sub top_menu_pl_1212211001'>
+							<li><a href='javascript:;fn_menuAuthCheck("/eih/eg/pb/pbPersonBnef/retrieveNa530Info.do");'>고용노동서비스 ONE-ID</a></li>
+								</ul>
+						</li>
+						</ul>
+
+				<ul id='gnb_2' class='gnb '>
+					<li><a href='javascript:;fn_menuAuthCheck2("/eih/ne/neCreationApply1.do");'>고용창출장려금</a>
+						<ul class='sub top_menu_pl_1212221201'>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/in/le/retrieveCvplPrssCurstuListEe.do");'>민원처리현황</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ee/eeAged60EmplymPrmtnList.do");'>60세이상 고령자고용</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ee/eeAgedEmplSramList.do");'>고령자 고용지원금</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ee/eeAgedCntsEmplyEnclgmntList.do");'>고령자 계속고용장려금</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ee/eeCreationApply.do");'>고용촉진</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ne/neCreationApply5.do");'>특별고용촉진</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ne/neCreation4.do");'>국내복귀기업 고용</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ne/neCreation5.do");'>신중년 적합직무 고용</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ne/neCreation1.do");'>일자리함께하기 교대제 개편</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ne/neCreation2.do");'>일자리함께하기 실근로시간단축</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ne/neCreation3.do");'>일자리함께하기 일자리 순환제</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ne/neCreationApply1.do");'>주 근로시간 단축</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ee/eeAreaEmplymReg1.do");'>지역고용촉진</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ee/eeSmlpzYgmnAditEmplymApply20181.do");'>청년추가고용장려금</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ne/neCreationApply5.do");'>(구)고용창출통합서식</a></li>
+						</ul>
+						</li>
+					<li><a href='javascript:;fn_menuAuthCheck2("/eih/ee/eeWorkhrShrtenApply.do");'>장년근로시간단축 사업주</a></li>
+					<li><a href='javascript:;fn_menuAuthCheck2("/eih/ee/eeWgpksReg.do");'>임금피크제</a></li>
+					<li><a href='javascript:;fn_menuAuthCheck2("/eih/ee/eeBtwnGenWinWinPlan.do");'>상생고용지원</a>
+						<ul class='sub top_menu_pl_1212221501'>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ee/eeBtwnGenWinWinPlan.do");'>세대간 상생 지원금</a></li>
+						</ul>
+						</li>
+					<li><a href='javascript:;fn_menuAuthCheck2("/eih/ne/neStabilityApply1.do");'>고용안정장려금</a>
+						<ul class='sub top_menu_pl_1212221301'>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/in/le/retrieveCvplPrssCurstuListEe2.do");'>민원처리현황</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ne/neStability1.do");'>기간제근로자 정규직 전환</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ne/neStability2.do");'>파견근로자 정규직 전환</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ne/neStability3.do");'>사내하도급근로자 정규직 전환</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ne/neStability4.do");'>특수형태업무종사자 정규직 전환</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ne/neStabilityApply2.do");'>워라밸일자리</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ne/neStability5.do");'>유연근무제 시차출퇴근</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ne/neStability7.do");'>유연근무제 재택근무</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ne/neStability8.do");'>유연근무제 원격근무</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ne/neStability6.do");'>유연근무제 선택근무</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ne/neStability10.do");'>일생활 균형 근무혁신 인프라</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ne/neStability9.do");'>일생활 균형 재택/원격근무 인프라</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ne/neStabilityApply1.do");'>출산육아기</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ne/neStabilityApply3.do");'>출산육아기 대체인력</a></li>
+						</ul>
+						</li>
+					<li><a href='javascript:;fn_menuAuthCheck2("/eih/ee/eeEmplyPlList.do");'>고용유지지원금</a>
+						<ul class='sub top_menu_pl_1212221401'>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/in/le/retrieveCvplPrssCurstuListEe1.do");'>민원처리현황</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ee/eeEmplymNoPaylList.do");'>고용유지 무급휴업휴직</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ee/eeEmpmntSssPlanDclrt01.do");'>고용유지 휴업</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ee/eeEmpmntDclrtPlanLayoff01.do");'>고용유지 휴직</a></li>
+						</ul>
+						</li>
+					<li><a href='javascript:;fn_menuAuthCheck2("/eih/ee/eeLaborChangeSupportPlan.do");'>기후대응지원</a>
+						<ul class='sub top_menu_pl_1212221901'>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/in/le/retrieveCvplPrssCurstuListEe1.do");'>민원처리현황</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ee/eeLaborChangeSupportPlan.do");'>산업ㆍ일자리전환 지원금</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/ee/eeLaborChangeAgremSupportPlan.do");'>산업ㆍ일자리전환 고용환경개선지원금</a></li>
+						</ul>
+						</li>
+					<li><a href='javascript:;fn_menuAuthCheck2("/eih/em/ml/retrieveMl0100Info.do");'>모성보호</a>
+						<ul class='sub top_menu_pl_1212220501'>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/in/le/retrieveCvplPrssCurstuListEm.do");'>민원처리현황</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/em/ml/retrieveMl0100Info.do");'>출산전후(유산,사산)휴가 확인서</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/em/pl/retrievePl0100Info.do");'>육아휴직 확인서</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/em/pl/retrievePl0200Info.do");'>육아기 근로시간 단축 확인서</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/em/ml/retrieveMl0200Info.do");'>출산전후(유산,사산,배우자)휴가 급여 대위신청</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/em/sl/retrieveSl0100Info.do");'>배우자 출산휴가 확인서</a></li>
+						</ul>
+						</li>
+					<li><a href='javascript:;fn_menuAuthCheck2("/eih/et/createCochdView.do");'>이직신고</a>
+						<ul class='sub top_menu_pl_1212221101'>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/in/le/retrieveCvplPrssCurstuListLf.do");'>민원처리현황</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/et/createCochdView.do");'>이직신고</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/et/sendCochdNosend.do");'>미전송 이직신고서 일괄 전송</a></li>
+						</ul>
+						</li>
+					<li><a href='javascript:;fn_menuAuthCheck2("/eih/et/createAgentView.do");'>대리인</a>
+						<ul class='sub top_menu_pl_1212220601'>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/in/le/retrieveCvplPrssCurstuListAd.do");'>민원처리현황</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/et/createAgentView.do");'>대리인 선임/해임 신고</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/et/retrieveAgentStatus.do");'>대리인 현황 조회</a></li>
+						</ul>
+						</li>
+					<li><a href='javascript:;fn_menuAuthCheck2("/eih/in/is/retrieveIsSprmnyPymntDtl.do");'>조회</a>
+						<ul class='sub top_menu_pl_1212220701'>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/in/is/retrieveIsSprmnyPymntDtl.do");'>지원금 지급내역 조회 및 출력</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/in/is/retrieveIsElctrnNoticeRecptn.do");'>전자통지서 수신현황 조회</a></li>
+							<li><a href='javascript:;fn_menuAuthCheck2("/eih/in/ip/retrieveReturnAmPrssListBp.do");'>반환액 및 납부(가상)계좌번호 조회</a></li>
+								</ul>
+						</li>
+						</ul>
+
+				<ul id='gnb_3' class='gnb '>
+					<li class='pl180'><a href='/ei/eih/eg/ei/eiEminsr/retrieveEi0101Info.do'>고용보험이란?</a>
+						<ul class='sub top_menu_pl_1212230101'>
+							<li><a href='/ei/eih/eg/ei/eiEminsr/retrieveEi0101Info.do'>의의 및 연혁</a></li>
+							<li><a href='/ei/eih/eg/ei/eiEminsr/retrieveEi0102Info.do'>적용대상 및 가입</a></li>
+							<li><a href='/ei/eih/eg/ei/eiEminsr/retrieveEi0103Info.do'>운영조직</a></li>
+							<li><a href='/ei/eih/eg/ei/eiEminsr/retrieveEi0201Info.do'>일용근로자 고용보험</a>
+								<ul class='sub2'>
+									<li><a href='/ei/eih/eg/ei/eiEminsr/retrieveEi0201Info.do'>일용근로자 고용보험 확대</a></li>
+									<li><a href='/ei/eih/eg/ei/eiEminsr/retrieveEi0202Info.do'>고용보험가입</a></li>
+						</ul>
+						</li>
+							<li><a href='/ei/eih/eg/ei/eiEminsr/retrieveEi350Info.do'>자영업자</a>
+								<ul class='sub2'>
+									<li><a href='/ei/eih/eg/ei/eiEminsr/retrieveEi350Info.do'>개요</a></li>
+									<li><a href='/ei/eih/eg/ei/eiEminsr/retrieveEi360Info.do'>실업급여 수급안내</a></li>
+						</ul>
+						</li>
+							<li><a href='/ei/eih/eg/ei/eiEminsr/retrieveEi0301Info.do'>고용보험료 안내</a></li>
+						</ul>
+						</li>
+					<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0100Info.do'>개인혜택</a>
+						<ul class='sub top_menu_pl_1212230201'>
+							<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0100Info.do'>개인혜택 전체보기</a></li>
+							<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0201Info.do'>실업급여안내</a>
+								<ul class='sub2'>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0201Info.do'>실업급여란?</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0202Info.do'>구직급여 지급대상</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0203Info.do'>구직급여 지급액</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0204Info.do'>구직급여 지급절차</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0216Info.do'>예술인 구직급여</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0218Info.do'>노무제공자 구직급여</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0205Info.do'>일용근로자 구직급여</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0206Info.do'>자영업자 실업급여</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb190Info.do'>구직급여 수급자격 모의확인</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb200Info.do'>구직급여액 모의계산(상용근로자)</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb210Info.do'>구직급여액 모의계산(일용근로자)</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb450Info.do'>구직급여액 모의계산(예술인)</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb460Info.do'>구직급여액 모의계산(노무제공자)</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb340Info.do'>구직급여액 모의계산(자영업자)</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0208Info.do'>조기재취업수당</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb370Info.do'>조기재취업수당 모의계산</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0209Info.do'>광역구직활동비 청구</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0210Info.do'>이주비 청구</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0211Info.do'>개별연장급여 신청</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0212Info.do'>상병급여 청구</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0213Info.do'>인터넷 실업인정 QNA</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0214Info.do'>부정수급</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0215Info.do'>심사/재심사 청구</a></li>
+						</ul>
+						</li>
+							<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0301Info.do'>모성보호안내</a>
+								<ul class='sub2'>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0301Info.do'>출산전후(유산,사산)휴가</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0302Info.do'>육아휴직(부부동시)</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0303Info.do'>육아기 근로시간 단축</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0304Info.do'>고용보험 미적용자 출산급여</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0305Info.do'>배우자 출산휴가</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0307Info.do'>예술인 출산전후급여등</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0309Info.do'>노무제공자 출산전후급여등</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb330Info.do'>모성보호 모의계산</a></li>
+									<li><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0306Info.do'>부정수급(모성보호)</a></li>
+								</ul>
+								</li>
+						</ul>
+						</li>
+					<li><a href='/ei/eih/eg/eb/ebEntrprBnef/retrieveEb0100Info.do'>기업혜택</a>
+						<ul class='sub top_menu_pl_1212230301'>
+							<li><a href='/ei/eih/eg/eb/ebEntrprBnef/retrieveEb0100Info.do'>기업혜택 전체보기</a></li>
+							<li><a href='/ei/eih/eg/eb/ebEntrprBnef/retrieveEb0920Info.do'>기후대응지원</a></li>
+							<li><a href='/ei/eih/eg/eb/ebEntrprBnef/retrieveEb0203Info.do'>고용안정사업</a></li>
+							<li><a href='/ei/eih/eg/eb/ebEntrprBnef/retrieveEb0601Info.do'>직장보육시설 지원</a>
+								<ul class='sub2'>
+									<li><a href='/ei/eih/eg/eb/ebEntrprBnef/retrieveEb0601Info.do'>직장어린이집 지원사업</a></li>
+									<li><a href='/ei/eih/eg/eb/ebEntrprBnef/retrieveEb0602Info.do'>직장어린이집 운영비 지원사업</a></li>
+									<li><a href='/ei/eih/eg/eb/ebEntrprBnef/retrieveEb0603Info.do'>직장어린이집 설치비 지원사업</a></li>
+						</ul>
+						</li>
+							<li><a href='http://www.hrd.go.kr/hrdp/gi/pgiao/PGIAO0300D.do' target='_blank'>직업훈련 지원</a></li>
+							<li><a href='/ei/eih/eg/eb/ebEntrprBnef/retrieveOe0801Info.do'>자영업자</a>
+								<ul class='sub2'>
+									<li><a href='/ei/eih/eg/eb/ebEntrprBnef/retrieveOe0801Info.do'>개요</a></li>
+									<li><a href='/ei/eih/eg/eb/ebEntrprBnef/retrieveOe0802Info.do'>가입 및 납부</a></li>
+									<li><a href='/ei/eih/eg/eb/ebEntrprBnef/retrieveOe0803Info.do'>실업급여 수급</a></li>
+										</ul>
+								</li>
+								</ul>
+
+						</ul>
+
+				<ul id='gnb_4' class='gnb '>
+					<li class='pl315'><a href='/ei/eih/st/introduce.do'>소개</a>
+						<ul class='sub top_menu_pl_1212280101'>
+							<li><a href='/ei/eih/st/introduce.do'>소개</a></li>
+						</ul>
+						</li>
+					<li><a href='/ei/eih/st/retrieveHoOfferList.do'>고용보험통계</a>
+						<ul class='sub top_menu_pl_1212280201'>
+							<li><a href='/ei/eih/st/retrieveHoOfferList.do'>정형통계</a></li>
+							<li><a href='/ei/eih/st/retrieveAdOfferList.do'>비정형통계</a></li>
+						</ul>
+					</li>
+				</ul>
+</div>
+		
+		<div class="header-section-inner">
+			<!-- logo -->
+			<a href="/ei/eih/cm/hm/main.do" class="ci-logo"><img src="/ei/images/common/logo_tobe.png" alt="고용보험 employment insurance" /></a>
+			<!-- logo //-->
+
+			<!-- main navigation -->
+			<nav id="main-navigation" class="main-navigation" title="메인메뉴">
+
+				<ul class="main-nav-list">
+					<!-- 1depth -->
+					<li class="main-nav1"><a href="#gnb_1" title="개인서비스 열기" style="height:55px;">개인서비스</a>
+						
+						<!-- 2depth -->
+						<div class="menus">
+							<button type="button" class="nav-close" title="메뉴 닫기">메뉴 닫기</button>
+						</div>
+						<!-- 2depth //-->
+
+					</li>
+					<!-- 1depth //-->
+
+					<!-- 1depth -->
+					<li class="main-nav2"><a href="#gnb_2" title="기업서비스 열기" style="height:55px;">기업서비스</a>
+						
+						<!-- 2depth -->
+						<div class="menus">
+							<button type="button" class="nav-close" title="메뉴 닫기">메뉴 닫기</button>
+						</div>
+						<!-- 2depth //-->
+						
+					</li>
+					<!-- 1depth //-->
+
+					<!-- 1depth -->
+					<li class="main-nav3" onclick="javascript:window.location.href='https://www.work24.go.kr/cm/c/f/1100/selecPolicyList.do'"><a href="#gnb_3" title="고용보험 제도 열기" style="height:55px;">고용보험 제도</a>
+						<!-- 2depth -->
+						<div class="menus">
+							<button type="button" class="nav-close" title="메뉴 닫기">메뉴 닫기</button>
+						</div>
+						<!-- 2depth //-->
+					</li>
+					<!-- 1depth //-->
+
+					<!-- 1depth -->
+					<li class="main-nav4"><a href="#gnb_4" onclick="fn_AlertClose(this);" title="통계 및 정보공개 열기" style="height:55px;">통계 및 정보공개</a>
+						<!-- 2depth -->
+						<!-- 
+						<div class="menus">
+							<button type="button" class="nav-close" title="메뉴 닫기">메뉴 닫기</button>	
+						</div> 
+						 -->
+						<!-- 2depth //-->
+					</li>
+					<!-- 1depth //-->
+				</ul>
+			</nav>
+			<!-- main navigation //-->
+
+			<!-- 검색, 로그인 -->
+			<div class="function-area">
+				<!-- 검색 -->
+				<form name="searchForm" id="searchForm" method="post" action="/ei/eih/cp/cc/ccIntegrdSrch/retrieveCc800Info.do">
+					<fieldset class="header-search">
+						<legend>검색</legend>
+						<label for="searchKeyword" class="hidden">통합검색</label>
+						<input type="text" name="searchKeyword" id="searchKeyword" placeholder="검색어를 입력하세요." title="통합검색 검색어를 입력하세요." />
+						<input type="hidden" name="searchCondition" id="searchCondition" value="all" />
+						<a href="javascript:f_unity_select();" role="button" class="search-button">검색</a>
+					</fieldset>
+				</form>
+				<!-- 검색 //-->
+
+				<!-- 로그인, 로그아웃, 마이페이지 -->
+				<ul class="personal-menu">
+					
+					<li><a href="/ei/eih/cm/lg/lgLogList210.do" class="login" title="로그인">로그인</a></li>
+					
+					<li><a href="#site-map" role="button" class="button-sitemap" title="사이트맵 보기">사이트맵</a></li>
+				</ul>
+				<!-- 로그인, 로그아웃, 마이페이지 //-->
+
+			</div>
+			<!-- 검색, 로그인 //-->
+		</div>
+
+	</div>
+	<!-- header section //-->
+	
+</div>
+<!-- header. e. -->
+
+<!-- site map -->
+<div id="site-map" class="sitemap" style="display: none;" aria-hidden="true">
+	<div class="site-map-html hide"></div>
+	
+	<div class="sitemap-container">
+		<!-- 개인서비스 -->
+		<nav class="sitemap-section">
+			<span class="title">개인서비스</span>
+			<div class="menu-items site-menu-1">
+
+			</div>
+		</nav>
+		<!-- 개인서비스 //-->
+
+		<!-- 기업서비스 -->
+		<nav class="sitemap-section">
+			<span class="title">기업서비스</span>
+			<div class="menu-items site-menu-2">
+
+			</div>
+		</nav>
+		<!-- 기업서비스 //-->
+
+		<!-- 고용보험 제도 -->
+		<nav class="sitemap-section">
+			<span class="title">고용보험 제도</span>
+			<div class="menu-items site-menu-3">
+
+			</div>
+		</nav>
+		<!-- 고용보험 제도 //-->
+
+		<!-- 통계및정보공개 -->
+		<nav class="sitemap-section">
+			<span class="title">통계 및 정보공개</span>
+			<div class="menu-items site-menu-4">
+
+			</div>
+		</nav>
+		<!-- 통계및정보공개 //-->
+
+		<!-- 고객센터 -->
+		<nav class="sitemap-section">
+			<span class="title">고객센터</span>
+			<div class="menu-items site-menu-5">
+				<ul class="gnb columns4">
+					<li><a href="/ei/eih/cp/cc/ccNtbd/retrieveCcNtbdList.do" title="공지사항 페이지로 이동">공지사항</a></li>
+					<li><a href="/ei/eih/cp/cc/ccJobCenSearch/retrieveCcJobCenSearchMap.do" title="고용센터 찾기 페이지로 이동">고용센터 찾기</a></li>
+					<li><a href="/ei/eih/cp/cc/ccMyCnsltDtl/retrieveCcMyCnsltDtlList.do" title="나의상담내역 페이지로 이동">나의상담내역</a></li>
+					<li>
+						<a href="/ei/eih/cp/cc/ccUseInquiry/retrieveCcUseInquiryList.do" title="이용문의 메인 페이지로 이동">이용문의</a>
+						<ul>
+							<li><a href="/ei/eih/cp/cc/ccUseInquiry/retrieveCcUseInquiryList.do" title="이용문의 페이지로 이동">이용문의</a></li>
+							<li><a href="/ei/eih/cp/cc/ccUseInquiry/retrievePsnReqstBoard.do" title="이용문의-개인정보처리요구 페이지로 이동">개인정보처리요구</a></li>
+						</ul>
+					</li>
+					<li><a href="/ei/eih/cp/cc/ccImprvmNdPropse/retrieveCcImprvmNdPropseList.do" title="개선 및 제안 페이지로 이동">개선 및 제안</a></li>
+					<li><a href="/ei/eih/cp/cc/ccFaq/retrieveCcFaqList.do" title="자주하는 질문 페이지로 이동">자주하는 질문</a></li>
+					<li>
+						<a href="/ei/eih/cp/cc/ccCpaGudnce/retrieveCc310Info.do" title="공동인증서 사용안내 메인 페이지로 이동">공동인증서 사용안내</a>
+						<ul>
+							<li><a href="/ei/eih/cp/cc/ccCpaGudnce/retrieveCc310Info.do" title="공동인증서 사용안내 페이지로 이동">공동인증서 사용안내</a></li>
+							<li><a href="/ei/eih/cp/cc/ccCpaGudnce/retrieveCc315Info.do" title="공동인증서 사용안내-공동인증서 관리 페이지로 이동">공동인증서 관리</a></li>
+							<li><a href="/ei/eih/cp/cc/ccMobCert/retrieveCc500Info.do" title="공동인증서 사용안내-모바일 공동인증서 관리 페이지로 이동">모바일 공동인증서 관리</a></li>
+						</ul>
+					</li>
+					<li><a href="/ei/eih/cp/cc/ccCpaGudnce/retrieveCc320Info.do" title="프로그램 설치 안내 페이지로 이동">프로그램 설치 안내</a></li>
+					<li>
+						<a href="/ei/eih/cp/cc/ccUseGudnce/retrieveCc410Info.do" title="이용가이드 메인 페이지로 이동">이용가이드</a>
+						<ul>
+							<li><a href="/ei/eih/cp/cc/ccUseGudnce/retrieveCc410Info.do" title="이용가이드-PC환경설정 페이지로 이동">PC환경설정</a></li>
+							<li><a href="/ei/eih/cp/cc/ccUseGudnce/retrieveCc430Info.do" title="이용가이드-고용보험인터넷서비스안내 페이지로 이동">고용보험인터넷서비스안내</a></li>
+							<!-- <li><a href="/ei/eih/cp/cc/ccUseGudnce/retrieveCc440Info.do" title="이용가이드-회원가입안내 페이지로 이동">회원가입안내</a></li> -->
+						</ul>
+					</li>
+					<li>
+						<a href="/ei/eih/cp/cc/ccRmCtrl/retrieveCcRmCtrlInfo.do" title="실시간 원격요청 메인 페이지로 이동">실시간 원격요청</a>
+						<ul>
+							<li><a href="/ei/eih/cp/cc/ccRmCtrl/retrieveCcRmCtrlInfo.do" title="실시간 원격요청-원격제어 프로그램 설치 안내 페이지로 이동">원격제어 프로그램 설치 안내</a></li>
+							<li><a href="/ei/eih/cp/cc/ccRmCtrl/createCcRmCtrlLoginForm.do" title="실시간 원격요청-원격로그인 요청 페이지로 이동">원격로그인 요청</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="/ei/eih/cp/cc/ccEminsrFollow/retrieveCc200Info.do" title="고용보험 쉽게 따라하기 메인 페이지로 이동">고용보험 쉽게 따라하기</a>
+						<ul>
+							<li><a href="/ei/eih/cp/cc/ccEminsrFollow/retrieveCc180Info.do" title="고용보험 쉽게 따라하기-기업서비스 페이지로 이동">기업서비스</a></li>
+							<li><a href="/ei/eih/cp/cc/ccEminsrFollow/retrieveCc200Info.do" title="고용보험 쉽게 따라하기-개인서비스 페이지로 이동">개인서비스</a></li>
+						</ul>
+					</li>
+					<!-- <li><a href="/ei/eih/cp/cc/ccUseGudnce/retrieveCc080Info.do">민원증명 원본확인</a></li>  [2015.07.23 주석처리]-->
+					<!-- <li><a href="/ei/eih/cp/cc/ccSiteMap/retrieveCc420Info.do" title="사이트맵 페이지로 이동">사이트맵</a></li> -->
+				</ul>
+			</div>
+		</nav>
+		<!-- 고객센터 //-->
+
+		<!-- 자료실 -->
+		<nav class="sitemap-section">
+			<span class="title">자료실</span>
+			<div class="menu-items site-menu-6">
+				<ul class="gnb columns4">
+					<li><a href="/ei/eih/cp/rr/rrFormatRsrom/retrieveRrFormatRsromList.do" title="서식자료실 페이지로 이동">서식자료실</a></li>
+					<li><a href="/ei/eih/cp/rr/rrWordDict/retrieveRrWordDictList.do" title="용어사전 페이지로 이동">용어사전</a></li>
+					<li><a href="http://www.law.go.kr" target="_blank" title="법령검색 페이지로 이동" style="background: url(/ei/images/icon/btn-blank.png) no-repeat left 60px top 50%;">법령검색</a></li>
+					<li><a href="/ei/eih/cp/rr/rrFormatRsrom/retrievePublicityList.do" title="홍보자료실 페이지로 이동">홍보자료실</a></li>
+				</ul>
+			</div>
+		</nav>
+		<!-- 자료실 //-->
+
+		<!-- 마이페이지 -->
+		<nav class="sitemap-section">
+			<span class="title">마이페이지</span>
+			<div class="menu-items site-menu-7">
+				<ul class="gnb columns2">
+					<li><a href="/ei/eih/cm/mp/newMain.do" title="마이페이지로 이동">마이페이지</a></li>
+					<li><a href="/ei/eih/cm/mp/retrieveEmailNticeAtInfo.do" title="전자통지서 수신방법 설정 페이지로 이동">전자통지서 수신방법 설정</a></li>
+				</ul>
+			</div>
+		</nav>
+		<!-- 마이페이지 //-->
+
+		<!-- 공통 -->
+		<nav class="sitemap-section">
+			<span class="title">공통</span>
+			<div class="menu-items site-menu-8">
+				<ul class="gnb columns4">
+					<li><a href="/ei/eih/cm/bs/retrieveBs610Info.do" title="이용약관 페이지로 이동">이용약관</a></li>
+					<li><a href="/ei/eih/cm/bs/retrieveBs620Info.do" title="개인정보처리방침 페이지로 이동">개인정보처리방침</a>
+						<ul>
+							<li><!-- blank --></li>
+						</ul>
+					</li>
+					<li><a href="/ei/eih/cm/bs/retrieveBs630Info.do" title="이메일집단수집거부 페이지로 이동">이메일집단수집거부</a></li>
+				</ul>
+			</div>
+		</nav>
+		<!-- 공통 //-->
+
+		<!-- 기타 -->
+		<nav class="sitemap-section">
+			<span class="title">기타</span>
+			<div class="menu-items site-menu-9">
+				<ul class="gnb columns2">
+					<li><a href="http://www.keis.or.kr" target="_blank" title="한국고용정보원 사이트 새창열기" style="background: url(/ei/images/icon/btn-blank.png) no-repeat right 50px top 50%;">한국고용정보원 소개</a></li>
+					<li><a href="#" onclick="f_preView(); return false" target="_blank" title="관련기관 연락처 새창열기">관련기관 연락처</a></li>
+				</ul>
+			</div>
+		</nav>
+		<!-- 기타 //-->
+
+		<a href="#" class="sitemap-close" role="button">사이트맵 닫기</a>
+	</div>
+
+</div>
+<!-- site map //-->
+
+<script>
+	$(document).ready(function() {
+		//sitemap 메뉴배치
+		$("#site-map .site-menu-1").append( $(".site-map-html #siteMap_1") );//개인서비스
+		$("#site-map .site-menu-2").append( $(".site-map-html #siteMap_2") );//기업서비스
+		$("#site-map .site-menu-3").append( $(".site-map-html #siteMap_3") );//고용보험제도
+		$("#site-map .site-menu-4").append( $(".site-map-html #siteMap_4") );//통계및정보공개
+
+		//sitemap 버튼 이벤트
+		$('.button-sitemap').click(function(e) {
+			e.preventDefault();
+			$('#site-map').fadeToggle('fast');
+			$(this).toggleClass('open');
+			$('body').toggleClass('fixed');
+			$('.main-nav-list > li > a').removeClass('open');//sitemap 열리면 메인메뉴 닫힘
+			$('.main-nav-list > li .menus').hide();//sitemap 열리면 메인메뉴 닫힘
+			if($(this).hasClass("open")){
+				$(this).attr("title", "사이트맵 닫기");
+				$('#site-map').attr('aria-hidden','false');
+			}else{
+				$(this).attr("title", "사이트맵 보기");
+				$('#site-map').attr('aria-hidden','true');
+			}
+		});
+		$('.sitemap-close').focus(function() {
+			$('#site-map').hide();
+			$('.button-sitemap').removeClass('open');
+			$('body').removeClass('fixed');
+		});
+		
+		//$(".pagePosition a").attr("href", "javascript:void(0)").attr("tabindex", "-1");
+		
+		
+		$("div.step-move-buttons").each(function(){
+			var obj1 = $(this).children("a.prev-step");
+			var obj2 = $(this).children("a:first");
+			if( obj1.size() > 0 && !obj2.hasClass("prev-step")) {
+				obj1.insertBefore(obj2);
+			}
+		});
+	})
+</script>
+
+
+<div id="containerTop"></div>
+
+		<div class="wrap">
+			        
+
+
+
+    <!-- lnb. s. -->
+	<div id="lnb">
+		<h2 class='title'>개인혜택</h2>
+		<div class='menu'>
+			<ul>
+				<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0100Info.do'>개인혜택 전체보기</a></li>
+				<li  class="on" ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0201Info.do'>실업급여안내</a>
+					<ul class='sub'>
+						<li  class="on" ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0201Info.do'>실업급여란?</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0202Info.do'>구직급여 지급대상</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0203Info.do'>구직급여 지급액</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0204Info.do'>구직급여 지급절차</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0216Info.do'>예술인 구직급여</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0218Info.do'>노무제공자 구직급여</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0205Info.do'>일용근로자 구직급여</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0206Info.do'>자영업자 실업급여</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb190Info.do'>구직급여 수급자격 모의확인</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb200Info.do'>구직급여액 모의계산(상용근로자)</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb210Info.do'>구직급여액 모의계산(일용근로자)</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb450Info.do'>구직급여액 모의계산(예술인)</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb460Info.do'>구직급여액 모의계산(노무제공자)</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb340Info.do'>구직급여액 모의계산(자영업자)</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0208Info.do'>조기재취업수당</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb370Info.do'>조기재취업수당 모의계산</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0209Info.do'>광역구직활동비 청구</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0210Info.do'>이주비 청구</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0211Info.do'>개별연장급여 신청</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0212Info.do'>상병급여 청구</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0213Info.do'>인터넷 실업인정 QNA</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0214Info.do'>부정수급</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0215Info.do'>심사/재심사 청구</a></li>
+					</ul>
+				</li>
+				<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0301Info.do'>모성보호안내</a>
+					<ul class='sub'>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0301Info.do'>출산전후(유산,사산)휴가</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0302Info.do'>육아휴직(부부동시)</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0303Info.do'>육아기 근로시간 단축</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0304Info.do'>고용보험 미적용자 출산급여</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0305Info.do'>배우자 출산휴가</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0307Info.do'>예술인 출산전후급여등</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0309Info.do'>노무제공자 출산전후급여등</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb330Info.do'>모성보호 모의계산</a></li>
+						<li ><a href='/ei/eih/eg/pb/pbPersonBnef/retrievePb0306Info.do'>부정수급(모성보호)</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+	</div>	
+	
+
+
+		<!-- 좌측메뉴 마침-->
+		<!-- 콘테이너 시작-->
+	<div id="content">
+		<h2 class="title">실업급여란?</h2>
+		
+		<!-- 콘텐츠 시작-->
+		<div class="contents">
+			<div class="pagePosition">
+				<a href="#" class="pageHome">홈</a> <a href="#page1">고용보험제도</a> &gt; <a href="#">개인혜택</a> &gt; <a href="#" class="bradmenu_style">실업급여란?</a>
+			</div>
+			
+			<!--page 마침-->
+			<div class="page">
+				<div class="contentInfo">
+					<h3 class="titlea"><span class="title_ico"></span>고용보험 실업급여란?</h3>
+					<p>고용보험 가입 근로자가 실직하여 재취업 활동을 하는 기간에 소정의 급여를 지급함으로써 실업으로 인한 생계불안을 극복하고 생활의 안정을 도와주며 재취업의 기회를 지원해주는 제도로서 실업급여는 크게 구직급여와 취업촉진수당으로 나누어져 있습니다.</p>
+					<ul class="blueDot">
+						<li class="mt10">실업급여는 실업에 대한 위로금이나 고용보험료 납부의 대가로 지급되는 것이 아닙니다.</li>
+						<li>실업급여는 실업이라는 보험사고가 발생했을 때 취업하지 못한 기간에 대하여 적극적인 재취업활동을 한 사실을 확인(실업인정)하고 지급합니다. </li>
+						<li><strong class="pointBlue">실업급여 중 구직급여는 퇴직 다음날로부터 12개월이 경과 하면 소정급여일수가 남아있다고 하더라도 더 이상 지급받을 수 없습니다.<br>(실업급여 신청없이 재취업하면 지급받을 수 없으므로 퇴직 즉시 신청하시기 바랍니다.)</strong></li>
+					</ul>
+					<div class="icon_job_infomation mt20">
+						<ul class="hidden">
+							<li>실업급여
+								<ul>
+									<li>구직급여</li>
+									<li>취업촉진수당
+										<ul>
+											<li>조기재취업 수당</li>
+											<li>직업능력개발 수당</li>
+											<li>광역구직 활동비</li>
+											<li>이주비</li>
+										</ul>
+									</li>
+									<li>연장급여
+										<ul>
+											<li>훈련연장 급여</li>
+											<li>개별연장 급여</li>
+											<li>특별연장 급여</li>
+										</ul>
+									</li>
+									<li>상병급여</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+				
+
+				
+				<div class="contentInfo">
+					<h3 class="titlea"><span class="title_ico"></span>상세설명</h3>
+					<div class="tableA mb20">
+						<table class="data_table">
+						<caption>실업급여의 구분의 따른 요건에 대한 요건 상세 설명</caption>
+						<colgroup>
+							<col style="width: 13%">
+							<col style="width: 17%">
+							<col style="width: 75%">
+						</colgroup>
+							<thead>
+								<tr>
+									<th scope="col" colspan="2">구분</th>
+									<th scope="col">요건</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row" colspan="2" class="blno tl no_bold">구직급여</th>
+									<td class="tl">
+										<ul class="blueDot">
+											<li>고용보험 적용사업장에서 실직전 18개월(초단시간근로자의 경우, 24개월)중 피보험단위기간이 통산하여 180일 이상근무하고 </li>
+											<li>근로의 의사 및 능력이 있고(비자발적으로 이직), 적극적인 재취업활동(재취업활동을 하지 않는 경우 미지급)에도 불구하고 취업하지 못한 상태이며<br>
+												<!-- 2015.3.4 황장원_고용보험법 제59조(고액 금품 수령에 따른 구직급여의 지급유예)조항 삭제<2015.1.20.>에 따른 주석처리
+												<span class="margin">※</span><p class="margin">퇴직금ㆍ퇴직위로금등 1억원 이상을 지급받거나 지급받을 것이 확실시 되는 자는 실업신고일로부터 3개월간 실업급여의 지급이 유예됨.</p><br />
+												 -->
+												<span class="margin">※</span><p class="margin">일용근로자로 이직한 경우 아래 요건 모두 충족하여야 함</p>
+											</li>
+											<li>수급자격 제한사유에 해당하지 않아야 함<br><span class="margin">※</span><p class="margin"> 자발적 이직하거나, 중대한 귀책사유로 해고된 경우는 제외.</p></li>
+											<li>(일용) 수급자격 인정신청일이 속한 달의 직전 달 초일부터 수급자격 인정신청일까지의 근로일 수의 합이 같은 기간 동안의 총 일수의 3분의 1 미만일 것</li>
+											<li>(일용) 법 제58조에 따른 수급자격 제한사유에 해당하는 사유로 이직한 사실이 있는 경우에는 최종 이직일 기준 2019.10.1 이후 수급자는 실직전 18개월(초단시간근로자의 경우, 24개월)중 90일 이상을 일용근로하였을 것 
+												<br>(최종 이직일 기준 2019.10.1 이전 수급자는 피보험단위기간 180일 중 90일 이상을 일용근로하였을 것)  </li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" colspan="2" class="blno tl no_bold">상병급여</th>
+									<td class="tl">
+										<ul class="blueDot">
+											<li>실업신고를 한 이후 질병ㆍ부상ㆍ출산으로 취업이 불가능하여 실업의 인정을 받지 못한 경우</li>
+											<li>7일이상의 질병ㆍ부상으로 취업할 수 없는 경우 증명서를 첨부하여 청구 </li>
+											<li>출산의 경우는 출산일로부터 45일간지급</li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+								   <th scope="row" colspan="2" class="blno tl no_bold">훈련연장급여</th>
+									<td class="tl">
+										<ul class="blueDot">
+											<li>실업급여 수급자로서 연령·경력 등을 고려할 때, 재취업을 위해 직업안정기관장의 직업능력개발훈련지시에 의하여 훈련을 수강하는 자 </li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" colspan="2" class="blno tl no_bold">개별연장급여</td>
+									<td class="tl">
+										<ul class="blueDot">
+											<li>취직이 특히 곤란하고 생활이 어려운 수급자로서 임금수준, 재산상황, 부양가족 여부 등을 고려하여 생계지원 등이 필요한자</li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" colspan="2" class="blno tl no_bold">특별연장급여</th>
+									<td class="tl">
+										<ul class="blueDot">
+											<li>실업급증 등으로 재취업이 특히 어렵다고 인정되는 경우 고용노동부 장관이 일정한 기간을 정하고 동기간 내에 실업급여의 수급이 종료된 자 </li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" rowspan="4" class="blno tl no_bold">취업촉진수당</th>
+									<td class="blLine">조기재취업수당</td>
+									<td class="tl">
+										<ul class="blueDot">
+											<li>구직급여 수급자가 대기기간(7일)이 경과한 후 소정급여일수를 절반 이상 남겨두고 재취업하여 12개월 이상 계속 고용되거나 사업을 영위하였을 것</li>
+											<li>12개월 이상 사업을 영위하여 조기재취업수당을 신청한 경우, 사업 개시 전 본인이 개시하려는 사업 관련 준비활동으로 최소 1회 이상 실업인정받았어야 조기재취업수당 지급 가능</li>
+											<li>수급자격 신청 전 마지막으로 이직한 사업장에 다시 취업한 경우, 수급자격 신청 전 마지막으로 이직한 사업장과 분할·합병 또는 그 사업을 넘겨받은 사업장에 취업한 경우, 수급자격 신청 전에 채용이 내정된 사업장에 취업한 경우에는 고용보험법 시행령 제84조제1항1호 및 같은 법 시행규칙 제108조제1항에 따라 조기재취업수당 지급 불가</li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td class="blLine blno">직업능력개발수당</td>
+									<td class="tl">
+										<ul class="blueDot">
+											<li>실업기간 중 직업안정기관장이 지시한 직업능력개발훈련을 받는 경우</li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td class="blLine blno">광역구직활동비</td>
+									<td class="tl">
+										<ul class="blueDot">
+											<li>직업안정기관장의 소개로 거주지에서 편도 25km 이상 떨어진 회사에 구직활동을 하는 경우</li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td class="blLine blno">이주비</td>
+									<td class="tl">
+										<ul class="blueDot">
+											<li>취업 또는 직업안정기관의 장이 지시한 직업능력개발훈련을 받기 위해 그 주거를 이전하는 경우</li>
+										</ul>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<p class="tr">
+					<a href="/ei/common/dnfile/unemployment_benefits.pdf" class="btn bg2" title="고용보험 실업급여 안내 다운로드" target="_blank" download="">고용보험 실업급여 안내</a>
+					</p>
+				</div>
+				
+				
+			</div>
+			<!--page 마침-->
+ 
+		</div>
+		<!--콘텐츠 마침-->
+
+	</div> 
+	<!-- 콘테이너 마침-->
+	</div>
+	<!--서브 영역 마침-->
+	
+
+
+
+
+
+<script type="text/javascript">
+<!--
+	//관련기관 연락처 팝업
+function f_preView() {
+	window.open("/ei/eih/cm/bs/retrieveBs005Info.do","popup","width=750,height=375,status=no,toolbar=no,scrollbars=yes,left=0,top=0");
+	
+}
+function focusTop() {
+	$("#extendLogin").focus();
+	
+}	
+
+function fn_otinttCntcUrl(gbn) {
+	var openWin = window.open("about:blank");
+	var targetUrl ="";
+	var hostName = document.location.hostname;	
+	if(gbn == 'WORK') {
+		if(hostName == "www.ei.go.kr") {
+			targetUrl = "http://www.work.go.kr/main.do";	
+		} else {
+			targetUrl = "http://210.95.199.81/main.do";	
+		}
+	} else if (gbn == 'HRD') {
+		if(hostName == "www.ei.go.kr") { 
+			targetUrl = "https://www.hrd.go.kr/hrdp/ma/pmmao/index.do";
+		} else {
+			targetUrl =	"http://10.99.8.29:9000/hrdp/ma/pmmao/index.do";	
+		}
+	}
+	
+ 	if ('N' != "N") { 
+		targetUrl = targetUrl + "?moelSTKN=" + 'N';
+	}  
+	openWin.document.location.href = targetUrl;
+	
+}
+
+function fn_eprivacy(){
+	window.open("https://www.eprivacy.or.kr/front/certifiedSiteMark/certifiedSiteMarkPopup.do?certCmd=E&certNum=2023-E-R014","seal","width=527,height=720,location=no,status=no,scrollbars=no");
+}
+
+var sType = "";
+if( sType == "BP" || sType == "UN" || sType == "BA") { 
+	$("#gnb_2 > li > a").each(function(){
+		var kVal = $(this).text();
+		if("@고용창출장려금@고용안정장려금@고용유지지원금@상생고용지원@임금피크제@장년근로시간단축 사업주@기후대응지원@".indexOf(kVal) > -1) {
+			$(this).parents("li").find("a").click(function(){
+				var sUrl = $(this).attr("href");
+				var sVal = $(this).text();
+
+				var hostName = document.location.hostname;
+
+				if(hostName == "www.ei.go.kr") {
+					if(sUrl.indexOf("retrieveCvplPrssCurstuList") > -1) {
+						return true;
+					}
+				}else{
+					if(sUrl.indexOf("retrieveCvplPrssCurstuList") > -1 || sUrl.indexOf("eeEmpmntSssPlanDclrt01") > -1 ) {
+						return true;
+					}
+				}
+				
+				//if(sVal.indexOf("출산육아기") > -1) {
+				//	alert("제목 : 출산육아기 고용안정장려금 23년도 사업예산 소진 및 지급 재개 일정 안내\n\n'23년도 출산육아기 고용안정장려금 사업예산이 모두 소진되었습니다.\n\n지원금 신청서 접수는 가능하나, 부득이 지급은 '24.1.5. 전후 재개될 예정입니다.\n\n모쪼록 불편을 드린점 양해를 부탁드립니다.");
+				//}
+				
+				var today = new Date();
+				//var openDay = new Date('2023-12-08 18:00:00');
+				/*var openDay = new Date('2023-12-05 07:00:00');
+				if(today.getTime() > openDay.getTime()){
+					go24MoveInfo(11);
+				}else{
+					if(confirm("‘23.11.27일부터 고용지원금 일부 민원신청서(계획신고서, 신청서) 서식 개정 및 고용24 신청서 시범 전환에 따라 새로운 신청서 화면을 팝업으로 제공하오니\n해당 양식에 신청정보를 입력하여 주시기 바랍니다.")){
+						fn_g24Popup(sUrl);	
+					}
+				}*/
+				go24MoveInfo(11, sUrl)
+				return false;
+				
+			});
+		} else if("@대리인@".indexOf(kVal) > -1) {
+			$(this).parents("li").find("a").click(function(){
+				var sUrl = $(this).attr("href");
+				var sVal = $(this).text();
+
+				if(sUrl.indexOf("retrieveCvplPrssCurstuListAd") > -1) {
+					return true;
+				}
+				
+				go24MoveInfo(14, sUrl)
+				return false;
+				
+			});
+		}
+	});
+	
+	setTimeout(function(){
+		$("#guide-cont-3 a").click(function (e){
+			e.preventDefault();
+			return false;
+		});
+		
+		$("#guide-cont-4 a").click(function (e){
+			e.preventDefault();
+			return false;
+		});
+		
+		$("div.n-main-col-2 div.em-list a").click(function (e){
+			e.preventDefault();
+			var sUrl = $(this).attr("href");
+			var sVal = $(this).text();
+
+			var hostName = document.location.hostname;
+			if(hostName == "www.ei.go.kr") {
+				if(sUrl.indexOf("retrieveCvplPrssCurstuList") > -1) {
+					return true;
+				
+				}
+			}else{
+				if(sUrl.indexOf("retrieveCvplPrssCurstuList") > -1 || sUrl.indexOf("eeEmpmntSssPlanDclrt01") > -1 ) {
+					return true;
+				}
+			}
+			
+			//if(sVal.indexOf("출산육아기") > -1) {
+			//	alert("제목 : 출산육아기 고용안정장려금 23년도 사업예산 소진 및 지급 재개 일정 안내\n\n'23년도 출산육아기 고용안정장려금 사업예산이 모두 소진되었습니다.\n\n지원금 신청서 접수는 가능하나, 부득이 지급은 '24.1.5. 전후 재개될 예정입니다.\n\n모쪼록 불편을 드린점 양해를 부탁드립니다.");
+			//}
+			
+			/*var url = "/ei/eih/ee/go24EmsLink.do";
+			var params = "sUrl=" + sUrl;
+			
+			var today = new Date();
+			//var openDay = new Date('2023-12-08 18:00:00');
+			var openDay = new Date('2023-12-05 07:00:00');
+			if(today.getTime() > openDay.getTime()){
+				
+				go24MoveInfo(11, sUrl);
+			}else{
+				if(confirm("‘23.11.27일부터 고용지원금 일부 민원신청서(계획신고서, 신청서) 서식 개정 및 고용24 신청서 시범 전환에 따라 새로운 신청서 화면을 팝업으로 제공하오니\n해당 양식에 신청정보를 입력하여 주시기 바랍니다.")){
+					fn_g24Popup(sUrl);
+				}
+			}*/
+			go24MoveInfo(11, sUrl);
+			return false;
+			
+		});
+		
+		$("div.n-main-col-4 li.on-line a").click(function (e){
+			e.preventDefault();
+			var sUrl = $(this).attr("href");
+			var sVal = $(this).text();
+
+			if(sUrl.indexOf("retrieveLpCvplPrssListCvplTypeI") > -1) {
+				return true;
+			}
+
+			go24MoveInfo(12, sUrl);
+			return false;
+			
+		});		
+		
+	}, 1000);
+} else if(sType == "PE") {
+	$("#gnb_1 > li > a").each(function(){
+		var kVal = $(this).text();
+		if("@부정행위신고/신고포상금@".indexOf(kVal) > -1) {
+			$(this).parents("li").find("a").click(function(){
+				var sUrl = $(this).attr("href");
+				var sVal = $(this).text();
+
+				if(sUrl.indexOf("retrieveLpCvplPrssListCvplTypeI") > -1) {
+					return true;
+				}
+				
+				go24MoveInfo(12, sUrl);
+				return false;
+				
+			});
+		} else if("@심사/재심사청구@".indexOf(kVal) > -1) {
+			$(this).parents("li").find("a").click(function(){
+				var sUrl = $(this).attr("href");
+				var sVal = $(this).text();
+				
+				if(sUrl.indexOf("retrieveLpCvplPrssListCvplTypeJ") > -1) {
+					return true;
+				}
+				
+				go24MoveInfo(13, sUrl);
+				return false;
+				
+			});			
+		}
+	});	
+	
+	setTimeout(function(){
+		$("div.n-main-col-4 li.on-line a").click(function (e){
+			e.preventDefault();
+			var sUrl = $(this).attr("href");
+			var sVal = $(this).text();
+
+			if(sUrl.indexOf("retrieveLpCvplPrssListCvplTypeI") > -1) {
+				return true;
+			}
+
+			go24MoveInfo(12, sUrl);
+			return false;
+			
+		});	
+	}, 1000);
+
+}
+	
+function go24MoveInfo(seq, sUrl) {
+	//var frm = form;
+	window.open("/ei/eih/cm/common/csEventPopupInfo.do?seq="+seq+"&url="+sUrl, "POPUP"+seq);
+	//frm.action = "/ei/eih/cm/common/csEventPopupInfo.do?seq="+seq;
+	//frm.submit();
+	//document.location.href = "/ei/eih/cm/common/csEventPopupInfo.do?seq="+seq;
+}
+
+$(document).ready(function() {
+	var today = new Date();
+	var openDay = new Date('2024-3-31 23:59:59');
+	if(today.getTime() > openDay.getTime()){
+		$(".webacc-mark a:eq(0)").remove();
+		$(".webacc-mark").css("margin-right","50px");
+	}
+});
+
+//-->
+</script>
+<!-- footer. s. -->
+<div id="footer">
+
+	<div class="top">
+
+		<div class="info">
+			<div class="siteList">
+
+				<!-- 20201214 수정 -->
+				<div class="branch-banner">
+					
+					<div class="branch-slider">
+						<div><a href="http://www.moel.go.kr" target="_blank" title="고용노동부 새 창으로 이동"><img src="/ei/images/common/footerlink1.png" alt="꿈과 미래가 함께하는 고용노동부"></a></div>
+						<!-- <div><a href="javascript:fn_otinttCntcUrl('WORK');" title="워크넷 새 창으로 이동"><img src="/ei/images/common/footerlink2-1.png" alt="고용노동부 고용안정정보망 워크넷"></a></div> -->
+						<div><a href="http://www.keis.or.kr" target="_blank" title="한국고용정보원 새 창으로 이동"><img src="/ei/images/common/footerlink7.png" alt="한국고용정보원"></a></div>
+						<div><a href="http://www.kcomwel.or.kr" target="_blank" title="근로복지공단 새 창으로 이동"><img src="/ei/images/common/footerlink3.png" alt="근로자의 행복과 미래 근로복지공단"></a></div>
+						<div><a href="http://www.4insure.or.kr" target="_blank" title="4대사회보험 새 창으로 이동"><img src="/ei/images/common/footerlink4.png" alt="4대보험 포털서비스 4대사회보험"></a></div>						
+						<!-- <div><a href="javascript:fn_otinttCntcUrl('HRD');" title="HRD-Net 새 창으로 이동"><img src="/ei/images/common/footerlink5.png" alt="직업능력지식포털 HRD-Net"></a></div> -->
+						<div><a href="http://www.kua.go.kr" target="_blank" title="국민취업지원제도 새 창으로 이동"><img src="/ei/images/common/footerlink8.png" alt="국민취업지원제도"></a></div>
+						<div><a href="https://eis.work.go.kr" target="_blank" title="고용행정 통계 새 창으로 이동"><img src="/ei/images/common/footerlink6.png" alt="한눈에 보는 고용행정 통계"></a></div>
+					</div>
+
+				</div>
+				<!-- 20201214 수정 //-->
+
+				<div class="connec"><a href="#" role="button" onclick="f_preView(); return false" title="관련기관 연락처 새창열기">관련기관 연락처 안내</a></div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="bottom">
+
+		<ul class="foot-link">
+			<li><a href="http://www.keis.or.kr" title="한국고용정보원 사이트 새창열기">한국고용정보원 소개</a></li>
+			<li><a href="/ei/eih/cm/bs/retrieveBs610Info.do" title="이용약관">이용약관</a></li>
+			<li><a href="/ei/eih/cm/bs/retrieveBs620Info.do" title="개인정보처리방침"><strong>개인정보처리방침</strong></a></li>
+			<li><a href="/ei/eih/cm/bs/retrieveBs630Info.do" title="이메일집단수집거부">이메일집단수집거부</a></li>
+			<!-- <li><a href="#" title="보안안내">보안안내</a></li>
+			<li><a href="#" title="웹접근성정책">웹접근성정책</a></li>
+			<li><a href="#" title="저작권정책 및 제휴문의">저작권정책 및 제휴문의</a></li>
+			<li><a href="#" title="Open API">Open API</a></li> -->
+		</ul>
+
+		<div class="info">
+			<div class="logo">
+			    <p><img src="/ei/images/common/footer_logo01.png" alt="고용노동부"> <img src="/ei/images/common/footer_logo02.png" alt="내일을 희망으로 이어주는 한국고용정보원"></p>
+			</div>
+
+			<div class="contact">						
+				<address style="margin:0;">​27740 충청북도 음성군 맹동면 태정로 6 한국고용정보원</address>
+				<p class="tel">홈페이지 전산 이용 문의 : <b>1577-7114</b>(유료, 한국고용정보원 고객상담센터 평일 09:00~18:00)</p>
+				<p class="tel">고용·노동 분야 제도 문의 : 국번없이 <b>1350</b>(유료, 고용노동부 고객상담센터 평일 09:00~18:00)</p>
+				<p class="copyright">Copyright © 2020 <b>고용노동부 한국고용정보원</b> all rights reserved</p>
+			</div>
+
+			<div class="webacc-mark">
+				<a href="#" onclick="fn_eprivacy(); return false;" title="ePRIVACY 인증서 새창 바로가기" style="margin-right: 10px;">
+					<img src="/ei/images/common/footerlink_eprivacy_txt.png" border="0" alt="ePRIVACY 인증서  마크(개인정보보호 우수 웹사이트 마크)" title="개인정보보호협회(OPA)">
+				</a> 
+				<a href="http://www.webwatch.or.kr/Situation/WA_Situation.html?MenuCD=110" title="웹와치 새창 바로가기" target="_blank">
+					<img src="/ei/images/common/footerlink_wa.png" border="0" alt="과학기술정보통신부 WA(WEB접근성) 품질인증 마크, 웹와치(WebWatch) 2023.7.2 ~ 2024.7.1" title="WA 품질인증 마크, 웹와치(WebWatch) 2023.7.2 ~ 2024.7.1">
+				</a> 
+			</div>
+		</div>
+
+	</div>
+	
+	<a href="#moveTop" id="topOnly" onclick="focusTop();"><img src="/ei/images/common/ico_top_tobe.png" style="width: 40px; height: 40px;" alt="위로"></a>
+</div>
+<!-- footer. e. -->
+
+<link rel="stylesheet" href="/ei/css2/mow/slick.css"><!-- 20201211 추가 -->
+<link rel="stylesheet" href="/ei/css2/mow/slick-theme.css"><!-- 20201211 추가 -->
+<script type="text/javascript" src="/ei/js/eih/lib/zoom.js?v1"></script>
+<script src="/ei/js/plugin/slick.js" type="text/javascript" charset="utf-8"></script>
+<script>
+	//푸터 관련기관 배너 슬라이드: 20201214 추가
+	// $(document).ready(function() {
+	// 	$('.branch-slider').slick({
+	// 		dots: false,
+	// 		infinite: false,
+	// 		slidesToShow: 6,
+	// 		slidesToScroll: 1,
+	// 		draggable: false,
+	// 	});
+	// })
+</script>
+
+<script>
+(
+	function(f,d,k,h){
+		var b;
+		var a=m()+"ver="+c(d);g();
+
+		function e(){
+			var o=document.getElementsByTagName(f)[0];
+			var n=document.createElement(f);
+			n.async=true;
+			n.charset="utf-8";
+			n.src=a;
+			o.parentNode.insertBefore(n,o);
+		}
+
+		function m(){
+			return window.location.protocol=="https:"?"https://tag.work.go.kr/static/00002/install.js?":"http://tag.work.go.kr/static/00002/install.js?"
+		}
+
+		function c(n){
+			var o=new Date().getTime();
+			var p=n*1000*60;
+			return n>0?Math.floor(o/p)*p:o;
+		}
+
+		function g(){
+			var n=l();
+			if(!n){
+				return false;
+			}
+			n.open("GET",a,true);
+			n.withCredentials=h;
+			n.send(null);
+			n.onload=function(){ j(); e() };
+			n.onerror=n.onabort=function(){ j() };
+			i(function(){ n.abort() }, k)
+		}
+
+		function l(){
+			var q;
+
+			var o=[function(){return new XDomainRequest()},function(){return new XMLHttpRequest()},function(){return new ActiveXObject("Msxml2.XMLHTTP")},function(){return new ActiveXObject("Msxml3.XMLHTTP")},function(){return new ActiveXObject("Microsoft.XMLHTTP")}];
+
+			for(var n=0;n<o.length;n++){
+				try{
+					q=o[n]();
+				}catch(p){
+					continue;
+				}
+				break
+			}
+			return q;
+		}
+
+		function i(o,n){
+			b=setTimeout(o,n)
+		}
+
+		function j(){
+			if(b){
+				clearTimeout(b)
+				;b=null
+			}
+		}
+	}
+)
+
+("script",60,/*{{timeout}}*/2000,/*{{withCredentials}}*/false);
+</script>
+
+<form name="mForm" id="mForm" method="POST">
+	<input type="hidden" name="signFormGbn" id="signFormGbn" value="Y" />
+	<input type="hidden" name="returnUrl" id="returnUrl" />
+</form>
+
+<!-- quickMenu. s. -->
+
+<!-- quickMenu. e. -->
+        
+<!--script src="/ei/js/includejs.js"></script-->
+<div id="quickMenu" style="top:176px;display:block;">
+	<h2 class="hidden">Quick Menu</h2>
+	<div class="quick">
+		<div class="quickBox">
+			<ul>
+				<li><img src="/ei/images/main/quickmenu/quckmenu01.png" alt="통계로보는 고용행정" /></li>
+				<li><a href="https://eis.work.go.kr/eisps/rpt/reptDtl.do?menuId=020030010012" target="_blank"><img src="/ei/images/main/quickmenu/quckmenu02.png" alt="실업급여" /></a></li>
+				<li><a href="https://eis.work.go.kr/eisps/rpt/reptDtl.do?menuId=030010010010" target="_blank"><img src="/ei/images/main/quickmenu/quckmenu03.png" alt="모성보호" /></a></li>
+				<li><a href="https://eis.work.go.kr/eisps/rpt/reptDtl.do?menuId=040020010010" target="_blank"><img src="/ei/images/main/quickmenu/quckmenu04.png" alt="고용안정" /></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+	
+
+<script>
+	var formMsgAt = "";
+</script>
+
+<script type="text/javascript" src="/ei/js2/formMsg.js"></script>
+<script type="text/javascript"> 
+
+//김명준 수정
+window.onload = function () {
+	// readonly 일때 뒤로가기 버튼 방지
+	$('body').bind("keydown", function (event){
+		if ( event != null && event.keyCode==8 ) {
+			var leng = $(':focus').length;
+			
+			if ( leng==0 ) {
+				event.returnValue = false;
+			} else {
+				var tagName = $(':focus')[0].tagName;
+				
+				if ( tagName=="INPUT" || tagName=="SELECT" || tagName=="TEXTAREA") {
+					var checkRead = $(':focus').prop("readonly");
+					if ( checkRead) {
+						event.returnValue = false;
+					}
+				} else {
+					event.returnValue = false;
+				}
+			}
+		}
+	});
+	
+	//readonly input일경우 포커스 없앰.
+	$('input').bind("click", function (){
+		if ( $(this).prop("readonly") ) {
+			$(this).blur();
+		}
+	});
+	
+	$(".pagePosition").css("z-index", "999");
+	var topMenuObj = $(".menus>ul>li>ul a[href*='"+location.pathname+"']").last();
+	if($("#lnb").size() > 0 && topMenuObj.length > 0){
+		$(".pagePosition").html("");
+		$(".pagePosition").append($("<a href=\"/ei/eih/cm/hm/main.do\" class=\"pageHome\">홈</a>"));
+		$(".pagePosition").append(" > ");
+		
+		//1step
+		var step1Obj = topMenuObj.parents(".main-nav1, .main-nav2, .main-nav3, .main-nav4").find("a:eq(1)");
+		$(".pagePosition").append($("<a />").attr("href", step1Obj.attr("href")).text(topMenuObj.parents(".main-nav1, .main-nav2, .main-nav3, .main-nav4").find("a:eq(0)").text()));
+		$(".pagePosition").append(" > ");
+		
+		//2step
+		var step2Obj = topMenuObj.parents("ul.sub").parent().find("a:eq(0)");
+		$(".pagePosition").append($("<a />").attr("href", step2Obj.attr("href")).text(step2Obj.text()));
+		$(".pagePosition").append(" > ");
+		
+		var step3Obj = $("#lnb ul.sub>li.on").parents(".has-sub").find("a:eq(0)");
+		if(step3Obj.length > 0){
+			$(".pagePosition").append($("<a />").attr("href", step3Obj.attr("href")).text(step3Obj.text()));
+			$(".pagePosition").append(" > ");
+		}
+		
+		//last_step
+		$(".pagePosition").append($("<b />").css({"font-size":"12px","color":"#333"}).text(topMenuObj.text()));
+	}
+	
+	/*$(".pagePosition .pageHome").click(function(){
+		location.href = '/ei/eih/cm/hm/main.do';
+	});
+	
+	var topMenuObj = $(".menus>ul>li>ul a[href*='"+location.pathname+"']");
+
+	//1step
+	var step1_href = topMenuObj.parents(".main-nav1, .main-nav2, .main-nav3, .main-nav4").find("a:eq(1)").attr("href");
+	$(".pagePosition a:eq(1)").attr("href", step1_href);
+	
+	//2step
+	var step2_href = topMenuObj.parents("ul.sub").parent().find("a:eq(0)").attr("href");
+	$(".pagePosition a:eq(2)").attr("href", step2_href);
+	
+	
+	$(".pagePosition span:last").css("font-weight", "bold");*/
+	
+	var menu = $("meta[property=pilms_menuId]").attr("content");
+	var menuId = menu.substr(5,1);
+	
+	if(menuId == "1"){
+		$(".main-nav-list .main-nav1 > a").css("border-bottom", "solid 5px #FFF");
+	}else if(menuId == "2"){
+		$(".main-nav-list .main-nav2 > a").css("border-bottom", "solid 5px #FFF");	
+	}else if(menuId == "3"){
+		$(".main-nav-list .main-nav3 > a").css("border-bottom", "solid 5px #FFF");	
+	}else if(menuId == "8"){
+		$(".main-nav-list .main-nav4 > a").css("border-bottom", "solid 5px #FFF");	
+	}	
+}
+
+function fn_chkGo24cvplRceptNo(cvplRceptNo, msg) {
+	if(cvplRceptNo == null || cvplRceptNo.length < 10) return;
+	
+	$.ajax({
+		type : 'POST',
+		url : '/ei/et/common/selectEiAeisExist.do',
+		dataType : 'json',
+		async : false,
+		data : "cvplRceptNo=" + cvplRceptNo ,
+		success : function(data) {
+			if(data.status != "SUCC") alert(msg);
+		}
+	});
+}
+</script>
+</body>
+</html>
