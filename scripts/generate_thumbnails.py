@@ -110,7 +110,7 @@ def extract_highlight_text(text: str) -> str:
     amount_match = re.search(r"([0-9][0-9,\.]*(?:\s*)(?:만원|원|억원|천원|백만원|%))", compact)
     if amount_match:
         return amount_match.group(1).replace(" ", "")
-    return compact[:24].strip()
+    return ""
 
 
 def compact_label(text: str, max_len: int = 16, max_items: int = 2) -> str:
@@ -336,7 +336,7 @@ def render_thumbnail(
     if highlight_seed:
         amount_text = f"{highlight_seed} 보장"
     else:
-        amount_text = "지원 내용 확인"
+        amount_text = "지원 혜택 확인"
 
     amount_font = fit_single_line_font(
         draw,
