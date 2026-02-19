@@ -568,6 +568,34 @@ def format_target_group_html(value: str) -> str:
     return f'<div class="target-pill-group">{chips}</div>'
 
 
+def format_target_group_compact(value: str, max_items: int = 3) -> str:
+    raw = str(value or "").strip()
+    if not raw:
+        return "일반"
+    normalized = (
+        raw.replace("，", ",")
+        .replace("ㆍ", ",")
+        .replace("·", ",")
+        .replace("/", ",")
+        .replace("|", ",")
+    )
+    parts = [part.strip() for part in normalized.split(",") if part.strip()]
+    if not parts:
+        return raw
+    deduped: list[str] = []
+    seen: set[str] = set()
+    for part in parts:
+        if part in seen:
+            continue
+        seen.add(part)
+        deduped.append(part)
+    if len(deduped) <= max_items:
+        label = ", ".join(deduped)
+    else:
+        label = ", ".join(deduped[:max_items]) + f" 외 {len(deduped) - max_items}"
+    return label
+
+
 def format_checked_at(value: str) -> str:
     raw = str(value or "").strip()
     if not raw:
@@ -1227,6 +1255,7 @@ a:hover { text-decoration: underline; }
   padding: 14px 14px 13px;
   background: #fff;
   min-height: 156px;
+  overflow: hidden;
 }
 
 .policy-card:hover {
@@ -1240,6 +1269,7 @@ a:hover { text-decoration: underline; }
   color: var(--muted);
   font-size: 0.79rem;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
 .policy-card h3 {
@@ -1247,18 +1277,29 @@ a:hover { text-decoration: underline; }
   font-size: 1rem;
   line-height: 1.45;
   color: var(--text);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  overflow-wrap: anywhere;
 }
 
 .policy-card-target {
   margin: 0 0 7px;
   color: var(--text-soft);
   font-size: 0.88rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  overflow-wrap: anywhere;
 }
 
 .policy-card-period {
   margin: 0;
   color: var(--muted);
   font-size: 0.8rem;
+  overflow-wrap: anywhere;
 }
 
 .policy-card-badge {
@@ -1393,6 +1434,8 @@ a:hover { text-decoration: underline; }
         output_dir=thumbnail_output_dir,
         site_base_url=site_base_url,
         font_paths=[
+            ROOT / "apps" / "site" / "assets" / "fonts" / "NotoSansCJKkr-Regular.otf",
+            ROOT / "apps" / "site" / "assets" / "fonts" / "NotoSansCJKkr-Bold.otf",
             ROOT / "apps" / "site" / "assets" / "fonts" / "NotoSansKR-Regular.ttf",
             ROOT / "apps" / "site" / "assets" / "fonts" / "NotoSansKR-Bold.ttf",
         ],
@@ -1683,7 +1726,7 @@ a:hover { text-decoration: underline; }
             title = str(card.get("title", "")).strip()
             region = str(card.get("region", "전국")).strip() or "전국"
             category = str(card.get("category", "기타")).strip() or "기타"
-            target_group = str(card.get("target_group", "일반")).strip() or "일반"
+            target_group = format_target_group_compact(str(card.get("target_group", "일반")))
             period_text = str(card.get("period_text", "공고문 참고")).strip() or "공고문 참고"
             badge = ""
             end_date = card.get("period_end_date")

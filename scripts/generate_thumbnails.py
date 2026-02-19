@@ -103,7 +103,35 @@ def extract_highlight_text(text: str) -> str:
     amount_match = re.search(r"([0-9][0-9,\.]*(?:\s*)(?:만원|원|억원|천원|백만원|%))", compact)
     if amount_match:
         return amount_match.group(1).replace(" ", "")
-    return compact
+    return compact[:24].strip()
+
+
+def compact_label(text: str, max_len: int = 16, max_items: int = 2) -> str:
+    compact = " ".join(str(text or "").split())
+    if not compact:
+        return ""
+    normalized = (
+        compact.replace("，", ",")
+        .replace("ㆍ", ",")
+        .replace("·", ",")
+        .replace("/", ",")
+        .replace("|", ",")
+    )
+    parts = [part.strip() for part in normalized.split(",") if part.strip()]
+    if not parts:
+        return compact[:max_len].strip()
+    deduped: list[str] = []
+    seen: set[str] = set()
+    for part in parts:
+        if part in seen:
+            continue
+        seen.add(part)
+        deduped.append(part)
+    if len(deduped) <= max_items:
+        label = ", ".join(deduped)
+    else:
+        label = ", ".join(deduped[:max_items]) + f" 외 {len(deduped) - max_items}"
+    return label[:max_len].strip()
 
 
 def compact_text_length(text: str) -> int:
@@ -139,6 +167,20 @@ def text_size(
 ) -> tuple[int, int]:
     left, top, right, bottom = draw.textbbox((0, 0), text, font=font)
     return int(right - left), int(bottom - top)
+
+
+def trim_text_to_width(
+    draw: ImageDraw.ImageDraw,
+    text: str,
+    font: ImageFont.FreeTypeFont | ImageFont.ImageFont,
+    max_width: int,
+) -> str:
+    candidate = " ".join(str(text or "").split())
+    if not candidate:
+        return ""
+    while candidate and draw.textlength(candidate, font=font) > max_width:
+        candidate = candidate[:-1].rstrip()
+    return candidate or "확인"
 
 
 def fit_single_line_font(
@@ -247,12 +289,16 @@ def render_thumbnail(
     canvas = Image.blend(fitted, Image.new("RGB", size, navy), 0.84).convert("RGBA")
     draw = ImageDraw.Draw(canvas, "RGBA")
 
+    safe_region = compact_label(region, max_len=10, max_items=1) or "전국"
+    safe_target = compact_label(target_group, max_len=18, max_items=2) or "일반"
+    safe_category = compact_label(category, max_len=14, max_items=1) or "정책"
+
     top_split = int(size[1] * 0.48)
     draw.rectangle((6, 6, size[0] - 6, top_split), fill=(*top_bg, 255))
     draw.rectangle((0, top_split + 1, size[0], size[1]), fill=(*blue, 255))
     draw.rounded_rectangle((42, 26, 58, 178), radius=8, fill=(*sky, 255))
 
-    headline_text = f"{category} 지원"
+    headline_text = f"{safe_category} 지원"
     headline_font = fit_single_line_font(
         draw,
         headline_text,
@@ -261,6 +307,7 @@ def render_thumbnail(
         start_size=size_by_char_count(headline_text, max_size=132, min_size=62, short_count=6, long_count=24),
         min_size=56,
     )
+    headline_text = trim_text_to_width(draw, headline_text, headline_font, size[0] - 130)
     headline_w, headline_h = text_size(draw, headline_text, headline_font)
     draw.text(
         ((size[0] - headline_w) // 2, 24),
@@ -285,6 +332,7 @@ def render_thumbnail(
         start_size=size_by_char_count(amount_text, max_size=90, min_size=44, short_count=6, long_count=26),
         min_size=40,
     )
+    amount_text = trim_text_to_width(draw, amount_text, amount_font, size[0] - 120)
     amount_w, amount_h = text_size(draw, amount_text, amount_font)
     amount_y = 28 + headline_h + 34
     draw.text(((size[0] - amount_w) // 2, amount_y), amount_text, font=amount_font, fill=(*navy, 255))
@@ -294,21 +342,23 @@ def render_thumbnail(
     divider_y = amount_y + amount_h + 20
     draw.rounded_rectangle((divider_x1, divider_y, divider_x1 + divider_w, divider_y + 10), radius=7, fill=(*sky, 255))
 
-    pill_seed = f"{region}{target_group}"
+    pill_seed = f"{safe_region}{safe_target}"
     pill_font = fit_single_line_font(
         draw,
-        f"{region} · {target_group}",
+        f"{safe_region} · {safe_target}",
         font_paths,
         max_width=460,
         start_size=size_by_char_count(pill_seed, max_size=38, min_size=28, short_count=5, long_count=20),
         min_size=28,
     )
+    pill_region_text = trim_text_to_width(draw, safe_region, pill_font, 170)
+    pill_target_text = trim_text_to_width(draw, safe_target, pill_font, 260)
     pill_y = divider_y + 20
     left_pill_w = draw_pill(
         draw,
         x=108,
         y=pill_y,
-        text=region or "전국",
+        text=pill_region_text or "전국",
         font=pill_font,
         fill_color=(*pill_bg, 255),
         text_color=(*navy, 255),
@@ -317,14 +367,14 @@ def render_thumbnail(
         draw,
         x=108 + left_pill_w + 16,
         y=pill_y,
-        text=target_group or "일반",
+        text=pill_target_text or "일반",
         font=pill_font,
         fill_color=(*pill_bg, 255),
         text_color=(*navy, 255),
     )
 
-    cta_primary = f"나도 {target_group} 대상자?"
-    cta_secondary = f"{region} {category} 지원받기".strip()
+    cta_primary = f"나도 {safe_target} 대상자?"
+    cta_secondary = f"{safe_region} {safe_category} 지원받기".strip()
 
     cta_font = fit_single_line_font(
         draw,
@@ -334,7 +384,7 @@ def render_thumbnail(
         start_size=size_by_char_count(cta_primary, max_size=104, min_size=36, short_count=8, long_count=42),
         min_size=32,
     )
-    primary_line = cta_primary
+    primary_line = trim_text_to_width(draw, cta_primary, cta_font, 660)
 
     secondary_font = fit_single_line_font(
         draw,
@@ -344,7 +394,7 @@ def render_thumbnail(
         start_size=size_by_char_count(cta_secondary, max_size=98, min_size=34, short_count=10, long_count=42),
         min_size=30,
     )
-    secondary_line = cta_secondary
+    secondary_line = trim_text_to_width(draw, cta_secondary, secondary_font, 660)
 
     left_x = 48
     first_y = top_split + 70
@@ -469,6 +519,8 @@ def main() -> int:
         output_dir=output_dir,
         site_base_url=args.site_base_url,
         font_paths=[
+            ROOT / "apps/site/assets/fonts/NotoSansCJKkr-Regular.otf",
+            ROOT / "apps/site/assets/fonts/NotoSansCJKkr-Bold.otf",
             ROOT / "apps/site/assets/fonts/NotoSansKR-Regular.ttf",
             ROOT / "apps/site/assets/fonts/NotoSansKR-Bold.ttf",
         ],
