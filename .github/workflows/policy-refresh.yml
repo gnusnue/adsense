@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       RUN_ID: policy-${{ github.run_id }}
-      SITE_BASE_URL: ${{ vars.POLICY_SITE_BASE_URL || vars.SITE_BASE_URL || 'https://pol.cbbxs.com' }}
+      SITE_BASE_URL: ${{ vars.POLICY_SITE_BASE_URL || 'https://pol.cbbxs.com' }}
       DATA_GO_KR_API_KEY: ${{ secrets.DATA_GO_KR_API_KEY }}
       ADSENSE_CLIENT_ID: ${{ secrets.ADSENSE_CLIENT_ID }}
       GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
