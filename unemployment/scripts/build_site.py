@@ -15,7 +15,7 @@ def write_text(path: Path, text: str) -> None:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build unemployment static site")
-    parser.add_argument("--site-base-url", default="https://unemployment.cbbxs.com")
+    parser.add_argument("--site-base-url", default="https://uem.cbbxs.com")
     return parser.parse_args()
 
 

@@ -19,7 +19,7 @@ Policy:
 cd policy
 python -m venv .venv
 .venv/bin/pip install -r requirements.txt
-.venv/bin/python scripts/build_site_from_canonical.py --run-id local --site-base-url https://cbbxs.com
+.venv/bin/python scripts/build_site_from_canonical.py --run-id local --site-base-url https://pol.cbbxs.com
 ```
 
 Unemployment:
@@ -27,5 +27,5 @@ Unemployment:
 ```bash
 cd unemployment
 python -m venv .venv
-.venv/bin/python scripts/build_site.py --site-base-url https://unemployment.cbbxs.com
+.venv/bin/python scripts/build_site.py --site-base-url https://uem.cbbxs.com
 ```

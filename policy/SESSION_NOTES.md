@@ -23,7 +23,7 @@ References:
 
 ### Domain Baseline
 
-- Production domain is `https://cbbxs.com`.
+- Production domain is `https://pol.cbbxs.com`.
 - Apex routing assumes Cloudflare nameserver delegation.
 - Operational runbook: `docs/cbbxs-go-live.md`
 - DNS baseline snapshot record: `docs/dns-baseline-cbbxs-2026-02-17.md`

@@ -25,7 +25,7 @@ Optional:
 
 ## 3. Repository Variables
 
-- `POLICY_SITE_BASE_URL=https://cbbxs.com`
+- `POLICY_SITE_BASE_URL=https://pol.cbbxs.com`
 
 ## 4. Workflows
 
@@ -48,11 +48,11 @@ All workflows create and use `.venv`:
 ## 5. First Bring-up Checklist
 
 1. Add all secrets/variables
-2. Set `POLICY_SITE_BASE_URL=https://cbbxs.com`
+2. Set `POLICY_SITE_BASE_URL=https://pol.cbbxs.com`
 3. Run `policy-refresh` manually once
 4. Verify `data/canonical/latest/policies.json` updated
 5. Verify `policy-deploy` completed
-6. Open `https://cbbxs.com/sitemap.xml` and `https://cbbxs.com/updates/`
+6. Open `https://pol.cbbxs.com/sitemap.xml` and `https://pol.cbbxs.com/updates/`
 
 ## 6. Domain / DNS
 
@@ -61,5 +61,5 @@ For this project, DNS authority is expected on Cloudflare for apex domain routin
 1. Add `cbbxs.com` zone to Cloudflare
 2. Copy all existing DNS records from registrar DNS to Cloudflare DNS
 3. Update domain nameservers at registrar to Cloudflare NS
-4. Add custom domain `cbbxs.com` in Cloudflare Pages
+4. Add custom domain `pol.cbbxs.com` in Cloudflare Pages
 5. Verify SSL status is `Active`

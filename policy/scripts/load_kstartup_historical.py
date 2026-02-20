@@ -26,7 +26,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--cutoff-date", default="20250701", help="Include rows where start_date >= cutoff (YYYYMMDD)")
     parser.add_argument("--per-page", type=int, default=200, help="Page size for source API")
     parser.add_argument("--max-pages", type=int, default=300, help="Max pages to fetch")
-    parser.add_argument("--site-base-url", default="https://cbbxs.com", help="Canonical base URL for generated records")
+    parser.add_argument("--site-base-url", default="https://pol.cbbxs.com", help="Canonical base URL for generated records")
     return parser.parse_args()
 
 

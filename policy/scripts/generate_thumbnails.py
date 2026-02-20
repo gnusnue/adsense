@@ -497,7 +497,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--canonical", required=True)
     parser.add_argument("--base-image", default="apps/site/assets/thumbnail/base.png")
     parser.add_argument("--output-dir", default="apps/site/dist/assets/thumbnails")
-    parser.add_argument("--site-base-url", default="https://cbbxs.com")
+    parser.add_argument("--site-base-url", default="https://pol.cbbxs.com")
     parser.add_argument("--manifest-out", default="artifacts/latest/frontend/thumbnails.json")
     return parser.parse_args()
 

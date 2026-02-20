@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       RUN_ID: policy-deploy-${{ github.run_id }}
-      SITE_BASE_URL: ${{ vars.POLICY_SITE_BASE_URL || vars.SITE_BASE_URL || 'https://cbbxs.com' }}
+      SITE_BASE_URL: ${{ vars.POLICY_SITE_BASE_URL || vars.SITE_BASE_URL || 'https://pol.cbbxs.com' }}
       ADSENSE_CLIENT_ID: ${{ secrets.ADSENSE_CLIENT_ID }}
       GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

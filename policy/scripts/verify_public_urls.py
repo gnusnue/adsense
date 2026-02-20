@@ -11,7 +11,7 @@ from runtime_guard import enforce_venv
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Verify public URLs after deployment")
-    parser.add_argument("--base-url", default="https://cbbxs.com")
+    parser.add_argument("--base-url", default="https://pol.cbbxs.com")
     return parser.parse_args()
 
 

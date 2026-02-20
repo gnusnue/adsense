@@ -13,7 +13,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build static site from canonical dataset")
     parser.add_argument("--run-id", required=True)
     parser.add_argument("--canonical", default="data/canonical/latest/policies.json")
-    parser.add_argument("--site-base-url", default=os.getenv("SITE_BASE_URL", "https://cbbxs.com"))
+    parser.add_argument("--site-base-url", default=os.getenv("SITE_BASE_URL", "https://pol.cbbxs.com"))
     return parser.parse_args()
 
 

@@ -42,7 +42,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--site-base-url",
-        default=os.getenv("SITE_BASE_URL", "https://cbbxs.com"),
+        default=os.getenv("SITE_BASE_URL", "https://pol.cbbxs.com"),
         help="Public base URL used for canonical and sitemap",
     )
     return parser.parse_args()

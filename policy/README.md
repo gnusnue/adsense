@@ -24,7 +24,7 @@
 ```bash
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
-.venv/bin/python scripts/run_pipeline.py --run-id local-001 --mode bootstrap --site-base-url https://cbbxs.com
+.venv/bin/python scripts/run_pipeline.py --run-id local-001 --mode bootstrap --site-base-url https://pol.cbbxs.com
 ```
 
 Generated site is written to `apps/site/dist`.
@@ -46,9 +46,9 @@ Generated site is written to `apps/site/dist`.
 
 ```bash
 .venv/bin/python scripts/preflight_check.py --profile refresh --allow-missing-adsense
-.venv/bin/python scripts/run_pipeline.py --run-id daily-20260217 --mode daily --site-base-url https://cbbxs.com
+.venv/bin/python scripts/run_pipeline.py --run-id daily-20260217 --mode daily --site-base-url https://pol.cbbxs.com
 .venv/bin/python scripts/quality_gate.py --canonical data/canonical/latest/policies.json --site-dir apps/site/dist
-.venv/bin/python scripts/verify_public_urls.py --base-url https://cbbxs.com
+.venv/bin/python scripts/verify_public_urls.py --base-url https://pol.cbbxs.com
 ```
 
 ## Notes

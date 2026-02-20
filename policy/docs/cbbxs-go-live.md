@@ -2,7 +2,7 @@
 
 ## Scope
 
-Deploy `adsense-policy-automation` to `https://cbbxs.com` using Cloudflare Pages.
+Deploy `adsense-policy-automation` to `https://pol.cbbxs.com` using Cloudflare Pages.
 
 ## A. Pre-migration backup (required)
 
@@ -31,7 +31,7 @@ Deploy `adsense-policy-automation` to `https://cbbxs.com` using Cloudflare Pages
    - `GA_MEASUREMENT_ID` (optional)
    - `KSTARTUP_API_KEY` (optional, source enabled 시)
 2. Repository variable:
-   - `SITE_BASE_URL=https://cbbxs.com`
+   - `POLICY_SITE_BASE_URL=https://pol.cbbxs.com`
 
 ## D. Nameserver cutover
 
@@ -41,21 +41,21 @@ Deploy `adsense-policy-automation` to `https://cbbxs.com` using Cloudflare Pages
 
 ## E. Pages domain binding
 
-1. In Cloudflare Pages project, add custom domain `cbbxs.com`
+1. In Cloudflare Pages project, add custom domain `pol.cbbxs.com`
 2. Ensure certificate status is `Active`
 
 ## F. First production run
 
 1. Run workflow `policy-refresh` manually.
-2. Confirm workflow `deploy-pages` completed.
+2. Confirm workflow `policy-deploy` completed.
 3. Verify public endpoints:
-   - `https://cbbxs.com/`
-   - `https://cbbxs.com/updates/`
-   - `https://cbbxs.com/sitemap.xml`
+   - `https://pol.cbbxs.com/`
+   - `https://pol.cbbxs.com/updates/`
+   - `https://pol.cbbxs.com/sitemap.xml`
 4. Optional automated verification:
 
 ```bash
-.venv/bin/python scripts/verify_public_urls.py --base-url https://cbbxs.com
+.venv/bin/python scripts/verify_public_urls.py --base-url https://pol.cbbxs.com
 ```
 
 ## G. Rollback
@@ -70,7 +70,7 @@ Deploy `adsense-policy-automation` to `https://cbbxs.com` using Cloudflare Pages
 ## H. Monitoring baseline
 
 1. Daily check:
-   - GitHub Actions `policy-refresh`, `deploy-pages`
+   - GitHub Actions `policy-refresh`, `policy-deploy`
 2. Weekly check:
    - `scripts/weekly_report.py`
 3. Critical signals:

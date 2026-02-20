@@ -25,7 +25,7 @@ Verification commands:
 ```bash
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
-.venv/bin/python scripts/run_pipeline.py --run-id verify-venv --mode bootstrap --site-base-url https://cbbxs.com
+.venv/bin/python scripts/run_pipeline.py --run-id verify-venv --mode bootstrap --site-base-url https://pol.cbbxs.com
 .venv/bin/python scripts/quality_gate.py --canonical data/canonical/latest/policies.json --previous data/canonical/previous/policies.json --site-dir apps/site/dist
 ```
 
@@ -33,12 +33,12 @@ python3 -m venv .venv
 
 Decision:
 
-- Production base URL defaults to `https://cbbxs.com`.
+- Production base URL defaults to `https://pol.cbbxs.com`.
 - DNS authority for apex domain deployment is Cloudflare NS delegation.
 
 Implementation:
 
-1. Workflows fallback `SITE_BASE_URL` changed to `https://cbbxs.com`.
+1. Workflows fallback `SITE_BASE_URL` changed to `https://pol.cbbxs.com`.
 2. Added preflight secret checks in CI (`scripts/preflight_check.py`).
 3. Added public endpoint verification script (`scripts/verify_public_urls.py`).
 4. Added go-live runbook (`docs/cbbxs-go-live.md`).
@@ -48,5 +48,5 @@ Verification commands:
 ```bash
 .venv/bin/python scripts/preflight_check.py --profile refresh --allow-missing-adsense
 .venv/bin/python scripts/preflight_check.py --profile deploy --allow-missing-adsense
-.venv/bin/python scripts/verify_public_urls.py --base-url https://cbbxs.com
+.venv/bin/python scripts/verify_public_urls.py --base-url https://pol.cbbxs.com
 ```

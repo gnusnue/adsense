@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       RUN_ID: policy-pr-${{ github.run_id }}
-      SITE_BASE_URL: https://cbbxs.com
+      SITE_BASE_URL: https://pol.cbbxs.com
     steps:
       - name: Checkout
         uses: actions/checkout@v4

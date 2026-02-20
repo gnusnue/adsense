@@ -1,6 +1,6 @@
 VENV_PY := .venv/bin/python
 VENV_PIP := .venv/bin/pip
-BASE_URL := https://cbbxs.com
+BASE_URL := https://pol.cbbxs.com
 
 .PHONY: venv install preflight-refresh preflight-deploy run-bootstrap run-daily quality build weekly verify-prod
 
