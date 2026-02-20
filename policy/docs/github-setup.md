@@ -5,7 +5,7 @@
 1. Default branch: `main`
 2. Branch protection for `main`:
    - Require a pull request before merging
-   - Require status checks to pass: `quality-gate / quality`
+   - Require status checks to pass: `policy-quality-gate / quality`
    - Restrict direct pushes (allow admin bypass only if needed)
 
 ## 2. Repository Secrets
@@ -15,7 +15,7 @@ Required:
 - `DATA_GO_KR_API_KEY` (data.go.kr `Decoding` key 사용, `Encoding` key 비권장)
 - `CLOUDFLARE_API_TOKEN`
 - `CLOUDFLARE_ACCOUNT_ID`
-- `PAGES_PROJECT_NAME`
+- `POLICY_PAGES_PROJECT_NAME` (없으면 `PAGES_PROJECT_NAME` fallback)
 
 Optional:
 
@@ -25,7 +25,7 @@ Optional:
 
 ## 3. Repository Variables
 
-- `SITE_BASE_URL=https://cbbxs.com`
+- `POLICY_SITE_BASE_URL=https://cbbxs.com`
 
 ## 4. Workflows
 
@@ -33,12 +33,12 @@ Optional:
   - Schedule: daily at `06:13 KST`
   - Runs data fetch/normalize/site generation
   - Commits JSON snapshots and generated static files
-- `quality-gate.yml`
+- `policy-quality-gate.yml`
   - Runs on PR
   - Blocks merge on hard quality failures
-- `deploy-pages.yml`
+- `policy-deploy.yml`
   - Runs on successful `policy-refresh`
-  - Deploys `apps/site/dist` to Cloudflare Pages
+  - Deploys `policy/apps/site/dist` to Cloudflare Pages
 
 All workflows create and use `.venv`:
 
@@ -48,10 +48,10 @@ All workflows create and use `.venv`:
 ## 5. First Bring-up Checklist
 
 1. Add all secrets/variables
-2. Set `SITE_BASE_URL=https://cbbxs.com`
+2. Set `POLICY_SITE_BASE_URL=https://cbbxs.com`
 3. Run `policy-refresh` manually once
 4. Verify `data/canonical/latest/policies.json` updated
-5. Verify `deploy-pages` completed
+5. Verify `policy-deploy` completed
 6. Open `https://cbbxs.com/sitemap.xml` and `https://cbbxs.com/updates/`
 
 ## 6. Domain / DNS

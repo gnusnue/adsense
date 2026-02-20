@@ -5,7 +5,7 @@ on:
     paths:
       - 'policy/**'
       - '.github/workflows/policy-*.yml'
-      - '.github/workflows/quality-gate.yml'
+      - '.github/workflows/policy-quality-gate.yml'
   workflow_dispatch:
 
 concurrency:
