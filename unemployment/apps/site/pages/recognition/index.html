@@ -13,31 +13,54 @@
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {"primary": "#1c74e9", "background-light": "#f6f7f8", "background-dark": "#111821"},
+          fontFamily: {"display": ["Public Sans", "sans-serif"]},
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"}
+        },
+      },
+    }
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>html{font-size:17px;}body{font-family:'Public Sans',sans-serif;}</style>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap" rel="stylesheet" />
+  <style>html{font-size:16px;}body{font-family:'Public Sans',sans-serif;}.page-surface{background:radial-gradient(circle at 10% 0%, rgba(28,116,233,0.08), transparent 36%),linear-gradient(180deg,#f8fafc 0%,#f1f5f9 100%);}.no-scrollbar::-webkit-scrollbar{display:none;}.no-scrollbar{scrollbar-width:none;}</style>
 </head>
-<body class="bg-slate-50 text-slate-900">
-  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b-2 border-slate-300 shadow-[0_6px_24px_rgba(15,23,42,0.08)]">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-      <a href="/" class="text-lg font-bold">실업급여 가이드</a>
-      <nav class="hidden md:flex gap-6 text-sm">
-        <a class="hover:text-blue-600" href="/">계산기</a>
-        <a class="hover:text-blue-600" href="/apply/">신청 방법</a>
-        <a class="text-blue-600 font-semibold" href="/recognition/">실업인정</a>
-        <a class="hover:text-blue-600" href="/income-report/">소득신고</a>
-        <a class="hover:text-blue-600" href="/faq/">FAQ</a>
+<body class="page-surface text-slate-900 dark:text-slate-100 min-h-screen">
+  <header class="sticky top-0 z-50 w-full bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b-2 border-slate-300 dark:border-slate-700 shadow-[0_6px_24px_rgba(15,23,42,0.08)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+      <a href="/" class="flex items-center gap-2">
+        <svg class="w-8 h-8 text-primary" fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.263 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z"></path>
+        </svg>
+        <span class="text-xl font-bold tracking-tight">실업급여 가이드</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-2 text-sm">
+        <a class="px-3 py-1.5 rounded-full hover:bg-slate-100 transition-colors" href="/">계산기</a>
+        <a class="px-3 py-1.5 rounded-full hover:bg-slate-100 transition-colors" href="/apply/">신청 방법</a>
+        <a class="px-3 py-1.5 rounded-full bg-primary/10 text-primary font-semibold" href="/recognition/">실업인정</a>
+        <a class="px-3 py-1.5 rounded-full hover:bg-slate-100 transition-colors" href="/income-report/">소득신고</a>
+        <a class="px-3 py-1.5 rounded-full hover:bg-slate-100 transition-colors" href="/faq/">FAQ</a>
       </nav>
+      <div class="md:hidden">
+        <span class="material-symbols-outlined text-slate-600">menu</span>
+      </div>
+      </div>
     </div>
   </header>
 
-  <main class="max-w-4xl mx-auto px-4 pt-12 pb-10 space-y-8">
-    <section class="sticky top-20 z-40">
-      <div class="bg-white/95 backdrop-blur border border-slate-200 rounded-xl p-2 flex flex-wrap gap-2 justify-center shadow-sm">
-        <a class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-slate-100 transition-colors" href="/">계산기</a>
-        <a class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-slate-100 transition-colors" href="/apply/">신청 방법</a>
-        <a class="px-4 py-2 rounded-lg bg-blue-600 text-white text-sm font-semibold" href="/recognition/">실업인정</a>
-        <a class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-slate-100 transition-colors" href="/income-report/">소득신고</a>
-        <a class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-slate-100 transition-colors" href="/faq/">FAQ</a>
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 pt-8 sm:pt-12 pb-12 space-y-8">
+    <section class="mb-6 sm:mb-8 sm:sticky sm:top-20 z-40">
+      <div class="bg-white/95 backdrop-blur border border-slate-200 rounded-2xl p-1.5 sm:p-2 -mx-1 flex flex-nowrap gap-1.5 overflow-x-auto no-scrollbar justify-start sm:justify-center shadow-sm">
+        <a class="px-3 sm:px-4 py-2 rounded-xl text-[13px] sm:text-sm font-semibold whitespace-nowrap hover:bg-slate-100 transition-colors" href="/">계산기</a>
+        <a class="px-3 sm:px-4 py-2 rounded-xl text-[13px] sm:text-sm font-semibold whitespace-nowrap hover:bg-slate-100 transition-colors" href="/apply/">신청 방법</a>
+        <a class="px-3 sm:px-4 py-2 rounded-xl bg-primary text-white text-[13px] sm:text-sm font-semibold whitespace-nowrap" href="/recognition/">실업인정</a>
+        <a class="px-3 sm:px-4 py-2 rounded-xl text-[13px] sm:text-sm font-semibold whitespace-nowrap hover:bg-slate-100 transition-colors" href="/income-report/">소득신고</a>
+        <a class="px-3 sm:px-4 py-2 rounded-xl text-[13px] sm:text-sm font-semibold whitespace-nowrap hover:bg-slate-100 transition-colors" href="/faq/">FAQ</a>
       </div>
     </section>
 
@@ -135,7 +158,7 @@
   </main>
 
   <footer class="border-t border-slate-200 py-8 mt-10 text-sm text-slate-600">
-    <div class="max-w-4xl mx-auto px-4 space-y-2">
+    <div class="max-w-5xl mx-auto px-4 space-y-2">
       <div>운영: 실업급여 가이드 편집팀 (공식 기관 아님)</div>
       <div>제도 문의: 고용노동부 고객상담센터 1350 | 전산 문의: 한국고용정보원 1577-7114</div>
       <div class="text-xs text-slate-500">최종 업데이트: {{UPDATED_AT}}</div>

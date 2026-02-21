@@ -95,7 +95,8 @@ def main() -> int:
         ]
     )
     write_text(dist / "sitemap.xml", sitemap)
-    write_text(dist / "robots.txt", "User-agent: *\nAllow: /\nSitemap: /sitemap.xml\n")
+    write_text(dist / "robots.txt", f"User-agent: *\nAllow: /\nSitemap: {base}/sitemap.xml\n")
+    write_text(dist / "_headers", "/*\n  X-Robots-Tag: index,follow\n")
 
     print("unemployment site build completed")
     return 0
