@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>운영자 정보</title>
+  <meta name="description" content="실업급여 가이드 운영자 및 참고 출처 안내." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="{{BASE_URL}}/about/" />
+  <meta property="og:title" content="운영자 정보" />
+  <meta property="og:description" content="실업급여 가이드 운영자 및 참고 출처 안내." />
+  <meta property="og:url" content="{{BASE_URL}}/about/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>body{font-family:'Public Sans',sans-serif;}</style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="{{BASE_URL}}/" class="text-lg font-bold">실업급여 가이드</a>
+      <nav class="hidden md:flex gap-6 text-sm">
+        <a class="hover:text-blue-600" href="{{BASE_URL}}/calculator/">계산기</a>
+        <a class="hover:text-blue-600" href="{{BASE_URL}}/eligibility/">자격</a>
+        <a class="hover:text-blue-600" href="{{BASE_URL}}/apply/">신청</a>
+        <a class="hover:text-blue-600" href="{{BASE_URL}}/recognition/">실업인정</a>
+        <a class="hover:text-blue-600" href="{{BASE_URL}}/income-report/">소득신고</a>
+        <a class="hover:text-blue-600" href="{{BASE_URL}}/faq/">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 py-10 space-y-8">
+    <section class="bg-white rounded-2xl p-8 border border-slate-200">
+      <h1 class="text-2xl font-bold mb-2">운영자 정보</h1>
+      <p class="text-slate-600 text-sm">실업급여 가이드는 공공 자료를 기반으로 요약·정리한 안내 사이트입니다.</p>
+      <div class="mt-4 text-sm text-slate-700 space-y-2">
+        <div><span class="font-semibold">운영 주체</span>: 실업급여 가이드 편집팀</div>
+        <div><span class="font-semibold">제도 문의</span>: 고용노동부 고객상담센터 1350</div>
+        <div><span class="font-semibold">전산 문의</span>: 한국고용정보원 1577-7114</div>
+        <div><span class="font-semibold">정책/법령 출처</span>: 고용보험, 고용24, 국가법령정보센터</div>
+      </div>
+      <div class="mt-4 text-xs text-slate-500">최종 업데이트: {{UPDATED_AT}}</div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 py-8 mt-10 text-sm text-slate-600">
+    <div class="max-w-3xl mx-auto px-4 space-y-2">
+      <div>운영: 실업급여 가이드 편집팀 (공식 기관 아님)</div>
+      <div>제도 문의: 고용노동부 고객상담센터 1350 | 전산 문의: 한국고용정보원 1577-7114</div>
+      <div class="text-xs text-slate-500">최종 업데이트: {{UPDATED_AT}}</div>
+    </div>
+  </footer>
+</body>
+</html>

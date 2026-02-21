@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>실업급여 변경 로그</title>
+  <meta name="description" content="실업급여 제도 및 가이드 업데이트 내역을 기록합니다." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="{{BASE_URL}}/updates/" />
+  <meta property="og:title" content="실업급여 변경 로그" />
+  <meta property="og:description" content="실업급여 제도 및 가이드 업데이트 내역." />
+  <meta property="og:url" content="{{BASE_URL}}/updates/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>body{font-family:'Public Sans',sans-serif;}</style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="{{BASE_URL}}/" class="text-lg font-bold">실업급여 가이드</a>
+      <nav class="hidden md:flex gap-6 text-sm">
+        <a class="hover:text-blue-600" href="{{BASE_URL}}/calculator/">계산기</a>
+        <a class="hover:text-blue-600" href="{{BASE_URL}}/eligibility/">자격</a>
+        <a class="hover:text-blue-600" href="{{BASE_URL}}/apply/">신청</a>
+        <a class="hover:text-blue-600" href="{{BASE_URL}}/recognition/">실업인정</a>
+        <a class="hover:text-blue-600" href="{{BASE_URL}}/income-report/">소득신고</a>
+        <a class="hover:text-blue-600" href="{{BASE_URL}}/faq/">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 py-10 space-y-8">
+    <section class="bg-white rounded-2xl p-8 border border-slate-200">
+      <h1 class="text-2xl font-bold mb-2">실업급여 변경 로그</h1>
+      <p class="text-slate-600 text-sm">공식 출처 업데이트를 반영한 변경 내역입니다.</p>
+    </section>
+
+    <section class="bg-white rounded-2xl p-8 border border-slate-200 text-sm text-slate-700">
+      <table class="w-full text-left border border-slate-200">
+        <thead class="bg-slate-50">
+          <tr>
+            <th class="p-3 border-b">날짜</th>
+            <th class="p-3 border-b">변경 내용</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="p-3 border-b">{{UPDATED_AT}}</td>
+            <td class="p-3 border-b">기초 가이드/FAQ/계산기 콘텐츠 초기 구축.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="bg-white rounded-2xl p-8 border border-slate-200 text-sm text-slate-700">
+      <h2 class="text-lg font-bold mb-3">공식 근거</h2>
+      <ul class="list-disc pl-5 space-y-1">
+        <li><a class="text-blue-600" href="https://edrm.ei.go.kr/">고용보험</a></li>
+        <li><a class="text-blue-600" href="https://www.work24.go.kr/">고용24</a></li>
+        <li><a class="text-blue-600" href="https://www.law.go.kr/">국가법령정보센터</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 py-8 mt-10 text-sm text-slate-600">
+    <div class="max-w-3xl mx-auto px-4 space-y-2">
+      <div>운영: 실업급여 가이드 편집팀 (공식 기관 아님)</div>
+      <div>제도 문의: 고용노동부 고객상담센터 1350 | 전산 문의: 한국고용정보원 1577-7114</div>
+      <div class="text-xs text-slate-500">최종 업데이트: {{UPDATED_AT}}</div>
+    </div>
+  </footer>
+</body>
+</html>

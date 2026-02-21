@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>실업급여 FAQ</title>
+  <meta name="description" content="실업급여 자주 묻는 질문을 정리했습니다: 자진퇴사, 알바 신고, 실업인정 증빙 등." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="{{BASE_URL}}/faq/" />
+  <meta property="og:title" content="실업급여 FAQ" />
+  <meta property="og:description" content="자진퇴사, 알바 신고, 실업인정 등 자주 묻는 질문을 정리했습니다." />
+  <meta property="og:url" content="{{BASE_URL}}/faq/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>body{font-family:'Public Sans',sans-serif;}</style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="{{BASE_URL}}/" class="text-lg font-bold">실업급여 가이드</a>
+      <nav class="hidden md:flex gap-6 text-sm">
+        <a class="hover:text-blue-600" href="{{BASE_URL}}/calculator/">계산기</a>
+        <a class="hover:text-blue-600" href="{{BASE_URL}}/eligibility/">자격</a>
+        <a class="hover:text-blue-600" href="{{BASE_URL}}/apply/">신청</a>
+        <a class="hover:text-blue-600" href="{{BASE_URL}}/recognition/">실업인정</a>
+        <a class="hover:text-blue-600" href="{{BASE_URL}}/income-report/">소득신고</a>
+        <a class="text-blue-600 font-semibold" href="{{BASE_URL}}/faq/">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 py-10 space-y-8">
+    <section class="bg-white rounded-2xl p-8 border border-slate-200">
+      <h1 class="text-2xl font-bold mb-2">실업급여 FAQ</h1>
+      <p class="text-slate-600 text-sm">지식iN 반복 질문을 기준으로 정리했습니다.</p>
+    </section>
+
+    <section class="bg-white rounded-2xl p-8 border border-slate-200 text-sm text-slate-700 space-y-5">
+      <div>
+        <h2 class="font-semibold">Q. 자진퇴사인데 수급 가능할까요?</h2>
+        <p class="mt-1">원칙적으로 제외되지만, 정당한 이직 사유가 인정되면 가능할 수 있습니다. 관할 고용센터에 사유 확인이 필요합니다.</p>
+      </div>
+      <div>
+        <h2 class="font-semibold">Q. 수급 중 알바하면 어떻게 되나요?</h2>
+        <p class="mt-1">근로 제공이나 소득 발생은 실업인정 시 반드시 신고해야 합니다. 신고 누락은 부정수급 제재 대상입니다.</p>
+      </div>
+      <div>
+        <h2 class="font-semibold">Q. 실업인정 증빙은 무엇이 인정되나요?</h2>
+        <p class="mt-1">지원서 제출 내역, 면접 확인서, 직업훈련 수강증명 등 증빙 자료가 필요합니다.</p>
+      </div>
+      <div>
+        <h2 class="font-semibold">Q. 부정수급이 적발되면?</h2>
+        <p class="mt-1">지급 제한, 부정수급액 반환 및 추가 징수, 형사 처벌까지 가능하므로 반드시 신고해야 합니다.</p>
+      </div>
+      <div>
+        <h2 class="font-semibold">Q. 해외 체류 중 실업인정이 가능한가요?</h2>
+        <p class="mt-1">원칙적으로 제한되며, 해외 재취업활동계획서 등 특례 요건을 충족해야 합니다.</p>
+      </div>
+    </section>
+
+    <section class="bg-white rounded-2xl p-8 border border-slate-200 text-sm text-slate-700">
+      <h2 class="text-lg font-bold mb-3">공식 근거</h2>
+      <ul class="list-disc pl-5 space-y-1">
+        <li><a class="text-blue-600" href="https://edrm.ei.go.kr/ei/eih/eg/pb/pbPersonBnef/retrievePb0213Info.do">온라인 실업인정 Q&amp;A</a></li>
+        <li><a class="text-blue-600" href="https://edrm.ei.go.kr/ei/eih/eg/pb/pbPersonBnef/retrievePb0214Info.do">부정수급 안내</a></li>
+      </ul>
+      <div class="mt-3 text-xs text-slate-500">최종 업데이트: {{UPDATED_AT}}</div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 py-8 mt-10 text-sm text-slate-600">
+    <div class="max-w-3xl mx-auto px-4 space-y-2">
+      <div>운영: 실업급여 가이드 편집팀 (공식 기관 아님)</div>
+      <div>제도 문의: 고용노동부 고객상담센터 1350 | 전산 문의: 한국고용정보원 1577-7114</div>
+      <div class="text-xs text-slate-500">최종 업데이트: {{UPDATED_AT}}</div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "자진퇴사인데 수급 가능할까요?",
+        "acceptedAnswer": {"@type": "Answer", "text": "원칙적으로 제외되지만, 정당한 이직 사유가 인정되면 가능할 수 있습니다."}
+      },
+      {
+        "@type": "Question",
+        "name": "수급 중 알바하면 어떻게 되나요?",
+        "acceptedAnswer": {"@type": "Answer", "text": "근로 제공이나 소득 발생은 반드시 신고해야 하며, 누락 시 부정수급 제재 대상입니다."}
+      },
+      {
+        "@type": "Question",
+        "name": "실업인정 증빙은 무엇이 인정되나요?",
+        "acceptedAnswer": {"@type": "Answer", "text": "지원서 제출 내역, 면접 확인서, 직업훈련 수강증명 등 증빙 자료가 필요합니다."}
+      },
+      {
+        "@type": "Question",
+        "name": "부정수급이 적발되면?",
+        "acceptedAnswer": {"@type": "Answer", "text": "지급 제한 및 반환, 추가 징수, 형사 처벌 가능성이 있습니다."}
+      },
+      {
+        "@type": "Question",
+        "name": "해외 체류 중 실업인정이 가능한가요?",
+        "acceptedAnswer": {"@type": "Answer", "text": "원칙적으로 제한되며 특례 요건을 충족해야 합니다."}
+      }
+    ]
+  }
+  </script>
+</body>
+</html>

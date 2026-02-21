@@ -3,6 +3,10 @@ from __future__ import annotations
 
 import argparse
 import shutil
+import datetime as dt
+import os
+import re
+from html import escape as html_escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -16,32 +20,76 @@ def write_text(path: Path, text: str) -> None:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build unemployment static site")
     parser.add_argument("--site-base-url", default="https://uem.cbbxs.com")
+    parser.add_argument("--ga-measurement-id", default=os.getenv("GA_MEASUREMENT_ID", ""))
     return parser.parse_args()
+
+
+def render_ga_snippet(measurement_id: str) -> str:
+    measurement_id = measurement_id.strip()
+    if not measurement_id:
+        return ""
+    escaped_id = html_escape(measurement_id)
+    return f"""
+  <script async src="https://www.googletagmanager.com/gtag/js?id={escaped_id}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {{dataLayer.push(arguments);}}
+    gtag('js', new Date());
+    gtag('config', '{escaped_id}');
+  </script>""".rstrip()
+
+
+def inject_in_head(html: str, snippet: str) -> str:
+    if not snippet:
+        return html
+    if "googletagmanager.com/gtag/js?id=" in html:
+        return html
+    head_close = re.search(r"</head>", html, flags=re.IGNORECASE)
+    if not head_close:
+        return f"{html}\n{snippet}\n"
+    return f"{html[:head_close.start()]}\n{snippet}\n{html[head_close.start():]}"
 
 
 def main() -> int:
     args = parse_args()
-    source = ROOT / "apps" / "site" / "pages" / "unemployment-calculator" / "index.html"
-    if not source.exists():
-        print(f"[ERROR] source page not found: {source}")
-        return 1
 
     dist = ROOT / "apps" / "site" / "dist"
     if dist.exists():
         shutil.rmtree(dist)
     dist.mkdir(parents=True, exist_ok=True)
 
-    html = source.read_text(encoding="utf-8")
-    write_text(dist / "index.html", html)
-    write_text(dist / "calculator" / "index.html", html)
-
     base = args.site_base_url.rstrip("/")
+    updated_at = dt.date.today().isoformat()
+    ga_snippet = render_ga_snippet(args.ga_measurement_id)
+
+    pages_root = ROOT / "apps" / "site" / "pages"
+    page_files = sorted(pages_root.rglob("index.html"))
+    if not page_files:
+        print(f"[ERROR] no pages found under: {pages_root}")
+        return 1
+
+    sitemap_urls: list[str] = []
+    for page in page_files:
+        rel = page.relative_to(pages_root)
+        parts = list(rel.parts[:-1])  # drop index.html
+        if parts == ["home"]:
+            route = "/"
+            out_path = dist / "index.html"
+        else:
+            route = "/" + "/".join(parts) + "/"
+            out_path = dist.joinpath(*parts, "index.html")
+
+        html = page.read_text(encoding="utf-8")
+        html = html.replace("{{BASE_URL}}", base).replace("{{UPDATED_AT}}", updated_at)
+        html = inject_in_head(html, ga_snippet)
+        write_text(out_path, html)
+        sitemap_urls.append(f"{base}{route}")
+
     sitemap = "\n".join(
         [
             '<?xml version="1.0" encoding="UTF-8"?>',
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-            f"  <url><loc>{base}/</loc></url>",
-            f"  <url><loc>{base}/calculator/</loc></url>",
+            *[f"  <url><loc>{url}</loc><lastmod>{updated_at}</lastmod></url>" for url in sorted(set(sitemap_urls))],
             "</urlset>",
             "",
         ]

@@ -18,6 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SITE_BASE_URL: ${{ vars.UNEMPLOYMENT_SITE_BASE_URL || 'https://uem.cbbxs.com' }}
+      GA_MEASUREMENT_ID: ${{ secrets.UNEMPLOYMENT_GA_MEASUREMENT_ID || secrets.GA_MEASUREMENT_ID }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -38,7 +39,7 @@ jobs:
 
       - name: Build unemployment site
         working-directory: unemployment
-        run: .venv/bin/python scripts/build_site.py --site-base-url "$SITE_BASE_URL"
+        run: .venv/bin/python scripts/build_site.py --site-base-url "$SITE_BASE_URL" --ga-measurement-id "$GA_MEASUREMENT_ID"
 
       - name: Commit generated site
         run: |

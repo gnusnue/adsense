@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>실업급여 자격 조건 총정리</title>
+  <meta name="description" content="실업급여 수급 자격 핵심 조건(피보험단위기간, 비자발적 이직, 재취업 노력)을 체크리스트로 정리했습니다." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="{{BASE_URL}}/eligibility/" />
+  <meta property="og:title" content="실업급여 자격 조건" />
+  <meta property="og:description" content="수급 자격 핵심 조건을 체크리스트로 정리했습니다." />
+  <meta property="og:url" content="{{BASE_URL}}/eligibility/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>body{font-family:'Public Sans',sans-serif;}</style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="{{BASE_URL}}/" class="text-lg font-bold">실업급여 가이드</a>
+      <nav class="hidden md:flex gap-6 text-sm">
+        <a class="hover:text-blue-600" href="{{BASE_URL}}/calculator/">계산기</a>
+        <a class="text-blue-600 font-semibold" href="{{BASE_URL}}/eligibility/">자격</a>
+        <a class="hover:text-blue-600" href="{{BASE_URL}}/apply/">신청</a>
+        <a class="hover:text-blue-600" href="{{BASE_URL}}/recognition/">실업인정</a>
+        <a class="hover:text-blue-600" href="{{BASE_URL}}/income-report/">소득신고</a>
+        <a class="hover:text-blue-600" href="{{BASE_URL}}/faq/">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 py-10 space-y-8">
+    <section class="bg-white rounded-2xl p-8 border border-slate-200">
+      <h1 class="text-2xl font-bold mb-2">실업급여 자격 조건</h1>
+      <p class="text-slate-600 text-sm">자격은 크게 3가지입니다: 피보험단위기간, 이직 사유, 재취업 노력.</p>
+      <div class="mt-4 bg-slate-50 border border-slate-200 rounded-xl p-4 text-sm">
+        <p class="font-semibold mb-2">요약 체크리스트</p>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>이직 전 18개월 중 피보험단위기간 합산 180일 이상</li>
+          <li>비자발적 이직 (정당한 사유 포함)</li>
+          <li>재취업을 위한 적극적 노력 증빙</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="bg-white rounded-2xl p-8 border border-slate-200 space-y-4 text-sm text-slate-700">
+      <h2 class="text-lg font-bold">핵심 요건 상세</h2>
+      <div class="space-y-2">
+        <p><span class="font-semibold">피보험단위기간</span>: 이직 전 18개월(초단시간 근로자는 24개월) 동안 합산 180일 이상.</p>
+        <p><span class="font-semibold">이직 사유</span>: 비자발적 이직이 원칙이며, 자진퇴사라도 정당한 사유가 인정되면 가능.</p>
+        <p><span class="font-semibold">재취업 노력</span>: 구직활동, 직업훈련 등 실업인정에서 확인.</p>
+      </div>
+    </section>
+
+    <section class="bg-white rounded-2xl p-8 border border-slate-200 space-y-3 text-sm text-slate-700">
+      <h2 class="text-lg font-bold">자주 틀리는 포인트</h2>
+      <ul class="list-disc pl-5 space-y-1">
+        <li>자발적 이직은 원칙적으로 제외되지만 예외가 있음.</li>
+        <li>단순 기간이 아니라 피보험단위기간 기준.</li>
+        <li>실업인정 회차마다 재취업 활동 증빙 필요.</li>
+      </ul>
+    </section>
+
+    <section class="bg-white rounded-2xl p-8 border border-slate-200 text-sm text-slate-700">
+      <h2 class="text-lg font-bold mb-3">공식 근거</h2>
+      <ul class="list-disc pl-5 space-y-1">
+        <li><a class="text-blue-600" href="https://edrm.ei.go.kr/ei/eih/eg/pb/pbPersonBnef/retrievePb0202Info.do">구직급여 지급대상</a></li>
+        <li><a class="text-blue-600" href="https://www.law.go.kr/">고용보험법(국가법령정보센터)</a></li>
+      </ul>
+      <div class="mt-3 text-xs text-slate-500">최종 업데이트: {{UPDATED_AT}}</div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 py-8 mt-10 text-sm text-slate-600">
+    <div class="max-w-3xl mx-auto px-4 space-y-2">
+      <div>운영: 실업급여 가이드 편집팀 (공식 기관 아님)</div>
+      <div>제도 문의: 고용노동부 고객상담센터 1350 | 전산 문의: 한국고용정보원 1577-7114</div>
+      <div class="text-xs text-slate-500">최종 업데이트: {{UPDATED_AT}}</div>
+    </div>
+  </footer>
+</body>
+</html>
