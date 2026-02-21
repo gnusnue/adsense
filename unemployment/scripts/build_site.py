@@ -115,10 +115,6 @@ def main() -> int:
     )
     write_text(dist / "sitemap.xml", sitemap)
     write_text(dist / "robots.txt", f"User-agent: *\nAllow: /\nSitemap: {base}/sitemap.xml\n")
-    write_text(
-        dist / "_headers",
-        "/404.html\n  X-Robots-Tag: noindex,nofollow\n/*\n  X-Robots-Tag: index,follow\n",
-    )
     redirects = "\n".join([f"{src} {dst} 301" for src, dst in LEGACY_REDIRECTS]) + "\n"
     write_text(dist / "_redirects", redirects)
 

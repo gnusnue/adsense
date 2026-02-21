@@ -1,0 +1,12 @@
+url	http_code	redirect_url	meta_robots	canonical
+/	200		index,follow	https://uem.cbbxs.com/
+/apply/	200		index,follow	https://uem.cbbxs.com/apply/
+/eligibility/	200		index,follow	https://uem.cbbxs.com/eligibility/
+/recognition/	200		index,follow	https://uem.cbbxs.com/recognition/
+/income-report/	200		index,follow	https://uem.cbbxs.com/income-report/
+/faq/	200		index,follow	https://uem.cbbxs.com/faq/
+/calculator/	301	https://uem.cbbxs.com/		
+/about/	301	https://uem.cbbxs.com/		
+/updates/	301	https://uem.cbbxs.com/		
+/fraud-risk/	301	https://uem.cbbxs.com/		
+/random-not-exist-123/	404		noindex,nofollow	https://uem.cbbxs.com/404/
