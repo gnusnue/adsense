@@ -10,6 +10,19 @@ from html import escape as html_escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+HOME_PAGE_DIR = "home"
+NOT_FOUND_PAGE_DIR = "404"
+
+LEGACY_REDIRECTS: tuple[tuple[str, str], ...] = (
+    ("/calculator", "/"),
+    ("/calculator/", "/"),
+    ("/about", "/"),
+    ("/about/", "/"),
+    ("/updates", "/"),
+    ("/updates/", "/"),
+    ("/fraud-risk", "/"),
+    ("/fraud-risk/", "/"),
+)
 
 
 def write_text(path: Path, text: str) -> None:
@@ -72,9 +85,14 @@ def main() -> int:
     for page in page_files:
         rel = page.relative_to(pages_root)
         parts = list(rel.parts[:-1])  # drop index.html
-        if parts == ["home"]:
+        include_in_sitemap = True
+        if parts == [HOME_PAGE_DIR]:
             route = "/"
             out_path = dist / "index.html"
+        elif parts == [NOT_FOUND_PAGE_DIR]:
+            route = "/404/"
+            out_path = dist / "404.html"
+            include_in_sitemap = False
         else:
             route = "/" + "/".join(parts) + "/"
             out_path = dist.joinpath(*parts, "index.html")
@@ -83,7 +101,8 @@ def main() -> int:
         html = html.replace("{{BASE_URL}}", base).replace("{{UPDATED_AT}}", updated_at)
         html = inject_in_head(html, ga_snippet)
         write_text(out_path, html)
-        sitemap_urls.append(f"{base}{route}")
+        if include_in_sitemap:
+            sitemap_urls.append(f"{base}{route}")
 
     sitemap = "\n".join(
         [
@@ -96,7 +115,12 @@ def main() -> int:
     )
     write_text(dist / "sitemap.xml", sitemap)
     write_text(dist / "robots.txt", f"User-agent: *\nAllow: /\nSitemap: {base}/sitemap.xml\n")
-    write_text(dist / "_headers", "/*\n  X-Robots-Tag: index,follow\n")
+    write_text(
+        dist / "_headers",
+        "/404.html\n  X-Robots-Tag: noindex,nofollow\n/*\n  X-Robots-Tag: index,follow\n",
+    )
+    redirects = "\n".join([f"{src} {dst} 301" for src, dst in LEGACY_REDIRECTS]) + "\n"
+    write_text(dist / "_redirects", redirects)
 
     print("unemployment site build completed")
     return 0
