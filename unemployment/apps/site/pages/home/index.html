@@ -76,12 +76,12 @@
 
 <main class="max-w-5xl mx-auto px-4 pt-14 pb-12">
 <section class="text-center mb-12">
-<h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-4">실업급여 계산기</h1>
+<h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-4">실업급여 가이드</h1>
 <p class="text-lg text-slate-600 dark:text-slate-400">나의 예상 실업급여 수급액과 수급 기간을 간편하게 확인해보세요.</p>
 </section>
 
-<section class="mb-8">
-<div class="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-xl p-2 flex flex-wrap gap-2 justify-center">
+<section class="mb-8 sticky top-20 z-40">
+<div class="bg-white/95 dark:bg-slate-900/95 backdrop-blur border border-slate-100 dark:border-slate-800 rounded-xl p-2 flex flex-wrap gap-2 justify-center shadow-sm">
 <a class="px-4 py-2 rounded-lg bg-primary text-white text-sm font-semibold" href="/">계산기</a>
 <a class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="/apply/">신청 방법</a>
 <a class="px-4 py-2 rounded-lg text-sm font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="/recognition/">실업인정</a>
@@ -119,9 +119,10 @@
 <div>
 <label class="block text-sm font-semibold mb-2">최근 3개월 평균 월급 (세전)</label>
 <div class="relative">
-<input id="monthly" class="w-full h-12 pr-12 rounded-lg border-slate-200 focus:border-primary focus:ring-primary dark:bg-slate-800 dark:border-slate-700 text-right" placeholder="0" type="number"/>
+<input id="monthly" class="w-full h-12 pr-12 rounded-lg border-slate-200 focus:border-primary focus:ring-primary dark:bg-slate-800 dark:border-slate-700 text-right" inputmode="numeric" placeholder="0" type="text"/>
 <span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">원</span>
 </div>
+<p id="monthlyUnitHint" class="mt-2 text-xs text-slate-500 text-right">숫자를 입력하면 단위가 자동 반영됩니다.</p>
 </div>
 <div class="pt-4">
 <button id="calcBtn" class="w-full bg-primary hover:bg-blue-700 text-white font-bold py-4 rounded-xl text-lg shadow-lg shadow-primary/20 transition-all flex items-center justify-center gap-2" type="button">
@@ -449,6 +450,44 @@
       return Math.max(1, Math.floor((endDate - startDate) / ms));
     }
 
+    function parseMonthlyAmount(value) {
+      var digits = onlyDigits(value || "");
+      if (!digits) return 0;
+      var parsed = Number(digits);
+      if (!Number.isFinite(parsed)) return 0;
+      return parsed;
+    }
+
+    function formatKoreanAmountParts(amount) {
+      if (!Number.isFinite(amount) || amount <= 0) return "";
+
+      var eok = Math.floor(amount / 100000000);
+      var afterEok = amount % 100000000;
+      var man = Math.floor(afterEok / 10000);
+      var rest = afterEok % 10000;
+      var parts = [];
+
+      if (eok > 0) {
+        parts.push(eok.toLocaleString("ko-KR") + "억");
+      }
+      if (man > 0) {
+        parts.push(man.toLocaleString("ko-KR") + "만");
+      }
+      if (rest > 0) {
+        parts.push(rest.toLocaleString("ko-KR"));
+      }
+
+      if (parts.length === 0) {
+        return amount.toLocaleString("ko-KR");
+      }
+      return parts.join(" ");
+    }
+
+    function getMonthlyUnitText(amount) {
+      if (!amount || amount <= 0) return "숫자를 입력하면 단위가 자동 반영됩니다.";
+      return formatKoreanAmountParts(amount);
+    }
+
     function getMinWageByYear(year) {
       var table = {
         2011: 4320,
@@ -517,11 +556,25 @@
     var birthDayInput = document.getElementById("birthDay");
     var startInput = document.getElementById("start");
     var endInput = document.getElementById("end");
+    var monthlyInput = document.getElementById("monthly");
+    var monthlyUnitHint = document.getElementById("monthlyUnitHint");
     bindBirthSegment(birthYearInput, 4, birthMonthInput, null);
     bindBirthSegment(birthMonthInput, 2, birthDayInput, birthYearInput);
     bindBirthSegment(birthDayInput, 2, null, birthMonthInput);
     bindDateYearLimit(startInput);
     bindDateYearLimit(endInput);
+
+    function refreshMonthlyHint() {
+      var amount = parseMonthlyAmount(monthlyInput.value);
+      monthlyUnitHint.textContent = getMonthlyUnitText(amount);
+    }
+
+    monthlyInput.addEventListener("input", function () {
+      var digits = onlyDigits(monthlyInput.value).slice(0, 13);
+      monthlyInput.value = digits ? Number(digits).toLocaleString("ko-KR") : "";
+      refreshMonthlyHint();
+    });
+    refreshMonthlyHint();
 
     document.getElementById("calcBtn").addEventListener("click", function (event) {
       event.preventDefault();
@@ -534,7 +587,7 @@
       );
       var start = parseDate(startInput.value);
       var end = parseDate(endInput.value);
-      var monthly = parseFloat(document.getElementById("monthly").value || "0");
+      var monthly = parseMonthlyAmount(monthlyInput.value);
 
       if (!birthDate || !start || !end || monthly <= 0) {
         alert("생년월일(YYYY/MM/DD), 입사일, 퇴사일, 월급을 입력하세요.");
@@ -589,7 +642,8 @@
       birthDayInput.value = "";
       startInput.value = "";
       endInput.value = "";
-      document.getElementById("monthly").value = "";
+      monthlyInput.value = "";
+      refreshMonthlyHint();
       document.getElementById("calcResultSection").classList.add("hidden");
       birthYearInput.focus();
     });
