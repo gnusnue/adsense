@@ -3,73 +3,117 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>실업급여 신청 절차</title>
-  <meta name="description" content="워크넷 구직등록부터 수급자격 교육, 고용센터 방문, 실업인정 신청까지 단계별 절차를 정리했습니다." />
+  <title>실업급여 신청 절차 | 공식 안내 기반</title>
+  <meta name="description" content="실업급여 신청 전 30초 체크, 단계별 신청 흐름, 준비서류, 자주 하는 실수까지 한 번에 정리했습니다." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="{{BASE_URL}}/apply/" />
   <meta property="og:title" content="실업급여 신청 절차" />
-  <meta property="og:description" content="실업급여 신청 단계와 준비서류를 한눈에 정리합니다." />
+  <meta property="og:description" content="신청 기한, 단계별 흐름, 준비 서류, 실수 방지 포인트를 한눈에 확인하세요." />
   <meta property="og:url" content="{{BASE_URL}}/apply/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <style>body{font-family:'Public Sans',sans-serif;}</style>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>html{font-size:17px;}body{font-family:'Public Sans',sans-serif;}</style>
 </head>
 <body class="bg-slate-50 text-slate-900">
-  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b-2 border-slate-300 shadow-[0_6px_24px_rgba(15,23,42,0.08)]">
     <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-      <a href="{{BASE_URL}}/" class="text-lg font-bold">실업급여 가이드</a>
+      <a href="/" class="text-lg font-bold">실업급여 가이드</a>
       <nav class="hidden md:flex gap-6 text-sm">
-        <a class="hover:text-blue-600" href="{{BASE_URL}}/">계산기</a>
-        <a class="hover:text-blue-600" href="{{BASE_URL}}/eligibility/">자격</a>
-        <a class="text-blue-600 font-semibold" href="{{BASE_URL}}/apply/">신청</a>
-        <a class="hover:text-blue-600" href="{{BASE_URL}}/recognition/">실업인정</a>
-        <a class="hover:text-blue-600" href="{{BASE_URL}}/income-report/">소득신고</a>
-        <a class="hover:text-blue-600" href="{{BASE_URL}}/faq/">FAQ</a>
+        <a class="hover:text-blue-600" href="/">계산기</a>
+        <a class="text-blue-600 font-semibold" href="/apply/">신청 방법</a>
+        <a class="hover:text-blue-600" href="/recognition/">실업인정</a>
+        <a class="hover:text-blue-600" href="/income-report/">소득신고</a>
+        <a class="hover:text-blue-600" href="/faq/">FAQ</a>
       </nav>
     </div>
   </header>
 
-  <main class="max-w-3xl mx-auto px-4 py-10 space-y-8">
+  <main class="max-w-4xl mx-auto px-4 pt-12 pb-10 space-y-8">
     <section class="bg-white rounded-2xl p-8 border border-slate-200">
-      <h1 class="text-2xl font-bold mb-2">실업급여 신청 절차</h1>
-      <p class="text-slate-600 text-sm">퇴사 다음날부터 12개월 이내에 신청해야 합니다.</p>
-      <div class="mt-4 bg-slate-50 border border-slate-200 rounded-xl p-4 text-sm">
-        <p class="font-semibold mb-2">요약</p>
-        <ol class="list-decimal pl-5 space-y-1">
-          <li>워크넷 구직등록</li>
-          <li>수급자격 신청자 온라인 교육</li>
-          <li>관할 고용센터 방문</li>
-          <li>실업인정 신청(회차별)</li>
-        </ol>
+      <p class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold mb-4">START HERE</p>
+      <h1 class="text-3xl font-extrabold tracking-tight mb-3">실업급여 신청 절차</h1>
+      <p class="text-slate-600">처음 신청할 때 가장 많이 막히는 포인트만 골라, 실제 진행 순서대로 정리했습니다.</p>
+      <div class="grid sm:grid-cols-3 gap-3 mt-6 text-sm">
+        <div class="rounded-xl border border-slate-200 bg-slate-50 p-4">
+          <p class="text-slate-500 mb-1">신청 기한</p>
+          <p class="font-bold">퇴사 다음날 ~ 12개월</p>
+        </div>
+        <div class="rounded-xl border border-slate-200 bg-slate-50 p-4">
+          <p class="text-slate-500 mb-1">핵심 요건</p>
+          <p class="font-bold">피보험단위기간 180일+</p>
+        </div>
+        <div class="rounded-xl border border-slate-200 bg-slate-50 p-4">
+          <p class="text-slate-500 mb-1">지급 방식</p>
+          <p class="font-bold">실업인정 회차별 지급</p>
+        </div>
       </div>
     </section>
 
-    <section class="bg-white rounded-2xl p-8 border border-slate-200 text-sm text-slate-700 space-y-3">
-      <h2 class="text-lg font-bold">단계별 상세</h2>
-      <div>
-        <p class="font-semibold">1) 구직등록</p>
-        <p>워크넷에서 구직등록을 먼저 진행합니다.</p>
+    <section class="bg-white rounded-2xl p-8 border border-slate-200">
+      <h2 class="text-xl font-bold mb-4">신청 플로우 (실전 순서)</h2>
+      <div class="space-y-4 text-sm text-slate-700">
+        <div class="rounded-xl border border-slate-200 p-4">
+          <p class="font-semibold mb-1">1단계. 퇴사 직후 (D+0~D+3)</p>
+          <p>워크넷 구직등록을 먼저 진행하고, 회사에서 이직확인서 처리가 되었는지 확인합니다.</p>
+        </div>
+        <div class="rounded-xl border border-slate-200 p-4">
+          <p class="font-semibold mb-1">2단계. 온라인 준비 (D+1~D+7)</p>
+          <p>수급자격 신청자 온라인 교육 이수 후, 수급자격 신청서를 제출합니다.</p>
+        </div>
+        <div class="rounded-xl border border-slate-200 p-4">
+          <p class="font-semibold mb-1">3단계. 관할 고용센터 확인</p>
+          <p>센터 안내에 따라 수급자격 인정 절차를 완료합니다. 누락 서류가 있으면 보완 요청이 옵니다.</p>
+        </div>
+        <div class="rounded-xl border border-slate-200 p-4">
+          <p class="font-semibold mb-1">4단계. 실업인정 회차 운영</p>
+          <p>지정된 인정일마다 구직활동 증빙을 제출해야 계속 지급됩니다.</p>
+        </div>
       </div>
-      <div>
-        <p class="font-semibold">2) 온라인 교육</p>
-        <p>수급자격 신청 전 교육을 이수해야 합니다.</p>
+    </section>
+
+    <section class="bg-white rounded-2xl p-8 border border-slate-200">
+      <h2 class="text-xl font-bold mb-4">준비 서류 체크리스트</h2>
+      <div class="grid md:grid-cols-2 gap-4 text-sm text-slate-700">
+        <div class="rounded-xl border border-slate-200 p-4">
+          <p class="font-semibold mb-2">기본 서류</p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>신분증</li>
+            <li>본인 명의 통장</li>
+            <li>이직확인서 처리 여부 확인</li>
+            <li>구직등록 완료 화면(워크넷)</li>
+          </ul>
+        </div>
+        <div class="rounded-xl border border-slate-200 p-4">
+          <p class="font-semibold mb-2">사유 입증 서류(필요 시)</p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>권고사직 관련 서류</li>
+            <li>임금체불/근로조건 변경 자료</li>
+            <li>질병·육아·통근곤란 관련 증빙</li>
+            <li>계약기간 만료 확인 자료</li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <p class="font-semibold">3) 고용센터 방문</p>
-        <p>신분증 지참 후 관할 고용센터 방문.</p>
-      </div>
-      <div>
-        <p class="font-semibold">4) 실업인정</p>
-        <p>회차별로 재취업 활동을 증빙해 신청합니다.</p>
-      </div>
+      <p class="mt-4 text-xs text-slate-500">자진퇴사 케이스는 사유 입증자료 품질에 따라 판단이 크게 달라집니다.</p>
+    </section>
+
+    <section class="bg-white rounded-2xl p-8 border border-slate-200">
+      <h2 class="text-xl font-bold mb-4">자주 놓치는 실수</h2>
+      <ol class="list-decimal pl-5 space-y-2 text-sm text-slate-700">
+        <li>퇴사 후 신청을 미루다가 12개월 기한을 놓침</li>
+        <li>구직등록 전에 다른 절차부터 진행함</li>
+        <li>실업인정일에 증빙 업로드를 늦게 제출함</li>
+        <li>알바·소득 발생 사실을 "소액"이라며 미신고함</li>
+        <li>자진퇴사 사유를 입증할 자료 없이 신청함</li>
+      </ol>
     </section>
 
     <section class="bg-white rounded-2xl p-8 border border-slate-200 text-sm text-slate-700">
       <h2 class="text-lg font-bold mb-3">공식 근거</h2>
       <ul class="list-disc pl-5 space-y-1">
         <li><a class="text-blue-600" href="https://edrm.ei.go.kr/ei/eih/eg/pb/pbPersonBnef/retrievePb0204Info.do">구직급여 지급절차</a></li>
+        <li><a class="text-blue-600" href="https://edrm.ei.go.kr/ei/eih/eg/pb/pbPersonBnef/retrievePb0202Info.do">구직급여 지급대상</a></li>
         <li><a class="text-blue-600" href="https://www.work24.go.kr/">고용24</a></li>
       </ul>
       <div class="mt-3 text-xs text-slate-500">최종 업데이트: {{UPDATED_AT}}</div>
@@ -77,7 +121,7 @@
   </main>
 
   <footer class="border-t border-slate-200 py-8 mt-10 text-sm text-slate-600">
-    <div class="max-w-3xl mx-auto px-4 space-y-2">
+    <div class="max-w-4xl mx-auto px-4 space-y-2">
       <div>운영: 실업급여 가이드 편집팀 (공식 기관 아님)</div>
       <div>제도 문의: 고용노동부 고객상담센터 1350 | 전산 문의: 한국고용정보원 1577-7114</div>
       <div class="text-xs text-slate-500">최종 업데이트: {{UPDATED_AT}}</div>
