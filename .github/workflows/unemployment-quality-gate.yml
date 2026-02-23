@@ -35,3 +35,7 @@ jobs:
       - name: Build unemployment site
         working-directory: unemployment
         run: .venv/bin/python scripts/build_site.py --site-base-url "$SITE_BASE_URL"
+
+      - name: Validate unemployment site quality
+        working-directory: unemployment
+        run: .venv/bin/python scripts/quality_check_site.py --dist-root apps/site/dist --site-base-url "$SITE_BASE_URL"

@@ -2,16 +2,18 @@
 from __future__ import annotations
 
 import argparse
-import shutil
 import datetime as dt
+import json
 import os
 import re
+import shutil
 from html import escape as html_escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 HOME_PAGE_DIR = "home"
 NOT_FOUND_PAGE_DIR = "404"
+PAGE_META_PATH = ROOT / "apps" / "site" / "page-meta.json"
 
 LEGACY_REDIRECTS: tuple[tuple[str, str], ...] = (
     ("/calculator", "/"),
@@ -28,6 +30,30 @@ LEGACY_REDIRECTS: tuple[tuple[str, str], ...] = (
 def write_text(path: Path, text: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(text, encoding="utf-8")
+
+
+def load_page_meta() -> dict[str, dict[str, str]]:
+    if not PAGE_META_PATH.exists():
+        raise FileNotFoundError(f"missing page meta file: {PAGE_META_PATH}")
+    payload = json.loads(PAGE_META_PATH.read_text(encoding="utf-8"))
+    pages = payload.get("pages")
+    if not isinstance(pages, list):
+        raise ValueError("page-meta.json must include a 'pages' array")
+
+    by_route: dict[str, dict[str, str]] = {}
+    required_keys = ("route", "updated_at", "title", "description", "active_tab")
+    for item in pages:
+        if not isinstance(item, dict):
+            raise ValueError("each item in 'pages' must be an object")
+        missing = [key for key in required_keys if key not in item]
+        if missing:
+            raise ValueError(f"page-meta entry missing keys {missing}: {item}")
+        route = str(item["route"])
+        if route in by_route:
+            raise ValueError(f"duplicate route in page-meta.json: {route}")
+        dt.date.fromisoformat(str(item["updated_at"]))
+        by_route[route] = {key: str(item[key]) for key in required_keys}
+    return by_route
 
 
 def parse_args() -> argparse.Namespace:
@@ -75,7 +101,7 @@ def main() -> int:
         shutil.copytree(static_root, dist, dirs_exist_ok=True)
 
     base = args.site_base_url.rstrip("/")
-    updated_at = dt.date.today().isoformat()
+    page_meta = load_page_meta()
     ga_snippet = render_ga_snippet(args.ga_measurement_id)
 
     pages_root = ROOT / "apps" / "site" / "pages"
@@ -84,7 +110,7 @@ def main() -> int:
         print(f"[ERROR] no pages found under: {pages_root}")
         return 1
 
-    sitemap_urls: list[str] = []
+    sitemap_by_url: dict[str, str] = {}
     for page in page_files:
         rel = page.relative_to(pages_root)
         parts = list(rel.parts[:-1])  # drop index.html
@@ -99,19 +125,29 @@ def main() -> int:
         else:
             route = "/" + "/".join(parts) + "/"
             out_path = dist.joinpath(*parts, "index.html")
+        page_info = page_meta.get(route)
+        if not page_info:
+            print(f"[ERROR] missing route in page-meta.json: {route}")
+            return 1
 
         html = page.read_text(encoding="utf-8")
-        html = html.replace("{{BASE_URL}}", base).replace("{{UPDATED_AT}}", updated_at)
+        html = html.replace("{{BASE_URL}}", base).replace("{{UPDATED_AT}}", page_info["updated_at"])
         html = inject_in_head(html, ga_snippet)
         write_text(out_path, html)
         if include_in_sitemap:
-            sitemap_urls.append(f"{base}{route}")
+            url = f"{base}{route}"
+            lastmod = page_info["updated_at"]
+            existing = sitemap_by_url.get(url)
+            if existing and existing != lastmod:
+                print(f"[ERROR] conflicting lastmod for {url}: {existing} vs {lastmod}")
+                return 1
+            sitemap_by_url[url] = lastmod
 
     sitemap = "\n".join(
         [
             '<?xml version="1.0" encoding="UTF-8"?>',
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-            *[f"  <url><loc>{url}</loc><lastmod>{updated_at}</lastmod></url>" for url in sorted(set(sitemap_urls))],
+            *[f"  <url><loc>{url}</loc><lastmod>{lastmod}</lastmod></url>" for url, lastmod in sorted(sitemap_by_url.items())],
             "</urlset>",
             "",
         ]
