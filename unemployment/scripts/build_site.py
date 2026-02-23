@@ -70,6 +70,9 @@ def main() -> int:
     if dist.exists():
         shutil.rmtree(dist)
     dist.mkdir(parents=True, exist_ok=True)
+    static_root = ROOT / "apps" / "site" / "static"
+    if static_root.exists():
+        shutil.copytree(static_root, dist, dirs_exist_ok=True)
 
     base = args.site_base_url.rstrip("/")
     updated_at = dt.date.today().isoformat()

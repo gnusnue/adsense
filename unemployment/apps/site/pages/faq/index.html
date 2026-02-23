@@ -11,9 +11,12 @@
   <meta property="og:description" content="자주 반복되는 질문만 모았습니다. 자진퇴사 가능 조건, 소득신고, 실업인정 증빙을 공식 근거와 함께 확인하세요." />
   <meta property="og:url" content="{{BASE_URL}}/faq/" />
   <meta property="og:type" content="article" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="{{BASE_URL}}/og-image.png" />
+  <meta property="og:image:alt" content="실업급여 가이드 대표 이미지" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="실업급여 FAQ | 자진퇴사·알바·실업인정 핵심 답변" />
   <meta name="twitter:description" content="자주 반복되는 질문만 모았습니다. 자진퇴사 가능 조건, 소득신고, 실업인정 증빙을 공식 근거와 함께 확인하세요." />
+  <meta name="twitter:image" content="{{BASE_URL}}/og-image.png" />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <script id="tailwind-config">
     tailwind.config = {
@@ -216,6 +219,16 @@
       },
       {
         "@type": "Question",
+        "name": "권고사직/계약만료는 유리한가요?",
+        "acceptedAnswer": {"@type": "Answer", "text": "비자발적 이직 범주로 판단될 가능성이 높지만 최종 판단은 이직확인서와 사실관계 확인으로 이뤄집니다."}
+      },
+      {
+        "@type": "Question",
+        "name": "피보험단위기간 180일은 어떻게 계산하나요?",
+        "acceptedAnswer": {"@type": "Answer", "text": "재직개월 수가 아니라 임금 지급의 기초가 된 유급일 기준으로 계산하며 주휴일 처리에 따라 차이가 생길 수 있습니다."}
+      },
+      {
+        "@type": "Question",
         "name": "수급 중 알바/프리랜서(3.3%)도 신고해야 하나요?",
         "acceptedAnswer": {"@type": "Answer", "text": "실업인정 기간 내 근로 제공 또는 소득 발생이 있으면 신고 대상이 될 수 있습니다."}
       },
@@ -226,13 +239,28 @@
       },
       {
         "@type": "Question",
+        "name": "같은 활동/자료를 다음 회차에 재사용해도 되나요?",
+        "acceptedAnswer": {"@type": "Answer", "text": "회차별 신규 활동 기준으로 보는 경우가 많아 재사용은 보완 요청 사유가 될 수 있습니다."}
+      },
+      {
+        "@type": "Question",
         "name": "해외 체류 중 실업인정이 가능한가요?",
         "acceptedAnswer": {"@type": "Answer", "text": "원칙적으로 제한되며 예외·특례는 별도 요건 확인이 필요합니다."}
       },
       {
         "@type": "Question",
+        "name": "조기재취업수당은 언제 받을 수 있나요?",
+        "acceptedAnswer": {"@type": "Answer", "text": "소정급여일수 절반 이상을 남긴 시점 재취업 등 법정 요건을 충족해야 하며 취업 시점이 중요합니다."}
+      },
+      {
+        "@type": "Question",
         "name": "부정수급 적발 시 어떻게 되나요?",
         "acceptedAnswer": {"@type": "Answer", "text": "지급 제한, 반환, 추가징수, 형사처벌까지 연결될 수 있습니다."}
+      },
+      {
+        "@type": "Question",
+        "name": "신청 타이밍은 언제가 좋나요?",
+        "acceptedAnswer": {"@type": "Answer", "text": "퇴사 직후 바로 준비하는 것이 유리하며 신청 지연으로 12개월 범위를 넘기면 지급이 어려울 수 있습니다."}
       }
     ]
   }

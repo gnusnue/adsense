@@ -11,13 +11,15 @@
 <meta property="og:description" content="월급·근속기간 입력으로 예상 실업급여를 1분 안에 확인하세요. 1일 지급액, 총액, 다음 절차까지 한 번에 안내합니다." />
 <meta property="og:url" content="{{BASE_URL}}/" />
 <meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="{{BASE_URL}}/og-image.png" />
+<meta property="og:image:alt" content="실업급여 가이드 대표 이미지" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="실업급여 계산기 2026 | 1일액·지급일수·총액 모의계산" />
 <meta name="twitter:description" content="월급·근속기간 입력으로 예상 실업급여를 1분 안에 확인하세요. 1일 지급액, 총액, 다음 절차까지 한 번에 안내합니다." />
+<meta name="twitter:image" content="{{BASE_URL}}/og-image.png" />
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -201,7 +203,7 @@
 </div>
 
 <div class="flex flex-wrap justify-center gap-4">
-<a class="bg-primary text-white px-8 py-3 rounded-lg font-bold flex items-center gap-2 hover:bg-blue-700 transition-colors shadow-md shadow-primary/20" href="https://www.work24.go.kr/cm/z/b/0210/openLginPage.do?forwardUrl=/ei/a/b/1200/openHPEIAB1200M01Post.do" rel="noopener noreferrer" target="_blank">
+<a id="applyNowLink" class="bg-primary text-white px-8 py-3 rounded-lg font-bold flex items-center gap-2 hover:bg-blue-700 transition-colors shadow-md shadow-primary/20" href="https://www.work24.go.kr/cm/z/b/0210/openLginPage.do?forwardUrl=/ei/a/b/1200/openHPEIAB1200M01Post.do" rel="noopener noreferrer" target="_blank">
 <span class="material-symbols-outlined text-sm" aria-hidden="true" data-nosnippet>send</span>
                     실업급여 신청하기
                 </a>
@@ -334,7 +336,7 @@
 <span class="material-symbols-outlined transition-transform group-open:rotate-180" aria-hidden="true" data-nosnippet>expand_more</span>
 </summary>
 <p class="mt-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                            2024년 기준 1일 상한액은 66,000원이며, 하한액은 소정근로시간 8시간 기준 63,104원입니다.
+                            상·하한액은 매년 고시 기준과 최저임금에 따라 달라집니다. 계산 결과는 참고용이며 최신 금액은 고용보험 공식 안내를 확인하세요.
                         </p>
 </details>
 <details class="group py-4">
@@ -547,6 +549,11 @@
       return parsed;
     }
 
+    function trackEvent(name, params) {
+      if (typeof window.gtag !== "function") return;
+      window.gtag("event", name, params || {});
+    }
+
     function formatKoreanAmountParts(amount) {
       if (!Number.isFinite(amount) || amount <= 0) return "";
 
@@ -668,6 +675,7 @@
     document.getElementById("calcBtn").addEventListener("click", function (event) {
       event.preventDefault();
       event.stopPropagation();
+      trackEvent("calc_submit", { event_category: "engagement", event_label: "home_calculator" });
 
       var birthDate = parseBirthDate(
         birthYearInput.value,
@@ -721,6 +729,11 @@
 
       var resultSection = document.getElementById("calcResultSection");
       resultSection.classList.remove("hidden");
+      trackEvent("calc_result_view", {
+        event_category: "engagement",
+        benefit_days: benefitDays,
+        total_amount: Math.round(total)
+      });
       resultSection.scrollIntoView({ behavior: "smooth", block: "start" });
     });
 
@@ -736,6 +749,13 @@
       document.getElementById("calcResultSection").classList.add("hidden");
       birthYearInput.focus();
     });
+
+    var applyNowLink = document.getElementById("applyNowLink");
+    if (applyNowLink) {
+      applyNowLink.addEventListener("click", function () {
+        trackEvent("cta_apply_click", { event_category: "conversion", event_label: "calc_result_apply" });
+      });
+    }
 
   </script>
 </body></html>
