@@ -16,6 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SITE_BASE_URL: https://uem.cbbxs.com
+      ROBOTS_MODE: cloudflare-managed
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -47,8 +48,8 @@ jobs:
 
       - name: Build unemployment site
         working-directory: unemployment
-        run: .venv/bin/python scripts/build_site.py --site-base-url "$SITE_BASE_URL"
+        run: .venv/bin/python scripts/build_site.py --site-base-url "$SITE_BASE_URL" --robots-mode "$ROBOTS_MODE"
 
       - name: Validate unemployment site quality
         working-directory: unemployment
-        run: .venv/bin/python scripts/quality_check_site.py --dist-root apps/site/dist --site-base-url "$SITE_BASE_URL"
+        run: .venv/bin/python scripts/quality_check_site.py --dist-root apps/site/dist --site-base-url "$SITE_BASE_URL" --robots-mode "$ROBOTS_MODE"

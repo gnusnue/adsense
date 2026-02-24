@@ -35,6 +35,9 @@ LEGACY_REDIRECTS: tuple[tuple[str, str], ...] = (
     ("/fraud-risk", "/"),
     ("/fraud-risk/", "/"),
 )
+ROBOTS_MODE_CLOUDFLARE = "cloudflare-managed"
+ROBOTS_MODE_BUILD = "build-managed"
+ROBOTS_MODES: tuple[str, ...] = (ROBOTS_MODE_CLOUDFLARE, ROBOTS_MODE_BUILD)
 
 
 def write_text(path: Path, text: str) -> None:
@@ -103,6 +106,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build unemployment static site")
     parser.add_argument("--site-base-url", default="https://uem.cbbxs.com")
     parser.add_argument("--ga-measurement-id", default=os.getenv("GA_MEASUREMENT_ID", ""))
+    parser.add_argument("--robots-mode", default=os.getenv("UNEMPLOYMENT_ROBOTS_MODE", ROBOTS_MODE_CLOUDFLARE))
     return parser.parse_args()
 
 
@@ -154,6 +158,10 @@ def inject_head_defaults(html: str, base_url: str) -> str:
 
 def main() -> int:
     args = parse_args()
+    robots_mode = args.robots_mode.strip().lower()
+    if robots_mode not in ROBOTS_MODES:
+        print(f"[ERROR] invalid robots mode '{args.robots_mode}'. expected one of: {', '.join(ROBOTS_MODES)}")
+        return 1
 
     dist = ROOT / "apps" / "site" / "dist"
     if dist.exists():
@@ -225,7 +233,15 @@ def main() -> int:
         ]
     )
     write_text(dist / "sitemap.xml", sitemap)
-    write_text(dist / "robots.txt", f"User-agent: *\nAllow: /\nSitemap: {base}/sitemap.xml\n")
+
+    if robots_mode == ROBOTS_MODE_BUILD:
+        write_text(dist / "robots.txt", f"User-agent: *\nAllow: /\nSitemap: {base}/sitemap.xml\n")
+    else:
+        robots_path = dist / "robots.txt"
+        if robots_path.exists():
+            print("[ERROR] robots.txt exists in dist while robots mode is cloudflare-managed")
+            return 1
+
     redirects = "\n".join([f"{src} {dst} 301" for src, dst in LEGACY_REDIRECTS]) + "\n"
     write_text(dist / "_redirects", redirects)
 

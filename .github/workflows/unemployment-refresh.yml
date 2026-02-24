@@ -19,6 +19,7 @@ jobs:
     env:
       SITE_BASE_URL: ${{ vars.UNEMPLOYMENT_SITE_BASE_URL || 'https://uem.cbbxs.com' }}
       GA_MEASUREMENT_ID: ${{ secrets.UNEMPLOYMENT_GA_MEASUREMENT_ID || secrets.GA_MEASUREMENT_ID }}
+      ROBOTS_MODE: ${{ vars.UNEMPLOYMENT_ROBOTS_MODE || 'cloudflare-managed' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -52,7 +53,7 @@ jobs:
 
       - name: Build unemployment site
         working-directory: unemployment
-        run: .venv/bin/python scripts/build_site.py --site-base-url "$SITE_BASE_URL" --ga-measurement-id "$GA_MEASUREMENT_ID"
+        run: .venv/bin/python scripts/build_site.py --site-base-url "$SITE_BASE_URL" --ga-measurement-id "$GA_MEASUREMENT_ID" --robots-mode "$ROBOTS_MODE"
 
       - name: Commit generated site
         run: |

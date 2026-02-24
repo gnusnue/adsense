@@ -20,12 +20,16 @@ LEGACY_REDIRECTS = (
     ("/fraud-risk/", "/"),
 )
 PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
+ROBOTS_MODE_CLOUDFLARE = "cloudflare-managed"
+ROBOTS_MODE_BUILD = "build-managed"
+ROBOTS_MODES = (ROBOTS_MODE_CLOUDFLARE, ROBOTS_MODE_BUILD)
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Validate generated unemployment site")
     parser.add_argument("--dist-root", default="apps/site/dist")
     parser.add_argument("--site-base-url", default="https://uem.cbbxs.com")
+    parser.add_argument("--robots-mode", default=ROBOTS_MODE_CLOUDFLARE)
     return parser.parse_args()
 
 
@@ -320,10 +324,29 @@ def validate_local_asset_references(dist_root: Path, failures: list[str]) -> Non
             require(target.exists(), f"missing referenced asset {ref} in {html_file}", failures)
 
 
+def validate_robots_authority(dist_root: Path, base_url: str, robots_mode: str, failures: list[str]) -> None:
+    robots = dist_root / "robots.txt"
+    base = base_url.rstrip("/")
+    if robots_mode == ROBOTS_MODE_CLOUDFLARE:
+        require(not robots.exists(), "robots.txt must not be generated when robots mode is cloudflare-managed", failures)
+        return
+    require(robots.exists(), "missing robots.txt in build-managed mode", failures)
+    if not robots.exists():
+        return
+    content = read_text(robots)
+    require("User-agent: *" in content, "robots.txt missing User-agent directive", failures)
+    require("Allow: /" in content, "robots.txt missing Allow directive", failures)
+    require(f"Sitemap: {base}/sitemap.xml" in content, "robots.txt missing sitemap directive", failures)
+
+
 def main() -> int:
     args = parse_args()
     dist_root = Path(args.dist_root).resolve()
+    robots_mode = args.robots_mode.strip().lower()
     failures: list[str] = []
+    if robots_mode not in ROBOTS_MODES:
+        failures.append(f"invalid robots mode '{args.robots_mode}'. expected one of: {', '.join(ROBOTS_MODES)}")
+        robots_mode = ROBOTS_MODE_CLOUDFLARE
 
     validate_core_pages(dist_root, args.site_base_url, failures)
     validate_not_found(dist_root, failures)
@@ -337,6 +360,7 @@ def main() -> int:
     validate_brand_assets(dist_root, args.site_base_url, failures)
     validate_home_calculator_script(dist_root, args.site_base_url, failures)
     validate_local_asset_references(dist_root, failures)
+    validate_robots_authority(dist_root, args.site_base_url, robots_mode, failures)
 
     if failures:
         print("[FAIL] quality checks failed:")

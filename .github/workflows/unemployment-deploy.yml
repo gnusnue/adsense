@@ -21,6 +21,7 @@ jobs:
     env:
       SITE_BASE_URL: ${{ vars.UNEMPLOYMENT_SITE_BASE_URL || 'https://uem.cbbxs.com' }}
       GA_MEASUREMENT_ID: ${{ secrets.UNEMPLOYMENT_GA_MEASUREMENT_ID || secrets.GA_MEASUREMENT_ID }}
+      ROBOTS_MODE: ${{ vars.UNEMPLOYMENT_ROBOTS_MODE || 'cloudflare-managed' }}
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       PAGES_PROJECT_NAME: ${{ secrets.UNEMPLOYMENT_PAGES_PROJECT_NAME || secrets.PAGES_PROJECT_NAME }}
@@ -57,7 +58,7 @@ jobs:
 
       - name: Build unemployment site
         working-directory: unemployment
-        run: .venv/bin/python scripts/build_site.py --site-base-url "$SITE_BASE_URL" --ga-measurement-id "$GA_MEASUREMENT_ID"
+        run: .venv/bin/python scripts/build_site.py --site-base-url "$SITE_BASE_URL" --ga-measurement-id "$GA_MEASUREMENT_ID" --robots-mode "$ROBOTS_MODE"
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
