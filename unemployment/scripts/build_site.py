@@ -132,6 +132,26 @@ def inject_in_head(html: str, snippet: str) -> str:
     return f"{html[:head_close.start()]}\n{snippet}\n{html[head_close.start():]}"
 
 
+def inject_head_defaults(html: str, base_url: str) -> str:
+    snippets: list[str] = []
+    if 'rel="icon"' not in html and "rel='icon'" not in html:
+        snippets.append(f'  <link rel="icon" type="image/svg+xml" href="{base_url}/favicon.svg" />')
+
+    if "fonts.googleapis.com" in html:
+        if "rel=\"preconnect\" href=\"https://fonts.googleapis.com\"" not in html:
+            snippets.append('  <link rel="preconnect" href="https://fonts.googleapis.com" />')
+        if "rel=\"preconnect\" href=\"https://fonts.gstatic.com\"" not in html:
+            snippets.append('  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />')
+
+    if not snippets:
+        return html
+
+    head_close = re.search(r"</head>", html, flags=re.IGNORECASE)
+    if not head_close:
+        return f"{html}\n" + "\n".join(snippets) + "\n"
+    return f"{html[:head_close.start()]}\n" + "\n".join(snippets) + f"\n{html[head_close.start():]}"
+
+
 def main() -> int:
     args = parse_args()
 
@@ -177,6 +197,7 @@ def main() -> int:
         html = page.read_text(encoding="utf-8")
         html = render_partials(html, partials, page_info["active_tab"])
         html = html.replace("{{BASE_URL}}", base).replace("{{UPDATED_AT}}", page_info["updated_at"])
+        html = inject_head_defaults(html, base)
         if "{{PARTIAL:" in html:
             print(f"[ERROR] unresolved partial token in {page}")
             return 1

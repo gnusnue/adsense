@@ -194,6 +194,52 @@ def validate_no_partial_tokens(dist_root: Path, failures: list[str]) -> None:
         require("{{PARTIAL:" not in html, f"unresolved partial token in dist HTML: {html_file}", failures)
 
 
+def validate_brand_assets(dist_root: Path, base_url: str, failures: list[str]) -> None:
+    base = base_url.rstrip("/")
+    favicon = dist_root / "favicon.svg"
+    require(favicon.exists(), "missing favicon.svg in dist", failures)
+
+    expected_routes = CORE_ROUTES + ("/404/",)
+    for route in expected_routes:
+        html_path = dist_path_for_route(dist_root, route) if route != "/404/" else dist_root / "404.html"
+        if not html_path.exists():
+            continue
+        html = read_text(html_path)
+        require(
+            f'{base}/favicon.svg' in html and 'rel="icon"' in html,
+            f"missing favicon link in {html_path}",
+            failures,
+        )
+        if "fonts.googleapis.com" in html:
+            require(
+                'rel="preconnect" href="https://fonts.googleapis.com"' in html,
+                f"missing preconnect for fonts.googleapis.com in {html_path}",
+                failures,
+            )
+            require(
+                'rel="preconnect" href="https://fonts.gstatic.com" crossorigin' in html,
+                f"missing preconnect for fonts.gstatic.com in {html_path}",
+                failures,
+            )
+
+
+def validate_home_calculator_script(dist_root: Path, base_url: str, failures: list[str]) -> None:
+    base = base_url.rstrip("/")
+    home = dist_root / "index.html"
+    script = dist_root / "assets" / "home-calculator.js"
+    require(script.exists(), "missing home calculator script: dist/assets/home-calculator.js", failures)
+    require(home.exists(), "missing home page for script validation", failures)
+    if not home.exists():
+        return
+    html = read_text(home)
+    require(
+        f'<script defer src="{base}/assets/home-calculator.js"></script>' in html,
+        "home page must load deferred external calculator script",
+        failures,
+    )
+    require("function onlyDigits(" not in html, "home page still contains inline calculator logic", failures)
+
+
 def main() -> int:
     args = parse_args()
     dist_root = Path(args.dist_root).resolve()
@@ -207,6 +253,8 @@ def main() -> int:
     validate_material_nosnippet(dist_root, failures)
     validate_css_pipeline(dist_root, args.site_base_url, failures)
     validate_no_partial_tokens(dist_root, failures)
+    validate_brand_assets(dist_root, args.site_base_url, failures)
+    validate_home_calculator_script(dist_root, args.site_base_url, failures)
 
     if failures:
         print("[FAIL] quality checks failed:")
