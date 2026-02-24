@@ -8,6 +8,7 @@ import struct
 from pathlib import Path
 
 CORE_ROUTES = ("/", "/apply/", "/eligibility/", "/recognition/", "/income-report/", "/faq/")
+ARTICLE_ROUTES = ("/apply/", "/eligibility/", "/recognition/", "/income-report/", "/faq/")
 LEGACY_REDIRECTS = (
     ("/calculator", "/"),
     ("/calculator/", "/"),
@@ -64,6 +65,20 @@ def parse_jsonld_blocks(html: str) -> list[dict]:
         if isinstance(parsed, dict):
             blocks.append(parsed)
     return blocks
+
+
+def flatten_jsonld_types(blocks: list[dict]) -> set[str]:
+    types: set[str] = set()
+    for block in blocks:
+        block_type = block.get("@type")
+        if isinstance(block_type, str):
+            types.add(block_type)
+        graph = block.get("@graph")
+        if isinstance(graph, list):
+            for item in graph:
+                if isinstance(item, dict) and isinstance(item.get("@type"), str):
+                    types.add(item["@type"])
+    return types
 
 
 def read_png_size(path: Path) -> tuple[int, int]:
@@ -141,6 +156,61 @@ def validate_faq_jsonld(dist_root: Path, failures: list[str]) -> None:
         f"FAQ question count mismatch: JSON-LD={jsonld_questions}, UI={ui_questions}",
         failures,
     )
+
+
+def validate_structured_data(dist_root: Path, base_url: str, failures: list[str]) -> None:
+    base = base_url.rstrip("/")
+    home = dist_root / "index.html"
+    require(home.exists(), "missing home page for structured data checks", failures)
+    if not home.exists():
+        return
+
+    home_blocks = parse_jsonld_blocks(read_text(home))
+    home_types = flatten_jsonld_types(home_blocks)
+    require("WebSite" in home_types, "home must include WebSite JSON-LD", failures)
+    require("Organization" in home_types, "home must include Organization JSON-LD", failures)
+    require("BreadcrumbList" in home_types, "home must include BreadcrumbList JSON-LD", failures)
+
+    for route in ARTICLE_ROUTES:
+        path = dist_path_for_route(dist_root, route)
+        require(path.exists(), f"missing page for structured data checks: {path}", failures)
+        if not path.exists():
+            continue
+        html = read_text(path)
+        blocks = parse_jsonld_blocks(html)
+        types = flatten_jsonld_types(blocks)
+        require("Article" in types, f"{path} must include Article JSON-LD", failures)
+        require("BreadcrumbList" in types, f"{path} must include BreadcrumbList JSON-LD", failures)
+
+        article = next((block for block in blocks if block.get("@type") == "Article"), None)
+        require(article is not None, f"missing Article block in {path}", failures)
+        if isinstance(article, dict):
+            headline = article.get("headline")
+            require(isinstance(headline, str) and headline.strip(), f"Article headline missing in {path}", failures)
+            modified = article.get("dateModified")
+            published = article.get("datePublished")
+            require(isinstance(modified, str) and bool(modified.strip()), f"Article dateModified missing in {path}", failures)
+            require(
+                isinstance(published, str) and bool(published.strip()),
+                f"Article datePublished missing in {path}",
+                failures,
+            )
+            main_entity = article.get("mainEntityOfPage")
+            expected = f"{base}{route}"
+            actual = main_entity.get("@id") if isinstance(main_entity, dict) else None
+            require(actual == expected, f"Article mainEntityOfPage mismatch in {path}: expected {expected}, got {actual}", failures)
+
+        breadcrumb = next((block for block in blocks if block.get("@type") == "BreadcrumbList"), None)
+        require(breadcrumb is not None, f"missing BreadcrumbList block in {path}", failures)
+        if isinstance(breadcrumb, dict):
+            elements = breadcrumb.get("itemListElement")
+            require(isinstance(elements, list) and len(elements) >= 2, f"BreadcrumbList too short in {path}", failures)
+            if isinstance(elements, list) and elements:
+                last = elements[-1]
+                if isinstance(last, dict):
+                    expected = f"{base}{route}"
+                    actual = last.get("item")
+                    require(actual == expected, f"Breadcrumb terminal item mismatch in {path}: expected {expected}, got {actual}", failures)
 
 
 def validate_og_image(dist_root: Path, failures: list[str]) -> None:
@@ -240,6 +310,16 @@ def validate_home_calculator_script(dist_root: Path, base_url: str, failures: li
     require("function onlyDigits(" not in html, "home page still contains inline calculator logic", failures)
 
 
+def validate_local_asset_references(dist_root: Path, failures: list[str]) -> None:
+    for html_file in sorted(dist_root.rglob("*.html")):
+        html = read_text(html_file)
+        refs = re.findall(r'(?:src|href)=["\'](/assets/[^"\']+)["\']', html, flags=re.IGNORECASE)
+        for ref in refs:
+            rel = ref.lstrip("/")
+            target = dist_root / rel
+            require(target.exists(), f"missing referenced asset {ref} in {html_file}", failures)
+
+
 def main() -> int:
     args = parse_args()
     dist_root = Path(args.dist_root).resolve()
@@ -248,6 +328,7 @@ def main() -> int:
     validate_core_pages(dist_root, args.site_base_url, failures)
     validate_not_found(dist_root, failures)
     validate_redirects(dist_root, failures)
+    validate_structured_data(dist_root, args.site_base_url, failures)
     validate_faq_jsonld(dist_root, failures)
     validate_og_image(dist_root, failures)
     validate_material_nosnippet(dist_root, failures)
@@ -255,6 +336,7 @@ def main() -> int:
     validate_no_partial_tokens(dist_root, failures)
     validate_brand_assets(dist_root, args.site_base_url, failures)
     validate_home_calculator_script(dist_root, args.site_base_url, failures)
+    validate_local_asset_references(dist_root, failures)
 
     if failures:
         print("[FAIL] quality checks failed:")

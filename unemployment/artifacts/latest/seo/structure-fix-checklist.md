@@ -49,12 +49,12 @@
   - 수정 위치: `/Users/eunsung/Documents/adsense/unemployment/apps/site/pages/*.html`
   - 완료 기준: favicon 및 기본 meta 아이콘 반영
 
-- [ ] 구조화데이터 CI 검증
+- [x] 구조화데이터 CI 검증
   - 현재 문제: 스키마 깨져도 배포됨
   - 수정 위치: `/Users/eunsung/Documents/adsense/.github/workflows/unemployment-quality-gate.yml`
   - 완료 기준: FAQ/Article/Breadcrumb 정적 검증 추가
 
-- [ ] 정적 리소스 파이프라인 명시화
+- [x] 정적 리소스 파이프라인 명시화
   - 현재 문제: static 리소스 규칙/검증 부족
   - 수정 위치: `/Users/eunsung/Documents/adsense/unemployment/scripts/build_site.py`
   - 완료 기준: 정적 파일 누락/경로 오류 검증 추가
@@ -65,3 +65,4 @@
 - 리다이렉트 유지: `/calculator`, `/about`, `/updates`, `/fraud-risk` -> `/`
 - 404 정책 유지: `noindex,nofollow`
 - 2026-02-24(3주차): 홈 계산기 JS 외부 분리, favicon 추가, 폰트 preconnect 주입, 품질게이트 보강 완료
+- 2026-02-24(4주차): Article/Breadcrumb/WebSite/Organization JSON-LD 검증 추가, 정적 자산 참조 무결성 검사 추가
