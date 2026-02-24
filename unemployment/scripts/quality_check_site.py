@@ -170,6 +170,30 @@ def validate_material_nosnippet(dist_root: Path, failures: list[str]) -> None:
             failures.append(f"missing data-nosnippet on material icon tag in {html_file}: {tag}")
 
 
+def validate_css_pipeline(dist_root: Path, base_url: str, failures: list[str]) -> None:
+    base = base_url.rstrip("/")
+    stylesheet = f'{base}/assets/site.css'
+    expected_routes = CORE_ROUTES + ("/404/",)
+
+    for route in expected_routes:
+        html_path = dist_path_for_route(dist_root, route) if route != "/404/" else dist_root / "404.html"
+        require(html_path.exists(), f"missing page for css check: {html_path}", failures)
+        if not html_path.exists():
+            continue
+        html = read_text(html_path)
+        require("cdn.tailwindcss.com" not in html, f"tailwind CDN script must be removed: {html_path}", failures)
+        require(stylesheet in html, f"missing static site.css link: {html_path}", failures)
+
+    css_path = dist_root / "assets" / "site.css"
+    require(css_path.exists(), "missing generated stylesheet: dist/assets/site.css", failures)
+
+
+def validate_no_partial_tokens(dist_root: Path, failures: list[str]) -> None:
+    for html_file in sorted(dist_root.rglob("*.html")):
+        html = read_text(html_file)
+        require("{{PARTIAL:" not in html, f"unresolved partial token in dist HTML: {html_file}", failures)
+
+
 def main() -> int:
     args = parse_args()
     dist_root = Path(args.dist_root).resolve()
@@ -181,6 +205,8 @@ def main() -> int:
     validate_faq_jsonld(dist_root, failures)
     validate_og_image(dist_root, failures)
     validate_material_nosnippet(dist_root, failures)
+    validate_css_pipeline(dist_root, args.site_base_url, failures)
+    validate_no_partial_tokens(dist_root, failures)
 
     if failures:
         print("[FAIL] quality checks failed:")

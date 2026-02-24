@@ -14,6 +14,16 @@ ROOT = Path(__file__).resolve().parents[1]
 HOME_PAGE_DIR = "home"
 NOT_FOUND_PAGE_DIR = "404"
 PAGE_META_PATH = ROOT / "apps" / "site" / "page-meta.json"
+PARTIALS_DIR = ROOT / "apps" / "site" / "partials"
+
+NAV_TABS: tuple[str, ...] = ("calculator", "apply", "eligibility", "recognition", "income-report")
+HEADER_ACTIVE_CLASS = "px-3 py-1.5 rounded-full bg-primary/10 text-primary font-semibold"
+HEADER_INACTIVE_CLASS = "px-3 py-1.5 rounded-full hover:bg-slate-100 transition-colors"
+TAB_ACTIVE_CLASS = "px-3 sm:px-4 py-2 rounded-xl bg-primary text-white text-[13px] sm:text-sm font-semibold whitespace-nowrap"
+TAB_INACTIVE_CLASS = (
+    "px-3 sm:px-4 py-2 rounded-xl text-[13px] sm:text-sm font-semibold "
+    "whitespace-nowrap hover:bg-slate-100 transition-colors"
+)
 
 LEGACY_REDIRECTS: tuple[tuple[str, str], ...] = (
     ("/calculator", "/"),
@@ -52,8 +62,41 @@ def load_page_meta() -> dict[str, dict[str, str]]:
         if route in by_route:
             raise ValueError(f"duplicate route in page-meta.json: {route}")
         dt.date.fromisoformat(str(item["updated_at"]))
+        active_tab = str(item["active_tab"])
+        allowed_tabs = set(NAV_TABS) | {"faq", "none"}
+        if active_tab not in allowed_tabs:
+            raise ValueError(f"invalid active_tab '{active_tab}' for route '{route}'")
         by_route[route] = {key: str(item[key]) for key in required_keys}
     return by_route
+
+
+def load_partials() -> dict[str, str]:
+    names = ("header", "tabbar", "footer")
+    partials: dict[str, str] = {}
+    for name in names:
+        path = PARTIALS_DIR / f"{name}.html"
+        if not path.exists():
+            raise FileNotFoundError(f"missing partial template: {path}")
+        partials[name] = path.read_text(encoding="utf-8")
+    return partials
+
+
+def render_nav_classes(template: str, active_tab: str) -> str:
+    rendered = template
+    for tab in NAV_TABS:
+        header_class = HEADER_ACTIVE_CLASS if tab == active_tab else HEADER_INACTIVE_CLASS
+        tab_class = TAB_ACTIVE_CLASS if tab == active_tab else TAB_INACTIVE_CLASS
+        rendered = rendered.replace(f"{{{{HEADER_CLASS:{tab}}}}}", header_class)
+        rendered = rendered.replace(f"{{{{TAB_CLASS:{tab}}}}}", tab_class)
+    return rendered
+
+
+def render_partials(html: str, partials: dict[str, str], active_tab: str) -> str:
+    rendered = html
+    for name, template in partials.items():
+        token = f"{{{{PARTIAL:{name.upper()}}}}}"
+        rendered = rendered.replace(token, render_nav_classes(template, active_tab))
+    return rendered
 
 
 def parse_args() -> argparse.Namespace:
@@ -102,6 +145,7 @@ def main() -> int:
 
     base = args.site_base_url.rstrip("/")
     page_meta = load_page_meta()
+    partials = load_partials()
     ga_snippet = render_ga_snippet(args.ga_measurement_id)
 
     pages_root = ROOT / "apps" / "site" / "pages"
@@ -131,7 +175,14 @@ def main() -> int:
             return 1
 
         html = page.read_text(encoding="utf-8")
+        html = render_partials(html, partials, page_info["active_tab"])
         html = html.replace("{{BASE_URL}}", base).replace("{{UPDATED_AT}}", page_info["updated_at"])
+        if "{{PARTIAL:" in html:
+            print(f"[ERROR] unresolved partial token in {page}")
+            return 1
+        if "{{BASE_URL}}" in html or "{{UPDATED_AT}}" in html:
+            print(f"[ERROR] unresolved value token in {page}")
+            return 1
         html = inject_in_head(html, ga_snippet)
         write_text(out_path, html)
         if include_in_sitemap:

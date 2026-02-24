@@ -17,69 +17,12 @@
 <meta name="twitter:title" content="실업급여 계산기 2026 | 1일액·지급일수·총액 모의계산" />
 <meta name="twitter:description" content="월급·근속기간 입력으로 예상 실업급여를 1분 안에 확인하세요. 1일 지급액, 총액, 다음 절차까지 한 번에 안내합니다." />
 <meta name="twitter:image" content="{{BASE_URL}}/og-image.png" />
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link rel="stylesheet" href="{{BASE_URL}}/assets/site.css" />
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#1c74e9",
-                        "background-light": "#f6f7f8",
-                        "background-dark": "#111821",
-                    },
-                    fontFamily: {
-                        "display": ["Public Sans", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                },
-            },
-        }
-    </script>
-<style>
-        html {
-            font-size: 16px;
-        }
-        body {
-            font-family: 'Public Sans', sans-serif;
-        }
-        .page-surface {
-            background:
-              radial-gradient(circle at 10% 0%, rgba(28, 116, 233, 0.08), transparent 36%),
-              linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
-        }
-    .no-scrollbar::-webkit-scrollbar{display:none;}.no-scrollbar{scrollbar-width:none;}</style>
 </head>
 <body class="page-surface text-slate-900 dark:text-slate-100 min-h-screen">
-<header class="sticky top-0 z-50 w-full bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b-2 border-slate-300 dark:border-slate-700 shadow-[0_6px_24px_rgba(15,23,42,0.08)]">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex justify-between items-center h-16">
-<a href="/" class="flex items-center gap-2">
-<div class="text-primary">
-<svg class="w-8 h-8" fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.263 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z"></path>
-</svg>
-</div>
-<span class="text-xl font-bold tracking-tight">실업급여 가이드</span>
-</a>
-<nav class="hidden md:flex items-center gap-2 text-sm">
-<a class="px-3 py-1.5 rounded-full bg-primary/10 text-primary font-semibold" href="/">계산기</a>
-<a class="px-3 py-1.5 rounded-full hover:bg-slate-100 transition-colors" href="/apply/">신청 방법</a>
-<a class="px-3 py-1.5 rounded-full hover:bg-slate-100 transition-colors" href="/eligibility/">자격 조건</a>
-<a class="px-3 py-1.5 rounded-full hover:bg-slate-100 transition-colors" href="/recognition/">실업인정</a>
-<a class="px-3 py-1.5 rounded-full hover:bg-slate-100 transition-colors" href="/income-report/">소득신고</a>
-<a class="px-3 py-1.5 rounded-full hover:bg-slate-100 transition-colors" href="/faq/">FAQ</a>
-</nav>
-</div>
-</div>
-</header>
+{{PARTIAL:HEADER}}
 
 <main class="max-w-4xl mx-auto px-4 sm:px-6 pt-8 sm:pt-12 pb-12">
 <section class="text-center mb-7 sm:mb-10">
@@ -101,17 +44,7 @@
 </div>
 <a class="mt-5 inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 transition-colors" href="/apply/">실업급여 신청방법 5단계 보기</a>
 </section>
-
-<section class="mb-6 sm:mb-8 sm:sticky sm:top-20 z-40">
-<div class="bg-white/95 backdrop-blur border border-slate-200 rounded-2xl p-1.5 sm:p-2 -mx-1 flex flex-nowrap gap-1.5 overflow-x-auto no-scrollbar justify-start sm:justify-center shadow-sm">
-<a class="px-3 sm:px-4 py-2 rounded-xl bg-primary text-white text-[13px] sm:text-sm font-semibold whitespace-nowrap" href="/">계산기</a>
-<a class="px-3 sm:px-4 py-2 rounded-xl text-[13px] sm:text-sm font-semibold whitespace-nowrap hover:bg-slate-100 transition-colors" href="/apply/">신청 방법</a>
-<a class="px-3 sm:px-4 py-2 rounded-xl text-[13px] sm:text-sm font-semibold whitespace-nowrap hover:bg-slate-100 transition-colors" href="/eligibility/">자격 조건</a>
-<a class="px-3 sm:px-4 py-2 rounded-xl text-[13px] sm:text-sm font-semibold whitespace-nowrap hover:bg-slate-100 transition-colors" href="/recognition/">실업인정</a>
-<a class="px-3 sm:px-4 py-2 rounded-xl text-[13px] sm:text-sm font-semibold whitespace-nowrap hover:bg-slate-100 transition-colors" href="/income-report/">소득신고</a>
-<a class="px-3 sm:px-4 py-2 rounded-xl text-[13px] sm:text-sm font-semibold whitespace-nowrap hover:bg-slate-100 transition-colors" href="/faq/">FAQ</a>
-</div>
-</section>
+    {{PARTIAL:TABBAR}}
 
 <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-lg shadow-slate-200/50 dark:shadow-none border border-slate-200 overflow-hidden mb-12 sm:mb-16">
 <div class="p-5 sm:p-8 md:p-10">
@@ -381,26 +314,7 @@
 </section>
 
 </main>
-
-<footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-900 py-12">
-<div class="max-w-7xl mx-auto px-4 text-center">
-<div class="flex justify-center items-center gap-2 mb-6 opacity-60">
-<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 48 48">
-<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.263 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z"></path>
-</svg>
-<span class="text-lg font-bold">실업급여 가이드</span>
-</div>
-<p class="text-slate-500 text-sm mb-4">본 사이트는 정보 제공을 목적으로 하며, 실제 수급 가능 여부는 고용보험법에 의거하여 결정됩니다.</p>
-<div class="flex justify-center space-x-6 text-sm text-slate-400">
-<a class="hover:text-primary" href="/apply/">신청 방법</a>
-<a class="hover:text-primary" href="/eligibility/">자격 조건</a>
-<a class="hover:text-primary" href="/recognition/">실업인정</a>
-<a class="hover:text-primary" href="/income-report/">소득신고</a>
-<a class="hover:text-primary" href="/faq/">FAQ</a>
-</div>
-<p class="mt-8 text-xs text-slate-400">최종 업데이트: {{UPDATED_AT}}</p>
-</div>
-</footer>
+  {{PARTIAL:FOOTER}}
 
 <script type="application/ld+json">
 {

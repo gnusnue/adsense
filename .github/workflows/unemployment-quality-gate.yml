@@ -25,12 +25,25 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: unemployment/apps/site/package-lock.json
+
       - name: Install dependencies
         working-directory: unemployment
         run: |
           python -m venv .venv
           .venv/bin/pip install --upgrade pip
           .venv/bin/pip install -r requirements.txt
+
+      - name: Build static CSS
+        working-directory: unemployment/apps/site
+        run: |
+          npm ci
+          npm run build:css
 
       - name: Build unemployment site
         working-directory: unemployment

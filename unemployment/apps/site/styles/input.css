@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    font-family: "Public Sans", sans-serif;
+  }
+}
+
+@layer components {
+  .page-surface {
+    background:
+      radial-gradient(circle at 10% 0%, rgba(28, 116, 233, 0.08), transparent 36%),
+      linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+}

@@ -106,9 +106,9 @@
 - [x] `build_site.py` route별 날짜 치환/사이트맵 lastmod 반영.
 - [x] 품질 체크 스크립트 초안 + CI 연결.
 2. 2주차:
-- [ ] Tailwind CLI 정적 CSS 전환.
-- [ ] 파셜 도입(헤더/탭/푸터).
-- [ ] CI/배포 워크플로 최종 반영 및 회귀 검증.
+- [x] Tailwind CLI 정적 CSS 전환.
+- [x] 파셜 도입(헤더/탭/푸터).
+- [x] CI/배포 워크플로 최종 반영 및 회귀 검증.
 
 ### 가정 및 기본값
 1. Cloudflare managed robots는 유지.
