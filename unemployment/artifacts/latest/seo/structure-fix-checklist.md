@@ -67,3 +67,4 @@
 - 2026-02-24(3주차): 홈 계산기 JS 외부 분리, favicon 추가, 폰트 preconnect 주입, 품질게이트 보강 완료
 - 2026-02-24(4주차): Article/Breadcrumb/WebSite/Organization JSON-LD 검증 추가, 정적 자산 참조 무결성 검사 추가
 - 2026-02-24(5주차): robots 정책을 cloudflare-managed 단일 소스로 고정, build/quality/workflow에 robots-mode 일관 반영
+- 2026-02-25(롱테일 운영): weekly 템플릿/백로그/임팩트 로그 및 검증 스크립트(중복/라우팅/출처/Rising 비중) 도입
