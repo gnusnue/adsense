@@ -43,6 +43,16 @@ def clean_route(value: str) -> str:
     return value.strip().strip("`").strip()
 
 
+def is_checked_checkbox(md_text: str, label: str) -> bool:
+    pattern = re.compile(rf"^\s*-\s*\[[xX]\]\s*{re.escape(label)}\s*$", flags=re.MULTILINE)
+    return bool(pattern.search(md_text))
+
+
+def is_todo_keyword(keyword: str) -> bool:
+    value = keyword.strip().lower()
+    return value.startswith("todo")
+
+
 def parse_markdown_table(md_text: str, section_title: str) -> list[list[str]]:
     section = re.search(
         rf"^##\s+.*{re.escape(section_title)}.*$([\s\S]*?)(?=^##\s+|\Z)",
@@ -82,6 +92,7 @@ def validate_weekly_markdown(path: Path, failures: list[str]) -> list[dict[str, 
     )
     for view in required_views:
         require(view in text, f"missing trends view checklist item: {view}", failures)
+        require(is_checked_checkbox(text, view), f"trends checklist must be checked: {view}", failures)
 
     rows = parse_markdown_table(text, "최종 채택 10개")
     require(bool(rows), "failed to parse table in section '최종 채택 10개'", failures)
@@ -112,6 +123,7 @@ def validate_weekly_markdown(path: Path, failures: list[str]) -> list[dict[str, 
         score_text = pick["score"]
 
         require(keyword != "", "empty keyword found in final picks", failures)
+        require(not is_todo_keyword(keyword), f"placeholder keyword is not allowed in final picks: {keyword}", failures)
         require(keyword not in seen_keywords, f"duplicate keyword in final picks: {keyword}", failures)
         seen_keywords.add(keyword)
         require(route in ALLOWED_ROUTES, f"invalid route in final picks: {route}", failures)
@@ -174,8 +186,6 @@ def validate_backlog(path: Path, picks: list[dict[str, str]], failures: list[str
         require(0.0 <= score <= 10.0, f"backlog score out of range (0~10): {score_text}", failures)
 
     for pick in picks:
-        if pick["keyword"].startswith("TODO_"):
-            continue
         require(
             pick["keyword"] in keyword_index,
             f"selected keyword missing in backlog csv: {pick['keyword']}",

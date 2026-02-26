@@ -81,6 +81,8 @@
       return age;
     }
 
+    var MIN_ELIGIBLE_TENURE_DAYS = 180;
+
     function getBenefitDays(age, tenureDays) {
       var years = tenureDays / 365;
       var isSenior = age >= 50;
@@ -151,28 +153,42 @@
       return formatKoreanAmountParts(amount);
     }
 
+    var MIN_WAGE_BY_YEAR = {
+      2011: 4320,
+      2012: 4580,
+      2013: 4860,
+      2014: 5210,
+      2015: 5580,
+      2016: 6030,
+      2017: 6470,
+      2018: 7530,
+      2019: 8350,
+      2020: 8590,
+      2021: 8720,
+      2022: 9160,
+      2023: 9620,
+      2024: 9860,
+      2025: 10030,
+      2026: 10320
+    };
+
+    var BENEFIT_CAP_BY_YEAR = {
+      2025: 66000,
+      2026: 68100
+    };
+
     function getMinWageByYear(year) {
-      var table = {
-        2011: 4320,
-        2012: 4580,
-        2013: 4860,
-        2014: 5210,
-        2015: 5580,
-        2016: 6030,
-        2017: 6470,
-        2018: 7530,
-        2019: 8350,
-        2020: 8590,
-        2021: 8720,
-        2022: 9160,
-        2023: 9620,
-        2024: 9860,
-        2025: 10030,
-        2026: 10320
-      };
-      if (table[year]) return table[year];
-      if (year > 2026) return table[2026];
-      return 0;
+      if (Object.prototype.hasOwnProperty.call(MIN_WAGE_BY_YEAR, year)) {
+        return MIN_WAGE_BY_YEAR[year];
+      }
+      return null;
+    }
+
+    function getBenefitCapByYear(year) {
+      if (Object.prototype.hasOwnProperty.call(BENEFIT_CAP_BY_YEAR, year)) {
+        return BENEFIT_CAP_BY_YEAR[year];
+      }
+      return null;
     }
 
     function bindBirthSegment(el, maxLen, nextEl, prevEl) {
@@ -269,20 +285,28 @@
       }
 
       var tenureDays = Math.max(1, daysBetween(start, end));
+      if (tenureDays < MIN_ELIGIBLE_TENURE_DAYS) {
+        alert("고용보험 피보험 단위기간 180일 미만이면 일반적으로 구직급여 대상이 아닙니다.");
+        return;
+      }
+
+      var endYear = end.getFullYear();
+      var cap = getBenefitCapByYear(endYear);
+      var minWage = getMinWageByYear(endYear);
+      if (cap === null || minWage === null) {
+        alert(endYear + "년 기준 값은 아직 반영되지 않았습니다. 최신 기준 고시 후 업데이트 예정입니다.");
+        return;
+      }
+
       var benefitDays = getBenefitDays(age, tenureDays);
       var last3MonthsDays = daysInLast3Months(end);
       var avgDaily = (monthly * 3) / last3MonthsDays;
       var daily = avgDaily * 0.6;
 
-      var endYear = end.getFullYear();
-      var cap = endYear >= 2026 ? 68100 : 66000;
-      var minWage = getMinWageByYear(endYear);
-      var floor = minWage > 0 ? minWage * 8 * 0.8 : 0;
+      var floor = minWage * 8 * 0.8;
 
       daily = Math.min(daily, cap);
-      if (floor > 0) {
-        daily = Math.max(daily, floor);
-      }
+      daily = Math.max(daily, floor);
 
       var total = daily * benefitDays;
       var years = Math.floor(tenureDays / 365);
