@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import datetime as dt
 import re
 from pathlib import Path
 
@@ -18,17 +19,22 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Validate weekly longtail artifacts")
     parser.add_argument(
         "--weekly-file",
-        required=True,
-        help="Path to weekly-YYYY-MM-DD.md",
+        default="",
+        help="Path to weekly-YYYY-MM-DD.md. If omitted, latest weekly file is selected automatically.",
+    )
+    parser.add_argument(
+        "--longtail-dir",
+        default="artifacts/latest/seo/longtail",
+        help="Directory containing weekly-YYYY-MM-DD.md files",
     )
     parser.add_argument(
         "--backlog-file",
-        default="unemployment/artifacts/latest/seo/longtail/keyword-backlog.csv",
+        default="artifacts/latest/seo/longtail/keyword-backlog.csv",
         help="Path to keyword backlog csv",
     )
     parser.add_argument(
         "--impact-file",
-        default="unemployment/artifacts/latest/seo/longtail/impact-log.csv",
+        default="artifacts/latest/seo/longtail/impact-log.csv",
         help="Path to impact log csv",
     )
     return parser.parse_args()
@@ -206,11 +212,36 @@ def validate_impact_log(path: Path, failures: list[str]) -> None:
             require(page in ALLOWED_ROUTES, f"invalid page(route) in impact log row: {page}", failures)
 
 
+def discover_latest_weekly_file(longtail_dir: Path) -> Path | None:
+    candidates: list[tuple[dt.date, Path]] = []
+    for path in sorted(longtail_dir.glob("weekly-*.md")):
+        match = re.fullmatch(r"weekly-(\d{4}-\d{2}-\d{2})\.md", path.name)
+        if not match:
+            continue
+        try:
+            weekly_date = dt.date.fromisoformat(match.group(1))
+        except ValueError:
+            continue
+        candidates.append((weekly_date, path))
+    if not candidates:
+        return None
+    candidates.sort(key=lambda item: item[0])
+    return candidates[-1][1]
+
+
 def main() -> int:
     args = parse_args()
     failures: list[str] = []
-
-    weekly_file = Path(args.weekly_file).resolve()
+    longtail_dir = Path(args.longtail_dir).resolve()
+    if args.weekly_file.strip():
+        weekly_file = Path(args.weekly_file).resolve()
+    else:
+        weekly_file = discover_latest_weekly_file(longtail_dir)
+        if weekly_file is None:
+            failures.append(f"could not find weekly file under: {longtail_dir}")
+            weekly_file = longtail_dir / "weekly-YYYY-MM-DD.md"
+        else:
+            print(f"[INFO] using latest weekly file: {weekly_file}")
     backlog_file = Path(args.backlog_file).resolve()
     impact_file = Path(args.impact_file).resolve()
 

@@ -34,6 +34,7 @@ LEGACY_REDIRECTS: tuple[tuple[str, str], ...] = (
     ("/updates/", "/"),
     ("/fraud-risk", "/"),
     ("/fraud-risk/", "/"),
+    ("/favicon.ico", "/favicon.svg"),
 )
 ROBOTS_MODE_CLOUDFLARE = "cloudflare-managed"
 ROBOTS_MODE_BUILD = "build-managed"

@@ -15,8 +15,8 @@ jobs:
   quality:
     runs-on: ubuntu-latest
     env:
-      SITE_BASE_URL: https://uem.cbbxs.com
-      ROBOTS_MODE: cloudflare-managed
+      SITE_BASE_URL: ${{ vars.UNEMPLOYMENT_SITE_BASE_URL || 'https://uem.cbbxs.com' }}
+      ROBOTS_MODE: ${{ vars.UNEMPLOYMENT_ROBOTS_MODE || 'cloudflare-managed' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -56,4 +56,4 @@ jobs:
 
       - name: Validate longtail SEO artifacts
         working-directory: unemployment
-        run: .venv/bin/python scripts/longtail_quality_check.py --weekly-file artifacts/latest/seo/longtail/weekly-2026-02-25.md --backlog-file artifacts/latest/seo/longtail/keyword-backlog.csv --impact-file artifacts/latest/seo/longtail/impact-log.csv
+        run: .venv/bin/python scripts/longtail_quality_check.py --longtail-dir artifacts/latest/seo/longtail --backlog-file artifacts/latest/seo/longtail/keyword-backlog.csv --impact-file artifacts/latest/seo/longtail/impact-log.csv

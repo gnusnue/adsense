@@ -18,6 +18,7 @@ LEGACY_REDIRECTS = (
     ("/updates/", "/"),
     ("/fraud-risk", "/"),
     ("/fraud-risk/", "/"),
+    ("/favicon.ico", "/favicon.svg"),
 )
 PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
 ROBOTS_MODE_CLOUDFLARE = "cloudflare-managed"
@@ -25,6 +26,10 @@ ROBOTS_MODE_BUILD = "build-managed"
 ROBOTS_MODES = (ROBOTS_MODE_CLOUDFLARE, ROBOTS_MODE_BUILD)
 ROOT = Path(__file__).resolve().parents[1]
 PAGE_META_PATH = ROOT / "apps" / "site" / "page-meta.json"
+TABBAR_PARTIAL_PATH = ROOT / "apps" / "site" / "partials" / "tabbar.html"
+FLOAT_TABS_EXPECTED = ("calculator", "apply", "eligibility", "recognition", "income-report")
+INTERNAL_LINK_IGNORED_PREFIXES = ("http://", "https://", "mailto:", "tel:", "#", "javascript:", "/assets/")
+INTERNAL_LINK_IGNORED_EXACT = ("/favicon.svg", "/favicon.ico")
 
 
 def parse_args() -> argparse.Namespace:
@@ -66,13 +71,21 @@ def find_title(html: str) -> str | None:
     return match.group(1).strip()
 
 
-def find_meta_content(html: str, name: str) -> str | None:
+def find_meta_by_attr(html: str, key: str, attr: str) -> str | None:
     pattern = re.compile(
-        rf'<meta[^>]+name=["\']{re.escape(name)}["\'][^>]+content=["\']([^"\']+)["\']',
+        rf'<meta[^>]+{re.escape(attr)}=["\']{re.escape(key)}["\'][^>]+content=["\']([^"\']+)["\']',
         flags=re.IGNORECASE,
     )
     match = pattern.search(html)
     return match.group(1).strip() if match else None
+
+
+def find_meta_content(html: str, name: str) -> str | None:
+    return find_meta_by_attr(html, name, "name")
+
+
+def find_meta_property(html: str, prop: str) -> str | None:
+    return find_meta_by_attr(html, prop, "property")
 
 
 def find_canonical(html: str) -> str | None:
@@ -149,6 +162,24 @@ def validate_core_pages(dist_root: Path, base_url: str, failures: list[str]) -> 
         require(canonical == expected_canonical, f"canonical mismatch: {path} expected {expected_canonical}, got {canonical}", failures)
 
 
+def validate_float_tabbar_policy(failures: list[str]) -> None:
+    require(TABBAR_PARTIAL_PATH.exists(), f"missing floating tabbar partial: {TABBAR_PARTIAL_PATH}", failures)
+    if not TABBAR_PARTIAL_PATH.exists():
+        return
+    tabbar = read_text(TABBAR_PARTIAL_PATH)
+    tabs = tuple(re.findall(r"\{\{TAB_CLASS:([^}]+)\}\}", tabbar))
+    require(
+        len(tabs) == len(FLOAT_TABS_EXPECTED),
+        f"floating tabbar must contain exactly {len(FLOAT_TABS_EXPECTED)} tabs, got {len(tabs)} in {TABBAR_PARTIAL_PATH}",
+        failures,
+    )
+    require(
+        tabs == FLOAT_TABS_EXPECTED,
+        f"floating tabbar tabs must be {FLOAT_TABS_EXPECTED}, got {tabs}",
+        failures,
+    )
+
+
 def validate_page_meta_alignment(dist_root: Path, page_meta: dict[str, dict[str, str]], failures: list[str]) -> None:
     for route, info in page_meta.items():
         if route == "/404/":
@@ -162,6 +193,10 @@ def validate_page_meta_alignment(dist_root: Path, page_meta: dict[str, dict[str,
         html = read_text(path)
         title = find_title(html)
         description = find_meta_content(html, "description")
+        og_title = find_meta_property(html, "og:title")
+        og_description = find_meta_property(html, "og:description")
+        twitter_title = find_meta_content(html, "twitter:title")
+        twitter_description = find_meta_content(html, "twitter:description")
 
         expected_title = str(info.get("title", "")).strip()
         expected_description = str(info.get("description", "")).strip()
@@ -171,6 +206,44 @@ def validate_page_meta_alignment(dist_root: Path, page_meta: dict[str, dict[str,
             f"description mismatch vs page-meta for {route}: expected '{expected_description}', got '{description}'",
             failures,
         )
+        require(
+            og_title == expected_title,
+            f"og:title mismatch vs page-meta for {route}: expected '{expected_title}', got '{og_title}'",
+            failures,
+        )
+        require(
+            og_description == expected_description,
+            f"og:description mismatch vs page-meta for {route}: expected '{expected_description}', got '{og_description}'",
+            failures,
+        )
+        require(
+            twitter_title == expected_title,
+            f"twitter:title mismatch vs page-meta for {route}: expected '{expected_title}', got '{twitter_title}'",
+            failures,
+        )
+        require(
+            twitter_description == expected_description,
+            f"twitter:description mismatch vs page-meta for {route}: expected '{expected_description}', got '{twitter_description}'",
+            failures,
+        )
+
+        if route in ARTICLE_ROUTES:
+            blocks = parse_jsonld_blocks(html)
+            article = next((block for block in blocks if block.get("@type") == "Article"), None)
+            require(article is not None, f"missing Article JSON-LD for page-meta alignment: {route}", failures)
+            if isinstance(article, dict):
+                headline = str(article.get("headline", "")).strip()
+                article_desc = str(article.get("description", "")).strip()
+                require(
+                    headline == expected_title,
+                    f"Article headline mismatch vs page-meta for {route}: expected '{expected_title}', got '{headline}'",
+                    failures,
+                )
+                require(
+                    article_desc == expected_description,
+                    f"Article description mismatch vs page-meta for {route}: expected '{expected_description}', got '{article_desc}'",
+                    failures,
+                )
 
 
 def validate_not_found(dist_root: Path, failures: list[str]) -> None:
@@ -377,6 +450,49 @@ def validate_local_asset_references(dist_root: Path, failures: list[str]) -> Non
             require(target.exists(), f"missing referenced asset {ref} in {html_file}", failures)
 
 
+def collect_dist_routes(dist_root: Path) -> set[str]:
+    routes: set[str] = {"/"}
+    for html_file in sorted(dist_root.rglob("index.html")):
+        rel = html_file.relative_to(dist_root)
+        if rel == Path("index.html"):
+            routes.add("/")
+            continue
+        routes.add(f"/{str(rel.parent).strip('/')}/")
+    if (dist_root / "404.html").exists():
+        routes.add("/404/")
+    return routes
+
+
+def normalize_internal_route(href: str) -> str | None:
+    candidate = href.strip()
+    if not candidate:
+        return None
+    if candidate.startswith(INTERNAL_LINK_IGNORED_PREFIXES):
+        return None
+    if candidate in INTERNAL_LINK_IGNORED_EXACT:
+        return None
+    if not candidate.startswith("/"):
+        return None
+
+    candidate = candidate.split("#", 1)[0].split("?", 1)[0]
+    if not candidate:
+        return None
+    if candidate != "/" and not candidate.endswith("/"):
+        candidate = f"{candidate}/"
+    return candidate
+
+
+def validate_internal_route_links(dist_root: Path, failures: list[str]) -> None:
+    known_routes = collect_dist_routes(dist_root)
+    for html_file in sorted(dist_root.rglob("*.html")):
+        html = read_text(html_file)
+        for href in re.findall(r'href=["\']([^"\']+)["\']', html, flags=re.IGNORECASE):
+            route = normalize_internal_route(href)
+            if route is None:
+                continue
+            require(route in known_routes, f"broken internal href '{href}' in {html_file}", failures)
+
+
 def validate_robots_authority(dist_root: Path, base_url: str, robots_mode: str, failures: list[str]) -> None:
     robots = dist_root / "robots.txt"
     base = base_url.rstrip("/")
@@ -407,6 +523,7 @@ def main() -> int:
         failures.append(f"invalid robots mode '{args.robots_mode}'. expected one of: {', '.join(ROBOTS_MODES)}")
         robots_mode = ROBOTS_MODE_CLOUDFLARE
 
+    validate_float_tabbar_policy(failures)
     validate_core_pages(dist_root, args.site_base_url, failures)
     if page_meta:
         validate_page_meta_alignment(dist_root, page_meta, failures)
@@ -421,6 +538,7 @@ def main() -> int:
     validate_brand_assets(dist_root, args.site_base_url, failures)
     validate_home_calculator_script(dist_root, args.site_base_url, failures)
     validate_local_asset_references(dist_root, failures)
+    validate_internal_route_links(dist_root, failures)
     validate_robots_authority(dist_root, args.site_base_url, robots_mode, failures)
 
     if failures:

@@ -71,5 +71,4 @@ jobs:
 
       - name: Verify live SEO smoke checks
         working-directory: unemployment
-        continue-on-error: true
-        run: .venv/bin/python scripts/verify_live_seo.py --base-url "$SITE_BASE_URL"
+        run: .venv/bin/python scripts/verify_live_seo.py --base-url "$SITE_BASE_URL" --robots-mode "$ROBOTS_MODE"
