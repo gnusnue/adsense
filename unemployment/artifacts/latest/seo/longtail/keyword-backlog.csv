@@ -1,1 +1,11 @@
 keyword,route,score,source,status
+실업급여 계산기,/,8.0,top,live
+실업급여 신청방법,/apply/,8.0,top,live
+워크넷 구직등록 방법,/apply/,8.0,rising,live
+실업급여 180일 계산,/eligibility/,7.0,rising,idea
+비자발적 이직 인정사유,/eligibility/,8.0,rising,idea
+실업인정 구직활동 증빙,/recognition/,8.0,rising,idea
+실업인정 온라인 신청 방법,/recognition/,6.0,rising,idea
+실업급여 알바 소득신고,/income-report/,8.0,rising,idea
+실업급여 프리랜서 3.3 신고,/income-report/,8.0,rising,idea
+자진퇴사 실업급여 가능,/faq/,6.0,top,idea

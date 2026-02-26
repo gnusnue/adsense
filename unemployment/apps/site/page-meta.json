@@ -2,49 +2,49 @@
   "pages": [
     {
       "route": "/",
-      "updated_at": "2026-02-23",
+      "updated_at": "2026-02-26",
       "title": "실업급여 계산기 2026 | 1일액·지급일수·총액 모의계산",
       "description": "월급·근속기간 입력으로 예상 실업급여를 1분 안에 확인하세요. 1일 지급액, 총액, 다음 절차까지 한 번에 안내합니다.",
       "active_tab": "calculator"
     },
     {
       "route": "/apply/",
-      "updated_at": "2026-02-23",
+      "updated_at": "2026-02-26",
       "title": "실업급여 신청방법 2026 | 워크넷·온라인교육·신청 5단계",
       "description": "퇴사 후 12개월 내 신청 절차를 5단계로 정리했습니다. 준비서류, 자주 막히는 실수, 공식 신청 링크를 바로 확인하세요.",
       "active_tab": "apply"
     },
     {
       "route": "/eligibility/",
-      "updated_at": "2026-02-23",
+      "updated_at": "2026-02-26",
       "title": "실업급여 자격조건 2026 | 180일·비자발적 이직 체크",
       "description": "내가 대상인지 3분 안에 판단하세요. 피보험단위기간 180일, 이직 사유, 재취업 노력 요건을 체크리스트로 정리했습니다.",
       "active_tab": "eligibility"
     },
     {
       "route": "/recognition/",
-      "updated_at": "2026-02-23",
+      "updated_at": "2026-02-26",
       "title": "실업인정 방법 | 회차별 구직활동 인정·증빙 기준",
       "description": "실업인정에서 반려를 줄이려면 회차별 증빙이 핵심입니다. 인정/미인정 활동과 제출 루틴을 사례 중심으로 안내합니다.",
       "active_tab": "recognition"
     },
     {
       "route": "/income-report/",
-      "updated_at": "2026-02-23",
+      "updated_at": "2026-02-26",
       "title": "실업급여 소득신고 | 알바·3.3% 신고 기준과 불이익",
       "description": "수급 중 알바·프리랜서 소득 신고 기준을 정리했습니다. 신고 시점, 증빙, 미신고 리스크를 빠르게 확인하세요.",
       "active_tab": "income-report"
     },
     {
       "route": "/faq/",
-      "updated_at": "2026-02-23",
+      "updated_at": "2026-02-26",
       "title": "실업급여 FAQ | 자진퇴사·알바·실업인정 핵심 답변",
       "description": "자주 반복되는 질문만 모았습니다. 자진퇴사 가능 조건, 소득신고, 실업인정 증빙을 공식 근거와 함께 확인하세요.",
       "active_tab": "faq"
     },
     {
       "route": "/404/",
-      "updated_at": "2026-02-23",
+      "updated_at": "2026-02-26",
       "title": "페이지를 찾을 수 없습니다 | 실업급여 가이드",
       "description": "요청하신 페이지를 찾을 수 없습니다. 실업급여 계산기와 가이드는 홈에서 확인하세요.",
       "active_tab": "none"

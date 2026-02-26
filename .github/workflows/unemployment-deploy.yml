@@ -68,3 +68,8 @@ jobs:
           projectName: ${{ env.PAGES_PROJECT_NAME }}
           directory: unemployment/apps/site/dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Verify live SEO smoke checks
+        working-directory: unemployment
+        continue-on-error: true
+        run: .venv/bin/python scripts/verify_live_seo.py --base-url "$SITE_BASE_URL"

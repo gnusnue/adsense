@@ -53,3 +53,7 @@ jobs:
       - name: Validate unemployment site quality
         working-directory: unemployment
         run: .venv/bin/python scripts/quality_check_site.py --dist-root apps/site/dist --site-base-url "$SITE_BASE_URL" --robots-mode "$ROBOTS_MODE"
+
+      - name: Validate longtail SEO artifacts
+        working-directory: unemployment
+        run: .venv/bin/python scripts/longtail_quality_check.py --weekly-file artifacts/latest/seo/longtail/weekly-2026-02-25.md --backlog-file artifacts/latest/seo/longtail/keyword-backlog.csv --impact-file artifacts/latest/seo/longtail/impact-log.csv

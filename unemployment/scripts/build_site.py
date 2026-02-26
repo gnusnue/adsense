@@ -16,7 +16,7 @@ NOT_FOUND_PAGE_DIR = "404"
 PAGE_META_PATH = ROOT / "apps" / "site" / "page-meta.json"
 PARTIALS_DIR = ROOT / "apps" / "site" / "partials"
 
-NAV_TABS: tuple[str, ...] = ("calculator", "apply", "eligibility", "recognition", "income-report")
+NAV_TABS: tuple[str, ...] = ("calculator", "apply", "eligibility", "recognition", "income-report", "faq")
 HEADER_ACTIVE_CLASS = "px-3 py-1.5 rounded-full bg-primary/10 text-primary font-semibold"
 HEADER_INACTIVE_CLASS = "px-3 py-1.5 rounded-full hover:bg-slate-100 transition-colors"
 TAB_ACTIVE_CLASS = "px-3 sm:px-4 py-2 rounded-xl bg-primary text-white text-[13px] sm:text-sm font-semibold whitespace-nowrap"
@@ -66,7 +66,7 @@ def load_page_meta() -> dict[str, dict[str, str]]:
             raise ValueError(f"duplicate route in page-meta.json: {route}")
         dt.date.fromisoformat(str(item["updated_at"]))
         active_tab = str(item["active_tab"])
-        allowed_tabs = set(NAV_TABS) | {"faq", "none"}
+        allowed_tabs = set(NAV_TABS) | {"none"}
         if active_tab not in allowed_tabs:
             raise ValueError(f"invalid active_tab '{active_tab}' for route '{route}'")
         by_route[route] = {key: str(item[key]) for key in required_keys}
@@ -156,6 +156,38 @@ def inject_head_defaults(html: str, base_url: str) -> str:
     return f"{html[:head_close.start()]}\n" + "\n".join(snippets) + f"\n{html[head_close.start():]}"
 
 
+def update_title(html: str, title: str) -> str:
+    pattern = re.compile(r"<title>.*?</title>", flags=re.IGNORECASE | re.DOTALL)
+    replacement = f"<title>{html_escape(title)}</title>"
+    if not pattern.search(html):
+        raise ValueError("missing <title> tag")
+    return pattern.sub(replacement, html, count=1)
+
+
+def update_meta_content(html: str, key: str, value: str, *, attr: str = "name") -> str:
+    escaped_key = re.escape(key)
+    pattern = re.compile(
+        rf'(<meta[^>]+{attr}=["\']{escaped_key}["\'][^>]*content=["\'])([^"\']*)(["\'][^>]*>)',
+        flags=re.IGNORECASE,
+    )
+    if not pattern.search(html):
+        raise ValueError(f'missing meta tag: {attr}="{key}"')
+    return pattern.sub(rf"\1{html_escape(value)}\3", html, count=1)
+
+
+def sync_page_metadata(html: str, page_info: dict[str, str]) -> str:
+    title = page_info["title"]
+    description = page_info["description"]
+    rendered = html
+    rendered = update_title(rendered, title)
+    rendered = update_meta_content(rendered, "description", description, attr="name")
+    rendered = update_meta_content(rendered, "og:title", title, attr="property")
+    rendered = update_meta_content(rendered, "og:description", description, attr="property")
+    rendered = update_meta_content(rendered, "twitter:title", title, attr="name")
+    rendered = update_meta_content(rendered, "twitter:description", description, attr="name")
+    return rendered
+
+
 def main() -> int:
     args = parse_args()
     robots_mode = args.robots_mode.strip().lower()
@@ -205,6 +237,11 @@ def main() -> int:
         html = page.read_text(encoding="utf-8")
         html = render_partials(html, partials, page_info["active_tab"])
         html = html.replace("{{BASE_URL}}", base).replace("{{UPDATED_AT}}", page_info["updated_at"])
+        try:
+            html = sync_page_metadata(html, page_info)
+        except ValueError as exc:
+            print(f"[ERROR] route {route}: {exc}")
+            return 1
         html = inject_head_defaults(html, base)
         if "{{PARTIAL:" in html:
             print(f"[ERROR] unresolved partial token in {page}")

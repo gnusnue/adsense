@@ -23,6 +23,8 @@ PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
 ROBOTS_MODE_CLOUDFLARE = "cloudflare-managed"
 ROBOTS_MODE_BUILD = "build-managed"
 ROBOTS_MODES = (ROBOTS_MODE_CLOUDFLARE, ROBOTS_MODE_BUILD)
+ROOT = Path(__file__).resolve().parents[1]
+PAGE_META_PATH = ROOT / "apps" / "site" / "page-meta.json"
 
 
 def parse_args() -> argparse.Namespace:
@@ -35,6 +37,33 @@ def parse_args() -> argparse.Namespace:
 
 def read_text(path: Path) -> str:
     return path.read_text(encoding="utf-8")
+
+
+def load_page_meta() -> dict[str, dict[str, str]]:
+    payload = json.loads(read_text(PAGE_META_PATH))
+    pages = payload.get("pages")
+    if not isinstance(pages, list):
+        raise ValueError("page-meta.json must include a 'pages' array")
+
+    by_route: dict[str, dict[str, str]] = {}
+    for item in pages:
+        if not isinstance(item, dict):
+            continue
+        route = str(item.get("route", "")).strip()
+        if not route:
+            continue
+        by_route[route] = {
+            "title": str(item.get("title", "")),
+            "description": str(item.get("description", "")),
+        }
+    return by_route
+
+
+def find_title(html: str) -> str | None:
+    match = re.search(r"<title>(.*?)</title>", html, flags=re.IGNORECASE | re.DOTALL)
+    if not match:
+        return None
+    return match.group(1).strip()
 
 
 def find_meta_content(html: str, name: str) -> str | None:
@@ -118,6 +147,30 @@ def validate_core_pages(dist_root: Path, base_url: str, failures: list[str]) -> 
         canonical = find_canonical(html)
         expected_canonical = f"{base}{route}"
         require(canonical == expected_canonical, f"canonical mismatch: {path} expected {expected_canonical}, got {canonical}", failures)
+
+
+def validate_page_meta_alignment(dist_root: Path, page_meta: dict[str, dict[str, str]], failures: list[str]) -> None:
+    for route, info in page_meta.items():
+        if route == "/404/":
+            path = dist_root / "404.html"
+        else:
+            path = dist_path_for_route(dist_root, route)
+        require(path.exists(), f"missing page for page-meta alignment: {path}", failures)
+        if not path.exists():
+            continue
+
+        html = read_text(path)
+        title = find_title(html)
+        description = find_meta_content(html, "description")
+
+        expected_title = str(info.get("title", "")).strip()
+        expected_description = str(info.get("description", "")).strip()
+        require(title == expected_title, f"title mismatch vs page-meta for {route}: expected '{expected_title}', got '{title}'", failures)
+        require(
+            description == expected_description,
+            f"description mismatch vs page-meta for {route}: expected '{expected_description}', got '{description}'",
+            failures,
+        )
 
 
 def validate_not_found(dist_root: Path, failures: list[str]) -> None:
@@ -344,11 +397,19 @@ def main() -> int:
     dist_root = Path(args.dist_root).resolve()
     robots_mode = args.robots_mode.strip().lower()
     failures: list[str] = []
+    page_meta: dict[str, dict[str, str]] = {}
+    try:
+        page_meta = load_page_meta()
+    except Exception as exc:
+        failures.append(f"failed to load page-meta.json: {exc}")
+
     if robots_mode not in ROBOTS_MODES:
         failures.append(f"invalid robots mode '{args.robots_mode}'. expected one of: {', '.join(ROBOTS_MODES)}")
         robots_mode = ROBOTS_MODE_CLOUDFLARE
 
     validate_core_pages(dist_root, args.site_base_url, failures)
+    if page_meta:
+        validate_page_meta_alignment(dist_root, page_meta, failures)
     validate_not_found(dist_root, failures)
     validate_redirects(dist_root, failures)
     validate_structured_data(dist_root, args.site_base_url, failures)
