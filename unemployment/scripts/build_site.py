@@ -16,14 +16,11 @@ NOT_FOUND_PAGE_DIR = "404"
 PAGE_META_PATH = ROOT / "apps" / "site" / "page-meta.json"
 PARTIALS_DIR = ROOT / "apps" / "site" / "partials"
 
-NAV_TABS: tuple[str, ...] = ("calculator", "apply", "eligibility", "recognition", "income-report", "faq")
-HEADER_ACTIVE_CLASS = "px-3 py-1.5 rounded-full bg-primary/10 text-primary font-semibold"
-HEADER_INACTIVE_CLASS = "px-3 py-1.5 rounded-full hover:bg-slate-100 transition-colors"
-TAB_ACTIVE_CLASS = "px-3 sm:px-4 py-2 rounded-xl bg-primary text-white text-[13px] sm:text-sm font-semibold whitespace-nowrap"
-TAB_INACTIVE_CLASS = (
-    "px-3 sm:px-4 py-2 rounded-xl text-[13px] sm:text-sm font-semibold "
-    "whitespace-nowrap hover:bg-slate-100 transition-colors"
-)
+NAV_TABS: tuple[str, ...] = ("calculator", "apply", "eligibility", "recognition", "income-report", "content", "faq")
+HEADER_ACTIVE_CLASS = "ds-nav-link ds-nav-link-active"
+HEADER_INACTIVE_CLASS = "ds-nav-link ds-nav-link-inactive"
+TAB_ACTIVE_CLASS = "ds-tab-link ds-tab-link-active"
+TAB_INACTIVE_CLASS = "ds-tab-link ds-tab-link-inactive"
 
 LEGACY_REDIRECTS: tuple[tuple[str, str], ...] = (
     ("/calculator", "/"),

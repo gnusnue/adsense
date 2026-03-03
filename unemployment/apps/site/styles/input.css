@@ -7,12 +7,160 @@
     font-size: 16px;
   }
 
+  :root {
+    --ds-color-primary: #1c74e9;
+    --ds-color-surface: #ffffff;
+    --ds-color-surface-soft: #f8fafc;
+    --ds-color-border: #e2e8f0;
+    --ds-color-text: #0f172a;
+    --ds-color-text-subtle: #475569;
+    --ds-color-text-muted: #64748b;
+    --ds-radius-lg: 0.75rem;
+    --ds-radius-xl: 1rem;
+    --ds-shadow-soft: 0 1px 2px rgba(15, 23, 42, 0.06);
+    --ds-shadow-elevated: 0 6px 24px rgba(15, 23, 42, 0.08);
+  }
+
   body {
     font-family: "Public Sans", sans-serif;
   }
 }
 
 @layer components {
+  .ds-shell {
+    @apply page-typography max-w-4xl mx-auto px-4 sm:px-6 pt-8 sm:pt-12 pb-12 space-y-8;
+  }
+
+  .ds-shell-compact {
+    @apply page-typography max-w-4xl mx-auto px-4 sm:px-6 pt-8 sm:pt-12 pb-12;
+  }
+
+  .ds-shell-narrow {
+    @apply page-typography max-w-3xl mx-auto px-4 py-20;
+  }
+
+  .ds-section {
+    @apply bg-white rounded-2xl p-8 border border-slate-200;
+  }
+
+  .ds-section-body {
+    @apply text-sm text-slate-700;
+  }
+
+  .ds-kicker {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold mb-4;
+  }
+
+  .ds-kicker-warning {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold mb-4;
+  }
+
+  .ds-hero-title {
+    @apply text-3xl font-extrabold tracking-tight mb-3;
+  }
+
+  .ds-hero-description {
+    @apply text-slate-600;
+  }
+
+  .ds-summary-grid {
+    @apply grid sm:grid-cols-3 gap-3 mt-6 text-sm;
+  }
+
+  .ds-summary-card {
+    @apply rounded-xl border border-slate-200 bg-slate-50 p-4;
+  }
+
+  .ds-summary-label {
+    @apply text-slate-500 mb-1;
+  }
+
+  .ds-cta-button {
+    @apply inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 transition-colors;
+  }
+
+  .ds-related-head {
+    @apply flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-5;
+  }
+
+  .ds-related-grid {
+    @apply grid md:grid-cols-3 gap-3 text-sm;
+  }
+
+  .ds-related-card {
+    @apply rounded-xl border border-slate-200 bg-slate-50 p-4 font-semibold hover:border-primary hover:text-primary transition-colors;
+  }
+
+  .ds-meta-section {
+    @apply ds-section ds-section-body;
+  }
+
+  .ds-meta-title {
+    @apply text-lg font-bold mb-3;
+  }
+
+  .ds-meta-subtitle {
+    @apply font-semibold mt-4 mb-2;
+  }
+
+  .ds-meta-caption {
+    @apply mt-3 text-xs text-slate-500;
+  }
+
+  .ds-section-title {
+    @apply text-xl font-bold mb-4 text-slate-900 dark:text-white;
+  }
+
+  .ds-body-link {
+    @apply text-blue-600 hover:underline;
+  }
+
+  .ds-source-link {
+    @apply text-blue-600;
+  }
+
+  .ds-nav-link {
+    @apply px-3 py-1.5 rounded-full font-semibold transition-colors;
+  }
+
+  .ds-nav-link-active {
+    @apply bg-primary/10 text-primary;
+  }
+
+  .ds-nav-link-inactive {
+    @apply hover:bg-slate-100 text-slate-700;
+  }
+
+  .ds-tab-link {
+    @apply px-3 sm:px-4 py-2 rounded-xl text-[13px] sm:text-sm font-semibold whitespace-nowrap transition-colors;
+  }
+
+  .ds-tab-link-active {
+    @apply bg-primary text-white;
+  }
+
+  .ds-tab-link-inactive {
+    @apply hover:bg-slate-100 text-slate-700;
+  }
+
+  .page-typography h1 {
+    @apply text-3xl font-extrabold tracking-tight;
+  }
+
+  .page-typography h2 {
+    @apply text-xl font-bold;
+  }
+
+  .page-typography h3 {
+    @apply text-lg font-bold;
+  }
+
+  .page-typography p,
+  .page-typography li,
+  .page-typography label {
+    @apply text-base leading-7;
+  }
+
   .page-surface {
     background:
       radial-gradient(circle at 10% 0%, rgba(28, 116, 233, 0.08), transparent 36%),

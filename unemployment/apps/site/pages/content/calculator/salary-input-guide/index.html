@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>실업급여 계산기 입력 가이드 | 월급·기간 입력 기준 정리</title>
+  <meta name="description" content="실업급여 계산기 입력값을 정확히 넣기 위한 구조 안내입니다. 월급, 근속기간, 경계 케이스를 한 번에 확인하세요." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="{{BASE_URL}}/content/calculator/salary-input-guide/" />
+  <meta property="og:title" content="실업급여 계산기 입력 가이드 | 월급·기간 입력 기준 정리" />
+  <meta property="og:description" content="실업급여 계산기 입력값을 정확히 넣기 위한 구조 안내입니다. 월급, 근속기간, 경계 케이스를 한 번에 확인하세요." />
+  <meta property="og:url" content="{{BASE_URL}}/content/calculator/salary-input-guide/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="{{BASE_URL}}/og-image.png" />
+  <meta property="og:image:alt" content="실업급여 가이드 대표 이미지" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="실업급여 계산기 입력 가이드 | 월급·기간 입력 기준 정리" />
+  <meta name="twitter:description" content="실업급여 계산기 입력값을 정확히 넣기 위한 구조 안내입니다. 월급, 근속기간, 경계 케이스를 한 번에 확인하세요." />
+  <meta name="twitter:image" content="{{BASE_URL}}/og-image.png" />
+  <link rel="stylesheet" href="{{BASE_URL}}/assets/site.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body class="page-surface text-slate-900 dark:text-slate-100 min-h-screen">
+{{PARTIAL:HEADER}}
+
+<main class="ds-shell">
+  {{PARTIAL:TABBAR}}
+
+  <section class="ds-section">
+    <p class="ds-kicker">계산기 상세가이드</p>
+    <h1 class="ds-hero-title">계산기 입력 가이드</h1>
+    <p class="ds-hero-description">실업급여 계산 결과는 입력값 정확도에 따라 크게 달라집니다. 아래 순서대로 입력하면 월급·기간 오입력으로 인한 과대/과소 계산을 줄일 수 있습니다.</p>
+  </section>
+
+  <section class="ds-section ds-section-body space-y-4">
+    <h2 class="ds-section-title">입력 순서 3단계</h2>
+    <ol class="list-decimal pl-5 space-y-2">
+      <li><strong>월급</strong>: 최근 임금 기준으로 입력하고 상여/일시금은 분리해 확인합니다.</li>
+      <li><strong>근속기간</strong>: 실제 피보험단위기간 기준으로 입력합니다. 단순 재직개월 수와 다를 수 있습니다.</li>
+      <li><strong>퇴사사유</strong>: 비자발/예외 인정 여부를 먼저 확인한 뒤 계산 결과를 해석합니다.</li>
+    </ol>
+  </section>
+
+  <section class="ds-section ds-section-body space-y-4">
+    <h2 class="ds-section-title">자주 틀리는 입력</h2>
+    <ul class="list-disc pl-5 space-y-1">
+      <li>세전/세후 금액을 혼용해 입력</li>
+      <li>근속개월만 보고 180일 충족으로 오판</li>
+      <li>계약만료·권고사직 등 퇴사사유 확인 없이 결과만 참고</li>
+    </ul>
+  </section>
+
+  <section class="ds-section ds-section-body">
+    <h2 class="ds-section-title">다음 확인 항목</h2>
+    <ul class="list-disc pl-5 space-y-1">
+      <li>부모 페이지: <a class="ds-body-link" href="/">실업급여 계산기</a></li>
+      <li>허브 페이지: <a class="ds-body-link" href="/content/">롱테일 콘텐츠 아카이브</a></li>
+      <li>연관 상세: <a class="ds-body-link" href="/apply/first-visit-checklist/">첫 신청 체크리스트</a></li>
+    </ul>
+  </section>
+</main>
+
+{{PARTIAL:FOOTER}}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "실업급여 계산기 입력 가이드 | 월급·기간 입력 기준 정리",
+  "description": "실업급여 계산기 입력값을 정확히 넣기 위한 구조 안내입니다. 월급, 근속기간, 경계 케이스를 한 번에 확인하세요.",
+  "inLanguage": "ko-KR",
+  "datePublished": "{{UPDATED_AT}}",
+  "dateModified": "{{UPDATED_AT}}",
+  "author": {"@type": "Organization", "name": "실업급여 가이드 편집팀"},
+  "publisher": {"@type": "Organization", "name": "실업급여 가이드", "url": "{{BASE_URL}}/"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "{{BASE_URL}}/content/calculator/salary-input-guide/"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "실업급여 계산기", "item": "{{BASE_URL}}/"},
+    {"@type": "ListItem", "position": 2, "name": "상세가이드", "item": "{{BASE_URL}}/content/"},
+    {"@type": "ListItem", "position": 3, "name": "계산기 입력 가이드", "item": "{{BASE_URL}}/content/calculator/salary-input-guide/"}
+  ]
+}
+</script>
+</body>
+</html>

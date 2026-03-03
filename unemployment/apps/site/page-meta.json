@@ -2,44 +2,107 @@
   "pages": [
     {
       "route": "/",
-      "updated_at": "2026-02-26",
+      "updated_at": "2026-03-01",
       "title": "실업급여 계산기 2026 | 1일액·지급일수·총액 모의계산",
-      "description": "월급·근속기간 입력으로 예상 실업급여를 1분 안에 확인하세요. 1일 지급액, 총액, 다음 절차까지 한 번에 안내합니다.",
+      "description": "월급과 근속기간을 입력하면 예상 실업급여를 1분 안에 계산합니다. 1일 지급액, 총 수급액, 신청 전 다음 단계까지 한 화면에서 확인하세요.",
       "active_tab": "calculator"
     },
     {
       "route": "/apply/",
-      "updated_at": "2026-02-26",
-      "title": "실업급여 신청방법 2026 | 워크넷·온라인교육·신청 5단계",
-      "description": "퇴사 후 12개월 내 신청 절차를 5단계로 정리했습니다. 준비서류, 자주 막히는 실수, 공식 신청 링크를 바로 확인하세요.",
+      "updated_at": "2026-03-03",
+      "title": "실업급여 신청방법 2026 | 워크넷부터 수급까지 5단계 체크리스트",
+      "description": "퇴사 후 12개월 내 실업급여 신청을 5단계로 정리했습니다. 워크넷 등록, 온라인교육, 서류 준비, 반려 사례까지 한 번에 확인해 신청 실패를 줄이세요.",
       "active_tab": "apply"
     },
     {
       "route": "/eligibility/",
-      "updated_at": "2026-02-26",
-      "title": "실업급여 자격조건 2026 | 180일·비자발적 이직 체크",
-      "description": "내가 대상인지 3분 안에 판단하세요. 피보험단위기간 180일, 이직 사유, 재취업 노력 요건을 체크리스트로 정리했습니다.",
+      "updated_at": "2026-03-03",
+      "title": "실업급여 자격조건 2026 | 180일·비자발적 이직·예외사유 3분 체크",
+      "description": "내가 대상인지 3분 안에 확인하세요. 피보험단위기간 180일, 비자발적 이직 기준, 자진퇴사 예외사유와 필요한 증빙까지 체크리스트로 정리했습니다.",
       "active_tab": "eligibility"
     },
     {
       "route": "/recognition/",
-      "updated_at": "2026-02-26",
-      "title": "실업인정 방법 | 회차별 구직활동 인정·증빙 기준",
-      "description": "실업인정에서 반려를 줄이려면 회차별 증빙이 핵심입니다. 인정/미인정 활동과 제출 루틴을 사례 중심으로 안내합니다.",
+      "updated_at": "2026-03-03",
+      "title": "실업인정 방법 2026 | 회차별 구직활동 인정기준·증빙 체크리스트",
+      "description": "실업인정 반려를 줄이려면 회차별 기준 확인이 핵심입니다. 인정되는 구직활동, 증빙 파일 준비, 제출 순서를 체크리스트로 빠르게 점검하세요.",
       "active_tab": "recognition"
     },
     {
       "route": "/income-report/",
-      "updated_at": "2026-02-26",
-      "title": "실업급여 소득신고 | 알바·3.3% 신고 기준과 불이익",
-      "description": "수급 중 알바·프리랜서 소득 신고 기준을 정리했습니다. 신고 시점, 증빙, 미신고 리스크를 빠르게 확인하세요.",
+      "updated_at": "2026-03-03",
+      "title": "실업급여 알바 소득신고 2026 | 3.3%·신고시점·미신고 불이익",
+      "description": "수급 중 알바·프리랜서 소득은 언제 어떻게 신고해야 하는지 정리했습니다. 3.3% 소득 처리, 제출 증빙, 미신고 시 불이익을 사례로 확인하세요.",
       "active_tab": "income-report"
     },
     {
       "route": "/faq/",
-      "updated_at": "2026-02-26",
-      "title": "실업급여 FAQ | 자진퇴사·알바·실업인정 핵심 답변",
-      "description": "자주 반복되는 질문만 모았습니다. 자진퇴사 가능 조건, 소득신고, 실업인정 증빙을 공식 근거와 함께 확인하세요.",
+      "updated_at": "2026-03-03",
+      "title": "실업급여 FAQ 2026 | 자진퇴사·알바·실업인정 자주 묻는 질문 10개",
+      "description": "신청자들이 가장 많이 묻는 10가지 질문만 모았습니다. 자진퇴사 예외, 알바 소득신고, 실업인정 증빙 기준을 공식 근거 중심으로 빠르게 확인하세요.",
+      "active_tab": "faq"
+    },
+    {
+      "route": "/content/",
+      "updated_at": "2026-03-01",
+      "title": "실업급여 롱테일 콘텐츠 아카이브 | 신청방법·자격조건·실업인정·소득신고",
+      "description": "롱테일 키워드 기반으로 작성·확장할 실업급여 콘텐츠를 모은 아카이브입니다. 신청, 자격, 실업인정, 소득신고 주제를 우선순위에 맞춰 관리합니다.",
+      "active_tab": "content"
+    },
+    {
+      "route": "/content/calculator/salary-input-guide/",
+      "updated_at": "2026-02-27",
+      "title": "실업급여 계산기 입력 가이드 | 월급·기간 입력 기준 정리",
+      "description": "월급·근속기간 입력 실수를 줄이기 위한 계산기 입력 기준입니다. 세전/기간/퇴사사유 입력 순서를 확인하세요.",
+      "active_tab": "calculator"
+    },
+    {
+      "route": "/apply/first-visit-checklist/",
+      "updated_at": "2026-02-27",
+      "title": "실업급여 첫 신청 체크리스트 | 고용센터 방문 전 준비 항목",
+      "description": "실업급여 첫 신청 전 꼭 필요한 준비 항목 7가지를 체크리스트로 정리했습니다. 방문 전 누락을 줄이세요.",
+      "active_tab": "apply"
+    },
+    {
+      "route": "/apply/freelancer-application-guide/",
+      "updated_at": "2026-02-27",
+      "title": "프리랜서 실업급여 신청 가이드 | 24개월·180일 기준과 절차",
+      "description": "프리랜서 실업급여 신청 가능성을 확인하는 가이드입니다. 24개월·180일 기준, 신청 절차, 준비서류를 순서대로 정리했습니다.",
+      "active_tab": "apply"
+    },
+    {
+      "route": "/eligibility/eligibility-quick-check/",
+      "updated_at": "2026-02-27",
+      "title": "실업급여 자격 3분 자가진단 | 180일·이직사유·신청기한 체크",
+      "description": "실업급여 자격 여부를 빠르게 확인하는 3분 자가진단 가이드입니다. 180일, 이직사유, 신청기한을 순서대로 점검하세요.",
+      "active_tab": "eligibility"
+    },
+    {
+      "route": "/eligibility/voluntary-resignation-exceptions/",
+      "updated_at": "2026-02-27",
+      "title": "자진퇴사 예외 인정 구조 | 실업급여 가능성 판단 프레임",
+      "description": "자진퇴사 케이스에서 실업급여 가능성을 판단하는 예외 구조를 정리했습니다. 사유별 입증 포인트를 확인하세요.",
+      "active_tab": "eligibility"
+    },
+    {
+      "route": "/recognition/activity-proof-template/",
+      "updated_at": "2026-02-27",
+      "title": "실업인정 증빙 템플릿 | 회차별 제출 구조와 체크포인트",
+      "description": "실업인정 회차별 활동기록과 증빙 제출을 정리하는 템플릿입니다. 반려를 줄이는 체크포인트를 확인하세요.",
+      "active_tab": "recognition"
+    },
+    {
+      "route": "/income-report/part-time-reporting-guide/",
+      "updated_at": "2026-02-27",
+      "title": "알바·단기근로 소득신고 가이드 | 실업급여 수급 중 신고 흐름",
+      "description": "수급 중 알바/단기근로 소득신고 흐름을 단계별로 정리했습니다. 누락 리스크를 줄이는 최소 체크를 확인하세요.",
+      "active_tab": "income-report"
+    },
+    {
+      "route": "/faq/policy-change-impact-check/",
+      "updated_at": "2026-02-27",
+      "title": "실업급여 제도 변경 영향 체크 | 수급액·기간·요건 빠른 확인",
+      "description": "실업급여 제도 변경 시 내 수급액과 기간에 어떤 영향이 있는지 유형별로 확인하는 체크 가이드입니다.",
       "active_tab": "faq"
     },
     {
