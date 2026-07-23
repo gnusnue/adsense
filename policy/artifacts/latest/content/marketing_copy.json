@@ -1,11 +1,103 @@
 {
-  "generated_at": "2026-07-22T22:32:52.408013+00:00",
+  "generated_at": "2026-07-23T22:29:18.170794+00:00",
   "input": "/home/runner/work/adsense/adsense/policy/data/canonical/latest/policies.json",
   "output": "/home/runner/work/adsense/adsense/policy/artifacts/latest/content/marketing_copy.json",
   "style": "benefit-first",
-  "total_input_rows": 4193,
+  "total_input_rows": 4207,
   "generated_rows": 200,
   "items": [
+    {
+      "policy_id": "178662",
+      "source_title": "2026년도 방산 특화 창업중심대학 창업기업 모집 공고",
+      "headline": "일반기업 필수 확인: 도 방산 특화 창업중심대학 창업기업 모집 공고 (2026-07-24 ~ 2026-08-12)",
+      "summary": "방산 분야 창업 활성화 및 사업화 지원을 위해 우수한 창업 아이템을 보유한 방산 창업기업을 모집하고자 『2026년 방산 특화 창업중심대학』창업기업 모집계획을 공고하오니 많은 참여 바랍니다. 대상: 일반기업. 신청 기간: 2026-07-24 ~ 2026-08-12.",
+      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
+      "alternatives": [
+        "[2026-08-12까지] 일반기업 지원 대상·기간 정리",
+        "놓치기 쉬운 신청 조건: 도 방산 특화 창업중심대학 창업기업 모집 공고",
+        "전국 일반기업 신청 전 체크포인트 | 도 방산 특화 창업중심대학 창업기업 모집 공고"
+      ],
+      "application_period_text": "2026-07-24 ~ 2026-08-12",
+      "status": "active",
+      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178662",
+      "source_org": "공공기관",
+      "meta": {
+        "style": "benefit-first",
+        "used_amount_hook": false,
+        "amount_hook": "",
+        "deadline_hook": "2026-08-12까지",
+        "days_left": 20
+      }
+    },
+    {
+      "policy_id": "178658",
+      "source_title": "일본 CEATEC 2026 전시회 참가기업 모집 공고",
+      "headline": "일반기업 필수 확인: 일본 CEATEC 2026 전시회 참가기업 모집 공고 (2026-07-23 ~ 2026-08-04)",
+      "summary": "재단법인 글로벌디지털혁신네트워크는 일본 IT 시장을 타켓으로 하는 디지털 분야 기업 대상 일본 지바현(도쿄 인근 도시)에서 개최하는 ‘CEATEC 2026'(일본 전자정보통신박람회) 전시회 참여기업을 모집하오니, 많은 참여와 신청 바랍니다. 대상: 일반기업. 신청 기간: 2026-07-23 ~ 2026-08-04.",
+      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
+      "alternatives": [
+        "[2주 내 마감] 일반기업 지원 대상·기간 정리",
+        "놓치기 쉬운 신청 조건: 일본 CEATEC 2026 전시회 참가기업 모집 공고",
+        "전국 일반기업 신청 전 체크포인트 | 일본 CEATEC 2026 전시회 참가기업 모집 공고"
+      ],
+      "application_period_text": "2026-07-23 ~ 2026-08-04",
+      "status": "active",
+      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178658",
+      "source_org": "민간",
+      "meta": {
+        "style": "benefit-first",
+        "used_amount_hook": false,
+        "amount_hook": "",
+        "deadline_hook": "2주 내 마감",
+        "days_left": 12
+      }
+    },
+    {
+      "policy_id": "178659",
+      "source_title": "「2026 한국전자전(KES)」관악S밸리관 참가기업 모집",
+      "headline": "서울 「2026 한국전자전(KES)」관악S밸리관 참가기업 모집 | 지원대상·신청기간 한눈에",
+      "summary": "(재)관악중소벤처진흥원에서는 AX, 로보틱스 등 전 산업 분야를 총망라하는 국내 최고 IT 전시회인 「2026 한국전자전(KES)」 관악S밸리관에 참가할 관악 소재 유망 스타트업을 아래와 같이 모집하오니 많은 관심과 신청 바랍니다. 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-23 ~ 2026-08-07.",
+      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
+      "alternatives": [
+        "[2026-08-07까지] 청소년 지원 대상·기간 정리",
+        "놓치기 쉬운 신청 조건: 「2026 한국전자전(KES)」관악S밸리관 참가기업 모집",
+        "서울 청소년 신청 전 체크포인트 | 「2026 한국전자전(KES)」관악S밸리관 참가기업 모집"
+      ],
+      "application_period_text": "2026-07-23 ~ 2026-08-07",
+      "status": "active",
+      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178659",
+      "source_org": "공공기관",
+      "meta": {
+        "style": "benefit-first",
+        "used_amount_hook": false,
+        "amount_hook": "",
+        "deadline_hook": "2026-08-07까지",
+        "days_left": 15
+      }
+    },
+    {
+      "policy_id": "178643",
+      "source_title": "여성 1인 창조기업 지원센터 신규 입주기업 모집",
+      "headline": "서울 여성 1인 창조기업 지원센터 신규 입주기업 모집 | 지원대상·신청기간 한눈에",
+      "summary": "중소벤처기업부가 지원하고 한국여성벤처협회가 운영하는 여성 1인 창조기업 지원센터에서는 여성 창업을 촉진하고 혁신적 아이템으로 벤처창업에 도전을 희망하는 여성 (예비)창업자를 모집하고자 다음과 같이 공고합니다. 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-23 ~ 2026-08-13.",
+      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
+      "alternatives": [
+        "[2026-08-13까지] 청소년 지원 대상·기간 정리",
+        "놓치기 쉬운 신청 조건: 여성 1인 창조기업 지원센터 신규 입주기업 모집",
+        "서울 청소년 신청 전 체크포인트 | 여성 1인 창조기업 지원센터 신규 입주기업 모집"
+      ],
+      "application_period_text": "2026-07-23 ~ 2026-08-13",
+      "status": "active",
+      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178643",
+      "source_org": "민간",
+      "meta": {
+        "style": "benefit-first",
+        "used_amount_hook": false,
+        "amount_hook": "",
+        "deadline_hook": "2026-08-13까지",
+        "days_left": 21
+      }
+    },
     {
       "policy_id": "178645",
       "source_title": "KAIST 딥테크 유망랩 라운드테이블",
@@ -26,7 +118,53 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-07까지",
-        "days_left": 16
+        "days_left": 15
+      }
+    },
+    {
+      "policy_id": "178652",
+      "source_title": "롯데중앙연구소×스타트업 오픈이노베이션 챌린지 2026 참여기업 모집",
+      "headline": "[2주 내 마감] 전국 일반기업 지원사업 | 롯데중앙연구소×스타트업 오픈이노베이션 챌린지 2026 참여기업 모집",
+      "summary": "(재)부산창조경제혁신센터에서는 윌로펌프 와 함께 개방형 혁신에 기여할 유망 스타트업을 발굴하여, 비지니스 매칭, 시장검증, 사업제휴 등의 기회를 제공하여 지속가능한동반성장 동력을 마련하기 위한 &apos;롯데중앙연구소×스타트업 오픈이노베이션 챌린지 2... 대상: 일반기업. 신청 기간: 2026-07-22 ~ 2026-08-04.",
+      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
+      "alternatives": [
+        "[2주 내 마감] 일반기업 지원 대상·기간 정리",
+        "놓치기 쉬운 신청 조건: 롯데중앙연구소×스타트업 오픈이노베이션 챌린지 2026 참여기업 모집",
+        "전국 일반기업 신청 전 체크포인트 | 롯데중앙연구소×스타트업 오픈이노베이션 챌린지 2026 참여기업 모집"
+      ],
+      "application_period_text": "2026-07-22 ~ 2026-08-04",
+      "status": "active",
+      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178652",
+      "source_org": "공공기관",
+      "meta": {
+        "style": "benefit-first",
+        "used_amount_hook": false,
+        "amount_hook": "",
+        "deadline_hook": "2주 내 마감",
+        "days_left": 12
+      }
+    },
+    {
+      "policy_id": "178661",
+      "source_title": "2026년 2차 서울 AI 허브 신규 입주기업 모집 안내",
+      "headline": "2026-08-11까지: 2차 서울 AI 허브 신규 입주기업 모집 안내",
+      "summary": "서울시에서 설립하고 서울대학교 공학연구원이 운영하고 있는 「서울 AI 허브」에서는 사무공간 제공 및 성장 지원 사업을 통하여 기업이 스케일업할 수 있도록 인공지능 분야 산업 우수기업을 모집합니다. 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-22 ~ 2026-08-11.",
+      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
+      "alternatives": [
+        "[2026-08-11까지] 청소년 지원 대상·기간 정리",
+        "놓치기 쉬운 신청 조건: 2차 서울 AI 허브 신규 입주기업 모집 안내",
+        "서울 청소년 신청 전 체크포인트 | 2차 서울 AI 허브 신규 입주기업 모집 안내"
+      ],
+      "application_period_text": "2026-07-22 ~ 2026-08-11",
+      "status": "active",
+      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178661",
+      "source_org": "교육기관",
+      "meta": {
+        "style": "benefit-first",
+        "used_amount_hook": false,
+        "amount_hook": "",
+        "deadline_hook": "2026-08-11까지",
+        "days_left": 19
       }
     },
     {
@@ -49,7 +187,30 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 12
+        "days_left": 11
+      }
+    },
+    {
+      "policy_id": "178648",
+      "source_title": "성북구 한성대 벤처창업지원센터 하반기 입주기업 모집공고",
+      "headline": "[2주 내 마감] 서울 일반기업 지원사업 | 성북구 한성대 벤처창업지원센터 하반기 입주기업 모집공고",
+      "summary": "신규 입주기업 모집 계획을 다음과 같이 공고하오니 입주를 희망하는 기업은 안내에 따라 신청하기 바랍니다. 대상: 일반기업,1인 창조기업. 신청 기간: 2026-07-22 ~ 2026-08-05.",
+      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
+      "alternatives": [
+        "[2주 내 마감] 일반기업 지원 대상·기간 정리",
+        "놓치기 쉬운 신청 조건: 성북구 한성대 벤처창업지원센터 하반기 입주기업 모집공고",
+        "서울 일반기업 신청 전 체크포인트 | 성북구 한성대 벤처창업지원센터 하반기 입주기업 모집공고"
+      ],
+      "application_period_text": "2026-07-22 ~ 2026-08-05",
+      "status": "active",
+      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178648",
+      "source_org": "교육기관",
+      "meta": {
+        "style": "benefit-first",
+        "used_amount_hook": false,
+        "amount_hook": "",
+        "deadline_hook": "2주 내 마감",
+        "days_left": 13
       }
     },
     {
@@ -72,7 +233,122 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-07까지",
-        "days_left": 16
+        "days_left": 15
+      }
+    },
+    {
+      "policy_id": "178635",
+      "source_title": "2026년 WEROUND 제3차 신규 입주기업 모집 공고 (~8/7)",
+      "headline": "전국 WEROUND 제3차 신규 입주기업 모집 공고 (~8/7) | 지원대상·신청기간 한눈에",
+      "summary": "WEROUND 제3차 신규 입주기업 모집을 다음과 같이 공고하오니, 관심있는 기업들의 많은 신청바랍니다. 대상: 대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-22 ~ 2026-08-07.",
+      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
+      "alternatives": [
+        "[2026-08-07까지] 대학생 지원 대상·기간 정리",
+        "놓치기 쉬운 신청 조건: WEROUND 제3차 신규 입주기업 모집 공고 (~8/7)",
+        "전국 대학생 신청 전 체크포인트 | WEROUND 제3차 신규 입주기업 모집 공고 (~8/7)"
+      ],
+      "application_period_text": "2026-07-22 ~ 2026-08-07",
+      "status": "active",
+      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178635",
+      "source_org": "교육기관",
+      "meta": {
+        "style": "benefit-first",
+        "used_amount_hook": false,
+        "amount_hook": "",
+        "deadline_hook": "2026-08-07까지",
+        "days_left": 15
+      }
+    },
+    {
+      "policy_id": "178655",
+      "source_title": "제조 AI 기술 사업화 지원 수혜기업 모집(~8/7)",
+      "headline": "전국 제조 AI 기술 사업화 지원 수혜기업 모집(~8/7) | 지원대상·신청기간 한눈에",
+      "summary": "제품 개발 재료비를 지원하는 제조 AI 기술 사업화 지원 수혜기업을 모집하오니 관심 있는 기업의 많은 참여 바랍니다. 대상: 일반기업,1인 창조기업. 신청 기간: 2026-07-22 ~ 2026-08-07.",
+      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
+      "alternatives": [
+        "[2026-08-07까지] 일반기업 지원 대상·기간 정리",
+        "놓치기 쉬운 신청 조건: 제조 AI 기술 사업화 지원 수혜기업 모집(~8/7)",
+        "전국 일반기업 신청 전 체크포인트 | 제조 AI 기술 사업화 지원 수혜기업 모집(~8/7)"
+      ],
+      "application_period_text": "2026-07-22 ~ 2026-08-07",
+      "status": "active",
+      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178655",
+      "source_org": "교육기관",
+      "meta": {
+        "style": "benefit-first",
+        "used_amount_hook": false,
+        "amount_hook": "",
+        "deadline_hook": "2026-08-07까지",
+        "days_left": 15
+      }
+    },
+    {
+      "policy_id": "178654",
+      "source_title": "제품 양산 패키지 수혜기업 모집(~8/7)",
+      "headline": "대학생 필수 확인: 제품 양산 패키지 수혜기업 모집(~8/7) (2026-07-22 ~ 2026-08-07)",
+      "summary": "양산 금형 설계·제작과 판매용 제품 양산을 지원하는 제품 양산 패키지를 다음과 같이 공고하오니 관심 있는 분들의 많은 참여 바랍니다. 대상: 대학생,일반인,일반기업,1인 창조기업. 신청 기간: 2026-07-22 ~ 2026-08-07.",
+      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
+      "alternatives": [
+        "[2026-08-07까지] 대학생 지원 대상·기간 정리",
+        "놓치기 쉬운 신청 조건: 제품 양산 패키지 수혜기업 모집(~8/7)",
+        "전국 대학생 신청 전 체크포인트 | 제품 양산 패키지 수혜기업 모집(~8/7)"
+      ],
+      "application_period_text": "2026-07-22 ~ 2026-08-07",
+      "status": "active",
+      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178654",
+      "source_org": "교육기관",
+      "meta": {
+        "style": "benefit-first",
+        "used_amount_hook": false,
+        "amount_hook": "",
+        "deadline_hook": "2026-08-07까지",
+        "days_left": 15
+      }
+    },
+    {
+      "policy_id": "178646",
+      "source_title": "[강동구 청년해냄센터] 전문분야 창업멘토링 8월 참가자 모집",
+      "headline": "청소년 필수 확인: [강동구 청년해냄센터] 전문분야 창업멘토링 8월 참가자 모집 (2026-07-22 ~ 2026-08-…",
+      "summary": "강동구 청년해냄센터에서 전문분야 창업 멘토링 데이 계획을 다음과 같이 공고하오니 참여 희망자는 안내에 따라 신청하시기 바랍니다. 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-22 ~ 2026-08-04.",
+      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
+      "alternatives": [
+        "[2주 내 마감] 청소년 지원 대상·기간 정리",
+        "놓치기 쉬운 신청 조건: [강동구 청년해냄센터] 전문분야 창업멘토링 8월 참가자 모집",
+        "전국 청소년 신청 전 체크포인트 | [강동구 청년해냄센터] 전문분야 창업멘토링 8월 참가자 모집"
+      ],
+      "application_period_text": "2026-07-22 ~ 2026-08-04",
+      "status": "active",
+      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178646",
+      "source_org": "공공기관",
+      "meta": {
+        "style": "benefit-first",
+        "used_amount_hook": false,
+        "amount_hook": "",
+        "deadline_hook": "2주 내 마감",
+        "days_left": 12
+      }
+    },
+    {
+      "policy_id": "178649",
+      "source_title": "2026년 대구 스타트업 오픈이노베이션 자율제안형(상향식) 실증 프로그램 지원기업 모집 공고",
+      "headline": "2026-08-07까지: 대구 스타트업 오픈이노베이션 자율제안형(상향식) 실증 프로그램 지원기업 모집 공고",
+      "summary": "대구광역시와 (재)대구창조경제혁신센터는 대·중견·중소·공기업 등 선도기업과의 협업을 통한 창업기업의 혁신 성장을 지원하기 위해 「2026년 대구 스타트업 오픈이노베이션 자율제안형(상향식) 실증 프로그램」을 운영하며, 본 프로그램에 참여할 창업기업 모집... 대상: 일반기업. 신청 기간: 2026-07-21 ~ 2026-08-07.",
+      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
+      "alternatives": [
+        "[2026-08-07까지] 일반기업 지원 대상·기간 정리",
+        "놓치기 쉬운 신청 조건: 대구 스타트업 오픈이노베이션 자율제안형(상향식) 실증 프로그램 지원기업 모집 공고",
+        "전국 일반기업 신청 전 체크포인트 | 대구 스타트업 오픈이노베이션 자율제안형(상향식) 실증 프로그램 지원기업…"
+      ],
+      "application_period_text": "2026-07-21 ~ 2026-08-07",
+      "status": "active",
+      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178649",
+      "source_org": "공공기관",
+      "meta": {
+        "style": "benefit-first",
+        "used_amount_hook": false,
+        "amount_hook": "",
+        "deadline_hook": "2026-08-07까지",
+        "days_left": 15
       }
     },
     {
@@ -95,7 +371,30 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
+      }
+    },
+    {
+      "policy_id": "178647",
+      "source_title": "2026년 부산 창업기업 액셀러레이팅 프로그램 참여기업 모집 공고",
+      "headline": "부산 부산 창업기업 액셀러레이팅 프로그램 참여기업 모집 공고 | 지원대상·신청기간 한눈에",
+      "summary": "( 재 ) 부산창조경제혁신센터는 지역의 초격차 및 딥테크 분야 우수 창업기업 육성 및 스케일업을 위한 「 2026 년 부산 창업기업 액셀러 레이팅 프로그램 」에 참여할 (예비) 창업기업을 다음과 같이 모집합니다 . 대상: 일반인,일반기업,1인 창조기업. 신청 기간: 2026-07-21 ~ 2026-07-29.",
+      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
+      "alternatives": [
+        "[마감 D-6] 일반인 지원 대상·기간 정리",
+        "놓치기 쉬운 신청 조건: 부산 창업기업 액셀러레이팅 프로그램 참여기업 모집 공고",
+        "부산 일반인 신청 전 체크포인트 | 부산 창업기업 액셀러레이팅 프로그램 참여기업 모집 공고"
+      ],
+      "application_period_text": "2026-07-21 ~ 2026-07-29",
+      "status": "active",
+      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178647",
+      "source_org": "공공기관",
+      "meta": {
+        "style": "benefit-first",
+        "used_amount_hook": false,
+        "amount_hook": "",
+        "deadline_hook": "마감 D-6",
+        "days_left": 6
       }
     },
     {
@@ -118,7 +417,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-07까지",
-        "days_left": 16
+        "days_left": 15
       }
     },
     {
@@ -141,7 +440,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-19까지",
-        "days_left": 28
+        "days_left": 27
       }
     },
     {
@@ -164,17 +463,17 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-17까지",
-        "days_left": 26
+        "days_left": 25
       }
     },
     {
       "policy_id": "178625",
       "source_title": "[무료 웨비나] 글로벌 시장을 위한 AI 마이크로 서비스 제작 실전",
-      "headline": "2주 내 마감: [무료 웨비나] 글로벌 시장을 위한 AI 마이크로 서비스 제작 실전",
+      "headline": "마감 D-7: [무료 웨비나] 글로벌 시장을 위한 AI 마이크로 서비스 제작 실전",
       "summary": "글로벌 시장을 위한 AI 마이크로 서비스 제작 실전 창업교육을 진행하오니, AI를 활용한 빠른 서비스 개발과 글로벌 시장 검증에 관심 있는 분들의 많은 참여 바랍니다. 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-21 ~ 2026-07-30.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[2주 내 마감] 청소년 지원 대상·기간 정리",
+        "[마감 D-7] 청소년 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: [무료 웨비나] 글로벌 시장을 위한 AI 마이크로 서비스 제작 실전",
         "전국 청소년 신청 전 체크포인트 | [무료 웨비나] 글로벌 시장을 위한 AI 마이크로 서비스 제작 실전"
       ],
@@ -186,8 +485,54 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
+        "deadline_hook": "마감 D-7",
+        "days_left": 7
+      }
+    },
+    {
+      "policy_id": "178642",
+      "source_title": "2026년 성남시 북유럽 시장개척단 참여기업 모집",
+      "headline": "일반기업 필수 확인: 성남시 북유럽 시장개척단 참여기업 모집 (2026-07-21 ~ 2026-08-05)",
+      "summary": "성남시 중소기업의 해외시장 진출 및 수출 경쟁력 강화를 위하여「2026년도 성남시 북유럽 시장개척단」에 참가할 기업을 다음과 같이 모집하오니 많은 관심과 신청 바랍니다. 대상: 일반기업. 신청 기간: 2026-07-21 ~ 2026-08-05.",
+      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
+      "alternatives": [
+        "[2주 내 마감] 일반기업 지원 대상·기간 정리",
+        "놓치기 쉬운 신청 조건: 성남시 북유럽 시장개척단 참여기업 모집",
+        "경기 일반기업 신청 전 체크포인트 | 성남시 북유럽 시장개척단 참여기업 모집"
+      ],
+      "application_period_text": "2026-07-21 ~ 2026-08-05",
+      "status": "active",
+      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178642",
+      "source_org": "지자체",
+      "meta": {
+        "style": "benefit-first",
+        "used_amount_hook": false,
+        "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 8
+        "days_left": 13
+      }
+    },
+    {
+      "policy_id": "177673",
+      "source_title": "청년 창업 실험실 &apos;G-스타트업랩&apos;",
+      "headline": "마감 D-4: 청년 창업 실험실 &apos;G-스타트업랩&apos;",
+      "summary": "아이디어 단계의 예비창업자를 대상으로 「청년 창업 실험실 ‘G-스타트업랩’」을 운영하여 국가 창업지원사업 선정 역량을 갖춘 청년 창업가를 발굴·육성하고자 다음과 같이 참여자를 모집합니다. 대상: 대학생,일반인,대학. 신청 기간: 2026-07-21 ~ 2026-07-27.",
+      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
+      "alternatives": [
+        "[마감 D-4] 대학생 지원 대상·기간 정리",
+        "놓치기 쉬운 신청 조건: 청년 창업 실험실 &apos;G-스타트업랩&apos;",
+        "경남 대학생 신청 전 체크포인트 | 청년 창업 실험실 &apos;G-스타트업랩&apos;"
+      ],
+      "application_period_text": "2026-07-21 ~ 2026-07-27",
+      "status": "active",
+      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=177673",
+      "source_org": "공공기관",
+      "meta": {
+        "style": "benefit-first",
+        "used_amount_hook": false,
+        "amount_hook": "",
+        "deadline_hook": "마감 D-4",
+        "days_left": 4
       }
     },
     {
@@ -210,7 +555,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 13
+        "days_left": 12
       }
     },
     {
@@ -233,7 +578,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-12까지",
-        "days_left": 21
+        "days_left": 20
       }
     },
     {
@@ -256,7 +601,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-16까지",
-        "days_left": 25
+        "days_left": 24
       }
     },
     {
@@ -279,7 +624,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-20까지",
-        "days_left": 29
+        "days_left": 28
       }
     },
     {
@@ -302,7 +647,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-21까지",
-        "days_left": 30
+        "days_left": 29
       }
     },
     {
@@ -325,7 +670,7 @@
         "used_amount_hook": true,
         "amount_hook": "20%",
         "deadline_hook": "2026-08-07까지",
-        "days_left": 16
+        "days_left": 15
       }
     },
     {
@@ -348,7 +693,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -371,7 +716,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -394,7 +739,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-21까지",
-        "days_left": 30
+        "days_left": 29
       }
     },
     {
@@ -417,7 +762,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-09-03까지",
-        "days_left": 43
+        "days_left": 42
       }
     },
     {
@@ -440,7 +785,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-14까지",
-        "days_left": 23
+        "days_left": 22
       }
     },
     {
@@ -463,7 +808,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 11
+        "days_left": 10
       }
     },
     {
@@ -486,7 +831,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 12
+        "days_left": 11
       }
     },
     {
@@ -509,7 +854,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -532,7 +877,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -555,7 +900,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-13까지",
-        "days_left": 22
+        "days_left": 21
       }
     },
     {
@@ -565,7 +910,7 @@
       "summary": "서울창조경제혁신센터와 서울바이오허브에서 국내 유망 바이오 · 헬스케어 창업기업의 미국 시장 진출 및 글로벌 사업 협력 기회 확대를 지원합니다. 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-20 ~ 2026-08-06.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[2026-08-06까지] 청소년 지원 대상·기간 정리",
+        "[2주 내 마감] 청소년 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: [글로벌] 2026 Bio-Health Global Bridge: AHN 프로그램 참…",
         "전국 청소년 신청 전 체크포인트 | [글로벌] 2026 Bio-Health Global Bridge: AHN…"
       ],
@@ -577,8 +922,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "2026-08-06까지",
-        "days_left": 15
+        "deadline_hook": "2주 내 마감",
+        "days_left": 14
       }
     },
     {
@@ -601,7 +946,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -624,7 +969,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-21까지",
-        "days_left": 30
+        "days_left": 29
       }
     },
     {
@@ -647,7 +992,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -670,7 +1015,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-10-27까지",
-        "days_left": 97
+        "days_left": 96
       }
     },
     {
@@ -693,17 +1038,17 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-10까지",
-        "days_left": 19
+        "days_left": 18
       }
     },
     {
       "policy_id": "178613",
       "source_title": "[화성] 2026 ESG 기반 산업안전 컨설팅 참여기업 모집 안내",
-      "headline": "2주 내 마감: [화성] 2026 ESG 기반 산업안전 컨설팅 참여기업 모집 안내",
+      "headline": "마감 D-7: [화성] 2026 ESG 기반 산업안전 컨설팅 참여기업 모집 안내",
       "summary": "ESG 기반 안전보건 컨설팅을 통해 산업안전 체계를 구축하고, ISO 인증 취득을 지원함으로써 첨단화된 안전관리를 확산하여 경기도 지역사회 공헌과 현안 해결에 기여하고자 다음과 같이 공고합니다. 대상: 일반기업. 신청 기간: 2026-07-20 ~ 2026-07-30.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[2주 내 마감] 일반기업 지원 대상·기간 정리",
+        "[마감 D-7] 일반기업 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: [화성] 2026 ESG 기반 산업안전 컨설팅 참여기업 모집 안내",
         "경기 일반기업 신청 전 체크포인트 | [화성] 2026 ESG 기반 산업안전 컨설팅 참여기업 모집 안내"
       ],
@@ -715,8 +1060,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "2주 내 마감",
-        "days_left": 8
+        "deadline_hook": "마감 D-7",
+        "days_left": 7
       }
     },
     {
@@ -739,7 +1084,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -762,7 +1107,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -785,17 +1130,17 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-12-31까지",
-        "days_left": 162
+        "days_left": 161
       }
     },
     {
       "policy_id": "178604",
       "source_title": "2026 창조경제혁신센터 글로벌오픈이노베이션 프로그램 참여기업 모집공고",
-      "headline": "[마감 D-5] 전국 일반기업 지원사업 | 2026 창조경제혁신센터 글로벌오픈이노베이션 프로그램 참여기업 모집공고",
+      "headline": "[마감 D-4] 전국 일반기업 지원사업 | 2026 창조경제혁신센터 글로벌오픈이노베이션 프로그램 참여기업 모집공고",
       "summary": "전국 창조경제혁신센터 보육기업 대상 글로벌 대기업 Nestle, Michelin, SBB, Radial과 PoC 연계를 위한 액셀러레이팅 및 밋업 지원 대상: 일반기업. 신청 기간: 2026-07-17 ~ 2026-07-27.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 D-5] 일반기업 지원 대상·기간 정리",
+        "[마감 D-4] 일반기업 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 2026 창조경제혁신센터 글로벌오픈이노베이션 프로그램 참여기업 모집공고",
         "전국 일반기업 신청 전 체크포인트 | 2026 창조경제혁신센터 글로벌오픈이노베이션 프로그램 참여기업 모집공고"
       ],
@@ -807,18 +1152,18 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 D-5",
-        "days_left": 5
+        "deadline_hook": "마감 D-4",
+        "days_left": 4
       }
     },
     {
       "policy_id": "178585",
       "source_title": "[국민대학교 캠퍼스타운사업단] 2026 지역 현안 문제해결 연계 '성북 ON 창업교육 프로그램' 참가자 모집 (~7/29)",
-      "headline": "마감 D-7: [국민대학교 캠퍼스타운사업단] 2026 지역 현안 문제해결 연계 '성북 ON 창업교육 프로그램' 참가자 모…",
+      "headline": "마감 D-6: [국민대학교 캠퍼스타운사업단] 2026 지역 현안 문제해결 연계 '성북 ON 창업교육 프로그램' 참가자 모…",
       "summary": "성북구청과 국민대학교 캠퍼스타운사업단은 지역 현안 문제해결과 연계하여 지역 기반 창업자를 발굴하고자 「성북 ON 창업교육 프로그램」에 참여할 예비·초기 창업팀을 모집합니다. 대상: 청소년,대학생,일반인,일반기업,1인 창조기업. 신청 기간: 2026-07-16 ~ 2026-07-29.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 D-7] 청소년 지원 대상·기간 정리",
+        "[마감 D-6] 청소년 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: [국민대학교 캠퍼스타운사업단] 2026 지역 현안 문제해결 연계 '성북 ON 창업교육…",
         "전국 청소년 신청 전 체크포인트 | [국민대학교 캠퍼스타운사업단] 2026 지역 현안 문제해결 연계 '성북 O…"
       ],
@@ -830,8 +1175,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 D-7",
-        "days_left": 7
+        "deadline_hook": "마감 D-6",
+        "days_left": 6
       }
     },
     {
@@ -854,7 +1199,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 12
+        "days_left": 11
       }
     },
     {
@@ -877,7 +1222,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-21까지",
-        "days_left": 30
+        "days_left": 29
       }
     },
     {
@@ -900,7 +1245,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -923,7 +1268,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-23까지",
-        "days_left": 32
+        "days_left": 31
       }
     },
     {
@@ -946,7 +1291,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 13
+        "days_left": 12
       }
     },
     {
@@ -969,7 +1314,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-10까지",
-        "days_left": 19
+        "days_left": 18
       }
     },
     {
@@ -992,17 +1337,17 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-10까지",
-        "days_left": 19
+        "days_left": 18
       }
     },
     {
       "policy_id": "178592",
       "source_title": "2026 콘텐츠 스타트업 글로벌 엑셀러레이팅 프로그램(론치패드 UAE, 싱가포르) 참가기업 추가 모집",
-      "headline": "[마감 D-5] 전국 일반기업 지원사업 | 2026 콘텐츠 스타트업 글로벌 엑셀러레이팅 프로그램(론치패드 UAE, 싱가포…",
+      "headline": "[마감 D-4] 전국 일반기업 지원사업 | 2026 콘텐츠 스타트업 글로벌 엑셀러레이팅 프로그램(론치패드 UAE, 싱가포…",
       "summary": "2026 콘텐츠 스타트업 글로벌 엑셀러레이팅 프로그램(론치패드 UAE, 싱가포르) 참가기업을 추가 모집하오니 많은 신청 바랍니다. 대상: 일반기업. 신청 기간: 2026-07-16 ~ 2026-07-27.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 D-5] 일반기업 지원 대상·기간 정리",
+        "[마감 D-4] 일반기업 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 2026 콘텐츠 스타트업 글로벌 엑셀러레이팅 프로그램(론치패드 UAE, 싱가포르) 참…",
         "전국 일반기업 신청 전 체크포인트 | 2026 콘텐츠 스타트업 글로벌 엑셀러레이팅 프로그램(론치패드 UAE,…"
       ],
@@ -1014,8 +1359,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 D-5",
-        "days_left": 5
+        "deadline_hook": "마감 D-4",
+        "days_left": 4
       }
     },
     {
@@ -1038,7 +1383,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-09-17까지",
-        "days_left": 57
+        "days_left": 56
       }
     },
     {
@@ -1061,7 +1406,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 14
+        "days_left": 13
       }
     },
     {
@@ -1084,53 +1429,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
-      }
-    },
-    {
-      "policy_id": "178560",
-      "source_title": "2026년 체육인 직업안정(창업지원) 사업 창업보육과정(새싹) 참여자 추가 모집(~7.23.)",
-      "headline": "[마감 임박 D-1] 전국 청소년 지원사업 | 체육인 직업안정(창업지원) 사업 창업보육과정(새싹) 참여자 추가 모집(~7…",
-      "summary": "체육인의 직업 전환을 지원하여 생활 불안정성을 완화하고, 역량별 맞춤 지원을 통해 창업 성공률을 높이며 진로 선택의 폭을 확대하고자 「2026년 체육인 직업안정 사업(창업지원) 창업보육과정(새싹)」 참여자를 다음과 같이 모집하오니 많은 관심과 참여 바... 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-15 ~ 2026-07-23.",
-      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
-      "alternatives": [
-        "[마감 임박 D-1] 청소년 지원 대상·기간 정리",
-        "놓치기 쉬운 신청 조건: 체육인 직업안정(창업지원) 사업 창업보육과정(새싹) 참여자 추가 모집(~7.23.)",
-        "전국 청소년 신청 전 체크포인트 | 체육인 직업안정(창업지원) 사업 창업보육과정(새싹) 참여자 추가 모집(~7…"
-      ],
-      "application_period_text": "2026-07-15 ~ 2026-07-23",
-      "status": "active",
-      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178560",
-      "source_org": "민간",
-      "meta": {
-        "style": "benefit-first",
-        "used_amount_hook": false,
-        "amount_hook": "",
-        "deadline_hook": "마감 임박 D-1",
-        "days_left": 1
-      }
-    },
-    {
-      "policy_id": "178558",
-      "source_title": "2026년 체육인 직업안정(창업지원) 사업 창업점검과정(열매) 참여자 추가 모집(~7.23.)",
-      "headline": "청소년 필수 확인: 체육인 직업안정(창업지원) 사업 창업점검과정(열매) 참여자 추가 모집(~7.23.) (2026-07-…",
-      "summary": "체육인의 직업 전환을 지원하여 생활 불안정성을 완화하고, 역량별 맞춤 지원을 통해 창업 성공률을 높이며 진로 선택의 폭을 확대하고자 「2026년 체육인 직업안정 사업(창업지원) 창업점검과정(열매)」 참여자를 다음과 같이 모집하오니 많은 관심과 참여 바... 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-15 ~ 2026-07-23.",
-      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
-      "alternatives": [
-        "[마감 임박 D-1] 청소년 지원 대상·기간 정리",
-        "놓치기 쉬운 신청 조건: 체육인 직업안정(창업지원) 사업 창업점검과정(열매) 참여자 추가 모집(~7.23.)",
-        "전국 청소년 신청 전 체크포인트 | 체육인 직업안정(창업지원) 사업 창업점검과정(열매) 참여자 추가 모집(~7…"
-      ],
-      "application_period_text": "2026-07-15 ~ 2026-07-23",
-      "status": "active",
-      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178558",
-      "source_org": "공공기관",
-      "meta": {
-        "style": "benefit-first",
-        "used_amount_hook": false,
-        "amount_hook": "",
-        "deadline_hook": "마감 임박 D-1",
-        "days_left": 1
+        "days_left": 8
       }
     },
     {
@@ -1140,7 +1439,7 @@
       "summary": "서울창업허브 창동에서 스타트업의 혁신 기술과 아이디어를 대·중견기업의 수요와 연결하고, 실증 및 협업 기회를 제공하여 동반성장 기반의 혁신 생태계를 구축할 참가기업을 모집합니다. 대상: 일반기업,1인 창조기업. 신청 기간: 2026-07-15 ~ 2026-07-29.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 D-7] 일반기업 지원 대상·기간 정리",
+        "[마감 D-6] 일반기업 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 서울창업허브 창동-조이시티 오픈이노베이션 참가기업 모집",
         "서울 일반기업 신청 전 체크포인트 | 서울창업허브 창동-조이시티 오픈이노베이션 참가기업 모집"
       ],
@@ -1152,8 +1451,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 D-7",
-        "days_left": 7
+        "deadline_hook": "마감 D-6",
+        "days_left": 6
       }
     },
     {
@@ -1176,17 +1475,17 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-09-30까지",
-        "days_left": 70
+        "days_left": 69
       }
     },
     {
       "policy_id": "178577",
       "source_title": "강북창업지원센터 [브랜드 창업 아카데미] 교육 참여자 모집",
-      "headline": "마감 D-4: 강북창업지원센터 [브랜드 창업 아카데미] 교육 참여자 모집",
+      "headline": "마감 임박 D-3: 강북창업지원센터 [브랜드 창업 아카데미] 교육 참여자 모집",
       "summary": "작은 아이디어를 강력한 브랜드로 만드는 실전 전략! 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-15 ~ 2026-07-26.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 D-4] 청소년 지원 대상·기간 정리",
+        "[마감 임박 D-3] 청소년 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 강북창업지원센터 [브랜드 창업 아카데미] 교육 참여자 모집",
         "서울 청소년 신청 전 체크포인트 | 강북창업지원센터 [브랜드 창업 아카데미] 교육 참여자 모집"
       ],
@@ -1198,18 +1497,18 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 D-4",
-        "days_left": 4
+        "deadline_hook": "마감 임박 D-3",
+        "days_left": 3
       }
     },
     {
       "policy_id": "178572",
       "source_title": "2026년 3차 배재대학교 창업보육센터 신규 입주기업 모집 공고",
-      "headline": "[마감 임박 D-2] 대전 대학생 지원사업 | 3차 배재대학교 창업보육센터 신규 입주기업 모집 공고",
+      "headline": "[마감 임박 D-1] 대전 대학생 지원사업 | 3차 배재대학교 창업보육센터 신규 입주기업 모집 공고",
       "summary": "배재대학교 산학협력단 창업보육센터에서는 산학협력 기반의 창업 지원 체계를 통해 유망 예비창업자 및 초기 창업기업을 발굴・육성 하고자 2026년도 제3차 신규 입주기업을 모집합니다. 대상: 대학생,일반인,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-15 ~ 2026-07-24.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 임박 D-2] 대학생 지원 대상·기간 정리",
+        "[마감 임박 D-1] 대학생 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 3차 배재대학교 창업보육센터 신규 입주기업 모집 공고",
         "대전 대학생 신청 전 체크포인트 | 3차 배재대학교 창업보육센터 신규 입주기업 모집 공고"
       ],
@@ -1221,8 +1520,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 임박 D-2",
-        "days_left": 2
+        "deadline_hook": "마감 임박 D-1",
+        "days_left": 1
       }
     },
     {
@@ -1245,7 +1544,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-12-31까지",
-        "days_left": 162
+        "days_left": 161
       }
     },
     {
@@ -1255,7 +1554,7 @@
       "summary": "경기창조경제혁신센터에서는 지역 내 AI 및 DX(디지털 전환) 기술에 관심 있는 고등학생·대학생·일반인(개발자·디자이너·기획자·지역기업 재직자·(예비)창업자 등)을 대상으로 혁신적인 아이디어를 발굴하고 실전 창업 역량을 강화하기 위한 「ESG × AI... 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-15 ~ 2026-07-27.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 D-5] 청소년 지원 대상·기간 정리",
+        "[마감 D-4] 청소년 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: ESG × AI 챌린지 해커톤 참가자 모집",
         "전국 청소년 신청 전 체크포인트 | ESG × AI 챌린지 해커톤 참가자 모집"
       ],
@@ -1267,18 +1566,18 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 D-5",
-        "days_left": 5
+        "deadline_hook": "마감 D-4",
+        "days_left": 4
       }
     },
     {
       "policy_id": "178565",
       "source_title": "2026년 서울창업허브 창동-삼성물산 건설부문 오픈이노베이션 참가기업 모집",
-      "headline": "마감 임박 D-2: 서울창업허브 창동-삼성물산 건설부문 오픈이노베이션 참가기업 모집",
+      "headline": "마감 임박 D-1: 서울창업허브 창동-삼성물산 건설부문 오픈이노베이션 참가기업 모집",
       "summary": "서울창업허브 창동은 오픈이노베이션을 통해 스타트업의 혁신 기술과 아이디어를 대·중견기업의 수요와 연결하고, 실증 및 협업 기회를 제공하여 동반성장 기반의 혁신 생태계를 조성하고자 합니다. 대상: 일반기업,1인 창조기업. 신청 기간: 2026-07-15 ~ 2026-07-24.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 임박 D-2] 일반기업 지원 대상·기간 정리",
+        "[마감 임박 D-1] 일반기업 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 서울창업허브 창동-삼성물산 건설부문 오픈이노베이션 참가기업 모집",
         "서울 일반기업 신청 전 체크포인트 | 서울창업허브 창동-삼성물산 건설부문 오픈이노베이션 참가기업 모집"
       ],
@@ -1290,8 +1589,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 임박 D-2",
-        "days_left": 2
+        "deadline_hook": "마감 임박 D-1",
+        "days_left": 1
       }
     },
     {
@@ -1314,7 +1613,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -1337,7 +1636,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 14
+        "days_left": 13
       }
     },
     {
@@ -1360,7 +1659,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -1383,7 +1682,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-20까지",
-        "days_left": 29
+        "days_left": 28
       }
     },
     {
@@ -1406,30 +1705,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-14까지",
-        "days_left": 23
-      }
-    },
-    {
-      "policy_id": "178575",
-      "source_title": "2026년「BTS」(Blueprint To Success) - 마인드 마이너 송길영 작가",
-      "headline": "전국 「BTS」(Blueprint To Success) - 마인드 마이너 송길영 작가 | 지원대상·신청기간 한눈에",
-      "summary": "시대와 시장의 변화 흐름을 바탕으로 예비창업자가 새로운 창업 기회를 발견하고, 선배 창업자의 실제 경험과 노하우를 통해 성공적인 창업 실행 전략을 구체화할 수 있도록 다음과 같이 「2026 BTS(Blueprint To Success)」 창업 인사이트... 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-15 ~ 2026-08-01.",
-      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
-      "alternatives": [
-        "[2주 내 마감] 청소년 지원 대상·기간 정리",
-        "놓치기 쉬운 신청 조건: 「BTS」(Blueprint To Success) - 마인드 마이너 송길영 작가",
-        "전국 청소년 신청 전 체크포인트 | 「BTS」(Blueprint To Success) - 마인드 마이너 송길영…"
-      ],
-      "application_period_text": "2026-07-15 ~ 2026-08-01",
-      "status": "active",
-      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178575",
-      "source_org": "교육기관",
-      "meta": {
-        "style": "benefit-first",
-        "used_amount_hook": false,
-        "amount_hook": "",
-        "deadline_hook": "2주 내 마감",
-        "days_left": 10
+        "days_left": 22
       }
     },
     {
@@ -1452,7 +1728,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-24까지",
-        "days_left": 33
+        "days_left": 32
       }
     },
     {
@@ -1475,17 +1751,17 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
       "policy_id": "178620",
       "source_title": "2026년 투자유치설명회 및 컨설팅 지원사업 공고",
-      "headline": "[2주 내 마감] 전국 일반기업 지원사업 | 투자유치설명회 및 컨설팅 지원사업 공고",
+      "headline": "[마감 D-7] 전국 일반기업 지원사업 | 투자유치설명회 및 컨설팅 지원사업 공고",
       "summary": "지식재산 기반 중소기업 대상으로 투자유치 프로그램을 단계적으로 지원하여, 기업의 투자유치 역량 강화 및 투자 환경 조성을 위해 「2026년 투자유치설명회 및 컨설팅 지원사업」을 다음과 같이 공고합니다. 대상: 일반기업. 신청 기간: 2026-07-15 ~ 2026-07-30.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[2주 내 마감] 일반기업 지원 대상·기간 정리",
+        "[마감 D-7] 일반기업 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 투자유치설명회 및 컨설팅 지원사업 공고",
         "전국 일반기업 신청 전 체크포인트 | 투자유치설명회 및 컨설팅 지원사업 공고"
       ],
@@ -1497,18 +1773,18 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "2주 내 마감",
-        "days_left": 8
+        "deadline_hook": "마감 D-7",
+        "days_left": 7
       }
     },
     {
       "policy_id": "178573",
       "source_title": "2026 대전 팁스타운 팁스 링크(TIPS LINK)",
-      "headline": "마감 임박 D-2: 2026 대전 팁스타운 팁스 링크(TIPS LINK)",
+      "headline": "마감 임박 D-1: 2026 대전 팁스타운 팁스 링크(TIPS LINK)",
       "summary": "대전 팁스타운에서 지역 창업기업 및 예비창업자를 위한 2026 대전 팁스타운 팁스 링크(TIPS LINK) 행사를 진행합니다. 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-15 ~ 2026-07-24.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 임박 D-2] 청소년 지원 대상·기간 정리",
+        "[마감 임박 D-1] 청소년 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 2026 대전 팁스타운 팁스 링크(TIPS LINK)",
         "전국 청소년 신청 전 체크포인트 | 2026 대전 팁스타운 팁스 링크(TIPS LINK)"
       ],
@@ -1520,8 +1796,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 임박 D-2",
-        "days_left": 2
+        "deadline_hook": "마감 임박 D-1",
+        "days_left": 1
       }
     },
     {
@@ -1544,7 +1820,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 12
+        "days_left": 11
       }
     },
     {
@@ -1567,7 +1843,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-09-20까지",
-        "days_left": 60
+        "days_left": 59
       }
     },
     {
@@ -1590,7 +1866,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-13까지",
-        "days_left": 22
+        "days_left": 21
       }
     },
     {
@@ -1613,7 +1889,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-09-02까지",
-        "days_left": 42
+        "days_left": 41
       }
     },
     {
@@ -1636,7 +1912,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -1659,7 +1935,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 12
+        "days_left": 11
       }
     },
     {
@@ -1682,7 +1958,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-11까지",
-        "days_left": 20
+        "days_left": 19
       }
     },
     {
@@ -1705,7 +1981,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 13
+        "days_left": 12
       }
     },
     {
@@ -1728,7 +2004,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 14
+        "days_left": 13
       }
     },
     {
@@ -1751,7 +2027,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-14까지",
-        "days_left": 23
+        "days_left": 22
       }
     },
     {
@@ -1761,7 +2037,7 @@
       "summary": "3D 프린팅을 활용해 내 아이디어를 실물로 만들기! 대상: 대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-15 ~ 2026-07-29.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 D-7] 대학생 지원 대상·기간 정리",
+        "[마감 D-6] 대학생 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 메이커스페이스 3D프린팅 교육/실습",
         "전국 대학생 신청 전 체크포인트 | 메이커스페이스 3D프린팅 교육/실습"
       ],
@@ -1773,8 +2049,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 D-7",
-        "days_left": 7
+        "deadline_hook": "마감 D-6",
+        "days_left": 6
       }
     },
     {
@@ -1797,17 +2073,17 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 13
+        "days_left": 12
       }
     },
     {
       "policy_id": "178552",
       "source_title": "2026년 용인시 AI 데이터 기반 창업 지원 참여자 모집",
-      "headline": "[마감 임박 D-2] 전국 청소년 지원사업 | 용인시 AI 데이터 기반 창업 지원 참여자 모집",
+      "headline": "[마감 임박 D-1] 전국 청소년 지원사업 | 용인시 AI 데이터 기반 창업 지원 참여자 모집",
       "summary": "AI 서비스 개발의 핵심 기반이 되는 데이터 구축․가공․품질관리 등 AI 데이터 생산과정에 대한 이해를 갖춘 예비창업자를 발굴․육성하여, 지역 기반 AI 서비스를 개발하고 지역 인재와 함께 성장하는 AI 창업 생태계를 조성합니다. 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-14 ~ 2026-07-24.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 임박 D-2] 청소년 지원 대상·기간 정리",
+        "[마감 임박 D-1] 청소년 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 용인시 AI 데이터 기반 창업 지원 참여자 모집",
         "전국 청소년 신청 전 체크포인트 | 용인시 AI 데이터 기반 창업 지원 참여자 모집"
       ],
@@ -1819,8 +2095,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 임박 D-2",
-        "days_left": 2
+        "deadline_hook": "마감 임박 D-1",
+        "days_left": 1
       }
     },
     {
@@ -1843,7 +2119,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-07까지",
-        "days_left": 16
+        "days_left": 15
       }
     },
     {
@@ -1866,7 +2142,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-10까지",
-        "days_left": 19
+        "days_left": 18
       }
     },
     {
@@ -1889,7 +2165,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-25까지",
-        "days_left": 34
+        "days_left": 33
       }
     },
     {
@@ -1912,7 +2188,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-07까지",
-        "days_left": 16
+        "days_left": 15
       }
     },
     {
@@ -1935,7 +2211,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 11
+        "days_left": 10
       }
     },
     {
@@ -1945,7 +2221,7 @@
       "summary": "(재)전북특별자치도 콘텐츠융합진흥원에서는 역량 있는 창·제작자 발굴 및 성장지원을 위해 \"2026 전북콘텐츠코리아랩 창·제작자 시제품 제작지원사업\" 추가모집을 다음과 같이 공고하오니 많은 관심과 참여 바랍니다. 대상: 대학생,일반인,대학. 신청 기간: 2026-07-14 ~ 2026-07-28.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 D-6] 대학생 지원 대상·기간 정리",
+        "[마감 D-5] 대학생 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 2026 전북콘텐츠코리아랩 창·제작자 시제품 제작지원 2차 추가모집 공고",
         "전북 대학생 신청 전 체크포인트 | 2026 전북콘텐츠코리아랩 창·제작자 시제품 제작지원 2차 추가모집 공고"
       ],
@@ -1957,18 +2233,18 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 D-6",
-        "days_left": 6
+        "deadline_hook": "마감 D-5",
+        "days_left": 5
       }
     },
     {
       "policy_id": "178540",
       "source_title": "IBS(기초과학연구원) Research Connect",
-      "headline": "[마감 D-5] 전국 대학 지원사업 | IBS(기초과학연구원) Research Connect",
+      "headline": "[마감 D-4] 전국 대학 지원사업 | IBS(기초과학연구원) Research Connect",
       "summary": "기초과학연구원 우수 연구성과를 공유하고, 연구자와 산업계 간 교류·협력 기회 마련하고자 「IBS Research Connect」개최하오니 많은 참여를 바랍니다. 대상: 대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-14 ~ 2026-07-27.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 D-5] 대학 지원 대상·기간 정리",
+        "[마감 D-4] 대학 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: IBS(기초과학연구원) Research Connect",
         "전국 대학 신청 전 체크포인트 | IBS(기초과학연구원) Research Connect"
       ],
@@ -1980,18 +2256,18 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 D-5",
-        "days_left": 5
+        "deadline_hook": "마감 D-4",
+        "days_left": 4
       }
     },
     {
       "policy_id": "178533",
       "source_title": "2026년 한국외대 창업보육센터 입주기업 모집 공고",
-      "headline": "마감 D-4: 한국외대 창업보육센터 입주기업 모집 공고",
+      "headline": "마감 임박 D-3: 한국외대 창업보육센터 입주기업 모집 공고",
       "summary": "한국외국어대학교 창업보육센터는 우수한 아이템과 혁신기술을 보유한 예비·신규창업자를 발굴 및 육성지원하기 위해 다음과 같이 창업기업 입주모집을 공고하오니 많은 관심과 참여 바랍니다. 대상: 일반기업. 신청 기간: 2026-07-14 ~ 2026-07-26.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 D-4] 일반기업 지원 대상·기간 정리",
+        "[마감 임박 D-3] 일반기업 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 한국외대 창업보육센터 입주기업 모집 공고",
         "경기 일반기업 신청 전 체크포인트 | 한국외대 창업보육센터 입주기업 모집 공고"
       ],
@@ -2003,8 +2279,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 D-4",
-        "days_left": 4
+        "deadline_hook": "마감 임박 D-3",
+        "days_left": 3
       }
     },
     {
@@ -2027,17 +2303,17 @@
         "used_amount_hook": true,
         "amount_hook": "0원",
         "deadline_hook": "2026-08-14까지",
-        "days_left": 23
+        "days_left": 22
       }
     },
     {
       "policy_id": "178545",
       "source_title": "투자 유치를 꿈꾸는 창업자가 반드시 알아야 할 '투자생태계의 이해' - 제 7회 DDM 벤처스타트업 아카데미",
-      "headline": "마감 D-6: 투자 유치를 꿈꾸는 창업자가 반드시 알아야 할 '투자생태계의 이해' - 제 7회 DDM 벤처스타트업 아카데미",
+      "headline": "마감 D-5: 투자 유치를 꿈꾸는 창업자가 반드시 알아야 할 '투자생태계의 이해' - 제 7회 DDM 벤처스타트업 아카데미",
       "summary": "DDM 청년창업센터 유니콘에서, 제 7회 DDM 벤처스타트업 아카데미 참가자를 모집합니다. 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-14 ~ 2026-07-28.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 D-6] 청소년 지원 대상·기간 정리",
+        "[마감 D-5] 청소년 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 투자 유치를 꿈꾸는 창업자가 반드시 알아야 할 '투자생태계의 이해' - 제 7회 DD…",
         "전국 청소년 신청 전 체크포인트 | 투자 유치를 꿈꾸는 창업자가 반드시 알아야 할 '투자생태계의 이해' - 제…"
       ],
@@ -2049,8 +2325,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 D-6",
-        "days_left": 6
+        "deadline_hook": "마감 D-5",
+        "days_left": 5
       }
     },
     {
@@ -2073,7 +2349,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-10까지",
-        "days_left": 19
+        "days_left": 18
       }
     },
     {
@@ -2096,7 +2372,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-31까지",
-        "days_left": 40
+        "days_left": 39
       }
     },
     {
@@ -2106,7 +2382,7 @@
       "summary": "전국대학교에 있는 창업에 관심있는 유망한 개인 혹은 팀이 창업아이디어를 현실화할 수 있는 네트워크의 장을 마련해 드립니다. 대상: 대학생. 신청 기간: 2026-07-14 ~ 2026-07-28.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 D-6] 대학생 지원 대상·기간 정리",
+        "[마감 D-5] 대학생 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 대학연대 창업 네트워크 캠프",
         "전국 대학생 신청 전 체크포인트 | 대학연대 창업 네트워크 캠프"
       ],
@@ -2118,8 +2394,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 D-6",
-        "days_left": 6
+        "deadline_hook": "마감 D-5",
+        "days_left": 5
       }
     },
     {
@@ -2142,7 +2418,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 12
+        "days_left": 11
       }
     },
     {
@@ -2165,7 +2441,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-07까지",
-        "days_left": 16
+        "days_left": 15
       }
     },
     {
@@ -2175,7 +2451,7 @@
       "summary": "세종특별자치시와 (재)세종창조경제혁신센터는 신도심(나성동) 내 ICT 기술창업 거점을 마련하고 초기 창업기업의 안정적인 성장을 지원하기 위해「나성동 창업보육센터」에 입주할 기업을 다음과 같이 모집하오니, 역량 있는 예비창업자 및 창업기업의 많은 관심과... 대상: 일반기업,1인 창조기업. 신청 기간: 2026-07-13 ~ 2026-07-30.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[2주 내 마감] 일반기업 지원 대상·기간 정리",
+        "[마감 D-7] 일반기업 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 세종특별자치시 나성동 AI융합창업보육센터 2차 입주기업(인큐베이팅룸) 모집 공고",
         "세종 일반기업 신청 전 체크포인트 | 세종특별자치시 나성동 AI융합창업보육센터 2차 입주기업(인큐베이팅룸) 모…"
       ],
@@ -2187,8 +2463,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "2주 내 마감",
-        "days_left": 8
+        "deadline_hook": "마감 D-7",
+        "days_left": 7
       }
     },
     {
@@ -2211,17 +2487,17 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-09-30까지",
-        "days_left": 70
+        "days_left": 69
       }
     },
     {
       "policy_id": "178532",
       "source_title": "2026 경기 스타트업 서밋 Invest Connect 2차 참가기업 모집",
-      "headline": "[마감 D-7] 전국 청소년 지원사업 | 2026 경기 스타트업 서밋 Invest Connect 2차 참가기업 모집",
+      "headline": "[마감 D-6] 전국 청소년 지원사업 | 2026 경기 스타트업 서밋 Invest Connect 2차 참가기업 모집",
       "summary": "경기 스타트업 서밋을 통해 스타트업의 국내외 투자유치 및 비즈니스 성과 창출을 지원하고자 &apos;2026 경기 스타트업 서밋 Invest Connect 1차&apos; 참가기업을 모집하오니 많은 참여를 부탁 드립니다. 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-13 ~ 2026-07-29.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 D-7] 청소년 지원 대상·기간 정리",
+        "[마감 D-6] 청소년 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 2026 경기 스타트업 서밋 Invest Connect 2차 참가기업 모집",
         "전국 청소년 신청 전 체크포인트 | 2026 경기 스타트업 서밋 Invest Connect 2차 참가기업 모집"
       ],
@@ -2233,8 +2509,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 D-7",
-        "days_left": 7
+        "deadline_hook": "마감 D-6",
+        "days_left": 6
       }
     },
     {
@@ -2257,17 +2533,17 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
       "policy_id": "178521",
       "source_title": "고려대기술지주(주) 판교인큐베이팅센터 입주기업 모집공고(추가모집)",
-      "headline": "마감 임박 D-2: 고려대기술지주(주) 판교인큐베이팅센터 입주기업 모집공고(추가모집)",
+      "headline": "마감 임박 D-1: 고려대기술지주(주) 판교인큐베이팅센터 입주기업 모집공고(추가모집)",
       "summary": "고려대학교기술지주는 판교지역에 신규 보육공간을 확보하고, 우수 기업의 입주 및 성장을 지원하고자 입주기업을 모집합니다. 대상: 일반기업. 신청 기간: 2026-07-13 ~ 2026-07-24.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 임박 D-2] 일반기업 지원 대상·기간 정리",
+        "[마감 임박 D-1] 일반기업 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 고려대기술지주(주) 판교인큐베이팅센터 입주기업 모집공고(추가모집)",
         "경기 일반기업 신청 전 체크포인트 | 고려대기술지주(주) 판교인큐베이팅센터 입주기업 모집공고(추가모집)"
       ],
@@ -2279,8 +2555,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 임박 D-2",
-        "days_left": 2
+        "deadline_hook": "마감 임박 D-1",
+        "days_left": 1
       }
     },
     {
@@ -2290,7 +2566,7 @@
       "summary": "『충청권 엔젤투자 피칭룸』은 한국엔젤투자협회에서 충청 소재(대전·세종·충남·충북)의 스타트업의 투자유치를 지원하는 투자 상담 프로그램입니다. 대상: 일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-13 ~ 2026-07-24.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 임박 D-2] 일반인 지원 대상·기간 정리",
+        "[마감 임박 D-1] 일반인 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 2026-7회 충청권 엔젤투자 피칭룸 프로그램 참가기업 모집",
         "대전 일반인 신청 전 체크포인트 | 2026-7회 충청권 엔젤투자 피칭룸 프로그램 참가기업 모집"
       ],
@@ -2302,8 +2578,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 임박 D-2",
-        "days_left": 2
+        "deadline_hook": "마감 임박 D-1",
+        "days_left": 1
       }
     },
     {
@@ -2326,7 +2602,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 12
+        "days_left": 11
       }
     },
     {
@@ -2349,17 +2625,17 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 11
+        "days_left": 10
       }
     },
     {
       "policy_id": "178525",
       "source_title": "2026년 G-Space 입주기업 발굴·육성사업 입주기업 추가 모집 공고",
-      "headline": "마감 D-7: G-Space 입주기업 발굴·육성사업 입주기업 추가 모집 공고",
+      "headline": "마감 D-6: G-Space 입주기업 발굴·육성사업 입주기업 추가 모집 공고",
       "summary": "경상남도와 양산시가 설립하고 경남창조경제혁신센터에서 운영하는 경상남도 동부권 스타트업지원 거점센터“G-Space@East”에서 성장가능성 있는 유망 스타트업을 대상으로 입주 희망 기업을 모집 하오니 역량 있는 창업자의 많은 신청 바랍니다. 대상: 일반인,대학,1인 창조기업. 신청 기간: 2026-07-13 ~ 2026-07-29.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 D-7] 일반인 지원 대상·기간 정리",
+        "[마감 D-6] 일반인 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: G-Space 입주기업 발굴·육성사업 입주기업 추가 모집 공고",
         "전국 일반인 신청 전 체크포인트 | G-Space 입주기업 발굴·육성사업 입주기업 추가 모집 공고"
       ],
@@ -2371,8 +2647,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 D-7",
-        "days_left": 7
+        "deadline_hook": "마감 D-6",
+        "days_left": 6
       }
     },
     {
@@ -2395,7 +2671,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-13까지",
-        "days_left": 22
+        "days_left": 21
       }
     },
     {
@@ -2405,7 +2681,7 @@
       "summary": "“임팩트 스타트업의 성장 방법'이 궁금한 1인 창업가(초기)와 대학생 우선 모집 합니다. 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-13 ~ 2026-07-26.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 D-4] 청소년 지원 대상·기간 정리",
+        "[마감 임박 D-3] 청소년 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: [스터디/강의 무료 제공] 임팩트 스타트업 성장 방법과 경로 (총 3회, 성수동)",
         "전국 청소년 신청 전 체크포인트 | [스터디/강의 무료 제공] 임팩트 스타트업 성장 방법과 경로 (총 3회,…"
       ],
@@ -2417,8 +2693,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 D-4",
-        "days_left": 4
+        "deadline_hook": "마감 임박 D-3",
+        "days_left": 3
       }
     },
     {
@@ -2441,7 +2717,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 12
+        "days_left": 11
       }
     },
     {
@@ -2451,7 +2727,7 @@
       "summary": "서초창업스테이션에서는 비즈니스 프레젠테이션 스킬 및 자료 제작의 주제로 7월 창업 교육을 진행합니다. 대상: 대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-13 ~ 2026-07-28.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 D-6] 대학생 지원 대상·기간 정리",
+        "[마감 D-5] 대학생 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: [서초창업스테이션] 7월 창업 교육 - 비즈니스 프레젠테이션 스킬 및 자료 제작",
         "전국 대학생 신청 전 체크포인트 | [서초창업스테이션] 7월 창업 교육 - 비즈니스 프레젠테이션 스킬 및 자료…"
       ],
@@ -2463,8 +2739,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 D-6",
-        "days_left": 6
+        "deadline_hook": "마감 D-5",
+        "days_left": 5
       }
     },
     {
@@ -2487,7 +2763,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-31까지",
-        "days_left": 40
+        "days_left": 39
       }
     },
     {
@@ -2497,7 +2773,7 @@
       "summary": "강동구 청년해냄센터에서 스타트업 영 그라운드 MVP 개발 해커톤 참가자를 모집하오니 참여 희망자는 안내에 따라 신청하시기 바랍니다. 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-10 ~ 2026-07-30.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[2주 내 마감] 청소년 지원 대상·기간 정리",
+        "[마감 D-7] 청소년 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: [강동구 청년해냄센터] 스타트업 영 그라운드 MVP 개발 해커톤 참가자 모집",
         "전국 청소년 신청 전 체크포인트 | [강동구 청년해냄센터] 스타트업 영 그라운드 MVP 개발 해커톤 참가자 모집"
       ],
@@ -2509,8 +2785,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "2주 내 마감",
-        "days_left": 8
+        "deadline_hook": "마감 D-7",
+        "days_left": 7
       }
     },
     {
@@ -2520,7 +2796,7 @@
       "summary": "우수한 기술과 참신한 아이디어를 보유한 창업 초기 기업 및 (예비)창업자를 대상으로 체계적인 인큐베이팅을 통하여 성장 가능성이 높은 혁신형 중소기업으로 육성하고자 신규 입주기업을 아래와 같이 공개 모집하오니 관심 있는 기업의 많은 신청 바랍니다. 대상: 대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-10 ~ 2026-07-24.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 임박 D-2] 대학생 지원 대상·기간 정리",
+        "[마감 임박 D-1] 대학생 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 「강남 취‧창업허브센터」6차 입주 기업 신규 모집",
         "서울 대학생 신청 전 체크포인트 | 「강남 취‧창업허브센터」6차 입주 기업 신규 모집"
       ],
@@ -2532,8 +2808,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 임박 D-2",
-        "days_left": 2
+        "deadline_hook": "마감 임박 D-1",
+        "days_left": 1
       }
     },
     {
@@ -2556,7 +2832,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-28까지",
-        "days_left": 37
+        "days_left": 36
       }
     },
     {
@@ -2579,7 +2855,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-18까지",
-        "days_left": 27
+        "days_left": 26
       }
     },
     {
@@ -2602,7 +2878,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-10까지",
-        "days_left": 19
+        "days_left": 18
       }
     },
     {
@@ -2625,7 +2901,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -2635,7 +2911,7 @@
       "summary": "동국대학교 BMC창업보육센터에서는 바이오·메디컬 분야 기업의 연구개발 역량강화를 위하여「바이오·메디컬 연구인프라 활용 지원사업」을 아래와 같이 시행하오니 기업들의 많은 참여 바랍니다. 대상: 일반인,일반기업,1인 창조기업. 신청 기간: 2026-07-09 ~ 2026-07-30.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[2주 내 마감] 일반인 지원 대상·기간 정리",
+        "[마감 D-7] 일반인 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 바이오·메디컬 연구인프라 활용 지원사업",
         "경기 일반인 신청 전 체크포인트 | 바이오·메디컬 연구인프라 활용 지원사업"
       ],
@@ -2647,8 +2923,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "2주 내 마감",
-        "days_left": 8
+        "deadline_hook": "마감 D-7",
+        "days_left": 7
       }
     },
     {
@@ -2658,7 +2934,7 @@
       "summary": "문화체육관광부와 (재)예술경영지원센터는 예술기반 창의적이고 혁신적인 아이디어 발굴 및 지속 가능한 비즈니스 모델 창출을 위해 예술의 산업적 성장기반 조성을 위한 인큐베이팅 플랫폼, <아트코리아랩>의 입주기업을 모집합니다. 대상: 일반기업,1인 창조기업. 신청 기간: 2026-07-09 ~ 2026-07-30.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[2주 내 마감] 일반기업 지원 대상·기간 정리",
+        "[마감 D-7] 일반기업 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 2026 아트코리아랩 입주기업 모집 공모",
         "전국 일반기업 신청 전 체크포인트 | 2026 아트코리아랩 입주기업 모집 공모"
       ],
@@ -2670,8 +2946,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "2주 내 마감",
-        "days_left": 8
+        "deadline_hook": "마감 D-7",
+        "days_left": 7
       }
     },
     {
@@ -2694,17 +2970,17 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-07까지",
-        "days_left": 16
+        "days_left": 15
       }
     },
     {
       "policy_id": "178485",
       "source_title": "(고용노동부) 2026년 K-디지털트레이닝(KDT) IT 참여기업 모집",
-      "headline": "마감 임박 D-2: (고용노동부) 2026년 K-디지털트레이닝(KDT) IT 참여기업 모집",
+      "headline": "마감 임박 D-1: (고용노동부) 2026년 K-디지털트레이닝(KDT) IT 참여기업 모집",
       "summary": "AI·디지털 분야 인재 채용 및 양성을 계획 중인 기업을 아래와 같이 모집하오니 참여를 희망하시는 기업은 안내에 따라 신청하기 바랍니다. 대상: 연구기관,일반기업. 신청 기간: 2026-07-09 ~ 2026-07-24.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 임박 D-2] 연구기관 지원 대상·기간 정리",
+        "[마감 임박 D-1] 연구기관 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: (고용노동부) 2026년 K-디지털트레이닝(KDT) IT 참여기업 모집",
         "전국 연구기관 신청 전 체크포인트 | (고용노동부) 2026년 K-디지털트레이닝(KDT) IT 참여기업 모집"
       ],
@@ -2716,8 +2992,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 임박 D-2",
-        "days_left": 2
+        "deadline_hook": "마감 임박 D-1",
+        "days_left": 1
       }
     },
     {
@@ -2740,7 +3016,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 13
+        "days_left": 12
       }
     },
     {
@@ -2750,7 +3026,7 @@
       "summary": "지역 내 우수한 스타트업을 발굴하여 지속 성장할 수 있도록 액셀러레이팅 프로그램을 제공하고자 하오니 기업의 많은 참여 바랍니다. 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-09 ~ 2026-08-06.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[2026-08-06까지] 청소년 지원 대상·기간 정리",
+        "[2주 내 마감] 청소년 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 광주투자액셀러레이팅 G-IN Next Level 13기 참여기업 모집공고",
         "전남광주 청소년 신청 전 체크포인트 | 광주투자액셀러레이팅 G-IN Next Level 13기 참여기업 모집공고"
       ],
@@ -2762,18 +3038,18 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "2026-08-06까지",
-        "days_left": 15
+        "deadline_hook": "2주 내 마감",
+        "days_left": 14
       }
     },
     {
       "policy_id": "178473",
       "source_title": "동국대학교 창업보육센터(서울) 신규 입주기업 모집 공고",
-      "headline": "2주 내 마감: 동국대학교 창업보육센터(서울) 신규 입주기업 모집 공고",
+      "headline": "마감 D-7: 동국대학교 창업보육센터(서울) 신규 입주기업 모집 공고",
       "summary": "동국대학교 창업보육센터에서는 동국 블루칩으로써 성장과 발전을 함께 도모할 (예비)창업기업을 발굴 및 육성하기 위해 신규 입주기업 모집 공고를 진행하오니 입주를 희망하는 기업은 아래 공고를 참고하여 지원해주시기 바랍니다. 대상: 대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-08 ~ 2026-07-30.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[2주 내 마감] 대학생 지원 대상·기간 정리",
+        "[마감 D-7] 대학생 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 동국대학교 창업보육센터(서울) 신규 입주기업 모집 공고",
         "전국 대학생 신청 전 체크포인트 | 동국대학교 창업보육센터(서울) 신규 입주기업 모집 공고"
       ],
@@ -2785,8 +3061,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "2주 내 마감",
-        "days_left": 8
+        "deadline_hook": "마감 D-7",
+        "days_left": 7
       }
     },
     {
@@ -2809,7 +3085,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-07까지",
-        "days_left": 16
+        "days_left": 15
       }
     },
     {
@@ -2832,7 +3108,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-07까지",
-        "days_left": 16
+        "days_left": 15
       }
     },
     {
@@ -2855,7 +3131,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-24까지",
-        "days_left": 33
+        "days_left": 32
       }
     },
     {
@@ -2878,7 +3154,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -2888,7 +3164,7 @@
       "summary": "오렌지플래닛에서 입주/투자 스타트업 모집을 다음과 같이 공고하오니 지원을 희망하는 2인 이상(전 분야/전 단계) 스타트업은 안내 따라 신청하기 바랍니다. 대상: 청소년,대학생,일반인,대학,연구기관,일반기업. 신청 기간: 2026-07-08 ~ 2026-07-27.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 D-5] 청소년 지원 대상·기간 정리",
+        "[마감 D-4] 청소년 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 2026 하반기 오렌지플래닛 정기모집(~7/27 14:00)",
         "전국 청소년 신청 전 체크포인트 | 2026 하반기 오렌지플래닛 정기모집(~7/27 14:00)"
       ],
@@ -2900,8 +3176,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 D-5",
-        "days_left": 5
+        "deadline_hook": "마감 D-4",
+        "days_left": 4
       }
     },
     {
@@ -2924,7 +3200,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -2947,7 +3223,7 @@
         "used_amount_hook": true,
         "amount_hook": "800만원",
         "deadline_hook": "2026-08-13까지",
-        "days_left": 22
+        "days_left": 21
       }
     },
     {
@@ -2957,7 +3233,7 @@
       "summary": "동명청년창작소는 그로스빌딩 전문기업 ATOMOS와 함께 광주·전남 청년 창업기업의 온라인 커머스 경쟁력 강화를 위한 「커머스빌딩 UP」 프로그램 참여기업을 모집합니다. 대상: 대학생,일반인,대학,일반기업,1인 창조기업. 신청 기간: 2026-07-07 ~ 2026-07-26.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 D-4] 대학생 지원 대상·기간 정리",
+        "[마감 임박 D-3] 대학생 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 동구 동명청년창작소 커머스빌딩 UP 참여기업 모집",
         "전남광주 대학생 신청 전 체크포인트 | 동구 동명청년창작소 커머스빌딩 UP 참여기업 모집"
       ],
@@ -2969,8 +3245,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 D-4",
-        "days_left": 4
+        "deadline_hook": "마감 임박 D-3",
+        "days_left": 3
       }
     },
     {
@@ -2993,7 +3269,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-12-31까지",
-        "days_left": 162
+        "days_left": 161
       }
     },
     {
@@ -3016,7 +3292,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-12-30까지",
-        "days_left": 161
+        "days_left": 160
       }
     },
     {
@@ -3039,7 +3315,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 12
+        "days_left": 11
       }
     },
     {
@@ -3062,7 +3338,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -3072,7 +3348,7 @@
       "summary": "2026년 경기도 양자-반도체 팹 융합활용 R&D 지원 사업을 다음과 같이 공고하오니 많은 참여 바랍니다. 대상: 대학,연구기관,일반기업. 신청 기간: 2026-07-07 ~ 2026-07-24.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 임박 D-2] 대학 지원 대상·기간 정리",
+        "[마감 임박 D-1] 대학 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 경기도 양자-반도체 팹 융합활용 R&D 지원 사업 참여기관(기업·대학) 추가 모집 공고",
         "경기 대학 신청 전 체크포인트 | 경기도 양자-반도체 팹 융합활용 R&D 지원 사업 참여기관(기업·대학) 추가…"
       ],
@@ -3084,8 +3360,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 임박 D-2",
-        "days_left": 2
+        "deadline_hook": "마감 임박 D-1",
+        "days_left": 1
       }
     },
     {
@@ -3108,17 +3384,17 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
       "policy_id": "178492",
       "source_title": "2026년 하반기「하남스타트업캠퍼스·경기 AI 클러스터 하남」신규 입주자 모집 공고",
-      "headline": "[마감 임박 D-2] 전국 청소년 지원사업 | 하반기「하남스타트업캠퍼스·경기 AI 클러스터 하남」신규 입주자 모집 공고",
+      "headline": "[마감 임박 D-1] 전국 청소년 지원사업 | 하반기「하남스타트업캠퍼스·경기 AI 클러스터 하남」신규 입주자 모집 공고",
       "summary": "하남도시공사는 스마트시티 구축과 4차 산업혁명 관련 산업 육성 및 창업 생태계 조성을 통해 건강도시 구현에 기여하고자 AI를 활용한 기술·서비스를 보유한 예비창업자 및 창업기업을 대상으로 하남스타트업캠퍼스·경기 AI 클러스터 하남 입주기업을 모집하오니... 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-06 ~ 2026-07-24.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 임박 D-2] 청소년 지원 대상·기간 정리",
+        "[마감 임박 D-1] 청소년 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 하반기「하남스타트업캠퍼스·경기 AI 클러스터 하남」신규 입주자 모집 공고",
         "전국 청소년 신청 전 체크포인트 | 하반기「하남스타트업캠퍼스·경기 AI 클러스터 하남」신규 입주자 모집 공고"
       ],
@@ -3130,8 +3406,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 임박 D-2",
-        "days_left": 2
+        "deadline_hook": "마감 임박 D-1",
+        "days_left": 1
       }
     },
     {
@@ -3154,7 +3430,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 13
+        "days_left": 12
       }
     },
     {
@@ -3177,30 +3453,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 11
-      }
-    },
-    {
-      "policy_id": "178406",
-      "source_title": "2026년도 키친인큐베이터 개별·공유주방 24기 및 제조주방 12기 통합모집",
-      "headline": "청소년 필수 확인: 도 키친인큐베이터 개별·공유주방 24기 및 제조주방 12기 통합모집 (2026-07-06 ~ 2026…",
-      "summary": "서울창업허브 키친인큐베이터에서는 F&B(예비)창업자의 메뉴개발 및 실제 메뉴 판매 기회를 제공하기 위해 키친인큐베이터 개별주방, 공유주방, 제조주방을 사용할 참가기업(팀)을 모집하오니 많은 신청 바랍니다. 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-06 ~ 2026-07-23.",
-      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
-      "alternatives": [
-        "[마감 임박 D-1] 청소년 지원 대상·기간 정리",
-        "놓치기 쉬운 신청 조건: 도 키친인큐베이터 개별·공유주방 24기 및 제조주방 12기 통합모집",
-        "서울 청소년 신청 전 체크포인트 | 도 키친인큐베이터 개별·공유주방 24기 및 제조주방 12기 통합모집"
-      ],
-      "application_period_text": "2026-07-06 ~ 2026-07-23",
-      "status": "active",
-      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178406",
-      "source_org": "공공기관",
-      "meta": {
-        "style": "benefit-first",
-        "used_amount_hook": false,
-        "amount_hook": "",
-        "deadline_hook": "마감 임박 D-1",
-        "days_left": 1
+        "days_left": 10
       }
     },
     {
@@ -3223,17 +3476,17 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-13까지",
-        "days_left": 22
+        "days_left": 21
       }
     },
     {
       "policy_id": "178452",
       "source_title": "2026년 해양수산 창업투자지원사업 제4차 참여기업 모집공고",
-      "headline": "[마감 임박 D-2] 경북 일반기업 지원사업 | 해양수산 창업투자지원사업 제4차 참여기업 모집공고",
+      "headline": "[마감 임박 D-1] 경북 일반기업 지원사업 | 해양수산 창업투자지원사업 제4차 참여기업 모집공고",
       "summary": "경북 지역 해양수산 및 전후방 연관산업내 유망창업 아이템 발굴을 통한 창업기업 육성, 기업성장을 위한 투자유치, 기업지원, 마케팅, 제품개발 등의 지원을 통해 글로벌 시장경쟁력 강화와 지역경제 활성화를 위해 다음과 같이 2026년 참여기업을 모집 공고... 대상: 일반기업,1인 창조기업. 신청 기간: 2026-07-06 ~ 2026-07-24.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 임박 D-2] 일반기업 지원 대상·기간 정리",
+        "[마감 임박 D-1] 일반기업 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 해양수산 창업투자지원사업 제4차 참여기업 모집공고",
         "경북 일반기업 신청 전 체크포인트 | 해양수산 창업투자지원사업 제4차 참여기업 모집공고"
       ],
@@ -3245,8 +3498,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 임박 D-2",
-        "days_left": 2
+        "deadline_hook": "마감 임박 D-1",
+        "days_left": 1
       }
     },
     {
@@ -3269,7 +3522,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -3292,7 +3545,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 12
+        "days_left": 11
       }
     },
     {
@@ -3302,7 +3555,7 @@
       "summary": "의료·헬스케어 스타트업 인큐베이터 사업의 일환으로, 의료·헬스케어 분야의 예비창업자 및 초기창업자를 발굴·육성하고 창업 역량 강화를 지원하기 위한「창업 활력 프로젝트」참여자를 다음과 같이 모집 공고합니다. 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-06 ~ 2026-07-24.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 임박 D-2] 청소년 지원 대상·기간 정리",
+        "[마감 임박 D-1] 청소년 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: [부산대학교병원] 2026년 의료·헬스케어 스타트업 인큐베이터 사업_창업 활력 프로젝트",
         "전국 청소년 신청 전 체크포인트 | [부산대학교병원] 2026년 의료·헬스케어 스타트업 인큐베이터 사업_창업…"
       ],
@@ -3314,8 +3567,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 임박 D-2",
-        "days_left": 2
+        "deadline_hook": "마감 임박 D-1",
+        "days_left": 1
       }
     },
     {
@@ -3325,7 +3578,7 @@
       "summary": "대전창조경제혁신센터가 대전 스타트업 협의체 ‘다이노소어(Daejeon INitiative Of Startup And entrepreneUR)’와 함께 스타트업 네트워킹 프로그램을 진행하오니, 관심 있는 창업가, 스타트업 임직원 등의 많은 관심과 참여... 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-06 ~ 2026-07-28.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 D-6] 청소년 지원 대상·기간 정리",
+        "[마감 D-5] 청소년 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 대전 스타트업스쿨 스타트업 리딩클래스 (2회차 ㅣ 링크드인 Sales 1위가 알려주는…",
         "전국 청소년 신청 전 체크포인트 | 대전 스타트업스쿨 스타트업 리딩클래스 (2회차 ㅣ 링크드인 Sales 1위…"
       ],
@@ -3337,18 +3590,18 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 D-6",
-        "days_left": 6
+        "deadline_hook": "마감 D-5",
+        "days_left": 5
       }
     },
     {
       "policy_id": "178436",
       "source_title": "2026년 대구콘텐츠코리아랩 추경 사업 미드폼 콘텐츠 제작지원 참가기업 모집",
-      "headline": "[마감 D-5] 대구 일반기업 지원사업 | 대구콘텐츠코리아랩 추경 사업 미드폼 콘텐츠 제작지원 참가기업 모집",
+      "headline": "[마감 D-4] 대구 일반기업 지원사업 | 대구콘텐츠코리아랩 추경 사업 미드폼 콘텐츠 제작지원 참가기업 모집",
       "summary": "(재)대구디지털혁신진흥원에서는 「2026년 대구콘텐츠코리아랩 추경 사업 미드폼 콘텐츠 제작지원」 참가기업을 모집하오니 많은 참여 바랍니다. 대상: 일반기업. 신청 기간: 2026-07-06 ~ 2026-07-27.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 D-5] 일반기업 지원 대상·기간 정리",
+        "[마감 D-4] 일반기업 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 대구콘텐츠코리아랩 추경 사업 미드폼 콘텐츠 제작지원 참가기업 모집",
         "대구 일반기업 신청 전 체크포인트 | 대구콘텐츠코리아랩 추경 사업 미드폼 콘텐츠 제작지원 참가기업 모집"
       ],
@@ -3360,18 +3613,18 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 D-5",
-        "days_left": 5
+        "deadline_hook": "마감 D-4",
+        "days_left": 4
       }
     },
     {
       "policy_id": "178429",
       "source_title": "TIPS 추천과 SEED~시리즈A 라운드 기상·기후테크 기업 투자유치 지원 프로그램 참가 안내",
-      "headline": "마감 임박 D-2: TIPS 추천과 SEED~시리즈A 라운드 기상·기후테크 기업 투자유치 지원 프로그램 참가 안내",
+      "headline": "마감 임박 D-1: TIPS 추천과 SEED~시리즈A 라운드 기상·기후테크 기업 투자유치 지원 프로그램 참가 안내",
       "summary": "기상청과 한국기상산업기술원에서 기상산업의 진흥·발전을 위해 기상·기후테크 기업의 맞춤형 투자유치와 TIPS(팁스) 프로그램 추천과 연계를 지원하오니 해당 기업의 많은 관심과 참여를 바랍니다. 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-04 ~ 2026-07-24.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 임박 D-2] 청소년 지원 대상·기간 정리",
+        "[마감 임박 D-1] 청소년 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: TIPS 추천과 SEED~시리즈A 라운드 기상·기후테크 기업 투자유치 지원 프로그램…",
         "전국 청소년 신청 전 체크포인트 | TIPS 추천과 SEED~시리즈A 라운드 기상·기후테크 기업 투자유치 지원…"
       ],
@@ -3383,8 +3636,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 임박 D-2",
-        "days_left": 2
+        "deadline_hook": "마감 임박 D-1",
+        "days_left": 1
       }
     },
     {
@@ -3407,7 +3660,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 11
+        "days_left": 10
       }
     },
     {
@@ -3430,7 +3683,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -3440,7 +3693,7 @@
       "summary": "제주 중장년 기술창업센터에서는 제주 지역에 특화된 인큐베이팅 및 액셀러레이팅을 통해 우수한 스타트업을 발굴하고 육성하기 위한 ‘2026년 제주 중장년 기술창업센터 입주기업 모집’을 공고하오니 많은 참여 바랍니다. 대상: 대학생,일반인,일반기업,1인 창조기업. 신청 기간: 2026-07-03 ~ 2026-07-29.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 D-7] 대학생 지원 대상·기간 정리",
+        "[마감 D-6] 대학생 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 제주 중장년 기술창업센터 입주기업 모집",
         "제주 대학생 신청 전 체크포인트 | 제주 중장년 기술창업센터 입주기업 모집"
       ],
@@ -3452,8 +3705,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 D-7",
-        "days_left": 7
+        "deadline_hook": "마감 D-6",
+        "days_left": 6
       }
     },
     {
@@ -3476,17 +3729,17 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-10-30까지",
-        "days_left": 100
+        "days_left": 99
       }
     },
     {
       "policy_id": "178380",
       "source_title": "2026년 지역 첨단제조 스타트업 스케일업 지원사업 창업기업 모집공고",
-      "headline": "[마감 임박 D-2] 전국 일반기업 지원사업 | 지역 첨단제조 스타트업 스케일업 지원사업 창업기업 모집공고",
+      "headline": "[마감 임박 D-1] 전국 일반기업 지원사업 | 지역 첨단제조 스타트업 스케일업 지원사업 창업기업 모집공고",
       "summary": "지역 첨단제조 스타트업의 조기 스케일업과 지속 가능한 성장 기반 마련을 위한 「2026년 지역 첨단제조 스타트업 스케일업 사업」에 참여할 창업기업을 다음과 같이 모집합니다. 대상: 일반기업,1인 창조기업. 신청 기간: 2026-07-03 ~ 2026-07-24.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 임박 D-2] 일반기업 지원 대상·기간 정리",
+        "[마감 임박 D-1] 일반기업 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 지역 첨단제조 스타트업 스케일업 지원사업 창업기업 모집공고",
         "전국 일반기업 신청 전 체크포인트 | 지역 첨단제조 스타트업 스케일업 지원사업 창업기업 모집공고"
       ],
@@ -3498,8 +3751,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 임박 D-2",
-        "days_left": 2
+        "deadline_hook": "마감 임박 D-1",
+        "days_left": 1
       }
     },
     {
@@ -3522,17 +3775,17 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
       "policy_id": "178382",
       "source_title": "알리바바닷컴 주최 세계 최대 규모 제품기반 창업대회 「CoCreate Pitch Seoul 2026」 참가팀 모집공고",
-      "headline": "[마감 임박 D-3] 2억 원 혜택 가능? 알리바바닷컴 주최 세계 최대 규모 제품기반 창업대회 「CoCreate Pitc…",
+      "headline": "[마감 임박 D-2] 2억 원 혜택 가능? 알리바바닷컴 주최 세계 최대 규모 제품기반 창업대회 「CoCreate Pitc…",
       "summary": "중소기업·0-to-1 스타트업·학생대상 세계 최대 제품기반 창업대회가 서울에서 처음 열립니다. 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-02 ~ 2026-07-25.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 임박 D-3] 청소년 지원 대상·기간 정리",
+        "[마감 임박 D-2] 청소년 지원 대상·기간 정리",
         "2억 원 혜택, 놓치기 쉬운 신청 조건: 알리바바닷컴 주최 세계 최대 규모 제품기반 창업대회 「CoCreate…",
         "전국 청소년 신청 전 체크포인트 | 알리바바닷컴 주최 세계 최대 규모 제품기반 창업대회 「CoCreate Pi…"
       ],
@@ -3544,8 +3797,8 @@
         "style": "benefit-first",
         "used_amount_hook": true,
         "amount_hook": "2억 원",
-        "deadline_hook": "마감 임박 D-3",
-        "days_left": 3
+        "deadline_hook": "마감 임박 D-2",
+        "days_left": 2
       }
     },
     {
@@ -3568,7 +3821,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-24까지",
-        "days_left": 33
+        "days_left": 32
       }
     },
     {
@@ -3591,7 +3844,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -3614,19 +3867,19 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-31까지",
-        "days_left": 40
+        "days_left": 39
       }
     },
     {
       "policy_id": "178372",
-      "source_title": "[코칭데이] 실전 전문가와 함께하는 하드웨어 제품 개발 A to Z (1:1 맞춤 무료 컨설팅)",
-      "headline": "[2026-08-11까지] 전국 일반인 지원사업 | [코칭데이] 실전 전문가와 함께하는 하드웨어 제품 개발 A to Z…",
-      "summary": "인탑스 주식회사는 모바일 기기, 자동차, 가전, 의료기기, 로봇, 화장품 용기 등 다양한 분야의 부품과 완제품을 제조하는 글로벌 전문 기업입니다. 대상: 일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-01 ~ 2026-08-11.",
+      "source_title": "[현직 엔지니어 1:1] 금형·단가·양산성에 막힌 하드웨어 스타트업 무료 코칭",
+      "headline": "[2026-08-11까지] 전국 일반인 지원사업 | [현직 엔지니어 1:1] 금형·단가·양산성에 막힌 하드웨어 스타트업…",
+      "summary": "인탑스 주식회사는 모바일, 자동차, 가전, 의료기기, 로봇 등 다양한 분야의 부품과 완제품을 제조하는 글로벌 전문 기업입니다. 대상: 일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-01 ~ 2026-08-11.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
         "[2026-08-11까지] 일반인 지원 대상·기간 정리",
-        "놓치기 쉬운 신청 조건: [코칭데이] 실전 전문가와 함께하는 하드웨어 제품 개발 A to Z (1:1 맞춤 무…",
-        "전국 일반인 신청 전 체크포인트 | [코칭데이] 실전 전문가와 함께하는 하드웨어 제품 개발 A to Z (1:…"
+        "놓치기 쉬운 신청 조건: [현직 엔지니어 1:1] 금형·단가·양산성에 막힌 하드웨어 스타트업 무료 코칭",
+        "전국 일반인 신청 전 체크포인트 | [현직 엔지니어 1:1] 금형·단가·양산성에 막힌 하드웨어 스타트업 무료…"
       ],
       "application_period_text": "2026-07-01 ~ 2026-08-11",
       "status": "active",
@@ -3637,7 +3890,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-08-11까지",
-        "days_left": 20
+        "days_left": 19
       }
     },
     {
@@ -3660,7 +3913,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -3683,7 +3936,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -3706,7 +3959,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -3729,17 +3982,17 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
       "policy_id": "178364",
       "source_title": "TIPS 추천 바이오-메디컬 유망기업 투자유치 지원 프로그램 신청 안내",
-      "headline": "[마감 임박 D-2] 전국 청소년 지원사업 | TIPS 추천 바이오-메디컬 유망기업 투자유치 지원 프로그램 신청 안내",
+      "headline": "[마감 임박 D-1] 전국 청소년 지원사업 | TIPS 추천 바이오-메디컬 유망기업 투자유치 지원 프로그램 신청 안내",
       "summary": "동국대학교 BMC창업보육센터가 바이오-메디컬 유망기업과 창업 예정자를 대상으로 SEED~시리즈 A 라운드 투자유치와 팁스 프로그램 추천을 지원하오니 많은 관심과 참여를 바랍니다. 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-01 ~ 2026-07-24.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 임박 D-2] 청소년 지원 대상·기간 정리",
+        "[마감 임박 D-1] 청소년 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: TIPS 추천 바이오-메디컬 유망기업 투자유치 지원 프로그램 신청 안내",
         "전국 청소년 신청 전 체크포인트 | TIPS 추천 바이오-메디컬 유망기업 투자유치 지원 프로그램 신청 안내"
       ],
@@ -3751,8 +4004,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 임박 D-2",
-        "days_left": 2
+        "deadline_hook": "마감 임박 D-1",
+        "days_left": 1
       }
     },
     {
@@ -3762,7 +4015,7 @@
       "summary": "「2026 한난 온랩(On-Lab)」 참가팀을 모집하오니, 미래기술(AX·GX), 친환경, 에너지 분야의 우수한 아이디어와 기술을 보유한 예비 창업팀의 많은 관심과 참여 바랍니다. 대상: 대학생,일반인. 신청 기간: 2026-07-01 ~ 2026-07-24.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 임박 D-2] 대학생 지원 대상·기간 정리",
+        "[마감 임박 D-1] 대학생 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 2026 한난 온랩(On-Lab) 프로그램 참가팀 모집(~7/24)",
         "전국 대학생 신청 전 체크포인트 | 2026 한난 온랩(On-Lab) 프로그램 참가팀 모집(~7/24)"
       ],
@@ -3774,18 +4027,18 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 임박 D-2",
-        "days_left": 2
+        "deadline_hook": "마감 임박 D-1",
+        "days_left": 1
       }
     },
     {
       "policy_id": "178368",
       "source_title": "( ?투자금 3억원!?)제8회 창업투자경진대회 B-스타트업챌린지",
-      "headline": "[마감 D-7] 3억원 혜택 가능? ( ?투자금 3억원!?)제8회 창업투자경진대회 B-스타트업챌린지",
+      "headline": "[마감 D-6] 3억원 혜택 가능? ( ?투자금 3억원!?)제8회 창업투자경진대회 B-스타트업챌린지",
       "summary": "부산시, BNK부산은행, 부산문화방송(MBC)가 공동으로 주최하고 부산기술창업투자원, BNK벤처투자가 주관하는 제8회 B-스타트업챌린지가 전국의 혁신 스타트업을 기다립니다. 대상: 대학생,일반인,일반기업,1인 창조기업. 신청 기간: 2026-07-01 ~ 2026-07-29.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 D-7] 대학생 지원 대상·기간 정리",
+        "[마감 D-6] 대학생 지원 대상·기간 정리",
         "3억원 혜택, 놓치기 쉬운 신청 조건: ( ?투자금 3억원!?)제8회 창업투자경진대회 B-스타트업챌린지",
         "전국 대학생 신청 전 체크포인트 | ( ?투자금 3억원!?)제8회 창업투자경진대회 B-스타트업챌린지"
       ],
@@ -3797,18 +4050,18 @@
         "style": "benefit-first",
         "used_amount_hook": true,
         "amount_hook": "3억원",
-        "deadline_hook": "마감 D-7",
-        "days_left": 7
+        "deadline_hook": "마감 D-6",
+        "days_left": 6
       }
     },
     {
       "policy_id": "178328",
       "source_title": "제 32기 포스코 아이디어 마켓플레이스(POSCO IMP) 투자트랙 기업 모집 연장 공고(~7/26 23:59)",
-      "headline": "[마감 D-4] 전국 청소년 지원사업 | 제 32기 포스코 아이디어 마켓플레이스(POSCO IMP) 투자트랙 기업 모집…",
+      "headline": "[마감 임박 D-3] 전국 청소년 지원사업 | 제 32기 포스코 아이디어 마켓플레이스(POSCO IMP) 투자트랙 기업…",
       "summary": "포스코그룹은 우수한 기술력과 높은 도전 의지를 가진 기술기반의 벤처기업들을 지속적으로 발굴하고자「START : 31st Idea Market Place」을 아래와 같이 모집하오니, 많은 관심과 참여를 바랍니다. 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-01 ~ 2026-07-26.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 D-4] 청소년 지원 대상·기간 정리",
+        "[마감 임박 D-3] 청소년 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 제 32기 포스코 아이디어 마켓플레이스(POSCO IMP) 투자트랙 기업 모집 연장…",
         "전국 청소년 신청 전 체크포인트 | 제 32기 포스코 아이디어 마켓플레이스(POSCO IMP) 투자트랙 기업…"
       ],
@@ -3820,8 +4073,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 D-4",
-        "days_left": 4
+        "deadline_hook": "마감 임박 D-3",
+        "days_left": 3
       }
     },
     {
@@ -3844,7 +4097,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -3867,17 +4120,17 @@
         "used_amount_hook": true,
         "amount_hook": "2억원",
         "deadline_hook": "2026-08-09까지",
-        "days_left": 18
+        "days_left": 17
       }
     },
     {
       "policy_id": "178484",
       "source_title": "2026년 충청권 ICT이노베이션스퀘어 개발 역량 강화 멘토링",
-      "headline": "[마감 D-4] 충남 대학생 지원사업 | 충청권 ICT이노베이션스퀘어 개발 역량 강화 멘토링",
+      "headline": "[마감 임박 D-3] 충남 대학생 지원사업 | 충청권 ICT이노베이션스퀘어 개발 역량 강화 멘토링",
       "summary": "「2026년 충청권 ICT이노베이션스퀘어 개발 역량 강화 멘토링」 참가팀 모집 충청권 ICT·SW 인재의 프로젝트 개발 역량 강화를 위한 「2026년 충청권 ICT이노베이션스퀘어 개발 역량 강화 멘토링」 참가팀을 모집합니다. 대상: 대학생,일반인. 신청 기간: 2026-07-01 ~ 2026-07-26.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 D-4] 대학생 지원 대상·기간 정리",
+        "[마감 임박 D-3] 대학생 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 충청권 ICT이노베이션스퀘어 개발 역량 강화 멘토링",
         "충남 대학생 신청 전 체크포인트 | 충청권 ICT이노베이션스퀘어 개발 역량 강화 멘토링"
       ],
@@ -3889,31 +4142,31 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 D-4",
-        "days_left": 4
+        "deadline_hook": "마감 임박 D-3",
+        "days_left": 3
       }
     },
     {
-      "policy_id": "178379",
-      "source_title": "2026 중소기업 재직자(대전) AI·AX 기반 업무 효율화 교육생 모집(전액 무료)",
-      "headline": "대전 2026 중소기업 재직자(대전) AI·AX 기반 업무 효율화 교육생 모집(전액 무료) | 지원대상·신청기간 한눈에",
-      "summary": "중소기업 재직자와 소상공인의 AI 활용 역량 강화를 위한 실무 중심 교육을 개최합니다. 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-07-01 ~ 2026-07-23.",
+      "policy_id": "178653",
+      "source_title": "제3회 W-Venture 창업 경진대회(연장)",
+      "headline": "2026-08-07까지: 제3회 W-Venture 창업 경진대회(연장)",
+      "summary": "「제 3회 W-Venture 창업경진대회 x B-Vensday」참가자 모집을 아래와 같이 공고하오니, 부산·울산·경남 지역의 예비 여성창업자 및 여성창업기업(7년 미만)의 많은 참여를 바랍니다. 대상: 대학생,일반인,일반기업,1인 창조기업. 신청 기간: 2026-07-01 ~ 2026-08-07.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 임박 D-1] 청소년 지원 대상·기간 정리",
-        "놓치기 쉬운 신청 조건: 2026 중소기업 재직자(대전) AI·AX 기반 업무 효율화 교육생 모집(전액 무료)",
-        "대전 청소년 신청 전 체크포인트 | 2026 중소기업 재직자(대전) AI·AX 기반 업무 효율화 교육생 모집(…"
+        "[2026-08-07까지] 대학생 지원 대상·기간 정리",
+        "놓치기 쉬운 신청 조건: 제3회 W-Venture 창업 경진대회(연장)",
+        "부산 대학생 신청 전 체크포인트 | 제3회 W-Venture 창업 경진대회(연장)"
       ],
-      "application_period_text": "2026-07-01 ~ 2026-07-23",
+      "application_period_text": "2026-07-01 ~ 2026-08-07",
       "status": "active",
-      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178379",
+      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178653",
       "source_org": "민간",
       "meta": {
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 임박 D-1",
-        "days_left": 1
+        "deadline_hook": "2026-08-07까지",
+        "days_left": 15
       }
     },
     {
@@ -3936,7 +4189,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -3959,7 +4212,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -3982,7 +4235,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -4005,7 +4258,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -4028,17 +4281,17 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
       "policy_id": "178369",
       "source_title": "2026년 대학(원)생 한의약 창업 아이디어 공모전",
-      "headline": "2주 내 마감: 대학(원)생 한의약 창업 아이디어 공모전",
+      "headline": "마감 D-7: 대학(원)생 한의약 창업 아이디어 공모전",
       "summary": "한의약 분야 우수 아이템을 보유한 (예비)창업자들을 발굴하고, 창업 문화를 확산하고자「대학(원)생 한의약 창업 아이디어 공모전」을 다음과 같이 실시하오니 한의약 기반 창업에 관심 있는 대학(원)생 여러분의 많은 관심과 참여를 바랍니다. 대상: 대학생,일반인,일반기업. 신청 기간: 2026-06-30 ~ 2026-07-30.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[2주 내 마감] 대학생 지원 대상·기간 정리",
+        "[마감 D-7] 대학생 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 대학(원)생 한의약 창업 아이디어 공모전",
         "전국 대학생 신청 전 체크포인트 | 대학(원)생 한의약 창업 아이디어 공모전"
       ],
@@ -4050,18 +4303,18 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "2주 내 마감",
-        "days_left": 8
+        "deadline_hook": "마감 D-7",
+        "days_left": 7
       }
     },
     {
       "policy_id": "178356",
       "source_title": "강원대학교 캠퍼스혁신파크 산학연혁신허브 입점자 2차 모집공고",
-      "headline": "[마감 임박 D-2] 강원 일반기업 지원사업 | 강원대학교 캠퍼스혁신파크 산학연혁신허브 입점자 2차 모집공고",
+      "headline": "[마감 임박 D-1] 강원 일반기업 지원사업 | 강원대학교 캠퍼스혁신파크 산학연혁신허브 입점자 2차 모집공고",
       "summary": "지역 혁신성장의 거점, 강원대학교 캠퍼스혁신파크 산학연혁신허브의 입점자를 모집하오니 창업기업, 성장기업의 많은 관심과 참여를 바랍니다. 대상: 일반기업,1인 창조기업. 신청 기간: 2026-06-30 ~ 2026-07-24.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 임박 D-2] 일반기업 지원 대상·기간 정리",
+        "[마감 임박 D-1] 일반기업 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 강원대학교 캠퍼스혁신파크 산학연혁신허브 입점자 2차 모집공고",
         "강원 일반기업 신청 전 체크포인트 | 강원대학교 캠퍼스혁신파크 산학연혁신허브 입점자 2차 모집공고"
       ],
@@ -4073,18 +4326,18 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 임박 D-2",
-        "days_left": 2
+        "deadline_hook": "마감 임박 D-1",
+        "days_left": 1
       }
     },
     {
       "policy_id": "178352",
       "source_title": "해양˙수산 일자리 창출을 위한 [2026 국민 아이디어 제안대회]",
-      "headline": "[마감 임박 D-2] 전국 청소년 지원사업 | 해양˙수산 일자리 창출을 위한 [2026 국민 아이디어 제안대회]",
+      "headline": "[마감 임박 D-1] 전국 청소년 지원사업 | 해양˙수산 일자리 창출을 위한 [2026 국민 아이디어 제안대회]",
       "summary": "해양˙수산 일자리 창출을 위한 [2026 국민 아이디어 제안대회]를 아래와 같이 개최하오니 많은 관심과 참여 바랍니다. 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-06-30 ~ 2026-07-24.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 임박 D-2] 청소년 지원 대상·기간 정리",
+        "[마감 임박 D-1] 청소년 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 해양˙수산 일자리 창출을 위한 [2026 국민 아이디어 제안대회]",
         "전국 청소년 신청 전 체크포인트 | 해양˙수산 일자리 창출을 위한 [2026 국민 아이디어 제안대회]"
       ],
@@ -4096,18 +4349,18 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 임박 D-2",
-        "days_left": 2
+        "deadline_hook": "마감 임박 D-1",
+        "days_left": 1
       }
     },
     {
       "policy_id": "178357",
       "source_title": "[교육안내]서울용산시제품제작소 메이커 장비교육 일정 및 신청_7월",
-      "headline": "2주 내 마감: [교육안내]서울용산시제품제작소 메이커 장비교육 일정 및 신청_7월",
+      "headline": "마감 D-7: [교육안내]서울용산시제품제작소 메이커 장비교육 일정 및 신청_7월",
       "summary": "제조 창업 저변 확대를 위한 예비 창업자 및 스타트업의 아이디어 구체화 지원 장비 운용 역량 강화를 진행합니다. 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-06-30 ~ 2026-07-30.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[2주 내 마감] 청소년 지원 대상·기간 정리",
+        "[마감 D-7] 청소년 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: [교육안내]서울용산시제품제작소 메이커 장비교육 일정 및 신청_7월",
         "전국 청소년 신청 전 체크포인트 | [교육안내]서울용산시제품제작소 메이커 장비교육 일정 및 신청_7월"
       ],
@@ -4119,8 +4372,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "2주 내 마감",
-        "days_left": 8
+        "deadline_hook": "마감 D-7",
+        "days_left": 7
       }
     },
     {
@@ -4130,7 +4383,7 @@
       "summary": "디캠프와 Stanford University 산하 Stanford Center for Innovation & Design Research(SCIDR)가 미국 시장 진출을 준비하는 K-뷰티, K-푸드, 웰니스 브랜드 및 컨수머 테크 스타트업을 모집합니다... 대상: 일반기업. 신청 기간: 2026-06-29 ~ 2026-07-24.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 임박 D-2] 일반기업 지원 대상·기간 정리",
+        "[마감 임박 D-1] 일반기업 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: dcamp x Stanford Consumer Accelerator Fall 2026",
         "전국 일반기업 신청 전 체크포인트 | dcamp x Stanford Consumer Accelerator Fa…"
       ],
@@ -4142,18 +4395,18 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 임박 D-2",
-        "days_left": 2
+        "deadline_hook": "마감 임박 D-1",
+        "days_left": 1
       }
     },
     {
       "policy_id": "178185",
       "source_title": "2026년 DB손해보험 교통환경챌린지 8기(스타트업지원사업 / 자금, 교육, 데모데이) 참여기업 모집공고",
-      "headline": "마감 D-4: DB손해보험 교통환경챌린지 8기(스타트업지원사업 / 자금, 교육, 데모데이) 참여기업 모집공고",
+      "headline": "마감 임박 D-3: DB손해보험 교통환경챌린지 8기(스타트업지원사업 / 자금, 교육, 데모데이) 참여기업 모집공고",
       "summary": "재단법인 환경재단에서는 DB손해보험과 함께 교통 및 환경 분야의 사회문제를 해결하고자 하는 창업기업을 지원하기 위한 「DB손해보험 교통·환경챌린지 8기」 참여 기업을 다음과 같이 모집하오니 많은 신청 바랍니다. 대상: 대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-06-29 ~ 2026-07-26.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 D-4] 대학생 지원 대상·기간 정리",
+        "[마감 임박 D-3] 대학생 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: DB손해보험 교통환경챌린지 8기(스타트업지원사업 / 자금, 교육, 데모데이) 참여기업…",
         "전국 대학생 신청 전 체크포인트 | DB손해보험 교통환경챌린지 8기(스타트업지원사업 / 자금, 교육, 데모데이…"
       ],
@@ -4165,41 +4418,18 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 D-4",
-        "days_left": 4
-      }
-    },
-    {
-      "policy_id": "178274",
-      "source_title": "2026 바이오 오픈이노베이션 체인 - 참여기업 모집",
-      "headline": "청소년 필수 확인: 2026 바이오 오픈이노베이션 체인 - 참여기업 모집 (2026-06-29 ~ 2026-07-23)",
-      "summary": "서울특별시가 조성하고 한국과학기술연구원ㆍ고려대학교가 공동 운영하는 서울바이오허브에서 ⌜2026 바이오 오픈 이노베이션 체인⌟ 사업을 운영합니다. 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-06-29 ~ 2026-07-23.",
-      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
-      "alternatives": [
-        "[마감 임박 D-1] 청소년 지원 대상·기간 정리",
-        "놓치기 쉬운 신청 조건: 2026 바이오 오픈이노베이션 체인 - 참여기업 모집",
-        "전국 청소년 신청 전 체크포인트 | 2026 바이오 오픈이노베이션 체인 - 참여기업 모집"
-      ],
-      "application_period_text": "2026-06-29 ~ 2026-07-23",
-      "status": "active",
-      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178274",
-      "source_org": "공공기관",
-      "meta": {
-        "style": "benefit-first",
-        "used_amount_hook": false,
-        "amount_hook": "",
-        "deadline_hook": "마감 임박 D-1",
-        "days_left": 1
+        "deadline_hook": "마감 임박 D-3",
+        "days_left": 3
       }
     },
     {
       "policy_id": "178420",
       "source_title": "「전북형 신기술 콘텐츠 융복합 아카데미 조성 」신기술 콘텐츠 전문인력 양성 과정(JB-NEXCON) 교육생 모집",
-      "headline": "[마감 임박 D-2] 전북 대학생 지원사업 | 「전북형 신기술 콘텐츠 융복합 아카데미 조성 」신기술 콘텐츠 전문인력 양성…",
+      "headline": "[마감 임박 D-1] 전북 대학생 지원사업 | 「전북형 신기술 콘텐츠 융복합 아카데미 조성 」신기술 콘텐츠 전문인력 양성…",
       "summary": "전북특별자치도콘텐츠융합진흥원에서는 생성형 AI와 신기술을 활용한 콘텐츠 산업을 선도할 전문인력을 양성하기 위하여 「신기술 콘텐츠 전문인력 양성 과정(JB-NEXCON)」 교육생을 다음과 같이 모집하오니 많은 관심과 참여 바랍니다. 대상: 대학생,일반인. 신청 기간: 2026-06-29 ~ 2026-07-24.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 임박 D-2] 대학생 지원 대상·기간 정리",
+        "[마감 임박 D-1] 대학생 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 「전북형 신기술 콘텐츠 융복합 아카데미 조성 」신기술 콘텐츠 전문인력 양성 과정(JB…",
         "전북 대학생 신청 전 체크포인트 | 「전북형 신기술 콘텐츠 융복합 아카데미 조성 」신기술 콘텐츠 전문인력 양성…"
       ],
@@ -4211,18 +4441,18 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 임박 D-2",
-        "days_left": 2
+        "deadline_hook": "마감 임박 D-1",
+        "days_left": 1
       }
     },
     {
       "policy_id": "178232",
       "source_title": "2026년 Agri-ESG Innovation Day 개최 안내",
-      "headline": "[마감 D-4] 전국 청소년 지원사업 | Agri-ESG Innovation Day 개최 안내",
+      "headline": "[마감 임박 D-3] 전국 청소년 지원사업 | Agri-ESG Innovation Day 개최 안내",
       "summary": "서울창조경제혁신센터에서 6월 29일(월)부터 7월 26일(일)까지 농심 x 유한킴벌리 x 하이트진로 x CJ제일제당과 함께 지속가능한 농업과 ESG 혁신의 미래를 만들어갈 스타트업을 모집합니다. 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-06-29 ~ 2026-07-26.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 D-4] 청소년 지원 대상·기간 정리",
+        "[마감 임박 D-3] 청소년 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: Agri-ESG Innovation Day 개최 안내",
         "전국 청소년 신청 전 체크포인트 | Agri-ESG Innovation Day 개최 안내"
       ],
@@ -4234,8 +4464,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 D-4",
-        "days_left": 4
+        "deadline_hook": "마감 임박 D-3",
+        "days_left": 3
       }
     },
     {
@@ -4258,7 +4488,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 11
+        "days_left": 10
       }
     },
     {
@@ -4268,7 +4498,7 @@
       "summary": "강원특별자치도 내 바이오헬스 기업의 투자 역량 강화와 글로벌 시장 진출 기반 마련을 위해 「강원 바이오헬스 기업 투자 연계·글로벌 진출 지원 프로그램」 참여 기업을 모집합니다. 대상: 일반기업. 신청 기간: 2026-06-29 ~ 2026-07-24.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 임박 D-2] 일반기업 지원 대상·기간 정리",
+        "[마감 임박 D-1] 일반기업 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: 강원 바이오헬스 기업 투자 연계·글로벌 진출 지원 프로그램 참여기업 추가모집 (~7/…",
         "강원 일반기업 신청 전 체크포인트 | 강원 바이오헬스 기업 투자 연계·글로벌 진출 지원 프로그램 참여기업 추가…"
       ],
@@ -4280,8 +4510,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 임박 D-2",
-        "days_left": 2
+        "deadline_hook": "마감 임박 D-1",
+        "days_left": 1
       }
     },
     {
@@ -4304,7 +4534,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 13
+        "days_left": 12
       }
     },
     {
@@ -4327,7 +4557,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2주 내 마감",
-        "days_left": 9
+        "days_left": 8
       }
     },
     {
@@ -4337,7 +4567,7 @@
       "summary": "동대문구 창업지원센터에서는 센터 입주기업과 일반인을 대상으로 3D프린터, 레이저커터 교육을 진행합니다 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-06-29 ~ 2026-07-28.",
       "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
       "alternatives": [
-        "[마감 D-6] 청소년 지원 대상·기간 정리",
+        "[마감 D-5] 청소년 지원 대상·기간 정리",
         "놓치기 쉬운 신청 조건: [동대문구 창업지원센터] 7월 메이커스페이스(레이저커터, 3D프린팅) 교육 일정",
         "전국 청소년 신청 전 체크포인트 | [동대문구 창업지원센터] 7월 메이커스페이스(레이저커터, 3D프린팅) 교육…"
       ],
@@ -4349,8 +4579,8 @@
         "style": "benefit-first",
         "used_amount_hook": false,
         "amount_hook": "",
-        "deadline_hook": "마감 D-6",
-        "days_left": 6
+        "deadline_hook": "마감 D-5",
+        "days_left": 5
       }
     },
     {
@@ -4373,237 +4603,7 @@
         "used_amount_hook": false,
         "amount_hook": "",
         "deadline_hook": "2026-12-31까지",
-        "days_left": 162
-      }
-    },
-    {
-      "policy_id": "178295",
-      "source_title": "(소방청 공고 제2026-92호) 2026년 소방장비·용품 공공조달 컨설팅 지원사업 참여업체 모집 공고",
-      "headline": "전국 (소방청 공고 제2026-92호) 2026년 소방장비·용품 공공조달 컨설팅 지원사업 참여업체 모집 공고 | 지원대상…",
-      "summary": "소방장비 업체의 공공조달 시장 진입을 지원하는 「소방장비ㆍ용품 공공조달컨설팅 지원사업」 참여업체 모집 대상을 다음과 같이 공고하오니, 소방장비 및 소방용품 제조ㆍ공급업체의 적극적인 참여바랍니다. 대상: 일반기업. 신청 기간: 2026-06-26 ~ 2026-08-31.",
-      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
-      "alternatives": [
-        "[2026-08-31까지] 일반기업 지원 대상·기간 정리",
-        "놓치기 쉬운 신청 조건: (소방청 공고 제2026-92호) 2026년 소방장비·용품 공공조달 컨설팅 지원사업…",
-        "전국 일반기업 신청 전 체크포인트 | (소방청 공고 제2026-92호) 2026년 소방장비·용품 공공조달 컨설…"
-      ],
-      "application_period_text": "2026-06-26 ~ 2026-08-31",
-      "status": "active",
-      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178295",
-      "source_org": "민간",
-      "meta": {
-        "style": "benefit-first",
-        "used_amount_hook": false,
-        "amount_hook": "",
-        "deadline_hook": "2026-08-31까지",
-        "days_left": 40
-      }
-    },
-    {
-      "policy_id": "176566",
-      "source_title": "한남대학교 캠퍼스혁신파크 산학연혁신허브 입점기업 모집 공고(A동 교차지원 허용)",
-      "headline": "일반기업 필수 확인: 한남대학교 캠퍼스혁신파크 산학연혁신허브 입점기업 모집 공고(A동 교차지원 허용) (2026-06-2…",
-      "summary": "지역 혁신성장의 거점, 한남대학교 캠퍼스혁신파크의 입점자를 상시모집하오니 열정적인 창업기업, 성장기업의 많은 관심과 참여를 바랍니다. 대상: 일반기업,1인 창조기업. 신청 기간: 2026-06-26 ~ 2026-12-31.",
-      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
-      "alternatives": [
-        "[2026-12-31까지] 일반기업 지원 대상·기간 정리",
-        "놓치기 쉬운 신청 조건: 한남대학교 캠퍼스혁신파크 산학연혁신허브 입점기업 모집 공고(A동 교차지원 허용)",
-        "대전 일반기업 신청 전 체크포인트 | 한남대학교 캠퍼스혁신파크 산학연혁신허브 입점기업 모집 공고(A동 교차지원…"
-      ],
-      "application_period_text": "2026-06-26 ~ 2026-12-31",
-      "status": "active",
-      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=176566",
-      "source_org": "공공기관",
-      "meta": {
-        "style": "benefit-first",
-        "used_amount_hook": false,
-        "amount_hook": "",
-        "deadline_hook": "2026-12-31까지",
-        "days_left": 162
-      }
-    },
-    {
-      "policy_id": "178189",
-      "source_title": "[우리금융그룹] 2026 디노랩 Tech센터 1기 모집",
-      "headline": "2주 내 마감: [우리금융그룹] 2026 디노랩 Tech센터 1기 모집",
-      "summary": "우리금융그룹에서 오늘의 혁신으로 내일의 가치를 만들 스타트업을 기다립니다. 대상: 대학생,일반인,일반기업,1인 창조기업. 신청 기간: 2026-06-25 ~ 2026-08-02.",
-      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
-      "alternatives": [
-        "[2주 내 마감] 대학생 지원 대상·기간 정리",
-        "놓치기 쉬운 신청 조건: [우리금융그룹] 2026 디노랩 Tech센터 1기 모집",
-        "전국 대학생 신청 전 체크포인트 | [우리금융그룹] 2026 디노랩 Tech센터 1기 모집"
-      ],
-      "application_period_text": "2026-06-25 ~ 2026-08-02",
-      "status": "active",
-      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178189",
-      "source_org": "민간",
-      "meta": {
-        "style": "benefit-first",
-        "used_amount_hook": false,
-        "amount_hook": "",
-        "deadline_hook": "2주 내 마감",
-        "days_left": 11
-      }
-    },
-    {
-      "policy_id": "178286",
-      "source_title": "[국비지원] K-스타일 비주얼 커머스 크리에이터 교육생 모집 | 패션·뷰티·주얼리 + AI 실무",
-      "headline": "일반인 필수 확인: [국비지원] K-스타일 비주얼 커머스 크리에이터 교육생 모집 | 패션·뷰티·주얼리 + AI 실무 (2…",
-      "summary": "종로여성인력개발센터(여성새로일하기센터)에서는 서울시 지원 이커머스 브릿지 중급과정 직업훈련 'K-스타일 비주얼 커머스 크리에이터' 과정 훈련생을 다음과 같이 모집합니다.패션·뷰티·주얼리 등 종로의 전략 산업과 생성형 AI 역량을 결합한 비주얼 커머스... 대상: 일반인. 신청 기간: 2026-06-25 ~ 2026-07-27.",
-      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
-      "alternatives": [
-        "[마감 D-5] 일반인 지원 대상·기간 정리",
-        "놓치기 쉬운 신청 조건: [국비지원] K-스타일 비주얼 커머스 크리에이터 교육생 모집 | 패션·뷰티·주얼리 +…",
-        "서울 일반인 신청 전 체크포인트 | [국비지원] K-스타일 비주얼 커머스 크리에이터 교육생 모집 | 패션·뷰티…"
-      ],
-      "application_period_text": "2026-06-25 ~ 2026-07-27",
-      "status": "active",
-      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178286",
-      "source_org": "민간",
-      "meta": {
-        "style": "benefit-first",
-        "used_amount_hook": false,
-        "amount_hook": "",
-        "deadline_hook": "마감 D-5",
-        "days_left": 5
-      }
-    },
-    {
-      "policy_id": "178275",
-      "source_title": "수원도시재단 「2026 창업오디션」 모집",
-      "headline": "전국 수원도시재단 「2026 창업오디션」 모집 | 지원대상·신청기간 한눈에",
-      "summary": "수원도시재단에서는 참신하고 혁신적인 아이디어를 보유한 예비창업자 및 창업기업을 발굴하고 혁신 성장을 지원하기 위해 「2026 창업오디션」을 개최하오니 많은 관심과 참여를 바랍니다. 대상: 청소년,대학생,일반인,대학,연구기관,일반기업,1인 창조기업. 신청 기간: 2026-06-25 ~ 2026-07-27.",
-      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
-      "alternatives": [
-        "[마감 D-5] 청소년 지원 대상·기간 정리",
-        "놓치기 쉬운 신청 조건: 수원도시재단 「2026 창업오디션」 모집",
-        "전국 청소년 신청 전 체크포인트 | 수원도시재단 「2026 창업오디션」 모집"
-      ],
-      "application_period_text": "2026-06-25 ~ 2026-07-27",
-      "status": "active",
-      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178275",
-      "source_org": "공공기관",
-      "meta": {
-        "style": "benefit-first",
-        "used_amount_hook": false,
-        "amount_hook": "",
-        "deadline_hook": "마감 D-5",
-        "days_left": 5
-      }
-    },
-    {
-      "policy_id": "176685",
-      "source_title": "2026년 전북글로벌게임센터 입주기업 모집 공고",
-      "headline": "2026-12-31까지: 전북글로벌게임센터 입주기업 모집 공고",
-      "summary": "(재)전북특별자치도 콘텐츠융합진흥원에서는 전북특별자치도 게임콘텐츠 산업을 함께 이끌어갈 비전 있는 입주기업을 모집하고자 합니다. 대상: 일반기업,1인 창조기업. 신청 기간: 2026-06-25 ~ 2026-12-31.",
-      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
-      "alternatives": [
-        "[2026-12-31까지] 일반기업 지원 대상·기간 정리",
-        "놓치기 쉬운 신청 조건: 전북글로벌게임센터 입주기업 모집 공고",
-        "전북 일반기업 신청 전 체크포인트 | 전북글로벌게임센터 입주기업 모집 공고"
-      ],
-      "application_period_text": "2026-06-25 ~ 2026-12-31",
-      "status": "active",
-      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=176685",
-      "source_org": "공공기관",
-      "meta": {
-        "style": "benefit-first",
-        "used_amount_hook": false,
-        "amount_hook": "",
-        "deadline_hook": "2026-12-31까지",
-        "days_left": 162
-      }
-    },
-    {
-      "policy_id": "178292",
-      "source_title": "2026 글로벌 공공조달 DX·AX 혁신 리더 과정(2기) 세미나 모집",
-      "headline": "[2주 내 마감] 전국 일반기업 지원사업 | 2026 글로벌 공공조달 DX·AX 혁신 리더 과정(2기) 세미나 모집",
-      "summary": "글로벌 공공조달·수출 분야의 AI 활용 역량을 강화하고 디지털 전환을 지원하기 위한 「2026 산업전문인력 AI역량강화 지원사업」 교육과정에 참여할 기업및 재직자를 다음과 같이 모집합니다. 대상: 일반기업. 신청 기간: 2026-06-25 ~ 2026-08-05.",
-      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
-      "alternatives": [
-        "[2주 내 마감] 일반기업 지원 대상·기간 정리",
-        "놓치기 쉬운 신청 조건: 2026 글로벌 공공조달 DX·AX 혁신 리더 과정(2기) 세미나 모집",
-        "전국 일반기업 신청 전 체크포인트 | 2026 글로벌 공공조달 DX·AX 혁신 리더 과정(2기) 세미나 모집"
-      ],
-      "application_period_text": "2026-06-25 ~ 2026-08-05",
-      "status": "active",
-      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178292",
-      "source_org": "민간",
-      "meta": {
-        "style": "benefit-first",
-        "used_amount_hook": false,
-        "amount_hook": "",
-        "deadline_hook": "2주 내 마감",
-        "days_left": 14
-      }
-    },
-    {
-      "policy_id": "178262",
-      "source_title": "2026년 서울시 소셜벤처 IR 데모데이(도약단계) 참여기업 모집",
-      "headline": "일반인 필수 확인: 서울시 소셜벤처 IR 데모데이(도약단계) 참여기업 모집 (2026-06-24 ~ 2026-07-24)",
-      "summary": "서울소셜벤처허브에서는 서울시 소재 우수한 소셜벤처의 투자 역량과 유치를 확대하고 지원하고자 아래와 같이 참여기업을 모집하오니 관심 있는 유망한 소셜벤처기업의 많은 참여를 바랍니다. 대상: 일반인,일반기업,1인 창조기업. 신청 기간: 2026-06-24 ~ 2026-07-24.",
-      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
-      "alternatives": [
-        "[마감 임박 D-2] 일반인 지원 대상·기간 정리",
-        "놓치기 쉬운 신청 조건: 서울시 소셜벤처 IR 데모데이(도약단계) 참여기업 모집",
-        "서울 일반인 신청 전 체크포인트 | 서울시 소셜벤처 IR 데모데이(도약단계) 참여기업 모집"
-      ],
-      "application_period_text": "2026-06-24 ~ 2026-07-24",
-      "status": "active",
-      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178262",
-      "source_org": "공공기관",
-      "meta": {
-        "style": "benefit-first",
-        "used_amount_hook": false,
-        "amount_hook": "",
-        "deadline_hook": "마감 임박 D-2",
-        "days_left": 2
-      }
-    },
-    {
-      "policy_id": "178284",
-      "source_title": "2026년 벤처나라제품 발굴 및 추천 지원 공고",
-      "headline": "[2026-08-28까지] 전국 일반기업 지원사업 | 벤처나라제품 발굴 및 추천 지원 공고",
-      "summary": "한국환경공단은 기술력이 우수한 물산업분야 벤처·창업기업의 공공 조달시장 진입 촉진 및 공공구매판로를 확대하기 위하여 조달청에서 운영하는 &apos;벤처나라&apos;의 상품지정 및 등록 지원을 위한 &apos;벤처나라제품&apos; 추천 지원계획을 공... 대상: 일반기업. 신청 기간: 2026-06-24 ~ 2026-08-28.",
-      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
-      "alternatives": [
-        "[2026-08-28까지] 일반기업 지원 대상·기간 정리",
-        "놓치기 쉬운 신청 조건: 벤처나라제품 발굴 및 추천 지원 공고",
-        "전국 일반기업 신청 전 체크포인트 | 벤처나라제품 발굴 및 추천 지원 공고"
-      ],
-      "application_period_text": "2026-06-24 ~ 2026-08-28",
-      "status": "active",
-      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178284",
-      "source_org": "공공기관",
-      "meta": {
-        "style": "benefit-first",
-        "used_amount_hook": false,
-        "amount_hook": "",
-        "deadline_hook": "2026-08-28까지",
-        "days_left": 37
-      }
-    },
-    {
-      "policy_id": "178234",
-      "source_title": "2026년 사회적기업 시설·운영비 지원사업",
-      "headline": "일반기업 필수 확인: 사회적기업 시설·운영비 지원사업 (2026-06-24 ~ 2026-11-22)",
-      "summary": "사회복지법인 열매나눔재단에서는 2026년 사회적기업 시설 ·운영비 지원사업 참여기업을 모집합니다. 대상: 일반기업. 신청 기간: 2026-06-24 ~ 2026-11-22.",
-      "cta": "신청 전 지원 자격·제출서류·일정을 공식 공고에서 확인하세요.",
-      "alternatives": [
-        "[2026-11-22까지] 일반기업 지원 대상·기간 정리",
-        "놓치기 쉬운 신청 조건: 사회적기업 시설·운영비 지원사업",
-        "전국 일반기업 신청 전 체크포인트 | 사회적기업 시설·운영비 지원사업"
-      ],
-      "application_period_text": "2026-06-24 ~ 2026-11-22",
-      "status": "active",
-      "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=178234",
-      "source_org": "민간",
-      "meta": {
-        "style": "benefit-first",
-        "used_amount_hook": false,
-        "amount_hook": "",
-        "deadline_hook": "2026-11-22까지",
-        "days_left": 123
+        "days_left": 161
       }
     }
   ]
