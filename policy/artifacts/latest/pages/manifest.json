@@ -1,9 +1,9 @@
 {
-  "run_id": "policy-30720666000",
-  "generated_pages": 329,
+  "run_id": "policy-30769463316",
+  "generated_pages": 321,
   "excluded_pages": 0,
-  "sitemap_entries": 329,
-  "build_sha": "b11a32a5a272fde828b82771c70995eb530c7787",
-  "generated_at": "2026-08-01T22:25:22.830134+00:00",
-  "generated_thumbnails": 270
+  "sitemap_entries": 321,
+  "build_sha": "ee37af2abf0ddd54742452126b881d9f89ade8ad",
+  "generated_at": "2026-08-02T22:16:40.458691+00:00",
+  "generated_thumbnails": 262
 }
