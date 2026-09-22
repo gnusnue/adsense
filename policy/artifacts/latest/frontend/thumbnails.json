@@ -21,6 +21,20 @@
     "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=179309"
   },
   {
+    "policy_id": "179308",
+    "slug": "179308",
+    "relative_path": "/assets/thumbnails/179308.jpg",
+    "public_url": "https://pol.cbbxs.com/assets/thumbnails/179308.jpg",
+    "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=179308"
+  },
+  {
+    "policy_id": "179307",
+    "slug": "179307",
+    "relative_path": "/assets/thumbnails/179307.jpg",
+    "public_url": "https://pol.cbbxs.com/assets/thumbnails/179307.jpg",
+    "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=179307"
+  },
+  {
     "policy_id": "179306",
     "slug": "179306",
     "relative_path": "/assets/thumbnails/179306.jpg",
@@ -126,13 +140,6 @@
     "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=179291"
   },
   {
-    "policy_id": "179290",
-    "slug": "179290",
-    "relative_path": "/assets/thumbnails/179290.jpg",
-    "public_url": "https://pol.cbbxs.com/assets/thumbnails/179290.jpg",
-    "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=179290"
-  },
-  {
     "policy_id": "179289",
     "slug": "179289",
     "relative_path": "/assets/thumbnails/179289.jpg",
@@ -217,13 +224,6 @@
     "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=179276"
   },
   {
-    "policy_id": "179275",
-    "slug": "179275",
-    "relative_path": "/assets/thumbnails/179275.jpg",
-    "public_url": "https://pol.cbbxs.com/assets/thumbnails/179275.jpg",
-    "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=179275"
-  },
-  {
     "policy_id": "179274",
     "slug": "179274",
     "relative_path": "/assets/thumbnails/179274.jpg",
@@ -292,13 +292,6 @@
     "relative_path": "/assets/thumbnails/179257.jpg",
     "public_url": "https://pol.cbbxs.com/assets/thumbnails/179257.jpg",
     "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=179257"
-  },
-  {
-    "policy_id": "179256",
-    "slug": "179256",
-    "relative_path": "/assets/thumbnails/179256.jpg",
-    "public_url": "https://pol.cbbxs.com/assets/thumbnails/179256.jpg",
-    "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=179256"
   },
   {
     "policy_id": "179255",
@@ -418,13 +411,6 @@
     "relative_path": "/assets/thumbnails/179230.jpg",
     "public_url": "https://pol.cbbxs.com/assets/thumbnails/179230.jpg",
     "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=179230"
-  },
-  {
-    "policy_id": "179229",
-    "slug": "179229",
-    "relative_path": "/assets/thumbnails/179229.jpg",
-    "public_url": "https://pol.cbbxs.com/assets/thumbnails/179229.jpg",
-    "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=179229"
   },
   {
     "policy_id": "179226",
@@ -560,13 +546,6 @@
     "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=179204"
   },
   {
-    "policy_id": "179199",
-    "slug": "179199",
-    "relative_path": "/assets/thumbnails/179199.jpg",
-    "public_url": "https://pol.cbbxs.com/assets/thumbnails/179199.jpg",
-    "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=179199"
-  },
-  {
     "policy_id": "179195",
     "slug": "179195",
     "relative_path": "/assets/thumbnails/179195.jpg",
@@ -651,6 +630,13 @@
     "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=179178"
   },
   {
+    "policy_id": "179175",
+    "slug": "179175",
+    "relative_path": "/assets/thumbnails/179175.jpg",
+    "public_url": "https://pol.cbbxs.com/assets/thumbnails/179175.jpg",
+    "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=179175"
+  },
+  {
     "policy_id": "179173",
     "slug": "179173",
     "relative_path": "/assets/thumbnails/179173.jpg",
@@ -670,13 +656,6 @@
     "relative_path": "/assets/thumbnails/179168.jpg",
     "public_url": "https://pol.cbbxs.com/assets/thumbnails/179168.jpg",
     "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=179168"
-  },
-  {
-    "policy_id": "179166",
-    "slug": "179166",
-    "relative_path": "/assets/thumbnails/179166.jpg",
-    "public_url": "https://pol.cbbxs.com/assets/thumbnails/179166.jpg",
-    "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=179166"
   },
   {
     "policy_id": "179164",
@@ -742,13 +721,6 @@
     "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=179132"
   },
   {
-    "policy_id": "179124",
-    "slug": "179124",
-    "relative_path": "/assets/thumbnails/179124.jpg",
-    "public_url": "https://pol.cbbxs.com/assets/thumbnails/179124.jpg",
-    "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=179124"
-  },
-  {
     "policy_id": "179123",
     "slug": "179123",
     "relative_path": "/assets/thumbnails/179123.jpg",
@@ -789,13 +761,6 @@
     "relative_path": "/assets/thumbnails/179112.jpg",
     "public_url": "https://pol.cbbxs.com/assets/thumbnails/179112.jpg",
     "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=179112"
-  },
-  {
-    "policy_id": "179109",
-    "slug": "179109",
-    "relative_path": "/assets/thumbnails/179109.jpg",
-    "public_url": "https://pol.cbbxs.com/assets/thumbnails/179109.jpg",
-    "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=179109"
   },
   {
     "policy_id": "179106",
@@ -873,13 +838,6 @@
     "relative_path": "/assets/thumbnails/179078.jpg",
     "public_url": "https://pol.cbbxs.com/assets/thumbnails/179078.jpg",
     "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=179078"
-  },
-  {
-    "policy_id": "179069",
-    "slug": "179069",
-    "relative_path": "/assets/thumbnails/179069.jpg",
-    "public_url": "https://pol.cbbxs.com/assets/thumbnails/179069.jpg",
-    "official_url": "https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=179069"
   },
   {
     "policy_id": "179058",
